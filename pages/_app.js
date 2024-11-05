@@ -12,7 +12,7 @@ import { useEffect } from "react";
 import Script from "next/script";
 import { useRouter } from "next/router";
 import * as fbq from "../lib/fpixel";
-import { GTM_ID, pageview } from "../lib/gtm";
+import { GTM_ID, pageview } from "../lib/gtm"; 
 import * as gtag from "../lib/gtag";
 import { TIXTOK_PIXEL_ID } from "../lib/tikp";
 import TikTokPixel from "../components/PixelTiktok/TiktokPixel";
