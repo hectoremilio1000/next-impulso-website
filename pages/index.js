@@ -187,13 +187,13 @@ export default function Home() {
             <div className="max-w-[90%] mx-auto bg-black rounded-b-[25px] flex items-center pt-[13px] pb-[18px] px-[30px]" >
               <div className="flex w-[95%] justify-between">
                 <img
-                  src="https://www.maytalima.com/wp-content/uploads/2024/05/mayta-logo-new.svg"
+                  src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/mayta-logo-new.svg"
 
                   alt="Mayte"
                   className="h-6 md:h-10 px-2"
                 />
                 <img
-                  src="https://www.dondeir.com/wp-content/themes/dondeir2019/images/logoDonde.png"
+                  src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/logoDonde.png"
                   alt="Donde Ir"
                   className="h-6 md:h-10"
                 />
