@@ -8,6 +8,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import Link from "next/link";
+import axios from 'axios'
 
 const MySwiper = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,11 +29,26 @@ const MySwiper = () => {
     }
   }, [isModalOpen]);
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
+
+    
     const formData = new FormData(e.target);
-    // Aquí puedes enviar los datos del formulario a tu backend si lo deseas
-    console.log("Datos del formulario enviados:", Object.fromEntries(formData));
+    const data = Object.fromEntries(formData);
+
+    try {
+      const response = await axios.post('http://localhost:3333/api/prospects',data)
+
+      if(response.status ===201){
+        console.log('Pprospecto guardado exitosamente', response.data.data);
+        alert('Gracias hemos recibido tu información');
+        e.target.reset();
+      }
+    } catch (error) {
+      console.error('error de red', error.response?.data||error.message)
+      alert('no pudimos conectar con el servidor')
+    }
+    
   };
   
   
@@ -85,22 +101,22 @@ const MySwiper = () => {
               {/* Aquí va el formulario personalizado */}
               <form id="customForm" onSubmit={handleFormSubmit}>
                 <div>
-                  <label htmlFor="nombre"></label>
+                  <label htmlFor="first_name"></label>
                   <input
                     type="text"
-                    id="nombre"
-                    name="nombre"
+                    id="first_name"
+                    name="first_name"
                     placeholder="Nombre(s) completo"
                     required
                     className={styles.hsInput}
                   />
                 </div>
                 <div>
-                  <label htmlFor="apellido"></label>
+                  <label htmlFor="last_name"></label>
                   <input
                     type="text"
-                    id="apellido"
-                    name="apellido"
+                    id="last_name"
+                    name="last_name"
                     placeholder="Apellido(s) completo"
                     required
                     className={styles.hsInput}

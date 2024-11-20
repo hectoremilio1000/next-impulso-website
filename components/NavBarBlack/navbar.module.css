@@ -4,7 +4,6 @@
   top: 0;
   left: 0;
   right: 0;
-
   z-index: 1000;
 }
 
@@ -27,7 +26,6 @@
 .linkswraper li {
   height: max-content;
   list-style: none;
-  width: 100%;
   text-align: center;
 }
 
@@ -42,10 +40,10 @@
   padding: 0.5rem 1rem 0.5rem 1rem;
   color: #fff;
   font-weight: 700;
+  font-size: 16px;
   text-transform: capitalize;
   cursor: pointer;
   transition: all 0.5s;
-  white-space: nowrap;
 }
 
 .header-icons {
@@ -67,13 +65,21 @@
 @media (max-width: 650px) {
   /* css de nabvar */
   .header-container {
-    /* padding: 10px 20px !important; */
+    padding: 10px 20px !important;
   }
 
   .header-logo {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    color: #fff !important;
+    width: 100%;
+  }
+
+  .header-derecha {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     color: #fff !important;
     width: 100%;
   }

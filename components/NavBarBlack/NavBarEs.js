@@ -53,7 +53,7 @@ function NavBar() {
 
   return (
     <div className={navbar ? "header-container sticky" : "header-container"}>
-      <div className="max-w-[1184px] flex items-center justify-between flex-wrap w-full mx-auto py-2  px-0 md:px-6">
+      <div className="flex items-center justify-between flex-wrap w-full mx-auto py-2  px-2 md:px-6 bg-slate-950">
         {/* <Link href="/">
         <Image src={logo} width={100}
           alt="llorona" priority />
@@ -112,7 +112,7 @@ function NavBar() {
                 <li key="1">
                   <Link
                     href="/casosexito"
-                    className="nav-link hover:text-yellow-4000"
+                    className="nav-link hover:text-yellow-400"
                   >
                     Casos de éxito
                   </Link>
