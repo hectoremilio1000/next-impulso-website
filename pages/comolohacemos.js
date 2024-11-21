@@ -102,7 +102,7 @@ function Comolohacemos() {
               src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/recursos%2Bhumanps%2Bmanuales%2Bia.png"
               alt=""
             />
-            <h2 className="title3-tw text-center">04. Recursos humanos con Inteligencia Artificial</h2>
+            <h2 className="title3-tw text-center">04. Recursos humanos & Manuales con Inteligencia Artificial</h2>
             <p className="parrafo-tw paragraph-feature text-center">
              Te ofrecemos manuales y un departamento de recursos humanos con inteligencia artificial
             </p>
@@ -118,9 +118,9 @@ function Comolohacemos() {
                 alt=""
               />
             </Link>
-            <h2 className="title3-tw text-center">05. Manuales a la medida</h2>
+            <h2 className="title3-tw text-center">05. Programa de lealtad</h2>
             <p className="parrafo-tw paragraph-feature text-center">
-            Creamos manuales personalizados utilizando inteligencia artificial, diseñados específicamente para el giro de tu restaurante.
+            Creamos programas de lealtad innovadores utilizando a través de una tarjeta de recompensas
             </p>
             <Link href="/casosexito">
               <button className="button-small">Descubre más</button>
