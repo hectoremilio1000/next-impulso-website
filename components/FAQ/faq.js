@@ -23,7 +23,7 @@ const FAQ = ({items}) => {
             className="border-b border-gray-300 pb-4"
           >
             <button
-              className="flex justify-between items-center w-[300px] md:w-[450px] text-left text-lg font-medium"
+              className="flex justify-between items-center w-[300px] md:w-[600px] text-left md:text-2xl text:lg font-medium"
               onClick={() => toggleAccordion(index)}
             >
               <span>{faq.question}</span>
@@ -33,10 +33,10 @@ const FAQ = ({items}) => {
             </button>
             {activeIndex === index && (
                <div
-               className="mt-2 text-base font-light w-[300px] md:w-[450px] overflow-hidden "
+               className="mt-2 text-base font-light w-[300px] md:w-[600px] overflow-hidden "
                
              >
-               <span>{faq.answer}</span>
+               <span className="md:text-2xl text:lg">{faq.answer}</span>
              </div>
             )}
           </div>

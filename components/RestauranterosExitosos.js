@@ -140,9 +140,9 @@ const RestauranterosExitosos = () => {
           {/* Bloque 3 */}
           <div className="w-full md:col-span-2 relative">
             <div className="w-full bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
-              <div className="w-full relative py-12 px-16 flex items-center justify-start flex-col overflow-hidden perspective md:pr-[30%]">
+            <div className="w-full relative py-12 px-16 flex items-start justify-start flex-col overflow-hidden perspective md:pr-[30%]">
                 <div className="content-text flex flex-col justify-center items-center gap-6">
-                  <h2 className="title3-tw uppercase text-center">
+                  <h2 className="title3-tw uppercase">
                     ANUNCIOS DE 30 MINUTOS <br /> PARA RESTAURANTES
                   </h2>
                   <p className="max-w-[24.5em] parrafo-tw paragraph-feature text-center">

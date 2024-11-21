@@ -17,11 +17,11 @@ function Comolohacemos() {
     <NavBar />
     <div className="bg-gray-50 flex flex-col items-center px-4 py-8 md:px-16 pt-24 md:pt-36">
       {/* Header */}
-      <div className="text-center max-w-2xl">
-        <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+      <div className="text-center max-w-4xl">
+        <h1 className="text-2xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
         Podrías estar obteniendo MUCHAS más ventas en línea.
         </h1>
-        <p className="text-gray-600 text-sm md:text-xl">
+        <p className="text-gray-600 text-sm md:text-2xl">
         Impulso Restaurantero es la manera más sencilla de COONSEGUIR MÁS reservas en línea y ofrecer la mejor experiencia a tus clientes. Descubre cómo lo hacemos.
         </p>
       </div>
@@ -39,7 +39,7 @@ function Comolohacemos() {
               src="https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/seccion1/649c99bf1948a130a34f7abb_Wins+copy.png"
               alt=""
             />
-            <h2 className="title3-tw text-center">Historias Inspiradoras</h2>
+            <h2 className="text-2xl md:text-5xl font-bold text-gray-900 mb-2 mt-4 leading-tight">¿Cómo lo hacemos?</h2>
             
            
           </div>
@@ -62,6 +62,7 @@ function Comolohacemos() {
               <button className="button-small">Descubre más</button>
             </Link>
           </div>
+          
           <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
             <img
               className=" w-full object-contain rounded-2xl"
@@ -76,6 +77,7 @@ function Comolohacemos() {
               <button className="button-small">Descubre más</button>
             </Link>
           </div>
+          
           <div className="w-full flex flex-col items-center gap-4 p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
             <Link href="/casosexito">
               <img
@@ -92,13 +94,15 @@ function Comolohacemos() {
               <button className="button-small">Descubre más</button>
             </Link>
           </div>
+
+          
           <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
             <img
               className=" w-full object-contain"
               src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/recursos%2Bhumanps%2Bmanuales%2Bia.png"
               alt=""
             />
-            <h2 className="title3-tw text-center">04. Manuales y Recursos humanos</h2>
+            <h2 className="title3-tw text-center">04. Recursos humanos con Inteligencia Artificial</h2>
             <p className="parrafo-tw paragraph-feature text-center">
              Te ofrecemos manuales y un departamento de recursos humanos con inteligencia artificial
             </p>
@@ -106,8 +110,40 @@ function Comolohacemos() {
               <button className="button-small">Descubre más</button>
             </Link>
           </div>
+          <div className="w-full flex flex-col items-center gap-4 p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
+            <Link href="/casosexito">
+              <img
+                className=" w-full object-contain"
+                src="https://img.freepik.com/free-photo/office-meeting_144627-35624.jpg"
+                alt=""
+              />
+            </Link>
+            <h2 className="title3-tw text-center">05. Manuales a la medida</h2>
+            <p className="parrafo-tw paragraph-feature text-center">
+            Creamos manuales personalizados utilizando inteligencia artificial, diseñados específicamente para el giro de tu restaurante.
+            </p>
+            <Link href="/casosexito">
+              <button className="button-small">Descubre más</button>
+            </Link>
+          </div>
+          
+          <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
+            <img
+              className=" w-full object-contain rounded-2xl"
+              src="https://img.freepik.com/free-photo/explaining-work_1098-18099.jpg"
+              alt=""
+            />
+            <h2 className="title3-tw text-center">06. Permisos y asesoría personalizada</h2>
+            <p className="parrafo-tw paragraph-feature text-center">
+            Te ayudamos a mantener todos los permisos y requisitos legales de tu restaurante siempre al día, asegurando que cumplas con todas las normativas vigentes de manera eficiente y sin preocupaciones.
+            </p>
+              <Link href="/casosexito">
+              <button className="button-small">Descubre más</button>
+            </Link>
+          </div>
 
         </div>
+        
      </>
      <div className="content grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-24 px-[20px] items-start">
      <FAQ items={faqs}/>
@@ -117,13 +153,44 @@ function Comolohacemos() {
               src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/comolohacemos%2Bpagina.png"
               alt=""
             />
-          
-            
-           
           </div>
      </div>
     </div>
-
+    <div className="bg-gray-50 flex flex-col items-center px-4 py-8 md:px-16">
+        <div className="text-center max-w-4xl mb-4">
+          <h1 className="text-2xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight text-center">
+            Podrías estar obteniendo MUCHAS más ventas en línea.
+          </h1>
+          <p className="text-gray-600 text-sm md:text-2xl text-center">
+            Obten tu demo gratis ya
+          </p>
+        </div>
+        <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
+          {/* Imagen de fondo */}
+          <img
+            src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg"
+            alt="Background"
+            className="absolute top-0 left-0 w-full h-full object-cover z-0"
+          />
+          {/* Gradiente superpuesto */}
+          <div className="absolute top-0 left-0 w-full h-full bg-opacity-75 bg-black"></div>
+          {/* Contenido */}
+          <div className="relative z-20 flex flex-col justify-center items-center h-full p-8 text-white">
+            <div>
+              <div className="mb-8 text-center">
+                <p className="text-4xl font-bold text-white">$9,999</p>
+                <p className="text-lg text-gray-300">Facturado mensualmente</p>
+              </div>
+              <div className="text-center">
+                
+              </div>
+            </div>
+            <Link href="/demogratis">
+            <button className="button-small">Demo Gratis</button>
+            </Link>
+          </div>
+        </div>
+        </div>
     </>
     
   )

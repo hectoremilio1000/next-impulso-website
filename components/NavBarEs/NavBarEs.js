@@ -125,12 +125,20 @@ function NavBar() {
                     Cómo lo hacemos
                   </Link>
                 </li>
-                <li key="3">
+                {/* <li key="3">
                   <Link
                     href="/contacto"
                     className="nav-link hover:text-yellow-400"
                   >
                     Contacto
+                  </Link>
+                </li> */}
+                <li key="4">
+                  <Link
+                    href="/producto"
+                    className="nav-link hover:text-yellow-400"
+                  >
+                    Producto
                   </Link>
                 </li>
               </>

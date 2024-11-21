@@ -362,7 +362,7 @@ export default function Home() {
                 </p>
                 <div className="px-4">
 
-                  <Link href="/casosexito">
+                  <Link href="/producto">
                     <button className="button4 font-bold">
                       ¡SÍ! OBTÉN ACCESO INSTANTÁNEO
                     </button>

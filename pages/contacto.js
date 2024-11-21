@@ -1,8 +1,11 @@
 import React from 'react'
+import NavBar from '../components/NavBarBlack/NavBarEs'
 
 function Contacto() {
   return (
-    <div>Contacto</div>
+   <>
+     <NavBar />
+     </>
   )
 }
 

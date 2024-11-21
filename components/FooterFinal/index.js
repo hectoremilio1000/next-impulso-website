@@ -17,14 +17,14 @@ function FooterFinal() {
                 <div className="max-w-screen-lg mx-auto px-2 sm:px-2 lg:px-8">
                     <nav className="-my-2 flex flex-wrap justify-center" style={{ width: "100%" }}>
                         <div className=" py-2">
-                            <Link href="/" className="nav-link hover:text-emerald-500">
+                            <Link href="/" className="nav-link hover:text-yellow-400">
                                 Inicio
                             </Link>
                         </div>
                         <div className="py-2">
                             <Link
                                 href="/reserva"
-                                className="nav-link hover:text-emerald-500"
+                                className="nav-link hover:text-yellow-400"
                             >
                                 Casos de éxito
                             </Link>
@@ -32,19 +32,28 @@ function FooterFinal() {
                         <div className="px-5 py-2">
                             <Link
                                 href="/comolohacemos"
-                                className="nav-link hover:text-emerald-500"
+                                className="nav-link hover:text-yellow-400"
                             >
                                 Cómo lo hacemos
                             </Link>
                         </div>
-                        <div className="px-5 py-2">
+                        {/* <div className="px-5 py-2">
                             <Link
                                 href="/contacto"
-                                className="nav-link hover:text-emerald-500"
+                                className="nav-link hover:text-yellow-400"
                             >
                                 Contacto
                             </Link>
+                        </div> */}
+                        <div className="px-5 py-2">
+                            <Link
+                                href="/producto"
+                                className="nav-link hover:text-yellow-400"
+                            >
+                                Producto
+                            </Link>
                         </div>
+
 
                     </nav>
                     {/* <div className="mt-8 flex justify-center space-x-6">
