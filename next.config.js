@@ -5,6 +5,7 @@
 const nextConfig = {
   output: "export",
   transpilePackages: [
+    "@mercadopago/sdk-react",
     "@ant-design",
     "@rc-component",
     "antd",

@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+
 import NavBar from "../components/NavBarBlack/NavBarEs";
-import { Modal } from "antd";
+import { message, Modal } from "antd";
+import { redirect } from "next/navigation";
 
 const Planes = () => {
   const [plans, setPlans] = useState([]);
@@ -25,7 +27,20 @@ const Planes = () => {
     setOpenModalPay(true);
     setSelectPlan(plan);
   };
-  const handleOkPay = () => {
+  const handleOkPay = async () => {
+    try {
+      const response = await axios.post(`${apiUrl}/testpayment`, selectPlan, {
+        headers: {
+          "Content-Type": "application/json",
+          // Authorization: `Bearer ${token}`,
+        },
+      });
+      const paymentUrl = response.data.data.url;
+      window.location.href = paymentUrl;
+    } catch (error) {
+      console.log(error);
+      message.error("Ocurrio un error al momento de hacer el pago");
+    }
     //  ...
   };
   const handleCancelPay = () => {
