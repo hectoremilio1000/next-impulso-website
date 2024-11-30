@@ -29,7 +29,13 @@ const Planes = () => {
   };
   const handleOkPay = async () => {
     try {
-      const response = await axios.post(`${apiUrl}/testpayment`, selectPlan, {
+      const newpay = {
+        ...selectPlan,
+        price: parseFloat(selectPlan.price),
+        type: "preference",
+        email: "jampierv127@gmail.com",
+      };
+      const response = await axios.post(`${apiUrl}/testpayment`, newpay, {
         headers: {
           "Content-Type": "application/json",
           // Authorization: `Bearer ${token}`,
