@@ -78,12 +78,12 @@ function NavBar() {
                 handleNavbar();
               }}
             />
-            <div
+            {/* <div
               onClick={onIdiomaIngles}
               className="hover:text-amber-600 toggle-icon cursor-pointer mr-2"
             >
               <img src={usFlag} width={20} height={20} />
-            </div>
+            </div> */}
 
             <div
               onClick={onIdiomaEspa}

@@ -53,7 +53,7 @@ function NavBar() {
 
   return (
     <div className={navbar ? "header-container sticky" : "header-container"}>
-      <div className="max-w-[1184px] flex items-center justify-between flex-wrap w-full mx-auto py-2  px-0 md:px-6">
+      <div className="max-w-[1184px] flex items-center justify-between flex-wrap w-full mx-auto py-2  px-2 md:px-6">
         {/* <Link href="/">
         <Image src={logo} width={100}
           alt="llorona" priority />
@@ -78,12 +78,12 @@ function NavBar() {
                 handleNavbar();
               }}
             />
-            <div
+            {/* <div
               onClick={onIdiomaIngles}
               className="hover:text-amber-600 toggle-icon cursor-pointer mr-2"
             >
               <img src={usFlag} width={20} height={20} />
-            </div>
+            </div> */}
 
             <div
               onClick={onIdiomaEspa}
