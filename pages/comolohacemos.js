@@ -142,6 +142,22 @@ function Comolohacemos() {
             </Link>
           </div>
 
+
+          <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
+            <img
+              className=" w-full object-contain rounded-2xl"
+              src="https://img.freepik.com/free-photo/close-up-male-checking-clipboard-list_23-2148332936.jpg?t=st=1732908017~exp=1732911617~hmac=d2de0cad83a60fbd7790a6492c64d162798684866073fdbb121ce0a293008f2b&w=1480"
+              alt=""
+            />
+            <h2 className="title3-tw text-center">07. Financiamiento</h2>
+            <p className="parrafo-tw paragraph-feature text-center">
+            Financiamiento para compra de equipo y crecimiento.
+            </p>
+              <Link href="/casosexito">
+              <button className="button-small">Descubre más</button>
+            </Link>
+          </div>
+
         </div>
         
      </>
