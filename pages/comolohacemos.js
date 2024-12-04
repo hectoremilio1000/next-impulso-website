@@ -69,9 +69,9 @@ function Comolohacemos() {
               src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/pagina%2Bvisitas%2Bwebsite.jpg"
               alt=""
             />
-            <h2 className="title3-tw text-center">02. Páginas que venden</h2>
+            <h2 className="title3-tw text-center">02. LLenamos tu Restaurante</h2>
             <p className="parrafo-tw paragraph-feature text-center">
-              Creamos tu página para que tengas más reservas
+            Diseñamos tu web y sistema de reservas para llenar tu restaurante
             </p>
               <Link href="/casosexito">
               <button className="button-small">Descubre más</button>
@@ -86,9 +86,9 @@ function Comolohacemos() {
                 alt=""
               />
             </Link>
-            <h2 className="title3-tw text-center">03. Punto de venta con instalación </h2>
+            <h2 className="title3-tw text-center">03. Punto de venta con soporte 24/7 </h2>
             <p className="parrafo-tw paragraph-feature text-center">
-              Te damos un punto de venta para que puedas agilizar tu operación
+              Te damos un punto de venta para que puedas agilizar tu operación con soporte 24/7
             </p>
             <Link href="/casosexito">
               <button className="button-small">Descubre más</button>
@@ -104,7 +104,7 @@ function Comolohacemos() {
             />
             <h2 className="title3-tw text-center">04. Recursos humanos & Manuales con Inteligencia Artificial</h2>
             <p className="parrafo-tw paragraph-feature text-center">
-             Te ofrecemos manuales y un departamento de recursos humanos con inteligencia artificial
+             Te ofrecemos manuales y un departamento de recursos humanos con inteligencia artificial, así como manejo de despidos.
             </p>
             <Link href="/casosexito">
               <button className="button-small">Descubre más</button>
@@ -133,7 +133,7 @@ function Comolohacemos() {
               src="https://img.freepik.com/free-photo/explaining-work_1098-18099.jpg"
               alt=""
             />
-            <h2 className="title3-tw text-center">06. Permisos y asesoría personalizada</h2>
+            <h2 className="title3-tw text-center">06. Permisos y asesoría personalizada 24/7</h2>
             <p className="parrafo-tw paragraph-feature text-center">
             Te ayudamos a mantener todos los permisos y requisitos legales de tu restaurante siempre al día, asegurando que cumplas con todas las normativas vigentes de manera eficiente y sin preocupaciones.
             </p>
@@ -146,10 +146,10 @@ function Comolohacemos() {
           <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
             <img
               className=" w-full object-contain rounded-2xl"
-              src="https://img.freepik.com/free-photo/close-up-male-checking-clipboard-list_23-2148332936.jpg?t=st=1732908017~exp=1732911617~hmac=d2de0cad83a60fbd7790a6492c64d162798684866073fdbb121ce0a293008f2b&w=1480"
+              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/financiamiento-empresa-impulso.jpg"
               alt=""
             />
-            <h2 className="title3-tw text-center">07. Financiamiento</h2>
+            <h2 className="title3-tw text-center">07. Financiamiento a tasas muy bajas</h2>
             <p className="parrafo-tw paragraph-feature text-center">
             Financiamiento para compra de equipo y crecimiento.
             </p>
@@ -157,7 +157,49 @@ function Comolohacemos() {
               <button className="button-small">Descubre más</button>
             </Link>
           </div>
+          <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
+            <img
+              className=" w-full object-contain rounded-2xl"
+              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/encuesta-servicio-tiempo-real-impulso.jpg"
+              alt=""
+            />
+            <h2 className="title3-tw text-center">08. Encuestas de servicio</h2>
+            <p className="parrafo-tw paragraph-feature text-center">
+            Encuestas de servicio en tiempo Real
+            </p>
+              <Link href="/casosexito">
+              <button className="button-small">Descubre más</button>
+            </Link>
+          </div>
 
+          <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
+            <img
+              className=" w-full object-contain rounded-2xl"
+              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/inventarios%2Bcontrol%2Beficiencia%2Bimpulso.jpg"
+              alt=""
+            />
+            <h2 className="title3-tw text-center">09. Inventarios Inteligentes</h2>
+            <p className="parrafo-tw paragraph-feature text-center">
+            Control preciso y procesos optimizados para reducir costos y aumentar ganancias
+            </p>
+              <Link href="/casosexito">
+              <button className="button-small">Descubre más</button>
+            </Link>
+          </div>
+          <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
+            <img
+              className=" w-full object-contain rounded-2xl h-[300px] md:h-[400px]"
+              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/proveedores%2Bproductos%2Bmejores%2Bmenoscostosos%2Bimpulso%2Brerstaurantero.jpg"
+              alt=""
+            />
+            <h2 className="title3-tw text-center">10. Los mejores proveedores y productos </h2>
+            <p className="parrafo-tw paragraph-feature text-center">
+            Te conectamos con los mejores productos y proveedores al mejor precio, sin dolores de cabeza
+            </p>
+              <Link href="/casosexito">
+              <button className="button-small">Descubre más</button>
+            </Link>
+          </div>
         </div>
         
      </>
