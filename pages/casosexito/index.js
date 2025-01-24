@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
+
 import NavBar from "../components/NavBarBlack/NavBarEs";
+
+
 import Link from "next/link";
 
 function Casosexito() {
@@ -23,6 +26,7 @@ function Casosexito() {
       </div>
 
       <>
+<<<<<<< HEAD:pages/casosexito.js
         <div className="content grid grid-cols-1 md:grid-cols-2 gap-8 px-[20px] items-start mb-4">
           <div className="w-full flex flex-col items-center gap-4 p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
             <Link href="/casosexitos/lalloronacantina">
@@ -61,9 +65,11 @@ function Casosexito() {
           </div>
         </div>
 
+=======
+>>>>>>> 017b85d1b44ec2266a2edfe8a2cab65273a353b5:pages/casosexito/index.js
         <div className="content grid grid-cols-1 md:grid-cols-2 gap-8 px-[20px] items-start mb-4">
           <div className="w-full flex flex-col items-center gap-4 p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
-            <Link href="/casosexito">
+            <Link href="/123">
               <img
                 className=" w-full object-contain"
                 src="https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/seccion1/649c99bff8de9f73cec2b5c5_Videos+copy.png"
@@ -76,7 +82,7 @@ function Casosexito() {
               restauranteros que superaron desafíos únicos y obstáculos para
               construir restaurantes generadores de dinero.
             </p>
-            <Link href="/casosexito">
+            <Link href="casosexito/1234">
               <button className="button-small">Ver Historias</button>
             </Link>
           </div>
