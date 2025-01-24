@@ -37,7 +37,7 @@ const CasosEstudio = () => {
 
     // Ajustes de rotación más suaves
     const rotateX = (height / 2 - mouseY) / 20; // Divide por un número mayor para suavizar
-    const rotateY = (mouseX - width / 2) / 20;  // Divide por un número mayor para suavizar
+    const rotateY = (mouseX - width / 2) / 20; // Divide por un número mayor para suavizar
 
     // Traslación ajustada para que se mueva menos y de forma más controlada
     const tX = ((mouseX - width / 2) / width) * 10; // Multiplicador más bajo para control
@@ -66,7 +66,7 @@ const CasosEstudio = () => {
       ref={ref}
       onScroll={handleScroll}
       onMouseMove={handleMouseMove}
-    // onMouseLeave={handleMouseLeave}
+      // onMouseLeave={handleMouseLeave}
     >
       <div className="heading-block flex flex-col justify-center items-center mb-16">
         <motion.span
@@ -82,14 +82,14 @@ const CasosEstudio = () => {
           #RESTAURANTEROSEXITOSOS
         </motion.span>
         <motion.h2
-          transition={{ duration: 0.5 }}  // Duración ajustada
+          transition={{ duration: 0.5 }} // Duración ajustada
           initial={{ opacity: 0, y: 50 }} // Cambio a 50 para que la animación inicie más rápido
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} // Solo ejecuta la animación una vez
           className="title2-tw text-center uppercase"
         >
           Con la confianza de más de
-          <br /> 5,000+ RESTAURANTEROS <br /> ALREDEDOR <br /> DEL MUNDO
+          <br /> 1,000+ RESTAURANTEROS <br /> DEL MUNDO
         </motion.h2>
       </div>
       <div className="w-[100%] max-w-[1085px] flex flex-col justify-center items-center">
@@ -118,7 +118,7 @@ const CasosEstudio = () => {
               src="https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/seccion1/649c99bf1948a130a34f7abb_Wins+copy.png"
               alt=""
             />
-            <h2 className="title3-tw text-center">Historias Inspiradoras</h2>
+            <h2 className="title3-tw text-center">Construye tu éxito</h2>
             <p className="parrafo-tw paragraph-feature text-center">
               Explora nuestra colección en constante actualización de
               restauranteros celebrando desde pequeños logros hasta ganancias
@@ -133,17 +133,21 @@ const CasosEstudio = () => {
               <div className="w-full relative p-8 md:p-16 flex items-start justify-start flex-col overflow-hidden perspective md:pr-[30%]">
                 <div className="z-20 relative content-text flex flex-col justify-center items-center gap-6">
                   <h2 className="title3-tw">
-                    Impulso Restaurantero  <br />AYUDA A Construir
+                    Impulso Restaurantero <br />
+                    AYUDA A Construir
                     <br />
-                    Un Nuevo Restaurante <br />de 7 Cifras Cada 21 Días
+                    Un Nuevo Restaurante <br />
+                    de 7 Cifras Cada 21 Días
                   </h2>
                   <p className="max-w-[24.5em] parrafo-tw paragraph-feature text-center">
                     Descubre lo que otros restauranteros alrededor del mundo
-                    tienen que decir sobre
-                    los resultados que han logrado en el camino.
+                    tienen que decir sobre los resultados que han logrado en el
+                    camino.
                   </p>
                   <Link href="/casosexito">
-                    <button className="button-small">VER CASOS DE ESTUDIO</button>
+                    <button className="button-small">
+                      VER CASOS DE ESTUDIO
+                    </button>
                   </Link>
                 </div>
                 <motion.img

@@ -59,15 +59,13 @@ const RestauranterosExitosos = () => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-
-
       <div className="heading-block flex flex-col justify-center items-center mb-8">
         <span className="rounded-full bg-secundario text-principal font-semibold px-4 py-2 mb-4">
           #RESTAURANTEROSEXITOSOS
         </span>
 
         <motion.h2
-          transition={{ duration: 0.5 }}  // Duración ajustada
+          transition={{ duration: 0.5 }} // Duración ajustada
           initial={{ opacity: 0, y: 50 }} // Cambio a 50 para que la animación inicie más rápido
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} // Solo ejecuta la animación una vez
@@ -77,9 +75,6 @@ const RestauranterosExitosos = () => {
           a millones <br />
           de nuevos clientes?
         </motion.h2>
-
-
-
       </div>
       <div className="max-w-[1085px] mx-auto w-full">
         <div className="grid gap-16 w-full">
@@ -88,16 +83,21 @@ const RestauranterosExitosos = () => {
             <div className="w-full bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
               <div className="w-full relative py-12 px-16 flex items-start justify-start flex-col overflow-hidden perspective md:pr-[30%]">
                 <div className="content-text flex flex-col justify-center items-center gap-6">
-                  <h2 className="title3-tw uppercase">Cómo Iniciar <br /> un Restaurante</h2>
+                  <h2 className="title3-tw uppercase">
+                    Cómo Iniciar <br /> un Restaurante
+                  </h2>
                   <p className="max-w-[24.5em] parrafo-tw paragraph-feature text-center">
-                    Es tu guía esencial para convertirte en dueño de un restaurante
-                    exitoso. Desde la elección del tipo de restaurante y ubicación,
-                    hasta comprender las complejidades de los arrendamientos. Además,
-                    descubre cómo evitar los errores comunes que pueden afectar tu
-                    emprendimiento gastronómico.
+                    Es tu guía esencial para convertirte en dueño de un
+                    restaurante exitoso. Desde la elección del tipo de
+                    restaurante y ubicación, hasta comprender las complejidades
+                    de los arrendamientos. Además, descubre cómo evitar los
+                    errores comunes que pueden afectar tu emprendimiento
+                    gastronómico.
                   </p>
-                  <Link href="/casosexito">
-                    <button className="button-small font-bold">LEER AHORA</button>
+                  <Link href="/comolohacemos">
+                    <button className="button-small font-bold">
+                      LEER AHORA
+                    </button>
                   </Link>
                 </div>
                 <motion.img
@@ -120,11 +120,14 @@ const RestauranterosExitosos = () => {
                   </h2>
                   <p className="max-w-[24.5em] parrafo-tw paragraph-feature text-center">
                     ¿Quieres hacer crecer tu restaurante o bar y generar más de
-                    $100,000 al mes? Descarga nuestro PDF gratuito con los 7 Modelos de
-                    Ingresos y accede a una capacitación en video aquí.
+                    $1,000,000 al mes? Descarga nuestro PDF gratuito con los 7
+                    Modelos de Ingresos y accede a una capacitación en video
+                    aquí.
                   </p>
-                  <Link href="/casosexito">
-                    <button className="button-small font-bold">VER AHORA</button>
+                  <Link href="/comolohacemos">
+                    <button className="button-small font-bold">
+                      VER AHORA
+                    </button>
                   </Link>
                 </div>
                 <motion.img
@@ -140,17 +143,20 @@ const RestauranterosExitosos = () => {
           {/* Bloque 3 */}
           <div className="w-full md:col-span-2 relative">
             <div className="w-full bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
-            <div className="w-full relative py-12 px-16 flex items-start justify-start flex-col overflow-hidden perspective md:pr-[30%]">
+              <div className="w-full relative py-12 px-16 flex items-start justify-start flex-col overflow-hidden perspective md:pr-[30%]">
                 <div className="content-text flex flex-col justify-center items-center gap-6">
                   <h2 className="title3-tw uppercase">
-                    ANUNCIOS DE 30 MINUTOS <br /> PARA RESTAURANTES
+                    ANUNCIOS QUE ATRAEN <br /> CLIENTES
                   </h2>
                   <p className="max-w-[24.5em] parrafo-tw paragraph-feature text-center">
-                    Los dueños de restaurantes consiguen 20-30 nuevos clientes al mes
-                    con este plan de anuncios en Facebook "listo para usar".
+                    Los dueños de restaurantes consiguen 100-300 nuevos clientes
+                    a la seman con este plan de anuncios en Facebook, Tik Tok e
+                    Instagram "listo para usar".
                   </p>
-                  <Link href="/casosexito">
-                    <button className="button-small font-bold">PROBAR AHORA</button>
+                  <Link href="/comolohacemos">
+                    <button className="button-small font-bold">
+                      PROBAR AHORA
+                    </button>
                   </Link>
                 </div>
                 <motion.img
@@ -173,11 +179,13 @@ const RestauranterosExitosos = () => {
                   </h2>
                   <p className="max-w-[24.5em] parrafo-tw paragraph-feature text-center">
                     La guía paso a paso para que los dueños de restaurantes
-                    aprendan a llegar a más clientes, transformar más vidas y construir
-                    negocios sumamente rentables.
+                    aprendan a llegar a más clientes, transformar más vidas y
+                    utilizamos inteligencia artificial para hacerlo.
                   </p>
-                  <Link href="/casosexito">
-                    <button className="button-small font-bold">SOLICITAR AHORA</button>
+                  <Link href="/comolohacemos">
+                    <button className="button-small font-bold">
+                      SOLICITAR AHORA
+                    </button>
                   </Link>
                 </div>
                 <motion.img

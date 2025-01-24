@@ -1,11 +1,6 @@
+import React, { useState } from "react";
 import Head from "next/head";
 
-import QuickInfo from "../components/Quickinfo/index";
-import QuickInfo2 from "../components/QuickInfo2/index";
-import QuickInfo3 from "../components/QuickInfo3/index";
-import MenuDetail from "../components/MenuDetail";
-import Promociones from "../components/Promociones";
-// import videoPort from '../data/assets/portada.mp4'
 import { useRouter } from "next/router";
 import HeaderEn from "../components/Header-en/HeaderEn";
 import HeaderEs from "../components/Header-es/Header-es";
@@ -22,6 +17,9 @@ import MySwiper from "../components/SwiperPrueba";
 import CasosEstudio from "../components/CasosEstudio";
 import About from "../components/About";
 import RestauranterosExitosos from "../components/RestauranterosExitosos";
+import styles from "../components/SwiperPrueba/Banner.module.css"; // Importa los estilos CSS
+import axios from "axios";
+
 // imagenes
 const image1 =
   "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/IMG_9585.jpg";
@@ -41,28 +39,77 @@ const image7 =
 const image8 =
   "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/coctelDeliciosoMEzcal.jpg";
 export default function Home() {
-  const opts = {
-    height: "350",
-    width: "100%",
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [alertMessage, setAlertMessage] = useState(""); // Mensaje global de alerta
+  const [alertType, setAlertType] = useState(""); // Tipo de alerta (error o success)
+  const [errors, setErrors] = useState({}); // Para errores específicos de campos
 
-    playerVars: {
-      // https://developers.google.com/youtube/player_parameters
-      // autoplay: 1,  // Auto-play the video on load,
-    },
+  const toggleModal = () => {
+    setIsModalOpen((prevState) => !prevState);
   };
-  const videoOnReady = (event) => {
-    // access to player in all event handlers via event.target
-    event.target.pauseVideo();
+
+  const validateForm = (data) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Validación de correo
+    const whatsappRegex = /^[0-9]{10}$/; // Validación de WhatsApp
+    const fieldErrors = {};
+
+    if (!data.first_name) {
+      fieldErrors.first_name = "Por favor, ingresa tu nombre.";
+    }
+    if (!data.last_name) {
+      fieldErrors.last_name = "Por favor, ingresa tu apellido.";
+    }
+    if (!emailRegex.test(data.email)) {
+      fieldErrors.email = "Por favor, ingresa un correo electrónico válido.";
+    }
+    if (!whatsappRegex.test(data.whatsapp)) {
+      fieldErrors.whatsapp =
+        "Por favor, ingresa un número de WhatsApp válido (10 dígitos).";
+    }
+
+    setErrors(fieldErrors);
+    return Object.keys(fieldErrors).length === 0;
   };
-  const handleClick = () => {
-    fbq.event("Reserva");
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+
+    if (!validateForm(data)) {
+      setAlertMessage("Por favor, corrige los errores en el formulario.");
+      setAlertType("error");
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        "http://localhost:3333/api/prospectsmeeting",
+        data
+      );
+
+      if (response.status === 200) {
+        setAlertMessage(
+          "¡Gracias! Hemos enviado la información a tu correo electrónico."
+        );
+        setAlertType("success");
+        e.target.reset();
+        toggleModal(); // Cierra el modal
+      }
+    } catch (error) {
+      console.error(
+        "Error al enviar el formulario:",
+        error.response?.data || error.message
+      );
+      setAlertMessage(
+        "Hubo un error al enviar tu información. Por favor, intenta de nuevo."
+      );
+      setAlertType("error");
+    }
   };
 
   const router = useRouter();
   const { locale } = router;
-  let HeaderComponent;
-  const logo2 =
-    "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/logo_page_altaNUEVO_blanco.png";
 
   const { ingles, espa } = useAppContext();
 
@@ -148,7 +195,7 @@ export default function Home() {
                 >
                   <h1 className="title3-tw text-principal mt-[4px] text-center md:text-start">
                     <span className="title3-tw">
-                      DOS DÍAS PARA CAMBIAR TU RESTAURANTE PARA SIEMPRE
+                      QUINCE DÍAS PARA CAMBIAR TU RESTAURANTE PARA SIEMPRE
                     </span>{" "}
                     <br />
                     <span className="title3-tw text-[#fff]">
@@ -161,34 +208,123 @@ export default function Home() {
                   </h1>
                 </a>
               </div>
-              <div className="justify-center max-w-[100%] md:justify-start flex self-center items-center mx-auto">
-                <a
-                  href="http://ww2.gymlaunch.com/gymgrowth"
-                  target="_blank"
-                  className="inline-block"
-                  data-cmp-ab="2"
-                >
-                  <img
-                    src="https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/banner/logoPalabrasFinalImpulsoTALLER.png"
-                    loading="lazy"
-                    width="217"
-                    sizes="(max-width: 479px) 217px, (max-width: 991px) 26vw, (max-width: 1439px) 21vw, 217px"
-                    alt=""
-                    srcSet="https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/banner/logoPalabrasFinalImpulsoTALLER.png 500w, https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/banner/logoPalabrasFinalImpulsoTALLER.png 770w"
-                    className="image-8"
-                    data-cmp-ab="2"
-                    data-cmp-info="10"
-                  />
-                </a>
+              <div className="justify-center max-w-[100%] md:justify-start flex self-center items-center mx-auto py-2">
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  {/* Cambiamos a toggleModal en lugar de openModal */}
+                  <button className={styles.button4} onClick={toggleModal}>
+                    DARME UNA CITA ¡YA GRATIS!
+                  </button>
+                  {isModalOpen && (
+                    <div className={styles.modalOverlay}>
+                      <div className={styles.modalContent}>
+                        <div className={styles.modalHeader}>
+                          <h2>RECOMENDACIONES EN VIVO</h2>
+                          <button
+                            className={styles.closeModal}
+                            onClick={toggleModal}
+                          >
+                            &times;
+                          </button>
+                        </div>
+                        <div className={styles.modalBody}>
+                          {alertMessage && (
+                            <div
+                              className={`${styles.alert} ${
+                                alertType === "error"
+                                  ? styles.alertError
+                                  : styles.alertSuccess
+                              }`}
+                            >
+                              {alertMessage}
+                            </div>
+                          )}
+                          <form id="customForm" onSubmit={handleFormSubmit}>
+                            <div>
+                              <label htmlFor="first_name"></label>
+                              <input
+                                type="text"
+                                id="first_name"
+                                name="first_name"
+                                placeholder="Nombre(s) completo"
+                                className={styles.hsInput}
+                              />
+                              {errors.first_name && (
+                                <span className={styles.errorText}>
+                                  {errors.first_name}
+                                </span>
+                              )}
+                            </div>
+                            <div>
+                              <label htmlFor="last_name"></label>
+                              <input
+                                type="text"
+                                id="last_name"
+                                name="last_name"
+                                placeholder="Apellido(s) completo"
+                                className={styles.hsInput}
+                              />
+                              {errors.last_name && (
+                                <span className={styles.errorText}>
+                                  {errors.last_name}
+                                </span>
+                              )}
+                            </div>
+                            <div>
+                              <label htmlFor="email"></label>
+                              <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Correo electrónico"
+                                className={styles.hsInput}
+                              />
+                              {errors.email && (
+                                <span className={styles.errorText}>
+                                  {errors.email}
+                                </span>
+                              )}
+                            </div>
+                            <div>
+                              <label htmlFor="whatsapp"></label>
+                              <input
+                                type="tel"
+                                id="whatsapp"
+                                name="whatsapp"
+                                placeholder="Número de WhatsApp"
+                                pattern="[0-9]{10}"
+                                className={styles.hsInput}
+                              />
+                              {errors.whatsapp && (
+                                <span className={styles.errorText}>
+                                  {errors.whatsapp}
+                                </span>
+                              )}
+                            </div>
+                            <input
+                              type="hidden"
+                              name="origin"
+                              value="citaenvivo"
+                            />
+                            <input type="hidden" name="status" value="creado" />
+                            <div>
+                              <button type="submit" className={styles.hsSubmit}>
+                                Sí, hazme una cita ya
+                              </button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
           <div id="section-clientes" className="overflow-hidden">
-            <div className="max-w-[90%] mx-auto bg-black rounded-b-[25px] flex items-center pt-[13px] pb-[18px] px-[30px]" >
+            <div className="max-w-[90%] mx-auto bg-black rounded-b-[25px] flex items-center pt-[13px] pb-[18px] px-[30px]">
               <div className="flex w-[95%] justify-between">
                 <img
                   src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/mayta-logo-new.svg"
-
                   alt="Mayte"
                   className="h-6 md:h-10 px-2"
                 />
@@ -207,10 +343,14 @@ export default function Home() {
                   alt="Bar Bunny"
                   className="h-10 md:h-12"
                 />
+                <img
+                  src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/mr+lucho.jpg"
+                  alt="Mr lucho"
+                  className="h-10 md:h-12"
+                />
               </div>
             </div>
           </div>
-
 
           <CasosEstudio />
           <About />
@@ -222,7 +362,7 @@ export default function Home() {
               backgroundPosition: "50%",
               backgroundSize: "cover",
             }}
-            className="relative px-8 flex flex-col items-center justify-center md:pt-[240px] pb-[58px] md:pb-[126px] px-2"
+            className="relative flex flex-col items-center justify-center md:pt-[240px] pb-[58px] md:pb-[126px] px-2"
           >
             {/* Aquí se agrega el overlay para la opacidad */}
             <div className="absolute inset-0 bg-black opacity-80"></div>
@@ -238,9 +378,13 @@ export default function Home() {
               <h2 className="title2-tw text-center uppercase mb-4 text-white">
                 RESULTADOS REALES <br /> DE DUEÑOS DE <br /> RESTAURANTES REALES
               </h2>
-              <p className="parrafo-tw text-center mb-4 paragraph cn" style={{ color: "white" }}>
-                Impulso Restaurantero ha ayudado a más de 5,000 dueños de restaurantes a
-                construir negocios sumamente rentables. La única pregunta es, ¿será el tuyo el próximo?
+              <p
+                className="parrafo-tw text-center mb-4 paragraph cn"
+                style={{ color: "white" }}
+              >
+                Impulso Restaurantero ha ayudado a más de 1,000 dueños de
+                restaurantes a construir negocios sumamente rentables. La única
+                pregunta es, ¿será el tuyo el próximo?
               </p>
               <Link href="/comolohacemos">
                 <button className="button4 font-bold mt-2">
@@ -272,8 +416,7 @@ export default function Home() {
                   <p className="parrafo-tw paragraph-feature">
                     Los dueños exitosos de restaurantes saben que no tomar una
                     decisión también es una decisión. Actúan de inmediato sobre
-                    sus objetivos. Saben que un plan imperfecto ejecutado hoy es
-                    mejor que un plan perfecto ejecutado la próxima semana.
+                    sus objetivos con metodologías probadas.
                   </p>
                 </div>
                 <div className="bg-gray-100 flex flex-col gap-3 items-start p-6 md:p-8">
@@ -327,8 +470,8 @@ export default function Home() {
                   <p className="parrafo-tw paragraph-feature">
                     Los dueños exitosos de restaurantes están orgullosos pero
                     nunca satisfechos. Cuando alcanzan una meta, ya están
-                    mirando hacia el siguiente objetivo. Siempre tienen la mira
-                    puesta en el próximo nivel.
+                    mirando hacia el siguiente objetivo y siempre con tecnología
+                    de punta.
                   </p>
                 </div>
                 <div className="bg-gray-100 flex flex-col gap-3 items-start p-6 md:p-8">
@@ -341,8 +484,8 @@ export default function Home() {
                   <p className="parrafo-tw paragraph-feature">
                     Las conversaciones difíciles son algo natural para los
                     restauranteros exitosos. Dicen lo que se necesita decir sin
-                    endulzarlo. Saben que guardar comentarios valiosos para sí
-                    mismos perjudica a todos.
+                    endulzarlo. Saben que guardar comentarios valiosos perjudica
+                    a todos.
                   </p>
                 </div>
               </div>
@@ -352,19 +495,19 @@ export default function Home() {
             <div className="max-w-[1050px] mx-auto bg-black w-full rounded-3xl py-8 overflow-hidden">
               <div className="heading-block w-full flex flex-col justify-center items-center mb-16">
                 <span className="rounded-full bg-secundario text-white font-semibold px-4 py-2 mb-4">
-                  DESCÁRGALO GRATIS
+                  ¿QUIERES VER COMO FUNCIONAMOS?
                 </span>
                 <h2 className="title3-tw text-center uppercase text-white px-4 md:px-24 leading-snug">
-                  7 MODELOS DE INGRESOS QUE USAMOS PARA ESCALAR RESTAURANTES A MÁS DE $1M/MENSUALES COMO UN RELOJ
+                  ES MUY FÁCIL
                 </h2>
                 <p className="my-4 text-white px-4 md:px-24 text-center">
-                  Obtén los MEJORES modelos para construir un restaurante increíblemente rentable en 2024, <br /> además de 33 casos de estudio de restaurantes que crecieron utilizando estos modelos.
+                  Sólo da click aquí y logra que tu restaurante sea sumamente
+                  rentable en este año
                 </p>
                 <div className="px-4">
-
-                  <Link href="/producto">
+                  <Link href="/comolohacemos">
                     <button className="button4 font-bold">
-                      ¡SÍ! OBTÉN ACCESO INSTANTÁNEO
+                      ¡SÍ! QUIERO ACCESO YA
                     </button>
                   </Link>
                 </div>
