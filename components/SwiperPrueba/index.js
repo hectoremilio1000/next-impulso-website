@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import Link from "next/link";
 import axios from "axios";
 
 const MySwiper = () => {

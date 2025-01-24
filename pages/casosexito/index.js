@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import NavBar from "../components/NavBarBlack/NavBarEs";
 
-
 import Link from "next/link";
 
 function Casosexito() {
@@ -26,7 +25,6 @@ function Casosexito() {
       </div>
 
       <>
-<<<<<<< HEAD:pages/casosexito.js
         <div className="content grid grid-cols-1 md:grid-cols-2 gap-8 px-[20px] items-start mb-4">
           <div className="w-full flex flex-col items-center gap-4 p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
             <Link href="/casosexitos/lalloronacantina">
@@ -65,8 +63,6 @@ function Casosexito() {
           </div>
         </div>
 
-=======
->>>>>>> 017b85d1b44ec2266a2edfe8a2cab65273a353b5:pages/casosexito/index.js
         <div className="content grid grid-cols-1 md:grid-cols-2 gap-8 px-[20px] items-start mb-4">
           <div className="w-full flex flex-col items-center gap-4 p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
             <Link href="/123">
