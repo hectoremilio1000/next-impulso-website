@@ -19,7 +19,7 @@
   @apply text-[12px] md:text-[18px] leading-[120%] md:leading-[40px] font-normal;
 }
 .parrafo-tw {
-  @apply text-[12px] md:text-[16px] leading-[120%] md:leading-[16px] font-normal;
+  @apply text-[14px] md:text-[16px] leading-[120%] md:leading-[16px] font-normal;
 }
 .span4-tw {
   @apply text-[14px] md:text-[25px];
@@ -79,7 +79,16 @@
   }
 }
 
-body {
+.errorText {
+  color: gold; /* Esto hará que el texto sea dorado */
+  font-size: 0.9rem; /* Opcional, ajusta el tamaño */
+  margin-top: 4px; /* Opcional, un poco de espacio */
+}
+
+html,
+body,
+#__next {
+  height: 100%;
   margin: 0;
   padding: 0;
 }
@@ -352,7 +361,6 @@ a[href="https://elfsight.com/google-reviews-widget/?utm_source=websites&utm_medi
 }
 
 .fondo2 {
-
   background-color: #000;
 }
 

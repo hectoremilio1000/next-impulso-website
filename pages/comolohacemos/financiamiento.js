@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import NavBar from "../../components/NavBarBlack/NavBarEs";
-import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta según tu proyecto
+import NavBar from "../../components/NavBarBlack/NavBarEs"; // Ajusta la ruta al NavBar
+import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta al CSS
 import axios from "axios";
 
-function Destacaeninternet() {
+function Financiamiento() {
   // --- Metadatos para <Head> ---
   const headData = {
-    title: "Destaca en Internet | Impulso Restaurantero",
-    content: "Impulsa tu restaurante en línea con tecnología avanzada",
+    title: "Financiamiento a tasas muy bajas | Impulso Restaurantero",
+    content: "Financiamiento para compra de equipo y crecimiento",
     description:
-      "Te ayudamos a destacar en internet con páginas optimizadas, técnicas avanzadas de SEO y estrategias digitales efectivas.",
+      "Descubre nuestras opciones de financiamiento a tasas competitivas para impulsar el crecimiento de tu restaurante.",
     url: "https://www.impulsorestaurantero.com/",
     image:
       "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png",
@@ -20,52 +20,55 @@ function Destacaeninternet() {
   // --- Datos de la página ---
   const info = [
     {
-      titulo1: "Destaca en Internet",
+      titulo1: "Financiamiento a Tasas Muy Bajas",
       parrafo1:
-        "Con técnicas avanzadas de SEO y estrategias de marketing digital, optimizamos tu presencia en línea para que tu restaurante aparezca en los primeros lugares de Google, Tik Tok, Facebook e Instagram.",
+        "En Impulso Restaurantero te brindamos opciones de financiamiento flexibles y con tasas competitivas para que puedas adquirir el equipo necesario y expandir tu restaurante sin que tu flujo de efectivo se vea afectado.",
 
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/googleSeo.png",
-      titulo2: "Estrategias SEO Avanzadas",
+        "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/comolohacemos/financiamiento.jpg", // Ajusta la imagen a tu gusto
+
+      titulo2: "Compra de Equipo y Crecimiento",
       parrafo2:
-        "Te ayudamos a posicionar tu restaurante en los primeros lugares de búsqueda en Google, utilizando técnicas avanzadas de SEO. Optimizamos tu página web para que atraiga más tráfico orgánico y conecte directamente con tus clientes potenciales.",
+        "No importa si necesitas una nueva estufa industrial, mobiliario, o si buscas abrir una sucursal adicional. Nuestro financiamiento está diseñado para impulsar tu crecimiento con pagos accesibles y asesoría especializada.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/guia-como-hacer-seo.jpg",
+        "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/comolohacemos/financiamiento-cocina.jpg", // Ajusta la imagen a tu gusto
+
       titulorazones:
-        "3 CLAVES PARA DESTACAR TU RESTAURANTE EN GOOGLE Y REDES SOCIALES CON NOSOTROS",
-      razon1: "Datos como el Pilar Principal",
+        "3 RAZONES POR LAS QUE NUESTRO FINANCIAMIENTO ES TU MEJOR ALIADO",
+      razon1: "Tasas de Interés Preferenciales",
       parraforazon1:
-        "Usamos herramientas avanzadas como Google Analytics, Tag Manager y Heatmaps para recopilar datos precisos sobre el comportamiento del cliente en línea. Esto nos permite entender qué buscan, cómo navegan y en qué momento están más propensos a tomar acción.",
-      razon2: "Automatización y Remarketing Personalizado",
+        "Gracias a nuestros convenios con instituciones financieras, podemos ofrecerte tasas más bajas que las de créditos tradicionales, ayudándote a conservar liquidez en tu negocio.",
+      razon2: "Rápida Aprobación",
       parraforazon2:
-        "Implementamos estrategias de remarketing basadas en el historial de navegación y comportamientos previos. Por ejemplo, si alguien visita tu menú en línea, recibirá un anuncio específico destacando tus platillos más populares con un botón directo para reservar o pedir.",
-      razon3: "SEO y Contenido Basado en Intención de Búsqueda",
+        "Sabemos que tu operación no puede esperar. Por eso, nuestro proceso de solicitud y aprobación es ágil, para que puedas enfocarte en lo más importante: atender a tus clientes.",
+      razon3: "Pagos Flexibles",
       parraforazon3:
-        "Aplicamos un enfoque avanzado de SEO no solo para posicionar palabras clave genéricas como 'restaurante mexicano', sino también para capturar búsquedas de intención específica, como 'mejor brunch en la Roma' o 'cantina mexicana para grupos'. Creamos contenido optimizado, como blogs, reseñas y videos, que responden a estas búsquedas.",
-      titulo3: "Éxitos que Transforman Restaurantes",
+        "Diseñamos un calendario de pagos que se ajuste a tus ingresos y proyecciones, ofreciéndote la tranquilidad de saldar tu financiamiento sin presiones.",
+      titulo3: "Historias de Éxito",
       parrafo3:
-        "Conoce cómo hemos ayudado a restauranteros a convertir sus desafíos en historias de éxito, utilizando estrategias personalizadas de SEO y marketing digital para alcanzar sus metas de negocio.",
+        "Hemos ayudado a numerosos restauranteros a crecer con financiamiento inteligente. Conoce cómo nuestro apoyo ha transformado negocios y potenciado sus operaciones.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/community-manager-google-trends-1200x720.jpg",
+        "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/comolohacemos/growth-financiamiento.jpg", // Ajusta la imagen a tu gusto
+
       titulo4:
-        "¿Sabías que podrías estar obteniendo MUCHAS más ventas y reservas? En Impulso Restaurantero, transformamos tu visibilidad en internet llenando tus mesas.",
+        "¿Listo para llevar tu restaurante al siguiente nivel? Nuestro financiamiento te respalda.",
     },
   ];
 
-  // --- ESTADOS para el segundo modal y su formulario ---
-  const [isModalOpen2, setIsModalOpen2] = useState(false);
-  const [alertMessage2, setAlertMessage2] = useState("");
-  const [alertType2, setAlertType2] = useState("");
-  const [errors2, setErrors2] = useState({});
-  const [loading2, setLoading2] = useState(false);
+  // --- ESTADOS para el modal y su formulario ---
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [alertType, setAlertType] = useState("");
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   // Función para abrir/cerrar modal
-  const toggleModal2 = () => {
-    setIsModalOpen2((prev) => !prev);
+  const toggleModal = () => {
+    setIsModalOpen((prev) => !prev);
   };
 
   // Validaciones
-  const validateForm2 = (data) => {
+  const validateForm = (data) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const whatsappRegex = /^[0-9]{10}$/;
     const fieldErrors = {};
@@ -84,29 +87,29 @@ function Destacaeninternet() {
         "Por favor, ingresa un número de WhatsApp válido (10 dígitos).";
     }
 
-    setErrors2(fieldErrors);
+    setErrors(fieldErrors);
     return Object.keys(fieldErrors).length === 0;
   };
 
   // Manejo del submit
-  const handleFormSubmit2 = async (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    setAlertMessage2("");
-    setAlertType2("");
-    setErrors2({});
+    setAlertMessage("");
+    setAlertType("");
+    setErrors({});
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
 
     // Validar
-    if (!validateForm2(data)) {
-      setAlertMessage2("Por favor, corrige los errores en el formulario.");
-      setAlertType2("error");
+    if (!validateForm(data)) {
+      setAlertMessage("Por favor, corrige los errores en el formulario.");
+      setAlertType("error");
       return;
     }
 
     try {
-      setLoading2(true);
+      setLoading(true);
       // Ajusta la URL según tu backend
       const response = await axios.post(
         "http://localhost:3333/api/prospectsmeeting",
@@ -116,23 +119,23 @@ function Destacaeninternet() {
       if (response.status === 200) {
         alert("¡Email enviado!");
         e.target.reset();
-        toggleModal2();
+        toggleModal();
       } else {
         alert("¡Email enviado!");
         e.target.reset();
-        toggleModal2();
+        toggleModal();
       }
     } catch (error) {
       console.error(
         "Error al enviar el formulario:",
         error.response?.data || error.message
       );
-      setAlertMessage2(
+      setAlertMessage(
         "Hubo un error al enviar tu información. Por favor, intenta de nuevo."
       );
-      setAlertType2("error");
+      setAlertType("error");
     } finally {
-      setLoading2(false);
+      setLoading(false);
     }
   };
 
@@ -151,6 +154,7 @@ function Destacaeninternet() {
 
       <NavBar />
 
+      {/* Contenedor principal */}
       <div className="bg-gray-50 flex flex-col items-center px-4 py-8 md:px-16 pt-24 md:pt-36">
         {/* Encabezado */}
         <div className="text-center max-w-4xl">
@@ -174,12 +178,12 @@ function Destacaeninternet() {
           <img
             className=" w-full object-contain "
             src={info[0].imagen1}
-            alt=""
+            alt="Financiamiento para restaurantes"
           />
         </div>
 
         {/* Sección 2-col */}
-        <div className="content grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-36 px-[20px] items-center">
+        <div className="content grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-36 px-[20px] items-center mt-12">
           <div className="flex flex-col items-center text-center max-w-2xl">
             <h2 className="title3-tw">{info[0].titulo2}</h2>
             <p className="text-gray-600 text-sm md:text-2xl">
@@ -190,7 +194,7 @@ function Destacaeninternet() {
             <img
               className="w-full object-contain rounded-[1.2em]"
               src={info[0].imagen2}
-              alt=""
+              alt="Equipo para restaurante"
             />
           </div>
         </div>
@@ -250,7 +254,7 @@ function Destacaeninternet() {
             <img
               className="w-full object-contain rounded-[1.2em]"
               src={info[0].imagen3}
-              alt=""
+              alt="Crecimiento restaurante"
             />
           </div>
           <div className="w-full flex flex-col items-center gap-4 justify-center p-8 bg-[#fbfbfad9] border-[#e5e5e5] rounded-[1.2em] max-w-2xl">
@@ -272,7 +276,7 @@ function Destacaeninternet() {
             {/* Imagen de fondo */}
             <img
               src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg"
-              alt="Background"
+              alt="Background Financiamiento"
               className="absolute top-0 left-0 w-full h-full object-cover z-0"
             />
             {/* Gradiente superpuesto */}
@@ -288,38 +292,38 @@ function Destacaeninternet() {
                 </div>
                 <div className="text-center"></div>
               </div>
-              <button className="button-small" onClick={toggleModal2}>
-                Demo Gratis ¡YA!
+              <button className="button-small" onClick={toggleModal}>
+                Solicita tu Demo Gratis
               </button>
             </div>
           </div>
         </div>
       </div>
 
-      {/* MODAL con Formulario de Demo Gratis (segundo modal) */}
-      {isModalOpen2 && (
+      {/* MODAL con Formulario de Demo Gratis */}
+      {isModalOpen && (
         <div className={styles.modalOverlay}>
           <div className={styles.modalContent}>
             <div className={styles.modalHeader}>
               <h2>Obtén Tu Demo Gratis Ahora</h2>
-              <button className={styles.closeModal} onClick={toggleModal2}>
+              <button className={styles.closeModal} onClick={toggleModal}>
                 &times;
               </button>
             </div>
             <div className={styles.modalBody}>
-              {/* Alerta global si existe alertMessage2 */}
-              {alertMessage2 && (
+              {/* Alerta global si existe alertMessage */}
+              {alertMessage && (
                 <div
                   className={`${styles.alert} ${
-                    alertType2 === "error"
+                    alertType === "error"
                       ? styles.alertError
                       : styles.alertSuccess
                   }`}
                 >
-                  {alertMessage2}
+                  {alertMessage}
                 </div>
               )}
-              {loading2 ? (
+              {loading ? (
                 <div className="flex flex-col items-center justify-center space-y-4 my-4">
                   <div className="animate-spin w-16 h-16 border-4 border-[#FFD700] border-t-transparent rounded-full"></div>
                   <p className="text-xl font-semibold text-yellow-300">
@@ -327,7 +331,7 @@ function Destacaeninternet() {
                   </p>
                 </div>
               ) : (
-                <form id="customForm2" onSubmit={handleFormSubmit2}>
+                <form id="customForm" onSubmit={handleFormSubmit}>
                   <div>
                     <label htmlFor="first_name"></label>
                     <input
@@ -337,9 +341,9 @@ function Destacaeninternet() {
                       placeholder="Nombre(s) completo"
                       className={styles.hsInput}
                     />
-                    {errors2.first_name && (
+                    {errors.first_name && (
                       <span className={styles.errorText}>
-                        {errors2.first_name}
+                        {errors.first_name}
                       </span>
                     )}
                   </div>
@@ -352,9 +356,9 @@ function Destacaeninternet() {
                       placeholder="Apellido(s) completo"
                       className={styles.hsInput}
                     />
-                    {errors2.last_name && (
+                    {errors.last_name && (
                       <span className={styles.errorText}>
-                        {errors2.last_name}
+                        {errors.last_name}
                       </span>
                     )}
                   </div>
@@ -367,8 +371,8 @@ function Destacaeninternet() {
                       placeholder="Correo electrónico"
                       className={styles.hsInput}
                     />
-                    {errors2.email && (
-                      <span className={styles.errorText}>{errors2.email}</span>
+                    {errors.email && (
+                      <span className={styles.errorText}>{errors.email}</span>
                     )}
                   </div>
                   <div>
@@ -380,16 +384,16 @@ function Destacaeninternet() {
                       placeholder="Número de WhatsApp (10 dígitos)"
                       className={styles.hsInput}
                     />
-                    {errors2.whatsapp && (
+                    {errors.whatsapp && (
                       <span className={styles.errorText}>
-                        {errors2.whatsapp}
+                        {errors.whatsapp}
                       </span>
                     )}
                     {/* Campos ocultos */}
                     <input
                       type="hidden"
                       name="origin"
-                      value="detacainternetdemogratis"
+                      value="financiamientoDemogratis"
                     />
                     <input type="hidden" name="status" value="creado" />
                   </div>
@@ -408,4 +412,4 @@ function Destacaeninternet() {
   );
 }
 
-export default Destacaeninternet;
+export default Financiamiento;

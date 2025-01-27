@@ -1,58 +1,58 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import Link from "next/link";
 import NavBar from "../../components/NavBarBlack/NavBarEs";
-import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta según tu proyecto
+import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta si corresponde
 import axios from "axios";
+import Link from "next/link";
 
-function Destacaeninternet() {
+function Puntoventa() {
   // --- Metadatos para <Head> ---
   const headData = {
-    title: "Destaca en Internet | Impulso Restaurantero",
-    content: "Impulsa tu restaurante en línea con tecnología avanzada",
+    title: "Punto de Venta 24/7 | Impulso Restaurantero",
+    content:
+      "Te damos un punto de venta para agilizar tu operación con soporte 24/7",
     description:
-      "Te ayudamos a destacar en internet con páginas optimizadas, técnicas avanzadas de SEO y estrategias digitales efectivas.",
+      "Con Impulso Restaurantero, tendrás un punto de venta rápido, seguro y con asistencia en todo momento, para que tu equipo se enfoque en ofrecer la mejor experiencia.",
     url: "https://www.impulsorestaurantero.com/",
     image:
       "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png",
   };
 
-  // --- Datos de la página ---
+  // --- Datos principales de la página ---
   const info = [
     {
-      titulo1: "Destaca en Internet",
+      titulo1: "Punto de Venta con Soporte 24/7",
       parrafo1:
-        "Con técnicas avanzadas de SEO y estrategias de marketing digital, optimizamos tu presencia en línea para que tu restaurante aparezca en los primeros lugares de Google, Tik Tok, Facebook e Instagram.",
-
+        "Te proporcionamos un punto de venta robusto para agilizar la operación de tu restaurante y atender a tus clientes sin interrupciones. Disfruta de asistencia personalizada en todo momento.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/googleSeo.png",
-      titulo2: "Estrategias SEO Avanzadas",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/punto-venta%2Bimpuloso%2Brestaurantero.jpg",
+      titulo2: "Agilidad y Eficiencia",
       parrafo2:
-        "Te ayudamos a posicionar tu restaurante en los primeros lugares de búsqueda en Google, utilizando técnicas avanzadas de SEO. Optimizamos tu página web para que atraiga más tráfico orgánico y conecte directamente con tus clientes potenciales.",
+        "Olvídate de los retrasos y la confusión en tu operación diaria. Con nuestra tecnología, cada pedido se procesa rápido y queda registrado para un seguimiento preciso de las ventas.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/guia-como-hacer-seo.jpg",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/inventarios%2Bcontrol%2Beficiencia%2Bimpulso.jpg",
       titulorazones:
-        "3 CLAVES PARA DESTACAR TU RESTAURANTE EN GOOGLE Y REDES SOCIALES CON NOSOTROS",
-      razon1: "Datos como el Pilar Principal",
+        "3 CLAVES PARA OPTIMIZAR TU RESTAURANTE CON NUESTRO PUNTO DE VENTA",
+      razon1: "Procesos Sin Errores",
       parraforazon1:
-        "Usamos herramientas avanzadas como Google Analytics, Tag Manager y Heatmaps para recopilar datos precisos sobre el comportamiento del cliente en línea. Esto nos permite entender qué buscan, cómo navegan y en qué momento están más propensos a tomar acción.",
-      razon2: "Automatización y Remarketing Personalizado",
+        "El sistema minimiza errores en órdenes y pagos, permitiendo a tu equipo centrarse en la experiencia del cliente. Además, todo se registra automáticamente en un panel de control.",
+      razon2: "Soporte 24/7",
       parraforazon2:
-        "Implementamos estrategias de remarketing basadas en el historial de navegación y comportamientos previos. Por ejemplo, si alguien visita tu menú en línea, recibirá un anuncio específico destacando tus platillos más populares con un botón directo para reservar o pedir.",
-      razon3: "SEO y Contenido Basado en Intención de Búsqueda",
+        "¿Problemas a mitad del servicio? No hay de qué preocuparse. Nuestro soporte está listo para asistirte en cualquier momento, asegurando que tu restaurante no se detenga.",
+      razon3: "Reportes en Tiempo Real",
       parraforazon3:
-        "Aplicamos un enfoque avanzado de SEO no solo para posicionar palabras clave genéricas como 'restaurante mexicano', sino también para capturar búsquedas de intención específica, como 'mejor brunch en la Roma' o 'cantina mexicana para grupos'. Creamos contenido optimizado, como blogs, reseñas y videos, que responden a estas búsquedas.",
-      titulo3: "Éxitos que Transforman Restaurantes",
+        "Analiza tus ventas, inventarios y rendimiento de tu equipo en cualquier momento. Toma decisiones rápidas y basadas en datos para maximizar la rentabilidad.",
+      titulo3: "Tecnología que Impulsa tu Crecimiento",
       parrafo3:
-        "Conoce cómo hemos ayudado a restauranteros a convertir sus desafíos en historias de éxito, utilizando estrategias personalizadas de SEO y marketing digital para alcanzar sus metas de negocio.",
+        "Conoce cómo cientos de dueños de restaurantes han elevado sus ventas gracias a un punto de venta confiable y fácil de usar. Agiliza tus operaciones y enfócate en lo que importa: el cliente.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/community-manager-google-trends-1200x720.jpg",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/649c99bf1948a130a34f7abb_Wins+copy.png",
       titulo4:
-        "¿Sabías que podrías estar obteniendo MUCHAS más ventas y reservas? En Impulso Restaurantero, transformamos tu visibilidad en internet llenando tus mesas.",
+        "¿Listo para un punto de venta que nunca te falle? Nuestro soporte 24/7 te permitirá ofrecer un servicio impecable en cada pedido.",
     },
   ];
 
-  // --- ESTADOS para el segundo modal y su formulario ---
+  // --- ESTADOS para el modal y formulario (Demo Gratis) ---
   const [isModalOpen2, setIsModalOpen2] = useState(false);
   const [alertMessage2, setAlertMessage2] = useState("");
   const [alertType2, setAlertType2] = useState("");
@@ -64,7 +64,7 @@ function Destacaeninternet() {
     setIsModalOpen2((prev) => !prev);
   };
 
-  // Validaciones
+  // Validaciones del formulario
   const validateForm2 = (data) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const whatsappRegex = /^[0-9]{10}$/;
@@ -88,7 +88,7 @@ function Destacaeninternet() {
     return Object.keys(fieldErrors).length === 0;
   };
 
-  // Manejo del submit
+  // Envío del formulario
   const handleFormSubmit2 = async (e) => {
     e.preventDefault();
     setAlertMessage2("");
@@ -162,6 +162,7 @@ function Destacaeninternet() {
           </p>
         </div>
 
+        {/* Botón para abrir el modal */}
         <div className="mt-6 mb-4">
           {/* Botón que ABRE el nuevo modal de Demo Gratis */}
           <Link href="/prueba">
@@ -174,7 +175,7 @@ function Destacaeninternet() {
           <img
             className=" w-full object-contain "
             src={info[0].imagen1}
-            alt=""
+            alt="Punto de Venta 24/7"
           />
         </div>
 
@@ -190,7 +191,7 @@ function Destacaeninternet() {
             <img
               className="w-full object-contain rounded-[1.2em]"
               src={info[0].imagen2}
-              alt=""
+              alt="Agilidad y Eficiencia"
             />
           </div>
         </div>
@@ -250,7 +251,7 @@ function Destacaeninternet() {
             <img
               className="w-full object-contain rounded-[1.2em]"
               src={info[0].imagen3}
-              alt=""
+              alt="Tecnología de Punto de Venta"
             />
           </div>
           <div className="w-full flex flex-col items-center gap-4 justify-center p-8 bg-[#fbfbfad9] border-[#e5e5e5] rounded-[1.2em] max-w-2xl">
@@ -296,7 +297,7 @@ function Destacaeninternet() {
         </div>
       </div>
 
-      {/* MODAL con Formulario de Demo Gratis (segundo modal) */}
+      {/* MODAL con Formulario de Demo Gratis */}
       {isModalOpen2 && (
         <div className={styles.modalOverlay}>
           <div className={styles.modalContent}>
@@ -307,7 +308,6 @@ function Destacaeninternet() {
               </button>
             </div>
             <div className={styles.modalBody}>
-              {/* Alerta global si existe alertMessage2 */}
               {alertMessage2 && (
                 <div
                   className={`${styles.alert} ${
@@ -327,7 +327,7 @@ function Destacaeninternet() {
                   </p>
                 </div>
               ) : (
-                <form id="customForm2" onSubmit={handleFormSubmit2}>
+                <form id="puntoVentaForm" onSubmit={handleFormSubmit2}>
                   <div>
                     <label htmlFor="first_name"></label>
                     <input
@@ -389,7 +389,7 @@ function Destacaeninternet() {
                     <input
                       type="hidden"
                       name="origin"
-                      value="detacainternetdemogratis"
+                      value="puntoventaDemogratis"
                     />
                     <input type="hidden" name="status" value="creado" />
                   </div>
@@ -408,4 +408,4 @@ function Destacaeninternet() {
   );
 }
 
-export default Destacaeninternet;
+export default Puntoventa;

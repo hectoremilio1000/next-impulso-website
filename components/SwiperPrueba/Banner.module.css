@@ -24,6 +24,12 @@
   margin-bottom: 15px;
 }
 
+.errorText {
+  color: gold; /* Esto hará que el texto sea dorado */
+  font-size: 0.9rem; /* Opcional, ajusta el tamaño */
+  margin-top: 4px; /* Opcional, un poco de espacio */
+}
+
 .hsSubmit {
   background-color: #b19630 !important;
   color: white !important;

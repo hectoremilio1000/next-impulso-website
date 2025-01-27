@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import NavBar from "../../components/NavBarBlack/NavBarEs";
-import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta según tu proyecto
+import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta si difiere en tu proyecto
 import axios from "axios";
 
-function Destacaeninternet() {
+function Monitoreo() {
   // --- Metadatos para <Head> ---
   const headData = {
-    title: "Destaca en Internet | Impulso Restaurantero",
-    content: "Impulsa tu restaurante en línea con tecnología avanzada",
+    title: "Monitoreo con Inteligencia Artificial | Impulso Restaurantero",
+    content: "Monitoreo con IA y datos de clientes en tiempo real",
     description:
-      "Te ayudamos a destacar en internet con páginas optimizadas, técnicas avanzadas de SEO y estrategias digitales efectivas.",
+      "Medimos la productividad de tu equipo 24/7 y recopilamos datos de tus clientes para mejorar la eficiencia de tu restaurante.",
     url: "https://www.impulsorestaurantero.com/",
     image:
       "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png",
@@ -20,39 +20,37 @@ function Destacaeninternet() {
   // --- Datos de la página ---
   const info = [
     {
-      titulo1: "Destaca en Internet",
+      titulo1: "Monitoreo con Inteligencia Artificial",
       parrafo1:
-        "Con técnicas avanzadas de SEO y estrategias de marketing digital, optimizamos tu presencia en línea para que tu restaurante aparezca en los primeros lugares de Google, Tik Tok, Facebook e Instagram.",
-
+        "Controla la productividad de tu equipo y recopila información de tus clientes con sistemas de monitoreo 24/7. Aprovecha los datos para optimizar procesos y aumentar tus ventas.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/googleSeo.png",
-      titulo2: "Estrategias SEO Avanzadas",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg",
+      titulo2: "Productividad y Seguridad",
       parrafo2:
-        "Te ayudamos a posicionar tu restaurante en los primeros lugares de búsqueda en Google, utilizando técnicas avanzadas de SEO. Optimizamos tu página web para que atraiga más tráfico orgánico y conecte directamente con tus clientes potenciales.",
+        "Nuestros sistemas te ayudan a supervisar el desempeño del personal, garantizando calidad en el servicio y la seguridad de tu negocio. Los datos obtenidos son clave para tomar decisiones basadas en métricas reales.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/guia-como-hacer-seo.jpg",
-      titulorazones:
-        "3 CLAVES PARA DESTACAR TU RESTAURANTE EN GOOGLE Y REDES SOCIALES CON NOSOTROS",
-      razon1: "Datos como el Pilar Principal",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/googleSeo.png",
+      titulorazones: "3 FORMAS EN QUE EL MONITOREO 24/7 IMPULSA TU RESTAURANTE",
+      razon1: "Seguridad y Control de Procesos",
       parraforazon1:
-        "Usamos herramientas avanzadas como Google Analytics, Tag Manager y Heatmaps para recopilar datos precisos sobre el comportamiento del cliente en línea. Esto nos permite entender qué buscan, cómo navegan y en qué momento están más propensos a tomar acción.",
-      razon2: "Automatización y Remarketing Personalizado",
+        "Monitoreamos en tiempo real la operación de tu restaurante: desde la cocina hasta la atención en mesa, evitando pérdidas y errores costosos.",
+      razon2: "Optimización de Horarios y Personal",
       parraforazon2:
-        "Implementamos estrategias de remarketing basadas en el historial de navegación y comportamientos previos. Por ejemplo, si alguien visita tu menú en línea, recibirá un anuncio específico destacando tus platillos más populares con un botón directo para reservar o pedir.",
-      razon3: "SEO y Contenido Basado en Intención de Búsqueda",
+        "Analizamos patrones de tráfico de clientes para ajustar la asignación de personal y horarios de mayor demanda.",
+      razon3: "Experiencia del Cliente",
       parraforazon3:
-        "Aplicamos un enfoque avanzado de SEO no solo para posicionar palabras clave genéricas como 'restaurante mexicano', sino también para capturar búsquedas de intención específica, como 'mejor brunch en la Roma' o 'cantina mexicana para grupos'. Creamos contenido optimizado, como blogs, reseñas y videos, que responden a estas búsquedas.",
-      titulo3: "Éxitos que Transforman Restaurantes",
+        "Los datos recopilados muestran qué platillos se venden más, qué zonas del restaurante son más concurridas y cómo mejorar la atención al cliente.",
+      titulo3: "Casos Reales de Éxito",
       parrafo3:
-        "Conoce cómo hemos ayudado a restauranteros a convertir sus desafíos en historias de éxito, utilizando estrategias personalizadas de SEO y marketing digital para alcanzar sus metas de negocio.",
+        "Descubre cómo otros restauranteros han mejorado su productividad y la experiencia de sus clientes con monitoreo inteligente 24/7.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/community-manager-google-trends-1200x720.jpg",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/guia-como-hacer-seo.jpg",
       titulo4:
-        "¿Sabías que podrías estar obteniendo MUCHAS más ventas y reservas? En Impulso Restaurantero, transformamos tu visibilidad en internet llenando tus mesas.",
+        "¿Listo para transformar tu operación y maximizar tus ganancias con ayuda de la IA?",
     },
   ];
 
-  // --- ESTADOS para el segundo modal y su formulario ---
+  // --- ESTADOS y LÓGICA para el Modal de Demo Gratis ---
   const [isModalOpen2, setIsModalOpen2] = useState(false);
   const [alertMessage2, setAlertMessage2] = useState("");
   const [alertType2, setAlertType2] = useState("");
@@ -151,6 +149,7 @@ function Destacaeninternet() {
 
       <NavBar />
 
+      {/* Contenedor principal */}
       <div className="bg-gray-50 flex flex-col items-center px-4 py-8 md:px-16 pt-24 md:pt-36">
         {/* Encabezado */}
         <div className="text-center max-w-4xl">
@@ -174,7 +173,7 @@ function Destacaeninternet() {
           <img
             className=" w-full object-contain "
             src={info[0].imagen1}
-            alt=""
+            alt="Monitoreo 24/7"
           />
         </div>
 
@@ -190,7 +189,7 @@ function Destacaeninternet() {
             <img
               className="w-full object-contain rounded-[1.2em]"
               src={info[0].imagen2}
-              alt=""
+              alt="Productividad y Seguridad"
             />
           </div>
         </div>
@@ -250,7 +249,7 @@ function Destacaeninternet() {
             <img
               className="w-full object-contain rounded-[1.2em]"
               src={info[0].imagen3}
-              alt=""
+              alt="Éxitos Monitoreo"
             />
           </div>
           <div className="w-full flex flex-col items-center gap-4 justify-center p-8 bg-[#fbfbfad9] border-[#e5e5e5] rounded-[1.2em] max-w-2xl">
@@ -286,7 +285,6 @@ function Destacaeninternet() {
                   </p>
                   <p className="text-lg text-gray-300">Sin compromisos</p>
                 </div>
-                <div className="text-center"></div>
               </div>
               <button className="button-small" onClick={toggleModal2}>
                 Demo Gratis ¡YA!
@@ -296,7 +294,7 @@ function Destacaeninternet() {
         </div>
       </div>
 
-      {/* MODAL con Formulario de Demo Gratis (segundo modal) */}
+      {/* MODAL con Formulario de Demo Gratis */}
       {isModalOpen2 && (
         <div className={styles.modalOverlay}>
           <div className={styles.modalContent}>
@@ -389,7 +387,7 @@ function Destacaeninternet() {
                     <input
                       type="hidden"
                       name="origin"
-                      value="detacainternetdemogratis"
+                      value="monitoreoIA_demoGratis"
                     />
                     <input type="hidden" name="status" value="creado" />
                   </div>
@@ -408,4 +406,4 @@ function Destacaeninternet() {
   );
 }
 
-export default Destacaeninternet;
+export default Monitoreo;

@@ -23,9 +23,10 @@ export default function Layout({ children }) {
   // }
 
   return (
-    <>
-      <main>{children}</main>
+    <div className="flex flex-col min-h-screen">
+      {/* Aquí arriba podrías renderizar tu <NavBar> si quieres */}
+      <main className="flex-grow">{children}</main>
       <FooterFinal />
-    </>
+    </div>
   );
 }

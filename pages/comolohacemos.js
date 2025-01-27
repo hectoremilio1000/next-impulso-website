@@ -1,9 +1,14 @@
-import React from "react";
-import NavBar from "../components/NavBarBlack/NavBarEs";
+import React, { useState } from "react";
 import Link from "next/link";
 import FAQ from "../components/FAQ/faq";
+import NavBar from "../components/NavBarBlack/NavBarEs";
+import axios from "axios";
+
+// Importa tus estilos para el modal y form
+import styles from "../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta si es necesario
 
 function Comolohacemos() {
+  // Datos de Preguntas Frecuentes
   const faqs = [
     {
       question: "¿Qué pasará con mi sitio web actual?",
@@ -21,6 +26,88 @@ function Comolohacemos() {
         "Si tienes todo listo, solo te tomará unos pocos días. La mayoría de nuestros clientes logran tener su nueva presencia en línea configurada en aproximadamente una semana. Al registrarte, necesitaremos algo de información sobre tu restaurante. Esto incluye los datos de tu dominio web, así como los detalles de tu cuenta de Google Business, Facebook, Tik tok, Instagram. Cuanta más información tengas preparada, más rápido podremos lanzar tu nueva plataforma.",
     },
   ];
+
+  // --- ESTADOS para el modal y formulario de “Demo Gratis” ---
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [alertType, setAlertType] = useState("");
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  // Función para abrir/cerrar el modal
+  const toggleModal = () => {
+    setIsModalOpen((prev) => !prev);
+  };
+
+  // Validaciones del formulario
+  const validateForm = (data) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const whatsappRegex = /^[0-9]{10}$/;
+    const fieldErrors = {};
+
+    if (!data.first_name) {
+      fieldErrors.first_name = "Por favor, ingresa tu nombre.";
+    }
+    if (!data.last_name) {
+      fieldErrors.last_name = "Por favor, ingresa tu apellido.";
+    }
+    if (!data.email || !emailRegex.test(data.email)) {
+      fieldErrors.email = "Por favor, ingresa un correo electrónico válido.";
+    }
+    if (!data.whatsapp || !whatsappRegex.test(data.whatsapp)) {
+      fieldErrors.whatsapp =
+        "Por favor, ingresa un número de WhatsApp válido (10 dígitos).";
+    }
+    setErrors(fieldErrors);
+    return Object.keys(fieldErrors).length === 0;
+  };
+
+  // Manejo del submit
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    setAlertMessage("");
+    setAlertType("");
+    setErrors({});
+
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+
+    if (!validateForm(data)) {
+      setAlertMessage("Por favor, corrige los errores en el formulario.");
+      setAlertType("error");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      // Ajusta la URL según tu backend
+      const response = await axios.post(
+        "http://localhost:3333/api/prospectsmeeting",
+        data
+      );
+
+      if (response.status === 200) {
+        alert("¡Email enviado!");
+        e.target.reset();
+        toggleModal();
+      } else {
+        alert("¡Email enviado!");
+        e.target.reset();
+        toggleModal();
+      }
+    } catch (error) {
+      console.error(
+        "Error al enviar el formulario:",
+        error.response?.data || error.message
+      );
+      setAlertMessage(
+        "Hubo un error al enviar tu información. Por favor, intenta de nuevo."
+      );
+      setAlertType("error");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
@@ -40,8 +127,9 @@ function Comolohacemos() {
 
         {/* Call to Action Button */}
         <div className="mt-6 mb-4">
-          <Link href="/casosexito">
-            <button className="button-small">Demo Gratis</button>
+          {/* Botón que ABRE el modal para “Demo Gratis” */}
+          <Link href="/prueba">
+            <button className="button-small">Prueba Gratis ¡YA!</button>
           </Link>
         </div>
 
@@ -59,7 +147,7 @@ function Comolohacemos() {
         <>
           <div className="content grid grid-cols-1 md:grid-cols-2 gap-8 px-[20px] items-start">
             <div className="w-full flex flex-col items-center gap-4 p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
-              <Link href="/casosexito">
+              <Link href="/comolohacemos/destacaeninternet">
                 <img
                   className=" w-full object-contain"
                   src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/googleSeo.png"
@@ -73,7 +161,7 @@ function Comolohacemos() {
                 restaurante aparezca en los primeros lugares de Google, Tik Tok,
                 Facebook e Instagram.
               </p>
-              <Link href="/casosexito">
+              <Link href="/comolohacemos/destacaeninternet">
                 <button className="button-small">Descubre más</button>
               </Link>
             </div>
@@ -91,7 +179,7 @@ function Comolohacemos() {
                 Diseñamos tu web y sistema de reservas para llenar tu
                 restaurante
               </p>
-              <Link href="/casosexito">
+              <Link href="/comolohacemos/llenamosturestaurante">
                 <button className="button-small">Descubre más</button>
               </Link>
             </div>
@@ -111,7 +199,7 @@ function Comolohacemos() {
                 Te damos un punto de venta para que puedas agilizar tu operación
                 con soporte 24/7
               </p>
-              <Link href="/casosexito">
+              <Link href="/comolohacemos/puntoventa">
                 <button className="button-small">Descubre más</button>
               </Link>
             </div>
@@ -129,12 +217,12 @@ function Comolohacemos() {
                 Te ofrecemos manuales y un departamento de recursos humanos con
                 inteligencia artificial, así como manejo de despidos.
               </p>
-              <Link href="/casosexito">
+              <Link href="/comolohacemos/recursoshumanos">
                 <button className="button-small">Descubre más</button>
               </Link>
             </div>
             <div className="w-full flex flex-col items-center gap-4 p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
-              <Link href="/casosexito">
+              <Link href="/comolohacemos/lealtad">
                 <img
                   className=" w-full object-contain"
                   src="https://img.freepik.com/free-photo/office-meeting_144627-35624.jpg"
@@ -146,7 +234,7 @@ function Comolohacemos() {
                 Creamos programas de lealtad innovadores utilizando a través de
                 una tarjeta de recompensas
               </p>
-              <Link href="/casosexito">
+              <Link href="/comolohacemos/lealtad">
                 <button className="button-small">Descubre más</button>
               </Link>
             </div>
@@ -166,7 +254,7 @@ function Comolohacemos() {
                 todas las normativas vigentes de manera eficiente y sin
                 preocupaciones.
               </p>
-              <Link href="/casosexito">
+              <Link href="/comolohacemos/permisos">
                 <button className="button-small">Descubre más</button>
               </Link>
             </div>
@@ -183,7 +271,7 @@ function Comolohacemos() {
               <p className="parrafo-tw paragraph-feature text-center">
                 Financiamiento para compra de equipo y crecimiento.
               </p>
-              <Link href="/casosexito">
+              <Link href="/comolohacemos/financiamiento">
                 <button className="button-small">Descubre más</button>
               </Link>
             </div>
@@ -199,7 +287,7 @@ function Comolohacemos() {
               <p className="parrafo-tw paragraph-feature text-center">
                 Encuestas de servicio en tiempo Real
               </p>
-              <Link href="/casosexito">
+              <Link href="/comolohacemos/encuesta">
                 <button className="button-small">Descubre más</button>
               </Link>
             </div>
@@ -217,7 +305,7 @@ function Comolohacemos() {
                 Control preciso y procesos optimizados para reducir costos y
                 aumentar ganancias
               </p>
-              <Link href="/casosexito">
+              <Link href="/comolohacemos/inventarios">
                 <button className="button-small">Descubre más</button>
               </Link>
             </div>
@@ -234,7 +322,7 @@ function Comolohacemos() {
                 Medimos la productividad de las personas con monitoreo 24/7, así
                 como datos de los clientes que te visitan.
               </p>
-              <Link href="/casosexito">
+              <Link href="/comolohacemos/monitoreo">
                 <button className="button-small">Descubre más</button>
               </Link>
             </div>
@@ -256,9 +344,6 @@ function Comolohacemos() {
           <h1 className="text-2xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight text-center">
             Podrías estar obteniendo MUCHAS más ventas en línea.
           </h1>
-          <p className="text-gray-600 text-sm md:text-2xl text-center">
-            Obten tu demo gratis ya
-          </p>
         </div>
         <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
           {/* Imagen de fondo */}
@@ -273,17 +358,122 @@ function Comolohacemos() {
           <div className="relative z-20 flex flex-col justify-center items-center h-full p-8 text-white">
             <div>
               <div className="mb-8 text-center">
-                <p className="text-4xl font-bold text-white">$9,999</p>
                 <p className="text-lg text-gray-300">Facturado mensualmente</p>
               </div>
               <div className="text-center"></div>
             </div>
-            <Link href="/demogratis">
-              <button className="button-small">Demo Gratis</button>
-            </Link>
+            {/* Botón que abre el mismo modal */}
+            <button className="button-small" onClick={toggleModal}>
+              Demo Gratis
+            </button>
           </div>
         </div>
       </div>
+
+      {/* MODAL con Formulario de “Demo Gratis” */}
+      {isModalOpen && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modalContent}>
+            <div className={styles.modalHeader}>
+              <h2>Obtén Tu Demo Gratis Ahora</h2>
+              <button className={styles.closeModal} onClick={toggleModal}>
+                &times;
+              </button>
+            </div>
+            <div className={styles.modalBody}>
+              {/* Alerta global si existe alertMessage */}
+              {alertMessage && (
+                <div
+                  className={`${styles.alert} ${
+                    alertType === "error"
+                      ? styles.alertError
+                      : styles.alertSuccess
+                  }`}
+                >
+                  {alertMessage}
+                </div>
+              )}
+              {loading ? (
+                <div className="flex flex-col items-center justify-center space-y-4 my-4">
+                  <div className="animate-spin w-16 h-16 border-4 border-[#FFD700] border-t-transparent rounded-full"></div>
+                  <p className="text-xl font-semibold text-yellow-300">
+                    Enviando información, por favor espera...
+                  </p>
+                </div>
+              ) : (
+                <form id="customForm" onSubmit={handleFormSubmit}>
+                  <div>
+                    <label htmlFor="first_name"></label>
+                    <input
+                      type="text"
+                      id="first_name"
+                      name="first_name"
+                      placeholder="Nombre(s) completo"
+                      className={styles.hsInput}
+                    />
+                    {errors.first_name && (
+                      <span className={styles.errorText}>
+                        {errors.first_name}
+                      </span>
+                    )}
+                  </div>
+                  <div>
+                    <label htmlFor="last_name"></label>
+                    <input
+                      type="text"
+                      id="last_name"
+                      name="last_name"
+                      placeholder="Apellido(s) completo"
+                      className={styles.hsInput}
+                    />
+                    {errors.last_name && (
+                      <span className={styles.errorText}>
+                        {errors.last_name}
+                      </span>
+                    )}
+                  </div>
+                  <div>
+                    <label htmlFor="email"></label>
+                    <input
+                      type="text"
+                      id="email"
+                      name="email"
+                      placeholder="Correo electrónico"
+                      className={styles.hsInput}
+                    />
+                    {errors.email && (
+                      <span className={styles.errorText}>{errors.email}</span>
+                    )}
+                  </div>
+                  <div>
+                    <label htmlFor="whatsapp"></label>
+                    <input
+                      type="text"
+                      id="whatsapp"
+                      name="whatsapp"
+                      placeholder="Número de WhatsApp (10 dígitos)"
+                      className={styles.hsInput}
+                    />
+                    {errors.whatsapp && (
+                      <span className={styles.errorText}>
+                        {errors.whatsapp}
+                      </span>
+                    )}
+                    {/* Campos ocultos */}
+                    <input type="hidden" name="origin" value="demoGratis" />
+                    <input type="hidden" name="status" value="creado" />
+                  </div>
+                  <div>
+                    <button type="submit" className={styles.hsSubmit}>
+                      Sí, quiero mi demo gratis
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

@@ -1,58 +1,65 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import NavBar from "../../components/NavBarBlack/NavBarEs";
+import NavBar from "../../components/NavBarBlack/NavBarEs"; // Ajusta la ruta según tu proyecto
 import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta según tu proyecto
 import axios from "axios";
 
-function Destacaeninternet() {
+function Permisos() {
   // --- Metadatos para <Head> ---
   const headData = {
-    title: "Destaca en Internet | Impulso Restaurantero",
-    content: "Impulsa tu restaurante en línea con tecnología avanzada",
+    title: "Permisos y Asesoría 24/7 | Impulso Restaurantero",
+    content: "Permisos y asesoría personalizada para restaurantes",
     description:
-      "Te ayudamos a destacar en internet con páginas optimizadas, técnicas avanzadas de SEO y estrategias digitales efectivas.",
+      "Te ayudamos a mantener todos los permisos y requisitos legales de tu restaurante al día. Asesoría especializada las 24 horas.",
     url: "https://www.impulsorestaurantero.com/",
     image:
-      "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png",
+      "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png", // Ajusta si deseas otra imagen
   };
 
   // --- Datos de la página ---
   const info = [
     {
-      titulo1: "Destaca en Internet",
+      // Sección 1
+      titulo1: "Permisos y Asesoría Personalizada 24/7",
       parrafo1:
-        "Con técnicas avanzadas de SEO y estrategias de marketing digital, optimizamos tu presencia en línea para que tu restaurante aparezca en los primeros lugares de Google, Tik Tok, Facebook e Instagram.",
-
+        "Te ayudamos a mantener todos los permisos y requisitos legales de tu restaurante siempre al día, asegurando que cumplas con todas las normativas vigentes de manera eficiente y sin preocupaciones.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/googleSeo.png",
-      titulo2: "Estrategias SEO Avanzadas",
+        "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/comolohacemos/permisos_asesoria.jpg", // Ajusta la imagen a tu gusto
+
+      // Sección 2
+      titulo2: "Seguridad y Cumplimiento",
       parrafo2:
-        "Te ayudamos a posicionar tu restaurante en los primeros lugares de búsqueda en Google, utilizando técnicas avanzadas de SEO. Optimizamos tu página web para que atraiga más tráfico orgánico y conecte directamente con tus clientes potenciales.",
+        "Evita multas y cierres inesperados. Nuestro equipo se encarga de que tu negocio esté siempre en regla con las instituciones correspondientes, desde salubridad hasta permisos de alcohol.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/guia-como-hacer-seo.jpg",
-      titulorazones:
-        "3 CLAVES PARA DESTACAR TU RESTAURANTE EN GOOGLE Y REDES SOCIALES CON NOSOTROS",
-      razon1: "Datos como el Pilar Principal",
+        "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/comolohacemos/permisos_seguridad.jpg", // Ajusta la imagen a tu gusto
+
+      // 3 Razones
+      titulorazones: "3 RAZONES PARA DEJARNOS EN CARGO TODOS TUS PERMISOS",
+      razon1: "Actualización Constante",
       parraforazon1:
-        "Usamos herramientas avanzadas como Google Analytics, Tag Manager y Heatmaps para recopilar datos precisos sobre el comportamiento del cliente en línea. Esto nos permite entender qué buscan, cómo navegan y en qué momento están más propensos a tomar acción.",
-      razon2: "Automatización y Remarketing Personalizado",
+        "Las leyes y reglamentos pueden cambiar. Nosotros nos mantenemos al tanto de cada modificación para que tu restaurante siempre cumpla con las últimas disposiciones.",
+      razon2: "Procesos Simplificados",
       parraforazon2:
-        "Implementamos estrategias de remarketing basadas en el historial de navegación y comportamientos previos. Por ejemplo, si alguien visita tu menú en línea, recibirá un anuncio específico destacando tus platillos más populares con un botón directo para reservar o pedir.",
-      razon3: "SEO y Contenido Basado en Intención de Búsqueda",
+        "Nos encargamos de la burocracia por ti, presentando la documentación y realizando los trámites necesarios en nombre de tu negocio.",
+      razon3: "Asesoría las 24 Horas",
       parraforazon3:
-        "Aplicamos un enfoque avanzado de SEO no solo para posicionar palabras clave genéricas como 'restaurante mexicano', sino también para capturar búsquedas de intención específica, como 'mejor brunch en la Roma' o 'cantina mexicana para grupos'. Creamos contenido optimizado, como blogs, reseñas y videos, que responden a estas búsquedas.",
-      titulo3: "Éxitos que Transforman Restaurantes",
+        "Ante cualquier duda o urgencia, nuestro equipo está disponible para asistirte y orientarte en todo momento.",
+
+      // Sección 3
+      titulo3: "Atención Personalizada para tu Restaurante",
       parrafo3:
-        "Conoce cómo hemos ayudado a restauranteros a convertir sus desafíos en historias de éxito, utilizando estrategias personalizadas de SEO y marketing digital para alcanzar sus metas de negocio.",
+        "Nuestra prioridad es que operes con total tranquilidad. Conoce cómo hemos acompañado a restaurantes de diferentes tamaños y conceptos a lograr la regularización de sus permisos sin complicaciones.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/community-manager-google-trends-1200x720.jpg",
+        "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/comolohacemos/asesoria_permisos_24_7.jpg", // Ajusta la imagen a tu gusto
+
+      // Sección Final
       titulo4:
-        "¿Sabías que podrías estar obteniendo MUCHAS más ventas y reservas? En Impulso Restaurantero, transformamos tu visibilidad en internet llenando tus mesas.",
+        "¿Listo para operar con total seguridad? Dejemos tus permisos en regla.",
     },
   ];
 
-  // --- ESTADOS para el segundo modal y su formulario ---
+  // --- ESTADOS para el modal y su formulario ---
   const [isModalOpen2, setIsModalOpen2] = useState(false);
   const [alertMessage2, setAlertMessage2] = useState("");
   const [alertType2, setAlertType2] = useState("");
@@ -163,7 +170,7 @@ function Destacaeninternet() {
         </div>
 
         <div className="mt-6 mb-4">
-          {/* Botón que ABRE el nuevo modal de Demo Gratis */}
+          {/* Botón que lleva a otra página o abre un modal; ajusta a tu gusto */}
           <Link href="/prueba">
             <button className="button-small">Prueba Gratis ¡YA!</button>
           </Link>
@@ -174,7 +181,7 @@ function Destacaeninternet() {
           <img
             className=" w-full object-contain "
             src={info[0].imagen1}
-            alt=""
+            alt="Permisos y asesoría 24/7"
           />
         </div>
 
@@ -190,7 +197,7 @@ function Destacaeninternet() {
             <img
               className="w-full object-contain rounded-[1.2em]"
               src={info[0].imagen2}
-              alt=""
+              alt="Seguridad y Cumplimiento"
             />
           </div>
         </div>
@@ -250,7 +257,7 @@ function Destacaeninternet() {
             <img
               className="w-full object-contain rounded-[1.2em]"
               src={info[0].imagen3}
-              alt=""
+              alt="Asesoría 24/7"
             />
           </div>
           <div className="w-full flex flex-col items-center gap-4 justify-center p-8 bg-[#fbfbfad9] border-[#e5e5e5] rounded-[1.2em] max-w-2xl">
@@ -389,7 +396,7 @@ function Destacaeninternet() {
                     <input
                       type="hidden"
                       name="origin"
-                      value="detacainternetdemogratis"
+                      value="PermisosAsesoriaDemoGratis"
                     />
                     <input type="hidden" name="status" value="creado" />
                   </div>
@@ -408,4 +415,4 @@ function Destacaeninternet() {
   );
 }
 
-export default Destacaeninternet;
+export default Permisos;

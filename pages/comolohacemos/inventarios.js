@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import NavBar from "../../components/NavBarBlack/NavBarEs";
-import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta según tu proyecto
+import NavBar from "../../components/NavBarBlack/NavBarEs"; // Ajusta la ruta de tu NavBar
+import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta de tus estilos
 import axios from "axios";
 
-function Destacaeninternet() {
+function Inventarios() {
   // --- Metadatos para <Head> ---
   const headData = {
-    title: "Destaca en Internet | Impulso Restaurantero",
-    content: "Impulsa tu restaurante en línea con tecnología avanzada",
+    title: "Inventarios Inteligentes | Impulso Restaurantero",
+    content: "Control preciso y procesos optimizados para reducir costos",
     description:
-      "Te ayudamos a destacar en internet con páginas optimizadas, técnicas avanzadas de SEO y estrategias digitales efectivas.",
+      "Te ayudamos con un control de inventarios inteligente que reduce desperdicios, optimiza compras y aumenta tus ganancias.",
     url: "https://www.impulsorestaurantero.com/",
     image:
       "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png",
@@ -20,39 +20,38 @@ function Destacaeninternet() {
   // --- Datos de la página ---
   const info = [
     {
-      titulo1: "Destaca en Internet",
+      titulo1: "Inventarios Inteligentes",
       parrafo1:
-        "Con técnicas avanzadas de SEO y estrategias de marketing digital, optimizamos tu presencia en línea para que tu restaurante aparezca en los primeros lugares de Google, Tik Tok, Facebook e Instagram.",
-
+        "Control preciso y procesos optimizados para reducir costos y aumentar ganancias.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/googleSeo.png",
-      titulo2: "Estrategias SEO Avanzadas",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg", // Cambia por la imagen que desees
+      titulo2: "Gestión Eficiente de Recursos",
       parrafo2:
-        "Te ayudamos a posicionar tu restaurante en los primeros lugares de búsqueda en Google, utilizando técnicas avanzadas de SEO. Optimizamos tu página web para que atraiga más tráfico orgánico y conecte directamente con tus clientes potenciales.",
+        "Mantén un control en tiempo real de tu inventario, recibe alertas automáticas de stock y pronósticos de demanda para tomar decisiones basadas en datos.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/guia-como-hacer-seo.jpg",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/googleSeo.png", // Cambia por la imagen que desees
       titulorazones:
-        "3 CLAVES PARA DESTACAR TU RESTAURANTE EN GOOGLE Y REDES SOCIALES CON NOSOTROS",
-      razon1: "Datos como el Pilar Principal",
+        "3 BENEFICIOS DE NUESTRO CONTROL DE INVENTARIO PARA TU RESTAURANTE",
+      razon1: "Reducción de Desperdicios",
       parraforazon1:
-        "Usamos herramientas avanzadas como Google Analytics, Tag Manager y Heatmaps para recopilar datos precisos sobre el comportamiento del cliente en línea. Esto nos permite entender qué buscan, cómo navegan y en qué momento están más propensos a tomar acción.",
-      razon2: "Automatización y Remarketing Personalizado",
+        "Gracias a un monitoreo constante, evitas sobrecompras y caducidades innecesarias. Así, puedes dedicar tu presupuesto a los productos que realmente necesitas.",
+      razon2: "Optimización de Compras",
       parraforazon2:
-        "Implementamos estrategias de remarketing basadas en el historial de navegación y comportamientos previos. Por ejemplo, si alguien visita tu menú en línea, recibirá un anuncio específico destacando tus platillos más populares con un botón directo para reservar o pedir.",
-      razon3: "SEO y Contenido Basado en Intención de Búsqueda",
+        "El sistema te alerta cuándo y cuánto reabastecer según tus ventas y proyecciones, lo que te ayuda a negociar mejores precios con proveedores.",
+      razon3: "Visibilidad en Tiempo Real",
       parraforazon3:
-        "Aplicamos un enfoque avanzado de SEO no solo para posicionar palabras clave genéricas como 'restaurante mexicano', sino también para capturar búsquedas de intención específica, como 'mejor brunch en la Roma' o 'cantina mexicana para grupos'. Creamos contenido optimizado, como blogs, reseñas y videos, que responden a estas búsquedas.",
-      titulo3: "Éxitos que Transforman Restaurantes",
+        "Con paneles de control intuitivos, conoces en todo momento el nivel de cada insumo, facilitando la toma de decisiones rápidas y acertadas.",
+      titulo3: "Historias de Éxito",
       parrafo3:
-        "Conoce cómo hemos ayudado a restauranteros a convertir sus desafíos en historias de éxito, utilizando estrategias personalizadas de SEO y marketing digital para alcanzar sus metas de negocio.",
+        "Descubre cómo restauranteros han optimizado sus procesos de inventario, reduciendo costos y aumentando sus ganancias.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/community-manager-google-trends-1200x720.jpg",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/guia-como-hacer-seo.jpg", // Cambia por la imagen que desees
       titulo4:
-        "¿Sabías que podrías estar obteniendo MUCHAS más ventas y reservas? En Impulso Restaurantero, transformamos tu visibilidad en internet llenando tus mesas.",
+        "¿Listo para tener un control total de tu inventario y maximizar tus ganancias?",
     },
   ];
 
-  // --- ESTADOS para el segundo modal y su formulario ---
+  // --- ESTADOS y LÓGICA para el Modal de Demo Gratis ---
   const [isModalOpen2, setIsModalOpen2] = useState(false);
   const [alertMessage2, setAlertMessage2] = useState("");
   const [alertType2, setAlertType2] = useState("");
@@ -151,6 +150,7 @@ function Destacaeninternet() {
 
       <NavBar />
 
+      {/* Contenedor principal */}
       <div className="bg-gray-50 flex flex-col items-center px-4 py-8 md:px-16 pt-24 md:pt-36">
         {/* Encabezado */}
         <div className="text-center max-w-4xl">
@@ -174,7 +174,7 @@ function Destacaeninternet() {
           <img
             className=" w-full object-contain "
             src={info[0].imagen1}
-            alt=""
+            alt="Inventarios Inteligentes"
           />
         </div>
 
@@ -190,12 +190,12 @@ function Destacaeninternet() {
             <img
               className="w-full object-contain rounded-[1.2em]"
               src={info[0].imagen2}
-              alt=""
+              alt="Gestión de Recursos"
             />
           </div>
         </div>
 
-        {/* Razones */}
+        {/* Razones / Beneficios */}
         <div className="flex flex-col items-center justify-center py-16 px-2">
           <div className="heading-block flex flex-col justify-center items-center mb-16">
             <h2 className="title2-tw text-center uppercase">
@@ -250,7 +250,7 @@ function Destacaeninternet() {
             <img
               className="w-full object-contain rounded-[1.2em]"
               src={info[0].imagen3}
-              alt=""
+              alt="Casos de Éxito"
             />
           </div>
           <div className="w-full flex flex-col items-center gap-4 justify-center p-8 bg-[#fbfbfad9] border-[#e5e5e5] rounded-[1.2em] max-w-2xl">
@@ -286,7 +286,6 @@ function Destacaeninternet() {
                   </p>
                   <p className="text-lg text-gray-300">Sin compromisos</p>
                 </div>
-                <div className="text-center"></div>
               </div>
               <button className="button-small" onClick={toggleModal2}>
                 Demo Gratis ¡YA!
@@ -389,7 +388,7 @@ function Destacaeninternet() {
                     <input
                       type="hidden"
                       name="origin"
-                      value="detacainternetdemogratis"
+                      value="inventariosdemogratis"
                     />
                     <input type="hidden" name="status" value="creado" />
                   </div>
@@ -408,4 +407,4 @@ function Destacaeninternet() {
   );
 }
 
-export default Destacaeninternet;
+export default Inventarios;

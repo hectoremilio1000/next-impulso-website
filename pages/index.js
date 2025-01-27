@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import Head from "next/head";
 
 import { useRouter } from "next/router";
-import HeaderEn from "../components/Header-en/HeaderEn";
-import HeaderEs from "../components/Header-es/Header-es";
 import { useAppContext } from "../components/context/Context";
 import Encontramos from "../components/Encontramos";
 import * as fbq from "../lib/fpixel";
@@ -13,36 +11,25 @@ import Slider from "../components/Sliders/Slider";
 import Link from "next/link";
 import NavBar from "../components/NavBarEs/NavBarEs";
 import QuickInfo5 from "../components/QuickInfo5";
-import MySwiper from "../components/SwiperPrueba";
 import CasosEstudio from "../components/CasosEstudio";
 import About from "../components/About";
 import RestauranterosExitosos from "../components/RestauranterosExitosos";
 import styles from "../components/SwiperPrueba/Banner.module.css"; // Importa los estilos CSS
 import axios from "axios";
 
-// imagenes
-const image1 =
-  "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/IMG_9585.jpg";
-const image2 =
-  "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/nina2pinata.jpeg";
-const image3 =
-  "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/ninapinata.jpeg";
-const image4 =
-  "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/inicio/IMG_2048.jpg";
+import dynamic from "next/dynamic";
 
-const image5 =
-  "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/IMG_9585.jpg";
-const image6 =
-  "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/mixologia+mexicana+tragos+increibles.jpg";
-const image7 =
-  "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/ninapinata.jpeg";
-const image8 =
-  "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/coctelDeliciosoMEzcal.jpg";
+const MySwiper = dynamic(() => import("../components/SwiperPrueba"), {
+  ssr: false,
+});
+
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [alertMessage, setAlertMessage] = useState(""); // Mensaje global de alerta
   const [alertType, setAlertType] = useState(""); // Tipo de alerta (error o success)
   const [errors, setErrors] = useState({}); // Para errores específicos de campos
+  // NUEVO: Estado para mostrar spinner
+  const [loading, setLoading] = useState(false);
 
   const toggleModal = () => {
     setIsModalOpen((prevState) => !prevState);
@@ -73,6 +60,9 @@ export default function Home() {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    setAlertMessage("");
+    setAlertType("");
+    setErrors({});
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
 
@@ -83,18 +73,22 @@ export default function Home() {
     }
 
     try {
+      setLoading(true);
       const response = await axios.post(
         "http://localhost:3333/api/prospectsmeeting",
         data
       );
 
       if (response.status === 200) {
-        setAlertMessage(
-          "¡Gracias! Hemos enviado la información a tu correo electrónico."
-        );
-        setAlertType("success");
+        // Aquí mostramos alerta de éxito y cerramos modal al darle "OK"
+        alert("¡Email enviado!");
         e.target.reset();
-        toggleModal(); // Cierra el modal
+        toggleModal();
+      } else {
+        // Si no es 200 exacto, asumimos éxito igual
+        alert("¡Email enviado!");
+        e.target.reset();
+        toggleModal();
       }
     } catch (error) {
       console.error(
@@ -105,11 +99,13 @@ export default function Home() {
         "Hubo un error al enviar tu información. Por favor, intenta de nuevo."
       );
       setAlertType("error");
+    } finally {
+      // OCULTAR SPINNER
+      setLoading(false);
     }
   };
 
   const router = useRouter();
-  const { locale } = router;
 
   const { ingles, espa } = useAppContext();
 
@@ -188,25 +184,17 @@ export default function Home() {
           >
             <div className="max-w-[90%] mx-auto flex-col md:flex-row flex overflow-hidden items-center">
               <div className="justify-center max-w-[100%] md:justify-start flex self-center items-center mx-auto">
-                <a
-                  href="http://ww2.gymlaunch.com/gymgrowth"
-                  target="_blank"
-                  className="inline-block"
-                >
-                  <h1 className="title3-tw text-principal mt-[4px] text-center md:text-start">
-                    <span className="title3-tw">
-                      QUINCE DÍAS PARA CAMBIAR TU RESTAURANTE PARA SIEMPRE
-                    </span>{" "}
-                    <br />
-                    <span className="title3-tw text-[#fff]">
-                      TALLER EN LÍNEA
-                    </span>
-                    <br />
-                    <span className="span4-tw">
-                      NO TE LO PIERDAS. PRIMEROS 15 DUEÑOS RESTAURANTEROS.
-                    </span>
-                  </h1>
-                </a>
+                <h1 className="title3-tw text-principal mt-[4px] text-center md:text-start">
+                  <span className="title3-tw">
+                    QUINCE DÍAS PARA CAMBIAR TU RESTAURANTE PARA SIEMPRE
+                  </span>{" "}
+                  <br />
+                  <span className="title3-tw text-[#fff]">TALLER EN LÍNEA</span>
+                  <br />
+                  <span className="span4-tw">
+                    NO TE LO PIERDAS. PRIMEROS 15 DUEÑOS RESTAURANTEROS.
+                  </span>
+                </h1>
               </div>
               <div className="justify-center max-w-[100%] md:justify-start flex self-center items-center mx-auto py-2">
                 <div style={{ display: "flex", justifyContent: "center" }}>
@@ -227,6 +215,7 @@ export default function Home() {
                           </button>
                         </div>
                         <div className={styles.modalBody}>
+                          {/* Alerta global si existe alertMessage */}
                           {alertMessage && (
                             <div
                               className={`${styles.alert} ${
@@ -238,84 +227,101 @@ export default function Home() {
                               {alertMessage}
                             </div>
                           )}
-                          <form id="customForm" onSubmit={handleFormSubmit}>
-                            <div>
-                              <label htmlFor="first_name"></label>
+                          {loading ? (
+                            <div className="flex flex-col items-center justify-center space-y-4 my-4">
+                              <div className="animate-spin w-16 h-16 border-4 border-[#FFD700] border-t-transparent rounded-full"></div>
+                              <p className="text-xl font-semibold text-yellow-300">
+                                Enviando información, por favor espera...
+                              </p>
+                            </div>
+                          ) : (
+                            <form id="customForm" onSubmit={handleFormSubmit}>
+                              <div>
+                                <label htmlFor="first_name"></label>
+                                <input
+                                  type="text"
+                                  id="first_name"
+                                  name="first_name"
+                                  placeholder="Nombre(s) completo"
+                                  className={styles.hsInput}
+                                />
+                                {errors.first_name && (
+                                  <span className={styles.errorText}>
+                                    {errors.first_name}
+                                  </span>
+                                )}
+                              </div>
+                              <div>
+                                <label htmlFor="last_name"></label>
+                                <input
+                                  type="text"
+                                  id="last_name"
+                                  name="last_name"
+                                  placeholder="Apellido(s) completo"
+                                  className={styles.hsInput}
+                                />
+                                {errors.last_name && (
+                                  <span className={styles.errorText}>
+                                    {errors.last_name}
+                                  </span>
+                                )}
+                              </div>
+                              <div>
+                                <label htmlFor="email"></label>
+                                <input
+                                  type="email"
+                                  id="email"
+                                  name="email"
+                                  placeholder="Correo electrónico"
+                                  className={styles.hsInput}
+                                />
+                                {errors.email && (
+                                  <span className={styles.errorText}>
+                                    {errors.email}
+                                  </span>
+                                )}
+                              </div>
+                              <div>
+                                <label htmlFor="whatsapp"></label>
+                                <input
+                                  type="tel"
+                                  id="whatsapp"
+                                  name="whatsapp"
+                                  placeholder="Número de WhatsApp"
+                                  pattern="[0-9]{10}"
+                                  className={styles.hsInput}
+                                />
+                                {errors.whatsapp && (
+                                  <span className={styles.errorText}>
+                                    {errors.whatsapp}
+                                  </span>
+                                )}
+                              </div>
                               <input
-                                type="text"
-                                id="first_name"
-                                name="first_name"
-                                placeholder="Nombre(s) completo"
-                                className={styles.hsInput}
+                                type="hidden"
+                                name="origin"
+                                value="citaenvivo"
                               />
-                              {errors.first_name && (
-                                <span className={styles.errorText}>
-                                  {errors.first_name}
-                                </span>
-                              )}
-                            </div>
-                            <div>
-                              <label htmlFor="last_name"></label>
                               <input
-                                type="text"
-                                id="last_name"
-                                name="last_name"
-                                placeholder="Apellido(s) completo"
-                                className={styles.hsInput}
+                                type="hidden"
+                                name="status"
+                                value="creado"
                               />
-                              {errors.last_name && (
-                                <span className={styles.errorText}>
-                                  {errors.last_name}
-                                </span>
-                              )}
-                            </div>
-                            <div>
-                              <label htmlFor="email"></label>
-                              <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                placeholder="Correo electrónico"
-                                className={styles.hsInput}
-                              />
-                              {errors.email && (
-                                <span className={styles.errorText}>
-                                  {errors.email}
-                                </span>
-                              )}
-                            </div>
-                            <div>
-                              <label htmlFor="whatsapp"></label>
-                              <input
-                                type="tel"
-                                id="whatsapp"
-                                name="whatsapp"
-                                placeholder="Número de WhatsApp"
-                                pattern="[0-9]{10}"
-                                className={styles.hsInput}
-                              />
-                              {errors.whatsapp && (
-                                <span className={styles.errorText}>
-                                  {errors.whatsapp}
-                                </span>
-                              )}
-                            </div>
-                            <input
-                              type="hidden"
-                              name="origin"
-                              value="citaenvivo"
-                            />
-                            <input type="hidden" name="status" value="creado" />
-                            <div>
-                              <button type="submit" className={styles.hsSubmit}>
-                                Sí, hazme una cita ya
-                              </button>
-                            </div>
-                          </form>
+                              <div>
+                                <button
+                                  type="submit"
+                                  className={styles.hsSubmit}
+                                >
+                                  Sí, hazme una cita ya
+                                </button>
+                              </div>
+                            </form>
+                          )}
                         </div>
                       </div>
                     </div>
                   )}
+                  {/* Fin del modal */}
                 </div>
               </div>
             </div>
@@ -491,9 +497,19 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-center justify-center py-16 px-2 w-full">
-            <div className="max-w-[1050px] mx-auto bg-black w-full rounded-3xl py-8 overflow-hidden">
-              <div className="heading-block w-full flex flex-col justify-center items-center mb-16">
+          <div className="bg-gray-50 flex flex-col items-center px-4 py-8 md:px-16">
+            <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
+              {/* Imagen de fondo */}
+              <img
+                src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg"
+                alt="Background"
+                className="absolute top-0 left-0 w-full h-full object-cover z-0"
+              />
+              {/* Gradiente superpuesto con z-10 */}
+              <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-75 z-10"></div>
+
+              {/* Contenedor del texto con z-20 */}
+              <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center z-20 p-4">
                 <span className="rounded-full bg-secundario text-white font-semibold px-4 py-2 mb-4">
                   ¿QUIERES VER COMO FUNCIONAMOS?
                 </span>
@@ -504,13 +520,11 @@ export default function Home() {
                   Sólo da click aquí y logra que tu restaurante sea sumamente
                   rentable en este año
                 </p>
-                <div className="px-4">
-                  <Link href="/comolohacemos">
-                    <button className="button4 font-bold">
-                      ¡SÍ! QUIERO ACCESO YA
-                    </button>
-                  </Link>
-                </div>
+                <Link href="/prueba">
+                  <button className="button4 font-bold">
+                    ¡SÍ! QUIERO ACCESO YA
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

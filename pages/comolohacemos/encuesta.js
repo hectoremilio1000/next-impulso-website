@@ -1,65 +1,64 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import Link from "next/link";
 import NavBar from "../../components/NavBarBlack/NavBarEs";
-import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta según tu proyecto
+import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta si corresponde
 import axios from "axios";
+import Link from "next/link";
 
-function Destacaeninternet() {
+function Encuesta() {
   // --- Metadatos para <Head> ---
   const headData = {
-    title: "Destaca en Internet | Impulso Restaurantero",
-    content: "Impulsa tu restaurante en línea con tecnología avanzada",
+    title: "Encuestas de Servicio | Impulso Restaurantero",
+    content: "Encuestas de servicio en tiempo real para tu restaurante",
     description:
-      "Te ayudamos a destacar en internet con páginas optimizadas, técnicas avanzadas de SEO y estrategias digitales efectivas.",
+      "Conoce cómo Impulso Restaurantero implementa encuestas de servicio en tiempo real para mejorar la experiencia de tus clientes y aumentar tus ventas.",
     url: "https://www.impulsorestaurantero.com/",
     image:
       "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png",
   };
 
-  // --- Datos de la página ---
+  // --- Datos principales de la página ---
   const info = [
     {
-      titulo1: "Destaca en Internet",
+      titulo1: "Encuestas de Servicio en Tiempo Real",
       parrafo1:
-        "Con técnicas avanzadas de SEO y estrategias de marketing digital, optimizamos tu presencia en línea para que tu restaurante aparezca en los primeros lugares de Google, Tik Tok, Facebook e Instagram.",
-
+        "Impulso Restaurantero te ayuda a recopilar opiniones y calificaciones de tus clientes al momento, permitiendo ajustes inmediatos y aumentando la satisfacción.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/googleSeo.png",
-      titulo2: "Estrategias SEO Avanzadas",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/encuesta-servicio-tiempo-real-impulso.jpg",
+      titulo2: "Retroalimentación Instantánea",
       parrafo2:
-        "Te ayudamos a posicionar tu restaurante en los primeros lugares de búsqueda en Google, utilizando técnicas avanzadas de SEO. Optimizamos tu página web para que atraiga más tráfico orgánico y conecte directamente con tus clientes potenciales.",
+        "Mediante tecnología avanzada, puedes recibir comentarios de tus clientes en tiempo real durante su visita. Detecta problemas antes de que se vayan y fidelízalos con mejoras inmediatas.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/guia-como-hacer-seo.jpg",
+        "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logosEmpresasSocios/lalloronblanco.png", // Cambia si tienes otra imagen
       titulorazones:
-        "3 CLAVES PARA DESTACAR TU RESTAURANTE EN GOOGLE Y REDES SOCIALES CON NOSOTROS",
-      razon1: "Datos como el Pilar Principal",
+        "3 CLAVES QUE HACEN DE NUESTRAS ENCUESTAS UNA HERRAMIENTA PODEROSA",
+      razon1: "Captura la Opinión en el Momento Preciso",
       parraforazon1:
-        "Usamos herramientas avanzadas como Google Analytics, Tag Manager y Heatmaps para recopilar datos precisos sobre el comportamiento del cliente en línea. Esto nos permite entender qué buscan, cómo navegan y en qué momento están más propensos a tomar acción.",
-      razon2: "Automatización y Remarketing Personalizado",
+        "No esperes a que el cliente escriba una reseña días después. Con nuestras encuestas internas, la retroalimentación se obtiene justo mientras el comensal está en tu restaurante.",
+      razon2: "Automatización y Reportes Consolidados",
       parraforazon2:
-        "Implementamos estrategias de remarketing basadas en el historial de navegación y comportamientos previos. Por ejemplo, si alguien visita tu menú en línea, recibirá un anuncio específico destacando tus platillos más populares con un botón directo para reservar o pedir.",
-      razon3: "SEO y Contenido Basado en Intención de Búsqueda",
+        "Centralizamos los resultados en paneles fáciles de leer, para que sepas de inmediato qué áreas funcionan y cuáles necesitan atención. Además, puedes generar reportes con un clic.",
+      razon3: "Integración con Planes de Lealtad y CRM",
       parraforazon3:
-        "Aplicamos un enfoque avanzado de SEO no solo para posicionar palabras clave genéricas como 'restaurante mexicano', sino también para capturar búsquedas de intención específica, como 'mejor brunch en la Roma' o 'cantina mexicana para grupos'. Creamos contenido optimizado, como blogs, reseñas y videos, que responden a estas búsquedas.",
-      titulo3: "Éxitos que Transforman Restaurantes",
+        "Aprovechamos la información de las encuestas para nutrir tu base de datos, segmentar clientes e impulsar acciones de marketing personalizadas que aumentan tus ventas.",
+      titulo3: "Mejora Continua y Crecimiento Acelerado",
       parrafo3:
-        "Conoce cómo hemos ayudado a restauranteros a convertir sus desafíos en historias de éxito, utilizando estrategias personalizadas de SEO y marketing digital para alcanzar sus metas de negocio.",
+        "Descubre cómo nuestras encuestas en tiempo real han transformado la experiencia de cientos de restaurantes, permitiéndoles corregir fallas al instante y ganar la confianza de los comensales.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/community-manager-google-trends-1200x720.jpg",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/pizzas-de-masa-madre-impulso-restaurantero.jpg", // Ajusta si lo deseas
       titulo4:
-        "¿Sabías que podrías estar obteniendo MUCHAS más ventas y reservas? En Impulso Restaurantero, transformamos tu visibilidad en internet llenando tus mesas.",
+        "¿Listo para escuchar a tus clientes y llevar tu restaurante al siguiente nivel? En Impulso Restaurantero te ofrecemos encuestas en tiempo real para que nada se te escape.",
     },
   ];
 
-  // --- ESTADOS para el segundo modal y su formulario ---
+  // --- ESTADOS para el modal y su formulario (Demo Gratis) ---
   const [isModalOpen2, setIsModalOpen2] = useState(false);
   const [alertMessage2, setAlertMessage2] = useState("");
   const [alertType2, setAlertType2] = useState("");
   const [errors2, setErrors2] = useState({});
   const [loading2, setLoading2] = useState(false);
 
-  // Función para abrir/cerrar modal
+  // Abre/cierra modal
   const toggleModal2 = () => {
     setIsModalOpen2((prev) => !prev);
   };
@@ -83,7 +82,6 @@ function Destacaeninternet() {
       fieldErrors.whatsapp =
         "Por favor, ingresa un número de WhatsApp válido (10 dígitos).";
     }
-
     setErrors2(fieldErrors);
     return Object.keys(fieldErrors).length === 0;
   };
@@ -98,7 +96,6 @@ function Destacaeninternet() {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
 
-    // Validar
     if (!validateForm2(data)) {
       setAlertMessage2("Por favor, corrige los errores en el formulario.");
       setAlertType2("error");
@@ -107,7 +104,7 @@ function Destacaeninternet() {
 
     try {
       setLoading2(true);
-      // Ajusta la URL según tu backend
+      // Ajusta la URL a tu backend
       const response = await axios.post(
         "http://localhost:3333/api/prospectsmeeting",
         data
@@ -151,6 +148,7 @@ function Destacaeninternet() {
 
       <NavBar />
 
+      {/* CONTENIDO PRINCIPAL */}
       <div className="bg-gray-50 flex flex-col items-center px-4 py-8 md:px-16 pt-24 md:pt-36">
         {/* Encabezado */}
         <div className="text-center max-w-4xl">
@@ -162,6 +160,7 @@ function Destacaeninternet() {
           </p>
         </div>
 
+        {/* Botón para “Demo Gratis” (modal) */}
         <div className="mt-6 mb-4">
           {/* Botón que ABRE el nuevo modal de Demo Gratis */}
           <Link href="/prueba">
@@ -174,7 +173,7 @@ function Destacaeninternet() {
           <img
             className=" w-full object-contain "
             src={info[0].imagen1}
-            alt=""
+            alt="Encuestas en tiempo real"
           />
         </div>
 
@@ -190,7 +189,7 @@ function Destacaeninternet() {
             <img
               className="w-full object-contain rounded-[1.2em]"
               src={info[0].imagen2}
-              alt=""
+              alt="Retroalimentación instantánea"
             />
           </div>
         </div>
@@ -250,7 +249,7 @@ function Destacaeninternet() {
             <img
               className="w-full object-contain rounded-[1.2em]"
               src={info[0].imagen3}
-              alt=""
+              alt="Mejora continua"
             />
           </div>
           <div className="w-full flex flex-col items-center gap-4 justify-center p-8 bg-[#fbfbfad9] border-[#e5e5e5] rounded-[1.2em] max-w-2xl">
@@ -272,7 +271,7 @@ function Destacaeninternet() {
             {/* Imagen de fondo */}
             <img
               src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg"
-              alt="Background"
+              alt="Fondo encuestas"
               className="absolute top-0 left-0 w-full h-full object-cover z-0"
             />
             {/* Gradiente superpuesto */}
@@ -288,20 +287,21 @@ function Destacaeninternet() {
                 </div>
                 <div className="text-center"></div>
               </div>
+              {/* Botón que ABRE el modal */}
               <button className="button-small" onClick={toggleModal2}>
-                Demo Gratis ¡YA!
+                ¡Prueba Encuestas Ahora!
               </button>
             </div>
           </div>
         </div>
       </div>
 
-      {/* MODAL con Formulario de Demo Gratis (segundo modal) */}
+      {/* MODAL con Formulario de “Demo Gratis” */}
       {isModalOpen2 && (
         <div className={styles.modalOverlay}>
           <div className={styles.modalContent}>
             <div className={styles.modalHeader}>
-              <h2>Obtén Tu Demo Gratis Ahora</h2>
+              <h2>Implementa Encuestas de Servicio ¡YA!</h2>
               <button className={styles.closeModal} onClick={toggleModal2}>
                 &times;
               </button>
@@ -327,7 +327,7 @@ function Destacaeninternet() {
                   </p>
                 </div>
               ) : (
-                <form id="customForm2" onSubmit={handleFormSubmit2}>
+                <form id="customFormEncuesta" onSubmit={handleFormSubmit2}>
                   <div>
                     <label htmlFor="first_name"></label>
                     <input
@@ -389,13 +389,13 @@ function Destacaeninternet() {
                     <input
                       type="hidden"
                       name="origin"
-                      value="detacainternetdemogratis"
+                      value="encuestaDemoGratis"
                     />
                     <input type="hidden" name="status" value="creado" />
                   </div>
                   <div>
                     <button type="submit" className={styles.hsSubmit}>
-                      Sí, quiero mi demo gratis
+                      Sí, quiero implementar encuestas
                     </button>
                   </div>
                 </form>
@@ -408,4 +408,4 @@ function Destacaeninternet() {
   );
 }
 
-export default Destacaeninternet;
+export default Encuesta;

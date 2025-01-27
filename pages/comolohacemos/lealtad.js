@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import NavBar from "../../components/NavBarBlack/NavBarEs";
+import NavBar from "../../components/NavBarBlack/NavBarEs"; // Ajusta la ruta si es necesario
 import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta según tu proyecto
 import axios from "axios";
 
-function Destacaeninternet() {
+function Lealtad() {
   // --- Metadatos para <Head> ---
   const headData = {
-    title: "Destaca en Internet | Impulso Restaurantero",
-    content: "Impulsa tu restaurante en línea con tecnología avanzada",
+    title: "Programa de Lealtad | Impulso Restaurantero",
+    content: "Fideliza a tus clientes con un programa de lealtad innovador",
     description:
-      "Te ayudamos a destacar en internet con páginas optimizadas, técnicas avanzadas de SEO y estrategias digitales efectivas.",
+      "Creamos programas de lealtad innovadores a través de una tarjeta de recompensas, para que tus comensales regresen una y otra vez.",
     url: "https://www.impulsorestaurantero.com/",
     image:
       "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png",
@@ -20,39 +20,38 @@ function Destacaeninternet() {
   // --- Datos de la página ---
   const info = [
     {
-      titulo1: "Destaca en Internet",
+      titulo1: "05. Programa de Lealtad",
       parrafo1:
-        "Con técnicas avanzadas de SEO y estrategias de marketing digital, optimizamos tu presencia en línea para que tu restaurante aparezca en los primeros lugares de Google, Tik Tok, Facebook e Instagram.",
+        "Creamos programas de lealtad innovadores utilizando una tarjeta de recompensas y estrategias de marketing personalizadas, para que tus comensales regresen una y otra vez.",
 
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/googleSeo.png",
-      titulo2: "Estrategias SEO Avanzadas",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/loyalty-cards.jpg",
+      titulo2: "Recompensas que Fidelizan",
       parrafo2:
-        "Te ayudamos a posicionar tu restaurante en los primeros lugares de búsqueda en Google, utilizando técnicas avanzadas de SEO. Optimizamos tu página web para que atraiga más tráfico orgánico y conecte directamente con tus clientes potenciales.",
+        "Diseñamos planes de puntos, descuentos o regalos exclusivos, siempre alineados con el concepto de tu restaurante. Así, no solo aumentas visitas, sino que fortaleces el vínculo con tus clientes.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/guia-como-hacer-seo.jpg",
-      titulorazones:
-        "3 CLAVES PARA DESTACAR TU RESTAURANTE EN GOOGLE Y REDES SOCIALES CON NOSOTROS",
-      razon1: "Datos como el Pilar Principal",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/rewards.jpg",
+      titulorazones: "3 MOTIVOS PARA IMPLEMENTAR NUESTRO PROGRAMA DE LEALTAD",
+      razon1: "Incremento de Visitas Recurrentes",
       parraforazon1:
-        "Usamos herramientas avanzadas como Google Analytics, Tag Manager y Heatmaps para recopilar datos precisos sobre el comportamiento del cliente en línea. Esto nos permite entender qué buscan, cómo navegan y en qué momento están más propensos a tomar acción.",
-      razon2: "Automatización y Remarketing Personalizado",
+        "Los clientes que reciben recompensas vuelven con mayor frecuencia, elevando tu ticket promedio y ventas.",
+      razon2: "Recomendaciones Orgánicas",
       parraforazon2:
-        "Implementamos estrategias de remarketing basadas en el historial de navegación y comportamientos previos. Por ejemplo, si alguien visita tu menú en línea, recibirá un anuncio específico destacando tus platillos más populares con un botón directo para reservar o pedir.",
-      razon3: "SEO y Contenido Basado en Intención de Búsqueda",
+        "Un buen plan de lealtad motiva a tus clientes a invitar a sus amigos y familia, atrayendo nuevos comensales.",
+      razon3: "Analíticas y Seguimiento",
       parraforazon3:
-        "Aplicamos un enfoque avanzado de SEO no solo para posicionar palabras clave genéricas como 'restaurante mexicano', sino también para capturar búsquedas de intención específica, como 'mejor brunch en la Roma' o 'cantina mexicana para grupos'. Creamos contenido optimizado, como blogs, reseñas y videos, que responden a estas búsquedas.",
-      titulo3: "Éxitos que Transforman Restaurantes",
+        "Monitorea en tiempo real cuántos puntos se canjean, quiénes son tus mejores clientes y qué platillos son más populares.",
+      titulo3: "Casos de Éxito en Programas de Lealtad",
       parrafo3:
-        "Conoce cómo hemos ayudado a restauranteros a convertir sus desafíos en historias de éxito, utilizando estrategias personalizadas de SEO y marketing digital para alcanzar sus metas de negocio.",
+        "Nuestra implementación de programas de lealtad ha ayudado a restaurantes de distintos tamaños a construir una relación sólida con sus clientes, impulsando la recurrencia y el boca en boca positivo.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/community-manager-google-trends-1200x720.jpg",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/loyalty-success.jpg",
       titulo4:
-        "¿Sabías que podrías estar obteniendo MUCHAS más ventas y reservas? En Impulso Restaurantero, transformamos tu visibilidad en internet llenando tus mesas.",
+        "¿Listo para recompensar a tus clientes más fieles y hacerlos sentir parte de tu familia gastronómica?",
     },
   ];
 
-  // --- ESTADOS para el segundo modal y su formulario ---
+  // --- ESTADOS para el modal y su formulario ---
   const [isModalOpen2, setIsModalOpen2] = useState(false);
   const [alertMessage2, setAlertMessage2] = useState("");
   const [alertType2, setAlertType2] = useState("");
@@ -174,7 +173,7 @@ function Destacaeninternet() {
           <img
             className=" w-full object-contain "
             src={info[0].imagen1}
-            alt=""
+            alt="Programa de lealtad"
           />
         </div>
 
@@ -190,7 +189,7 @@ function Destacaeninternet() {
             <img
               className="w-full object-contain rounded-[1.2em]"
               src={info[0].imagen2}
-              alt=""
+              alt="Recompensas"
             />
           </div>
         </div>
@@ -250,7 +249,7 @@ function Destacaeninternet() {
             <img
               className="w-full object-contain rounded-[1.2em]"
               src={info[0].imagen3}
-              alt=""
+              alt="Historias de Éxito en Lealtad"
             />
           </div>
           <div className="w-full flex flex-col items-center gap-4 justify-center p-8 bg-[#fbfbfad9] border-[#e5e5e5] rounded-[1.2em] max-w-2xl">
@@ -271,7 +270,7 @@ function Destacaeninternet() {
           <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
             {/* Imagen de fondo */}
             <img
-              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg"
+              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/loyalty-background.jpg"
               alt="Background"
               className="absolute top-0 left-0 w-full h-full object-cover z-0"
             />
@@ -286,7 +285,6 @@ function Destacaeninternet() {
                   </p>
                   <p className="text-lg text-gray-300">Sin compromisos</p>
                 </div>
-                <div className="text-center"></div>
               </div>
               <button className="button-small" onClick={toggleModal2}>
                 Demo Gratis ¡YA!
@@ -389,7 +387,7 @@ function Destacaeninternet() {
                     <input
                       type="hidden"
                       name="origin"
-                      value="detacainternetdemogratis"
+                      value="lealtaddemogratis"
                     />
                     <input type="hidden" name="status" value="creado" />
                   </div>
@@ -408,4 +406,4 @@ function Destacaeninternet() {
   );
 }
 
-export default Destacaeninternet;
+export default Lealtad;

@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import Link from "next/link";
 import NavBar from "../../components/NavBarBlack/NavBarEs";
-import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta según tu proyecto
+import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta si lo requieres
 import axios from "axios";
+import Link from "next/link";
 
-function Destacaeninternet() {
+function Llenamosturestaurante() {
   // --- Metadatos para <Head> ---
   const headData = {
-    title: "Destaca en Internet | Impulso Restaurantero",
-    content: "Impulsa tu restaurante en línea con tecnología avanzada",
+    title: "Llenamos tu Restaurante | Impulso Restaurantero",
+    content:
+      "Diseñamos tu web y sistema de reservas para llenar tu restaurante",
     description:
-      "Te ayudamos a destacar en internet con páginas optimizadas, técnicas avanzadas de SEO y estrategias digitales efectivas.",
+      "Con Impulso Restaurantero, obtén una página web optimizada y un sistema de reservas que dispara la afluencia de comensales.",
     url: "https://www.impulsorestaurantero.com/",
     image:
       "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png",
@@ -20,46 +21,45 @@ function Destacaeninternet() {
   // --- Datos de la página ---
   const info = [
     {
-      titulo1: "Destaca en Internet",
+      titulo1: "LLenamos tu Restaurante",
       parrafo1:
-        "Con técnicas avanzadas de SEO y estrategias de marketing digital, optimizamos tu presencia en línea para que tu restaurante aparezca en los primeros lugares de Google, Tik Tok, Facebook e Instagram.",
-
+        "Diseñamos una web optimizada y un sistema de reservas que te permitirán tener más clientes cada día. Haz que tu restaurante sea el lugar favorito en tu zona.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/googleSeo.png",
-      titulo2: "Estrategias SEO Avanzadas",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/pagina%2Bvisitas%2Bwebsite.jpg",
+      titulo2: "Una Página que Convierte Visitas en Reservas",
       parrafo2:
-        "Te ayudamos a posicionar tu restaurante en los primeros lugares de búsqueda en Google, utilizando técnicas avanzadas de SEO. Optimizamos tu página web para que atraiga más tráfico orgánico y conecte directamente con tus clientes potenciales.",
+        "No basta con tener un sitio bonito. Necesitas que cada clic se convierta en un nuevo comensal. Con nuestras técnicas de conversión y marketing, tu restaurante se llena rápido.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/guia-como-hacer-seo.jpg",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/tacos-deliciosos-impulso-restaurantero.jpg", // Cambia si prefieres otra imagen
       titulorazones:
-        "3 CLAVES PARA DESTACAR TU RESTAURANTE EN GOOGLE Y REDES SOCIALES CON NOSOTROS",
-      razon1: "Datos como el Pilar Principal",
+        "3 CLAVES PARA LLENAR TU RESTAURANTE CON NUESTRA TECNOLOGÍA",
+      razon1: "Diseño Web Enfocado en Reservas",
       parraforazon1:
-        "Usamos herramientas avanzadas como Google Analytics, Tag Manager y Heatmaps para recopilar datos precisos sobre el comportamiento del cliente en línea. Esto nos permite entender qué buscan, cómo navegan y en qué momento están más propensos a tomar acción.",
-      razon2: "Automatización y Remarketing Personalizado",
+        "Creamos un sitio con llamados a la acción claros (CTA) y un embudo de reservas que simplifica el proceso. Cada sección guía al usuario a reservar o pedir en línea.",
+      razon2: "Campañas Digitales de Alto Alcance",
       parraforazon2:
-        "Implementamos estrategias de remarketing basadas en el historial de navegación y comportamientos previos. Por ejemplo, si alguien visita tu menú en línea, recibirá un anuncio específico destacando tus platillos más populares con un botón directo para reservar o pedir.",
-      razon3: "SEO y Contenido Basado en Intención de Búsqueda",
+        "Enlazamos tu nuevo sitio con anuncios segmentados en Tik Tok, Instagram y Facebook, además de optimizarlo para Google. Alcanzarás a la audiencia correcta y en el momento adecuado.",
+      razon3: "Automatización y Seguimiento con IA",
       parraforazon3:
-        "Aplicamos un enfoque avanzado de SEO no solo para posicionar palabras clave genéricas como 'restaurante mexicano', sino también para capturar búsquedas de intención específica, como 'mejor brunch en la Roma' o 'cantina mexicana para grupos'. Creamos contenido optimizado, como blogs, reseñas y videos, que responden a estas búsquedas.",
-      titulo3: "Éxitos que Transforman Restaurantes",
+        "Un sistema que envía recordatorios y confirma reservas automáticamente. Tu equipo se enfoca en lo importante: dar la mejor experiencia, mientras la IA hace el resto.",
+      titulo3: "Más Comensales, Menos Esfuerzo",
       parrafo3:
-        "Conoce cómo hemos ayudado a restauranteros a convertir sus desafíos en historias de éxito, utilizando estrategias personalizadas de SEO y marketing digital para alcanzar sus metas de negocio.",
+        "Hemos ayudado a más de 1,000 restauranteros a llenar sus mesas cada semana. Olvídate de la incertidumbre y descubre cómo la tecnología puede disparar tu facturación.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/community-manager-google-trends-1200x720.jpg",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/649c99bf1948a130a34f7abb_Wins+copy.png", // Ajusta la imagen si deseas
       titulo4:
-        "¿Sabías que podrías estar obteniendo MUCHAS más ventas y reservas? En Impulso Restaurantero, transformamos tu visibilidad en internet llenando tus mesas.",
+        "¿Quieres un restaurante lleno todos los días? Con nuestras estrategias, verás más clientes y menos sillas vacías.",
     },
   ];
 
-  // --- ESTADOS para el segundo modal y su formulario ---
+  // --- ESTADOS y LÓGICA para el modal (Demo Gratis) ---
   const [isModalOpen2, setIsModalOpen2] = useState(false);
   const [alertMessage2, setAlertMessage2] = useState("");
   const [alertType2, setAlertType2] = useState("");
   const [errors2, setErrors2] = useState({});
   const [loading2, setLoading2] = useState(false);
 
-  // Función para abrir/cerrar modal
+  // Abrir/cerrar modal
   const toggleModal2 = () => {
     setIsModalOpen2((prev) => !prev);
   };
@@ -83,12 +83,11 @@ function Destacaeninternet() {
       fieldErrors.whatsapp =
         "Por favor, ingresa un número de WhatsApp válido (10 dígitos).";
     }
-
     setErrors2(fieldErrors);
     return Object.keys(fieldErrors).length === 0;
   };
 
-  // Manejo del submit
+  // Submit del formulario
   const handleFormSubmit2 = async (e) => {
     e.preventDefault();
     setAlertMessage2("");
@@ -98,7 +97,6 @@ function Destacaeninternet() {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
 
-    // Validar
     if (!validateForm2(data)) {
       setAlertMessage2("Por favor, corrige los errores en el formulario.");
       setAlertType2("error");
@@ -151,6 +149,7 @@ function Destacaeninternet() {
 
       <NavBar />
 
+      {/* CONTENIDO PRINCIPAL */}
       <div className="bg-gray-50 flex flex-col items-center px-4 py-8 md:px-16 pt-24 md:pt-36">
         {/* Encabezado */}
         <div className="text-center max-w-4xl">
@@ -162,6 +161,7 @@ function Destacaeninternet() {
           </p>
         </div>
 
+        {/* Botón para abrir modal */}
         <div className="mt-6 mb-4">
           {/* Botón que ABRE el nuevo modal de Demo Gratis */}
           <Link href="/prueba">
@@ -174,7 +174,7 @@ function Destacaeninternet() {
           <img
             className=" w-full object-contain "
             src={info[0].imagen1}
-            alt=""
+            alt="Llena tu restaurante"
           />
         </div>
 
@@ -190,7 +190,7 @@ function Destacaeninternet() {
             <img
               className="w-full object-contain rounded-[1.2em]"
               src={info[0].imagen2}
-              alt=""
+              alt="Nueva web y reservas"
             />
           </div>
         </div>
@@ -250,7 +250,7 @@ function Destacaeninternet() {
             <img
               className="w-full object-contain rounded-[1.2em]"
               src={info[0].imagen3}
-              alt=""
+              alt="Más comensales, menos esfuerzo"
             />
           </div>
           <div className="w-full flex flex-col items-center gap-4 justify-center p-8 bg-[#fbfbfad9] border-[#e5e5e5] rounded-[1.2em] max-w-2xl">
@@ -389,7 +389,7 @@ function Destacaeninternet() {
                     <input
                       type="hidden"
                       name="origin"
-                      value="detacainternetdemogratis"
+                      value="llenamosturestaurantedemogratis"
                     />
                     <input type="hidden" name="status" value="creado" />
                   </div>
@@ -408,4 +408,4 @@ function Destacaeninternet() {
   );
 }
 
-export default Destacaeninternet;
+export default Llenamosturestaurante;

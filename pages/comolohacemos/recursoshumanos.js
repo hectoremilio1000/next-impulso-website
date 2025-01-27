@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import NavBar from "../../components/NavBarBlack/NavBarEs";
+import NavBar from "../../components/NavBarBlack/NavBarEs"; // Ajusta la ruta si es diferente
 import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta según tu proyecto
 import axios from "axios";
 
-function Destacaeninternet() {
+function Recursoshumanos() {
   // --- Metadatos para <Head> ---
   const headData = {
-    title: "Destaca en Internet | Impulso Restaurantero",
-    content: "Impulsa tu restaurante en línea con tecnología avanzada",
+    title: "Recursos Humanos y Manuales con IA | Impulso Restaurantero",
+    content: "Recursos Humanos, Manuales, Despidos, IA - Impulso Restaurantero",
     description:
-      "Te ayudamos a destacar en internet con páginas optimizadas, técnicas avanzadas de SEO y estrategias digitales efectivas.",
+      "Te ofrecemos manuales y un departamento de recursos humanos con inteligencia artificial, así como manejo de despidos, optimizando la gestión de tu personal.",
     url: "https://www.impulsorestaurantero.com/",
     image:
       "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png",
@@ -20,39 +20,38 @@ function Destacaeninternet() {
   // --- Datos de la página ---
   const info = [
     {
-      titulo1: "Destaca en Internet",
+      titulo1: "Recursos Humanos & Manuales con Inteligencia Artificial",
       parrafo1:
-        "Con técnicas avanzadas de SEO y estrategias de marketing digital, optimizamos tu presencia en línea para que tu restaurante aparezca en los primeros lugares de Google, Tik Tok, Facebook e Instagram.",
-
+        "En Impulso Restaurantero ofrecemos manuales especializados y un departamento de recursos humanos con inteligencia artificial para optimizar la gestión de tu personal, así como el manejo de despidos de manera profesional.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/googleSeo.png",
-      titulo2: "Estrategias SEO Avanzadas",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/recursosHumanos/human-resources1.jpg",
+      titulo2: "Un Equipo Más Eficiente",
       parrafo2:
-        "Te ayudamos a posicionar tu restaurante en los primeros lugares de búsqueda en Google, utilizando técnicas avanzadas de SEO. Optimizamos tu página web para que atraiga más tráfico orgánico y conecte directamente con tus clientes potenciales.",
+        "Con nuestro enfoque de IA, te ayudamos a crear manuales de procedimientos claros, capacitar a tu personal y automatizar procesos administrativos. Optimiza la productividad y reduce la rotación laboral.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/guia-como-hacer-seo.jpg",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/recursosHumanos/hr-ai.jpg",
       titulorazones:
-        "3 CLAVES PARA DESTACAR TU RESTAURANTE EN GOOGLE Y REDES SOCIALES CON NOSOTROS",
-      razon1: "Datos como el Pilar Principal",
+        "3 RAZONES PARA IMPLEMENTAR RECURSOS HUMANOS CON INTELIGENCIA ARTIFICIAL",
+      razon1: "Automatización de Procesos Clave",
       parraforazon1:
-        "Usamos herramientas avanzadas como Google Analytics, Tag Manager y Heatmaps para recopilar datos precisos sobre el comportamiento del cliente en línea. Esto nos permite entender qué buscan, cómo navegan y en qué momento están más propensos a tomar acción.",
-      razon2: "Automatización y Remarketing Personalizado",
+        "Desde la selección de personal hasta la evaluación de desempeño, la IA simplifica tareas repetitivas y te brinda un control más eficiente de la información.",
+      razon2: "Manuales y Capacitación Continua",
       parraforazon2:
-        "Implementamos estrategias de remarketing basadas en el historial de navegación y comportamientos previos. Por ejemplo, si alguien visita tu menú en línea, recibirá un anuncio específico destacando tus platillos más populares con un botón directo para reservar o pedir.",
-      razon3: "SEO y Contenido Basado en Intención de Búsqueda",
+        "Creamos manuales y capacitaciones con IA que se adaptan a las necesidades de tu equipo, actualizándose en tiempo real para mantener a tu restaurante a la vanguardia.",
+      razon3: "Manejo de Despidos y Conflictos",
       parraforazon3:
-        "Aplicamos un enfoque avanzado de SEO no solo para posicionar palabras clave genéricas como 'restaurante mexicano', sino también para capturar búsquedas de intención específica, como 'mejor brunch en la Roma' o 'cantina mexicana para grupos'. Creamos contenido optimizado, como blogs, reseñas y videos, que responden a estas búsquedas.",
-      titulo3: "Éxitos que Transforman Restaurantes",
+        "Te apoyamos para llevar a cabo despidos y resolver conflictos de forma profesional, cuidando la reputación de tu marca y la armonía del equipo.",
+      titulo3: "Historias de Éxito en Gestión de Personal",
       parrafo3:
-        "Conoce cómo hemos ayudado a restauranteros a convertir sus desafíos en historias de éxito, utilizando estrategias personalizadas de SEO y marketing digital para alcanzar sus metas de negocio.",
+        "Descubre cómo otros restauranteros han transformado su cultura organizacional y mejorado la retención de talentos gracias a nuestros servicios de Recursos Humanos con IA.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/community-manager-google-trends-1200x720.jpg",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/recursosHumanos/team.jpg",
       titulo4:
-        "¿Sabías que podrías estar obteniendo MUCHAS más ventas y reservas? En Impulso Restaurantero, transformamos tu visibilidad en internet llenando tus mesas.",
+        "¿Listo para optimizar tu departamento de recursos humanos y reducir la rotación laboral?",
     },
   ];
 
-  // --- ESTADOS para el segundo modal y su formulario ---
+  // --- ESTADOS para el modal y su formulario ---
   const [isModalOpen2, setIsModalOpen2] = useState(false);
   const [alertMessage2, setAlertMessage2] = useState("");
   const [alertType2, setAlertType2] = useState("");
@@ -114,11 +113,11 @@ function Destacaeninternet() {
       );
 
       if (response.status === 200) {
-        alert("¡Email enviado!");
+        alert("¡Información enviada!");
         e.target.reset();
         toggleModal2();
       } else {
-        alert("¡Email enviado!");
+        alert("¡Información enviada!");
         e.target.reset();
         toggleModal2();
       }
@@ -151,6 +150,7 @@ function Destacaeninternet() {
 
       <NavBar />
 
+      {/* Contenido principal */}
       <div className="bg-gray-50 flex flex-col items-center px-4 py-8 md:px-16 pt-24 md:pt-36">
         {/* Encabezado */}
         <div className="text-center max-w-4xl">
@@ -174,12 +174,12 @@ function Destacaeninternet() {
           <img
             className=" w-full object-contain "
             src={info[0].imagen1}
-            alt=""
+            alt="Recursos humanos IA"
           />
         </div>
 
         {/* Sección 2-col */}
-        <div className="content grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-36 px-[20px] items-center">
+        <div className="content grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-36 px-[20px] items-center mt-8">
           <div className="flex flex-col items-center text-center max-w-2xl">
             <h2 className="title3-tw">{info[0].titulo2}</h2>
             <p className="text-gray-600 text-sm md:text-2xl">
@@ -190,7 +190,7 @@ function Destacaeninternet() {
             <img
               className="w-full object-contain rounded-[1.2em]"
               src={info[0].imagen2}
-              alt=""
+              alt="Equipo Eficiente"
             />
           </div>
         </div>
@@ -250,7 +250,7 @@ function Destacaeninternet() {
             <img
               className="w-full object-contain rounded-[1.2em]"
               src={info[0].imagen3}
-              alt=""
+              alt="Historias de éxito"
             />
           </div>
           <div className="w-full flex flex-col items-center gap-4 justify-center p-8 bg-[#fbfbfad9] border-[#e5e5e5] rounded-[1.2em] max-w-2xl">
@@ -289,19 +289,19 @@ function Destacaeninternet() {
                 <div className="text-center"></div>
               </div>
               <button className="button-small" onClick={toggleModal2}>
-                Demo Gratis ¡YA!
+                ¡Quiero Más Información!
               </button>
             </div>
           </div>
         </div>
       </div>
 
-      {/* MODAL con Formulario de Demo Gratis (segundo modal) */}
+      {/* MODAL con Formulario de Información */}
       {isModalOpen2 && (
         <div className={styles.modalOverlay}>
           <div className={styles.modalContent}>
             <div className={styles.modalHeader}>
-              <h2>Obtén Tu Demo Gratis Ahora</h2>
+              <h2>Optimiza tus Recursos Humanos con IA</h2>
               <button className={styles.closeModal} onClick={toggleModal2}>
                 &times;
               </button>
@@ -389,13 +389,13 @@ function Destacaeninternet() {
                     <input
                       type="hidden"
                       name="origin"
-                      value="detacainternetdemogratis"
+                      value="recursoshumanosIAdemogratis"
                     />
                     <input type="hidden" name="status" value="creado" />
                   </div>
                   <div>
                     <button type="submit" className={styles.hsSubmit}>
-                      Sí, quiero mi demo gratis
+                      Sí, quiero optimizar mi RRHH
                     </button>
                   </div>
                 </form>
@@ -408,4 +408,4 @@ function Destacaeninternet() {
   );
 }
 
-export default Destacaeninternet;
+export default Recursoshumanos;

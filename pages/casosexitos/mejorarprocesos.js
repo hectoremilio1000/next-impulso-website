@@ -1,71 +1,83 @@
 import React, { useState } from "react";
-import Head from "next/head";
-import Link from "next/link";
 import NavBar from "../../components/NavBarBlack/NavBarEs";
-import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta según tu proyecto
+import Link from "next/link";
+import FAQ from "../../components/FAQ/faq";
 import axios from "axios";
 
-function Destacaeninternet() {
-  // --- Metadatos para <Head> ---
-  const headData = {
-    title: "Destaca en Internet | Impulso Restaurantero",
-    content: "Impulsa tu restaurante en línea con tecnología avanzada",
-    description:
-      "Te ayudamos a destacar en internet con páginas optimizadas, técnicas avanzadas de SEO y estrategias digitales efectivas.",
-    url: "https://www.impulsorestaurantero.com/",
-    image:
-      "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png",
-  };
+// Importa el CSS para el modal, ajusta la ruta si cambia
+import styles from "../../components/SwiperPrueba/Banner.module.css";
 
-  // --- Datos de la página ---
+function MejorarProcesos() {
+  // Datos adaptados para enfatizar la mejora de procesos, maquinaria, financiamiento
   const info = [
     {
-      titulo1: "Destaca en Internet",
+      titulo1:
+        "¿Cómo pasamos de procesos básicos a una operación moderna para recuperar la inversión en menos de 2 años?",
       parrafo1:
-        "Con técnicas avanzadas de SEO y estrategias de marketing digital, optimizamos tu presencia en línea para que tu restaurante aparezca en los primeros lugares de Google, Tik Tok, Facebook e Instagram.",
-
+        "Con Impulso Restaurantero, San Giorgio Pizzería transformó completamente sus métodos de trabajo y pudo adquirir maquinaria a bajo costo, con financiamiento accesible y asesoría para desarrollar productos altamente rentables. Esto les permitió recuperar la inversión en tiempo récord.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/googleSeo.png",
-      titulo2: "Estrategias SEO Avanzadas",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/donde-comer-pizzas-impulso-resta.jpg",
+      titulo2: "Procesos Eficientes, Grandes Resultados",
       parrafo2:
-        "Te ayudamos a posicionar tu restaurante en los primeros lugares de búsqueda en Google, utilizando técnicas avanzadas de SEO. Optimizamos tu página web para que atraiga más tráfico orgánico y conecte directamente con tus clientes potenciales.",
+        "La clave estuvo en optimizar cada paso: desde la gestión de inventarios hasta la compra de equipos con tasas de interés muy bajas. Nuestro programa se basa en la excelencia operativa, la automatización inteligente y la asesoría 24/7 para ayudarte a crecer sin fricciones.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/guia-como-hacer-seo.jpg",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/horno-eficiente-lograr.jpg",
       titulorazones:
-        "3 CLAVES PARA DESTACAR TU RESTAURANTE EN GOOGLE Y REDES SOCIALES CON NOSOTROS",
-      razon1: "Datos como el Pilar Principal",
+        "3 CLAVES QUE CONVIRTIERON A ESTE RESTAURANTE EN UN EJEMPLO DE PROCESOS EFICIENTES",
+      razon1: "Evaluación Exhaustiva y Financiamiento Inteligente",
       parraforazon1:
-        "Usamos herramientas avanzadas como Google Analytics, Tag Manager y Heatmaps para recopilar datos precisos sobre el comportamiento del cliente en línea. Esto nos permite entender qué buscan, cómo navegan y en qué momento están más propensos a tomar acción.",
-      razon2: "Automatización y Remarketing Personalizado",
+        "Diagnosticamos las áreas críticas del negocio y definimos un plan de acción para lograr que la recuperación de la inversión fuera en menos de 2 años",
+      razon2: "Capacitación en Producción Rentable",
       parraforazon2:
-        "Implementamos estrategias de remarketing basadas en el historial de navegación y comportamientos previos. Por ejemplo, si alguien visita tu menú en línea, recibirá un anuncio específico destacando tus platillos más populares con un botón directo para reservar o pedir.",
-      razon3: "SEO y Contenido Basado en Intención de Búsqueda",
+        "Diseñamos manuales y capacitaciones usando Inteligencia Artificial para enseñar a tu equipo a producir de forma eficiente y estandarizada las mejores pizzas.",
+      razon3: "Automatización de Inventarios y Control en Tiempo Real",
       parraforazon3:
-        "Aplicamos un enfoque avanzado de SEO no solo para posicionar palabras clave genéricas como 'restaurante mexicano', sino también para capturar búsquedas de intención específica, como 'mejor brunch en la Roma' o 'cantina mexicana para grupos'. Creamos contenido optimizado, como blogs, reseñas y videos, que responden a estas búsquedas.",
-      titulo3: "Éxitos que Transforman Restaurantes",
+        "Instalamos sistemas que monitorean insumos, costos y ventas en tiempo real. Así, cada peso invertido regresa de forma más rápida y se evita la fuga de recursos, maximizando tus utilidades.",
+      titulo3: "De la tradición a la innovación en un abrir y cerrar de ojos",
       parrafo3:
-        "Conoce cómo hemos ayudado a restauranteros a convertir sus desafíos en historias de éxito, utilizando estrategias personalizadas de SEO y marketing digital para alcanzar sus metas de negocio.",
+        "Con estas mejoras de procesos, la pizzería pueden enfocarse en lo que realmente importa: crear experiencias memorables para los comensales. Mientras tanto, la tecnología y los flujos de trabajo optimizados mantienen el negocio rentable y creciendo día tras día.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/community-manager-google-trends-1200x720.jpg",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/pizzas-de-masa-madre-impulso-restaurantero.jpg",
       titulo4:
-        "¿Sabías que podrías estar obteniendo MUCHAS más ventas y reservas? En Impulso Restaurantero, transformamos tu visibilidad en internet llenando tus mesas.",
+        "¿Quieres escalar tu restaurante y recuperar tu inversión en tiempo récord? Descubre cómo Impulso Restaurantero puede ayudarte a modernizar procesos, adquirir equipos accesibles y diseñar productos más rentables.",
     },
   ];
 
-  // --- ESTADOS para el segundo modal y su formulario ---
-  const [isModalOpen2, setIsModalOpen2] = useState(false);
-  const [alertMessage2, setAlertMessage2] = useState("");
-  const [alertType2, setAlertType2] = useState("");
-  const [errors2, setErrors2] = useState({});
-  const [loading2, setLoading2] = useState(false);
+  // Preguntas frecuentes
+  const faqs = [
+    {
+      question: "¿Puedo financiar toda mi operación?",
+      answer:
+        "Sí, contamos con convenios que permiten adquirir equipos y maquinaria con tasas muy bajas. Además, ofrecemos asesoría para que tu rentabilidad sea la óptima y puedas ir cubriendo las cuotas sin presiones.",
+    },
+    {
+      question: "¿Cómo garantiza Impulso Restaurantero la mejora de procesos?",
+      answer:
+        "Nos enfocamos en la optimización integral: mapeamos tu flujo de trabajo, identificamos cuellos de botella y aplicamos tecnología para eliminar ineficiencias. Con reportes en tiempo real, siempre sabrás dónde están tus gastos y tus ganancias.",
+    },
+    {
+      question: "¿En cuánto tiempo veré resultados?",
+      answer:
+        "Cada restaurante es diferente, pero en promedio, nuestros clientes comienzan a notar mejoras significativas en ventas y rentabilidad dentro de los primeros 3 a 6 meses. La inversión en maquinaria y mejoras operativas se recupera en menos de 2 años.",
+    },
+  ];
 
-  // Función para abrir/cerrar modal
-  const toggleModal2 = () => {
-    setIsModalOpen2((prev) => !prev);
+  // -------------------
+  // ESTADOS Y LÓGICA DEL MODAL DE “DEMO GRATIS”
+  // -------------------
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [alertType, setAlertType] = useState("");
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  // Función para abrir/cerrar el modal
+  const toggleModal = () => {
+    setIsModalOpen((prev) => !prev);
   };
 
   // Validaciones
-  const validateForm2 = (data) => {
+  const validateForm = (data) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const whatsappRegex = /^[0-9]{10}$/;
     const fieldErrors = {};
@@ -83,30 +95,28 @@ function Destacaeninternet() {
       fieldErrors.whatsapp =
         "Por favor, ingresa un número de WhatsApp válido (10 dígitos).";
     }
-
-    setErrors2(fieldErrors);
+    setErrors(fieldErrors);
     return Object.keys(fieldErrors).length === 0;
   };
 
   // Manejo del submit
-  const handleFormSubmit2 = async (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    setAlertMessage2("");
-    setAlertType2("");
-    setErrors2({});
+    setAlertMessage("");
+    setAlertType("");
+    setErrors({});
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
 
-    // Validar
-    if (!validateForm2(data)) {
-      setAlertMessage2("Por favor, corrige los errores en el formulario.");
-      setAlertType2("error");
+    if (!validateForm(data)) {
+      setAlertMessage("Por favor, corrige los errores en el formulario.");
+      setAlertType("error");
       return;
     }
 
     try {
-      setLoading2(true);
+      setLoading(true);
       // Ajusta la URL según tu backend
       const response = await axios.post(
         "http://localhost:3333/api/prospectsmeeting",
@@ -116,87 +126,71 @@ function Destacaeninternet() {
       if (response.status === 200) {
         alert("¡Email enviado!");
         e.target.reset();
-        toggleModal2();
+        toggleModal();
       } else {
         alert("¡Email enviado!");
         e.target.reset();
-        toggleModal2();
+        toggleModal();
       }
     } catch (error) {
       console.error(
         "Error al enviar el formulario:",
         error.response?.data || error.message
       );
-      setAlertMessage2(
+      setAlertMessage(
         "Hubo un error al enviar tu información. Por favor, intenta de nuevo."
       );
-      setAlertType2("error");
+      setAlertType("error");
     } finally {
-      setLoading2(false);
+      setLoading(false);
     }
   };
 
   return (
     <>
-      <Head>
-        <title>{headData.title}</title>
-        <link rel="icon" href="../favicon.ico" />
-        <meta name="of:title" content={headData.content} />
-        <meta name="of:description" content={headData.description} />
-        <meta property="og:url" content={headData.url} />
-        <meta property="og:image" content={headData.image} />
-        <link rel="apple-touch-icon" href="../logo192.png" />
-        <link rel="manifest" href="../manifest.json" />
-      </Head>
-
       <NavBar />
 
       <div className="bg-gray-50 flex flex-col items-center px-4 py-8 md:px-16 pt-24 md:pt-36">
         {/* Encabezado */}
         <div className="text-center max-w-4xl">
-          <h1 className="text-2xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
             {info[0].titulo1}
           </h1>
-          <p className="text-gray-600 text-sm md:text-2xl">
+          <p className="text-gray-600 text-xl md:text-2xl">
             {info[0].parrafo1}
           </p>
         </div>
 
-        <div className="mt-6 mb-4">
-          {/* Botón que ABRE el nuevo modal de Demo Gratis */}
-          <Link href="/prueba">
-            <button className="button-small">Prueba Gratis ¡YA!</button>
-          </Link>
-        </div>
-
         {/* Imagen destacada */}
-        <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[#e5e5e5] rounded-[1.2em] max-w-xl">
+        <div className="w-full flex flex-col items-center gap-4 justify-start p-2 bg-[#fbfbfad9] border-[#e5e5e5] max-w-2xl mt-6">
           <img
-            className=" w-full object-contain "
+            className="w-full object-contain rounded-[1.2em]"
             src={info[0].imagen1}
-            alt=""
+            alt="Mejora de procesos"
           />
         </div>
 
         {/* Sección 2-col */}
-        <div className="content grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-36 px-[20px] items-center">
+        <div className="content grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-36 px-[20px] items-center mt-8">
           <div className="flex flex-col items-center text-center max-w-2xl">
-            <h2 className="title3-tw">{info[0].titulo2}</h2>
-            <p className="text-gray-600 text-sm md:text-2xl">
+            <h2 className="md:text-5xl font-bold text-gray-900 mb-2 leading-tight text-2xl">
+              {info[0].titulo2}
+            </h2>
+            <p className="text-gray-600 text-xl md:text-2xl">
               {info[0].parrafo2}
             </p>
           </div>
-          <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[#e5e5e5] max-w-xl">
+          <div className="w-full flex flex-col items-center gap-4 justify-start p-2 bg-[#fbfbfad9] border-[#e5e5e5] max-w-xl">
             <img
               className="w-full object-contain rounded-[1.2em]"
               src={info[0].imagen2}
-              alt=""
+              alt="Maquinaria financiada"
             />
           </div>
         </div>
 
-        {/* Razones */}
-        <div className="flex flex-col items-center justify-center py-16 px-2">
+        {/* Razones de éxito */}
+        <div className="flex flex-col items-center justify-center py-6 px-2">
           <div className="heading-block flex flex-col justify-center items-center mb-16">
             <h2 className="title2-tw text-center uppercase">
               {info[0].titulorazones}
@@ -209,31 +203,33 @@ function Destacaeninternet() {
                 <span className="inline-block p-4 rounded text-white bg-principal">
                   1
                 </span>
-                <h5 className="text-[12px] md:text-[18px] font-bold">
+                <h5 className="text-[16px] md:text-[18px] font-bold">
                   {info[0].razon1}
                 </h5>
                 <p className="parrafo-tw paragraph-feature">
                   {info[0].parraforazon1}
                 </p>
               </div>
+
               {/* Razón 2 */}
               <div className="bg-gray-100 flex flex-col gap-3 items-start p-6 md:p-8">
                 <span className="inline-block p-4 rounded text-white bg-principal">
                   2
                 </span>
-                <h1 className="text-[12px] md:text-[18px] font-bold">
+                <h1 className="text-[16px] md:text-[18px] font-bold">
                   {info[0].razon2}
                 </h1>
                 <p className="parrafo-tw paragraph-feature">
                   {info[0].parraforazon2}
                 </p>
               </div>
+
               {/* Razón 3 */}
               <div className="bg-gray-100 flex flex-col gap-3 items-start p-6 md:p-8">
                 <span className="inline-block p-4 rounded text-white bg-principal">
                   3
                 </span>
-                <h1 className="text-[12px] md:text-[18px] font-bold">
+                <h1 className="text-[16px] md:text-[18px] font-bold">
                   {info[0].razon3}
                 </h1>
                 <p className="parrafo-tw paragraph-feature">
@@ -246,32 +242,34 @@ function Destacaeninternet() {
 
         {/* Otra Sección 2-col */}
         <div className="content grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-36 px-[20px] items-center">
-          <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[#e5e5e5] max-w-xl">
+          <div className="w-full flex flex-col items-center gap-4 justify-start p-2 bg-[#fbfbfad9] border-[#e5e5e5] max-w-xl">
             <img
               className="w-full object-contain rounded-[1.2em]"
               src={info[0].imagen3}
-              alt=""
+              alt="Procesos rentables"
             />
           </div>
-          <div className="w-full flex flex-col items-center gap-4 justify-center p-8 bg-[#fbfbfad9] border-[#e5e5e5] rounded-[1.2em] max-w-2xl">
-            <h2 className="title3-tw">{info[0].titulo3}</h2>
-            <p className="text-gray-600 text-sm md:text-2xl text-center">
+          <div className="w-full flex flex-col items-center gap-4 justify-center p-2 bg-[#fbfbfad9] border-[#e5e5e5] rounded-[1.2em] max-w-2xl">
+            <h2 className="text-2xl md:text-5xl font-bold text-gray-900 leading-tight text-center">
+              {info[0].titulo3}
+            </h2>
+            <p className="text-gray-600 text-xl md:text-2xl text-center">
               {info[0].parrafo3}
             </p>
           </div>
         </div>
 
-        {/* Sección final con la imagen de fondo */}
-        <div className="bg-gray-50 flex flex-col items-center px-4 py-8 md:px-16 pt-24 md:pt-36">
-          <div className="text-center max-w-4xl mb-4">
-            <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight text-center">
+        {/* CTA final */}
+        <div className="bg-gray-50 flex flex-col items-center px-4 py-8 md:px-16 pt-6 md:pt-12">
+          <div className="text-center max-w-4xl">
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-tight text-center">
               {info[0].titulo4}
             </h1>
           </div>
           <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
             {/* Imagen de fondo */}
             <img
-              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg"
+              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/horno-eficiente-lograr.jpg"
               alt="Background"
               className="absolute top-0 left-0 w-full h-full object-cover z-0"
             />
@@ -281,45 +279,46 @@ function Destacaeninternet() {
             <div className="relative z-20 flex flex-col justify-center items-center h-full p-8 text-white">
               <div>
                 <div className="mb-8 text-center">
-                  <p className="text-4xl font-bold text-white">
+                  <p className="text-3xl md:text-4xl font-bold text-white">
                     15 días gratis
                   </p>
                   <p className="text-lg text-gray-300">Sin compromisos</p>
                 </div>
                 <div className="text-center"></div>
               </div>
-              <button className="button-small" onClick={toggleModal2}>
-                Demo Gratis ¡YA!
+              {/* Botón que ABRE el modal “Demo Gratis” */}
+              <button className="button-small" onClick={toggleModal}>
+                Demo Gratis
               </button>
             </div>
           </div>
         </div>
       </div>
 
-      {/* MODAL con Formulario de Demo Gratis (segundo modal) */}
-      {isModalOpen2 && (
+      {/* MODAL con Formulario de “Demo Gratis” */}
+      {isModalOpen && (
         <div className={styles.modalOverlay}>
           <div className={styles.modalContent}>
             <div className={styles.modalHeader}>
               <h2>Obtén Tu Demo Gratis Ahora</h2>
-              <button className={styles.closeModal} onClick={toggleModal2}>
+              <button className={styles.closeModal} onClick={toggleModal}>
                 &times;
               </button>
             </div>
             <div className={styles.modalBody}>
-              {/* Alerta global si existe alertMessage2 */}
-              {alertMessage2 && (
+              {alertMessage && (
                 <div
                   className={`${styles.alert} ${
-                    alertType2 === "error"
+                    alertType === "error"
                       ? styles.alertError
                       : styles.alertSuccess
                   }`}
                 >
-                  {alertMessage2}
+                  {alertMessage}
                 </div>
               )}
-              {loading2 ? (
+
+              {loading ? (
                 <div className="flex flex-col items-center justify-center space-y-4 my-4">
                   <div className="animate-spin w-16 h-16 border-4 border-[#FFD700] border-t-transparent rounded-full"></div>
                   <p className="text-xl font-semibold text-yellow-300">
@@ -327,7 +326,7 @@ function Destacaeninternet() {
                   </p>
                 </div>
               ) : (
-                <form id="customForm2" onSubmit={handleFormSubmit2}>
+                <form id="demoForm" onSubmit={handleFormSubmit}>
                   <div>
                     <label htmlFor="first_name"></label>
                     <input
@@ -337,9 +336,9 @@ function Destacaeninternet() {
                       placeholder="Nombre(s) completo"
                       className={styles.hsInput}
                     />
-                    {errors2.first_name && (
+                    {errors.first_name && (
                       <span className={styles.errorText}>
-                        {errors2.first_name}
+                        {errors.first_name}
                       </span>
                     )}
                   </div>
@@ -352,9 +351,9 @@ function Destacaeninternet() {
                       placeholder="Apellido(s) completo"
                       className={styles.hsInput}
                     />
-                    {errors2.last_name && (
+                    {errors.last_name && (
                       <span className={styles.errorText}>
-                        {errors2.last_name}
+                        {errors.last_name}
                       </span>
                     )}
                   </div>
@@ -367,8 +366,8 @@ function Destacaeninternet() {
                       placeholder="Correo electrónico"
                       className={styles.hsInput}
                     />
-                    {errors2.email && (
-                      <span className={styles.errorText}>{errors2.email}</span>
+                    {errors.email && (
+                      <span className={styles.errorText}>{errors.email}</span>
                     )}
                   </div>
                   <div>
@@ -380,17 +379,13 @@ function Destacaeninternet() {
                       placeholder="Número de WhatsApp (10 dígitos)"
                       className={styles.hsInput}
                     />
-                    {errors2.whatsapp && (
+                    {errors.whatsapp && (
                       <span className={styles.errorText}>
-                        {errors2.whatsapp}
+                        {errors.whatsapp}
                       </span>
                     )}
                     {/* Campos ocultos */}
-                    <input
-                      type="hidden"
-                      name="origin"
-                      value="detacainternetdemogratis"
-                    />
+                    <input type="hidden" name="origin" value="demoGratis" />
                     <input type="hidden" name="status" value="creado" />
                   </div>
                   <div>
@@ -408,4 +403,4 @@ function Destacaeninternet() {
   );
 }
 
-export default Destacaeninternet;
+export default MejorarProcesos;

@@ -1,61 +1,132 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "../../components/NavBarBlack/NavBarEs";
+import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta si corresponde
+import axios from "axios";
 import Link from "next/link";
 
-function Lalloronacantina() {
-  const head = [
-    {
-      title:
-        "Historia de Éxito: Transformando la Cantina La Llorona | Impulso Restaurantero",
-      content: "Historia de Éxito: Transformando la Cantina La Llorona",
-      description:
-        "Te ayudamos a destacar en internet con páginas optimizadas, técnicas avanzadas de SEO y estrategias digitales efectivas.",
-      url: "https://www.impulsorestaurantero.com/",
-      image:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/capacitacion-mesero.jpg",
-    },
-  ];
+function AyudaEstrategica() {
+  // Datos de Morimoto adaptados
   const info = [
     {
-      titulo1: "Historia de Éxito: Transformando de cero a 100. ",
+      titulo1:
+        "Historia de Éxito: Morimoto, desde la tradición japonesa a la expansión total",
       parrafo1:
-        "Con el apoyo de Impulso Restaurantero, implementaremos un plan integral que incluye: Optimización Digital Avanzada. Estrategias Basadas en Datos Aplicamos inteligencia artificial y Capacitación con Inteligencia Artificial .",
-
+        "Con el apoyo de Impulso Restaurantero, Morimoto logró asegurar todos sus permisos de operación, implementar un punto de venta con soporte 24/7 y llenar su lugar gracias al Growth Hacking: un conjunto de estrategias que disparan el alcance y las reservas en poco tiempo.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/capacitacion-mesero.jpg",
-      titulo2: "Un Modelo Innovador de Cantina que Enamora",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/restaurantes-japoneses-cdmx-impulso-restaurantero.jpg",
+      titulo2: "Tradición Japonesa con un Toque de Innovación",
       parrafo2:
-        "Transformamos el concepto tradicional de una cantina en una experiencia vibrante y moderna, logrando que nuestros clientes se enamoren del nuevo enfoque. Con un diseño auténtico y una propuesta gastronómica única, conquistamos a quienes buscan lo mejor de la tradición con un toque fresco y actual.",
+        "Transformamos el concepto tradicional de la gastronomía japonesa en una experiencia vibrante y moderna. Con un diseño auténtico y un menú irresistible, Morimoto enamora a quienes buscan lo mejor de la tradición con un toque actual.",
       imagen2:
-        "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/inicio/chicharron%2Bpork%2Bbelly%2Bguacamole%2Bcantina%2Bllorona.jpg",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/estrategias-crecimiento-growth-impulso.jpg",
       titulorazones:
-        "3 CLAVES QUE CONVIRTIERON A CANTINA LA LLORONA EN EL NUEVO HOTSPOT DE LA ROMA-CONDESA",
-      razon1:
-        "Cocina Innovadora que Reinventa Tradiciones que se adapta al mercado",
+        "3 CLAVES QUE CONVIRTIERON A MORIMOTO EN EL NUEVO HOTSPOT JAPONÉS DE LA CDMX",
+      razon1: "Permisos Gestionados y Operación Legal",
       parraforazon1:
-        "Transformamos los platillos tradicionales mexicanos en experiencias gastronómicas únicas. Con técnicas modernas y una cuidadosa selección de ingredientes, nuestra propuesta reinterpreta la cocina mexicana para cautivar a un público contemporáneo que busca lo auténtico con un toque innovador.",
-      razon2: "Automatización y Remarketing Personalizado",
+        "Nos encargamos de los trámites y requisitos legales para que Morimoto cumpliera con todas las normativas vigentes. Esto incluyó las licencias de funcionamiento, manejo higiénico de alimentos y asesoría especializada, garantizando una apertura sin contratiempos.",
+      razon2: "Punto de Venta con Soporte 24/7",
       parraforazon2:
-        "Implementamos estrategias de remarketing basadas en el historial de navegación y comportamientos previos. Por ejemplo, si alguien visita tu menú en línea, recibirá un anuncio específico destacando tus platillos más populares con un botón directo para reservar o pedir.",
-
-      razon3: "Recursos Humanos con Inteligencia Artificial",
+        "Implementamos un sistema de punto de venta que agilizó la toma de órdenes y el control de inventarios. Con asistencia 24/7, el restaurante puede enfocarse en crear experiencias memorables sin preocuparse por fallas técnicas.",
+      razon3: "Growth Hacking para Llenar el Lugar",
       parraforazon3:
-        "mplementamos un modelo de gestión que combina inteligencia artificial con estrategias personalizadas para capacitar a nuestro equipo. Desde la creación de manuales digitales hasta evaluaciones en tiempo real, aseguramos un servicio impecable que eleva cada visita a un estándar superior.",
-
-      titulo3: "Adaptándonos al Futuro de las Cantinas",
+        "Aplicamos estrategias de growth hacking, un conjunto de técnicas creativas y orientadas a datos para atraer y retener clientes rápidamente. Desde anuncios segmentados en redes sociales hasta promociones relámpago, logramos que Morimoto destaque y aumente reservas en tiempo récord.",
+      titulo3: "Adaptándonos al Futuro de la Gastronomía Japonesa",
       parrafo3:
-        "Descubre cómo transformamos Cantina La Llorona en un referente innovador, adaptando su concepto y mixología a las tendencias actuales del mercado. Con un enfoque en la creatividad y la personalización, logramos conectar con una audiencia moderna, ofreciendo experiencias que combinan tradición y vanguardia.",
+        "Descubre cómo convertimos a Morimoto en un referente innovador, fusionando la tradición nipona con la vanguardia digital. Con asesoría permanente, logramos posicionarlos como el lugar favorito para quienes buscan auténtica comida japonesa en la Ciudad de México.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/llorona/nextImage/inicio/amigastomandoCantinaLlorona.JPG",
-
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/comiendo-comida-rica-japonesa-impulso.jpg",
       titulo4:
-        "¿Sabías que podrías duplicar tus ventas con las estrategias correctas? En Impulso Restaurantero, hicimos que Cantina La Llorona se convirtiera en el lugar favorito de Roma-Condesa. ",
+        "¿Sabías que podrías duplicar tus ventas con las estrategias correctas? En Impulso Restaurantero, hicimos que Morimoto se convirtiera en el nuevo epicentro de la cultura japonesa.",
     },
   ];
+
+  // ESTADOS para el modal y formulario “Demo Gratis”
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [alertType, setAlertType] = useState("");
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  // Abrir/cerrar modal
+  const toggleModal = () => {
+    setIsModalOpen((prev) => !prev);
+  };
+
+  // Validar formulario
+  const validateForm = (data) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const whatsappRegex = /^[0-9]{10}$/;
+    const fieldErrors = {};
+
+    if (!data.first_name) {
+      fieldErrors.first_name = "Por favor, ingresa tu nombre.";
+    }
+    if (!data.last_name) {
+      fieldErrors.last_name = "Por favor, ingresa tu apellido.";
+    }
+    if (!data.email || !emailRegex.test(data.email)) {
+      fieldErrors.email = "Por favor, ingresa un correo electrónico válido.";
+    }
+    if (!data.whatsapp || !whatsappRegex.test(data.whatsapp)) {
+      fieldErrors.whatsapp =
+        "Por favor, ingresa un número de WhatsApp válido (10 dígitos).";
+    }
+    setErrors(fieldErrors);
+    return Object.keys(fieldErrors).length === 0;
+  };
+
+  // Submit del formulario
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    setAlertMessage("");
+    setAlertType("");
+    setErrors({});
+
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+
+    if (!validateForm(data)) {
+      setAlertMessage("Por favor, corrige los errores en el formulario.");
+      setAlertType("error");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      // Ajustar la URL de tu backend
+      const response = await axios.post(
+        "http://localhost:3333/api/prospectsmeeting",
+        data
+      );
+
+      if (response.status === 200) {
+        alert("¡Email enviado!");
+        e.target.reset();
+        toggleModal();
+      } else {
+        alert("¡Email enviado!");
+        e.target.reset();
+        toggleModal();
+      }
+    } catch (error) {
+      console.error(
+        "Error al enviar el formulario:",
+        error.response?.data || error.message
+      );
+      setAlertMessage(
+        "Hubo un error al enviar tu información. Por favor, intenta de nuevo."
+      );
+      setAlertType("error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <NavBar />
       <div className="bg-gray-50 flex flex-col items-center px-4 py-8 md:px-16 pt-24 md:pt-36">
+        {/* Encabezado */}
         <div className="text-center max-w-4xl">
           <h1 className="text-2xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
             {info[0].titulo1}
@@ -65,13 +136,24 @@ function Lalloronacantina() {
           </p>
         </div>
         <div className="mt-6 mb-4"></div>
+
+        {/* Imagen destacada */}
         <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[#e5e5e5] max-w-2xl">
           <img
             className=" w-full object-contain rounded-[1.2em]"
             src={info[0].imagen1}
-            alt=""
+            alt="Morimoto Permisos"
           />
         </div>
+
+        <div className="mt-6 mb-4">
+          {/* Botón que ABRE el nuevo modal de Demo Gratis */}
+          <Link href="/prueba">
+            <button className="button-small">Prueba Gratis ¡YA!</button>
+          </Link>
+        </div>
+
+        {/* Sección 2-col */}
         <div className="content grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-36 px-[20px] items-center">
           <div className="flex flex-col items-center text-center max-w-2xl">
             <h2 className="title3-tw">{info[0].titulo2}</h2>
@@ -83,10 +165,12 @@ function Lalloronacantina() {
             <img
               className="w-full object-contain rounded-[1.2em]"
               src={info[0].imagen2}
-              alt=""
+              alt="Morimoto Menú"
             />
           </div>
         </div>
+
+        {/* Razones de éxito */}
         <div className="flex flex-col items-center justify-center py-16 px-2">
           <div className="heading-block flex flex-col justify-center items-center mb-16">
             <h2 className="title2-tw text-center uppercase">
@@ -95,6 +179,7 @@ function Lalloronacantina() {
           </div>
           <div className="max-w-[1050px] mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Razón 1 */}
               <div className="bg-gray-100 flex flex-col gap-3 items-start p-6 md:p-8">
                 <span className="inline-block p-4 rounded text-white bg-principal">
                   1
@@ -106,6 +191,7 @@ function Lalloronacantina() {
                   {info[0].parraforazon1}
                 </p>
               </div>
+              {/* Razón 2 */}
               <div className="bg-gray-100 flex flex-col gap-3 items-start p-6 md:p-8">
                 <span className="inline-block p-4 rounded text-white bg-principal">
                   2
@@ -117,6 +203,7 @@ function Lalloronacantina() {
                   {info[0].parraforazon2}
                 </p>
               </div>
+              {/* Razón 3 */}
               <div className="bg-gray-100 flex flex-col gap-3 items-start p-6 md:p-8">
                 <span className="inline-block p-4 rounded text-white bg-principal">
                   3
@@ -131,12 +218,14 @@ function Lalloronacantina() {
             </div>
           </div>
         </div>
+
+        {/* Otra Sección 2-col */}
         <div className="content grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-36 px-[20px] items-center">
           <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[#e5e5e5] max-w-xl">
             <img
               className="w-full object-contain rounded-[1.2em]"
               src={info[0].imagen3}
-              alt=""
+              alt="Futuro de las Cantinas"
             />
           </div>
           <div className="w-full flex flex-col items-center gap-4 justify-center p-8 bg-[#fbfbfad9] border-[#e5e5e5] rounded-[1.2em] max-w-2xl">
@@ -146,20 +235,19 @@ function Lalloronacantina() {
             </p>
           </div>
         </div>
+
+        {/* CTA final */}
         <div className="bg-gray-50 flex flex-col items-center px-4 py-8 md:px-16 pt-24 md:pt-36">
           <div className="text-center max-w-4xl mb-4">
             <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight text-center">
               {info[0].titulo4}
             </h1>
-            <p className="text-gray-600 text-sm md:text-2xl text-center">
-              Obten tu demo gratis ya
-            </p>
           </div>
           <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
             {/* Imagen de fondo */}
             <img
-              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/llorona/nextImage/inicio/llorona%2Bson%2Bgrupo%2Bcuano%2Bcantina%2Bweb.jpg"
-              alt="Background"
+              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/restaurantes-japoneses-cdmx-impulso-restaurantero.jpg"
+              alt="rica comida"
               className="absolute top-0 left-0 w-full h-full object-cover z-0"
             />
             {/* Gradiente superpuesto */}
@@ -175,15 +263,125 @@ function Lalloronacantina() {
                 </div>
                 <div className="text-center"></div>
               </div>
-              <Link href="/demogratis">
-                <button className="button-small">Demo Gratis ya</button>
-              </Link>
+              {/* Botón que abre el modal */}
+              <button className="button-small" onClick={toggleModal}>
+                Demo Gratis ya
+              </button>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Modal para Demo Gratis */}
+      {isModalOpen && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modalContent}>
+            <div className={styles.modalHeader}>
+              <h2>Obtén Tu Demo Gratis Ahora</h2>
+              <button className={styles.closeModal} onClick={toggleModal}>
+                &times;
+              </button>
+            </div>
+            <div className={styles.modalBody}>
+              {/* Alerta global si existe alertMessage */}
+              {alertMessage && (
+                <div
+                  className={`${styles.alert} ${
+                    alertType === "error"
+                      ? styles.alertError
+                      : styles.alertSuccess
+                  }`}
+                >
+                  {alertMessage}
+                </div>
+              )}
+              {loading ? (
+                <div className="flex flex-col items-center justify-center space-y-4 my-4">
+                  <div className="animate-spin w-16 h-16 border-4 border-[#FFD700] border-t-transparent rounded-full"></div>
+                  <p className="text-xl font-semibold text-yellow-300">
+                    Enviando información, por favor espera...
+                  </p>
+                </div>
+              ) : (
+                <form id="customForm" onSubmit={handleFormSubmit}>
+                  <div>
+                    <label htmlFor="first_name"></label>
+                    <input
+                      type="text"
+                      id="first_name"
+                      name="first_name"
+                      placeholder="Nombre(s) completo"
+                      className={styles.hsInput}
+                    />
+                    {errors.first_name && (
+                      <span className={styles.errorText}>
+                        {errors.first_name}
+                      </span>
+                    )}
+                  </div>
+                  <div>
+                    <label htmlFor="last_name"></label>
+                    <input
+                      type="text"
+                      id="last_name"
+                      name="last_name"
+                      placeholder="Apellido(s) completo"
+                      className={styles.hsInput}
+                    />
+                    {errors.last_name && (
+                      <span className={styles.errorText}>
+                        {errors.last_name}
+                      </span>
+                    )}
+                  </div>
+                  <div>
+                    <label htmlFor="email"></label>
+                    <input
+                      type="text"
+                      id="email"
+                      name="email"
+                      placeholder="Correo electrónico"
+                      className={styles.hsInput}
+                    />
+                    {errors.email && (
+                      <span className={styles.errorText}>{errors.email}</span>
+                    )}
+                  </div>
+                  <div>
+                    <label htmlFor="whatsapp"></label>
+                    <input
+                      type="text"
+                      id="whatsapp"
+                      name="whatsapp"
+                      placeholder="Número de WhatsApp (10 dígitos)"
+                      className={styles.hsInput}
+                    />
+                    {errors.whatsapp && (
+                      <span className={styles.errorText}>
+                        {errors.whatsapp}
+                      </span>
+                    )}
+                    {/* Campos ocultos */}
+                    <input
+                      type="hidden"
+                      name="origin"
+                      value="AyudaEstrategicademogratis"
+                    />
+                    <input type="hidden" name="status" value="creado" />
+                  </div>
+                  <div>
+                    <button type="submit" className={styles.hsSubmit}>
+                      Sí, quiero mi demo gratis
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
 
-export default Lalloronacantina;
+export default AyudaEstrategica;
