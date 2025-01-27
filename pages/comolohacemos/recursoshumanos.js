@@ -24,12 +24,12 @@ function Recursoshumanos() {
       parrafo1:
         "En Impulso Restaurantero ofrecemos manuales especializados y un departamento de recursos humanos con inteligencia artificial para optimizar la gestión de tu personal, así como el manejo de despidos de manera profesional.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/recursosHumanos/human-resources1.jpg",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/estructura-recursos-humanos.jpg",
       titulo2: "Un Equipo Más Eficiente",
       parrafo2:
         "Con nuestro enfoque de IA, te ayudamos a crear manuales de procedimientos claros, capacitar a tu personal y automatizar procesos administrativos. Optimiza la productividad y reduce la rotación laboral.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/recursosHumanos/hr-ai.jpg",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/recursos-humanos-ia-impulso.jpg",
       titulorazones:
         "3 RAZONES PARA IMPLEMENTAR RECURSOS HUMANOS CON INTELIGENCIA ARTIFICIAL",
       razon1: "Automatización de Procesos Clave",
@@ -45,7 +45,7 @@ function Recursoshumanos() {
       parrafo3:
         "Descubre cómo otros restauranteros han transformado su cultura organizacional y mejorado la retención de talentos gracias a nuestros servicios de Recursos Humanos con IA.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/recursosHumanos/team.jpg",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/recursoshumanos-impulso-restaurantero.jpg",
       titulo4:
         "¿Listo para optimizar tu departamento de recursos humanos y reducir la rotación laboral?",
     },

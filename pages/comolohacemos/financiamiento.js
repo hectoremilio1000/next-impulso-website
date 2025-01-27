@@ -25,13 +25,13 @@ function Financiamiento() {
         "En Impulso Restaurantero te brindamos opciones de financiamiento flexibles y con tasas competitivas para que puedas adquirir el equipo necesario y expandir tu restaurante sin que tu flujo de efectivo se vea afectado.",
 
       imagen1:
-        "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/comolohacemos/financiamiento.jpg", // Ajusta la imagen a tu gusto
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/financiamiento-restaurante-impulso.jpg", // Ajusta la imagen a tu gusto
 
       titulo2: "Compra de Equipo y Crecimiento",
       parrafo2:
         "No importa si necesitas una nueva estufa industrial, mobiliario, o si buscas abrir una sucursal adicional. Nuestro financiamiento está diseñado para impulsar tu crecimiento con pagos accesibles y asesoría especializada.",
       imagen2:
-        "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/comolohacemos/financiamiento-cocina.jpg", // Ajusta la imagen a tu gusto
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/impulso-compra-equipo.jpg", // Ajusta la imagen a tu gusto
 
       titulorazones:
         "3 RAZONES POR LAS QUE NUESTRO FINANCIAMIENTO ES TU MEJOR ALIADO",
@@ -48,7 +48,7 @@ function Financiamiento() {
       parrafo3:
         "Hemos ayudado a numerosos restauranteros a crecer con financiamiento inteligente. Conoce cómo nuestro apoyo ha transformado negocios y potenciado sus operaciones.",
       imagen3:
-        "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/comolohacemos/growth-financiamiento.jpg", // Ajusta la imagen a tu gusto
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/exito-financiamiento-impulso-restaurantero.jpg", // Ajusta la imagen a tu gusto
 
       titulo4:
         "¿Listo para llevar tu restaurante al siguiente nivel? Nuestro financiamiento te respalda.",

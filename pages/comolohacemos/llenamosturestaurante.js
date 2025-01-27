@@ -46,7 +46,7 @@ function Llenamosturestaurante() {
       parrafo3:
         "Hemos ayudado a más de 1,000 restauranteros a llenar sus mesas cada semana. Olvídate de la incertidumbre y descubre cómo la tecnología puede disparar tu facturación.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/649c99bf1948a130a34f7abb_Wins+copy.png", // Ajusta la imagen si deseas
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/restaurante-lleno-impulso.jpg", // Ajusta la imagen si deseas
       titulo4:
         "¿Quieres un restaurante lleno todos los días? Con nuestras estrategias, verás más clientes y menos sillas vacías.",
     },

@@ -24,12 +24,12 @@ function Inventarios() {
       parrafo1:
         "Control preciso y procesos optimizados para reducir costos y aumentar ganancias.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg", // Cambia por la imagen que desees
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/inteligencia-impulso-restaurantero.jpg", // Cambia por la imagen que desees
       titulo2: "Gestión Eficiente de Recursos",
       parrafo2:
         "Mantén un control en tiempo real de tu inventario, recibe alertas automáticas de stock y pronósticos de demanda para tomar decisiones basadas en datos.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/googleSeo.png", // Cambia por la imagen que desees
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/inventario-restaurantes-impulso-restaurantero.jpg", // Cambia por la imagen que desees
       titulorazones:
         "3 BENEFICIOS DE NUESTRO CONTROL DE INVENTARIO PARA TU RESTAURANTE",
       razon1: "Reducción de Desperdicios",
@@ -45,7 +45,7 @@ function Inventarios() {
       parrafo3:
         "Descubre cómo restauranteros han optimizado sus procesos de inventario, reduciendo costos y aumentando sus ganancias.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/guia-como-hacer-seo.jpg", // Cambia por la imagen que desees
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/mejora-impulso-inventarios.jpg", // Cambia por la imagen que desees
       titulo4:
         "¿Listo para tener un control total de tu inventario y maximizar tus ganancias?",
     },

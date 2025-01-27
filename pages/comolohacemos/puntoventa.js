@@ -30,7 +30,7 @@ function Puntoventa() {
       parrafo2:
         "Olvídate de los retrasos y la confusión en tu operación diaria. Con nuestra tecnología, cada pedido se procesa rápido y queda registrado para un seguimiento preciso de las ventas.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/inventarios%2Bcontrol%2Beficiencia%2Bimpulso.jpg",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/punto-impulso-restaurantero-crecer-ventas.png ",
       titulorazones:
         "3 CLAVES PARA OPTIMIZAR TU RESTAURANTE CON NUESTRO PUNTO DE VENTA",
       razon1: "Procesos Sin Errores",
@@ -46,7 +46,7 @@ function Puntoventa() {
       parrafo3:
         "Conoce cómo cientos de dueños de restaurantes han elevado sus ventas gracias a un punto de venta confiable y fácil de usar. Agiliza tus operaciones y enfócate en lo que importa: el cliente.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/649c99bf1948a130a34f7abb_Wins+copy.png",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/Punto-de-Venta-impulso.png",
       titulo4:
         "¿Listo para un punto de venta que nunca te falle? Nuestro soporte 24/7 te permitirá ofrecer un servicio impecable en cada pedido.",
     },

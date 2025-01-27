@@ -24,12 +24,12 @@ function Monitoreo() {
       parrafo1:
         "Controla la productividad de tu equipo y recopila información de tus clientes con sistemas de monitoreo 24/7. Aprovecha los datos para optimizar procesos y aumentar tus ventas.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/monitoreo-camaras-impulso.jpg",
       titulo2: "Productividad y Seguridad",
       parrafo2:
         "Nuestros sistemas te ayudan a supervisar el desempeño del personal, garantizando calidad en el servicio y la seguridad de tu negocio. Los datos obtenidos son clave para tomar decisiones basadas en métricas reales.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/googleSeo.png",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/circuito-cerrado-impulso.jpg",
       titulorazones: "3 FORMAS EN QUE EL MONITOREO 24/7 IMPULSA TU RESTAURANTE",
       razon1: "Seguridad y Control de Procesos",
       parraforazon1:
@@ -44,7 +44,7 @@ function Monitoreo() {
       parrafo3:
         "Descubre cómo otros restauranteros han mejorado su productividad y la experiencia de sus clientes con monitoreo inteligente 24/7.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/guia-como-hacer-seo.jpg",
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/impulso-camaras-seguridad.jpg",
       titulo4:
         "¿Listo para transformar tu operación y maximizar tus ganancias con ayuda de la IA?",
     },

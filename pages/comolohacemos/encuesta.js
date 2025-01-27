@@ -29,7 +29,7 @@ function Encuesta() {
       parrafo2:
         "Mediante tecnología avanzada, puedes recibir comentarios de tus clientes en tiempo real durante su visita. Detecta problemas antes de que se vayan y fidelízalos con mejoras inmediatas.",
       imagen2:
-        "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logosEmpresasSocios/lalloronblanco.png", // Cambia si tienes otra imagen
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/encuesta-restaurante-amigos-impulso.jpeg", // Cambia si tienes otra imagen
       titulorazones:
         "3 CLAVES QUE HACEN DE NUESTRAS ENCUESTAS UNA HERRAMIENTA PODEROSA",
       razon1: "Captura la Opinión en el Momento Preciso",
@@ -45,7 +45,7 @@ function Encuesta() {
       parrafo3:
         "Descubre cómo nuestras encuestas en tiempo real han transformado la experiencia de cientos de restaurantes, permitiéndoles corregir fallas al instante y ganar la confianza de los comensales.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/pizzas-de-masa-madre-impulso-restaurantero.jpg", // Ajusta si lo deseas
+        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/encuesta-profresional-impulso.jpg", // Ajusta si lo deseas
       titulo4:
         "¿Listo para escuchar a tus clientes y llevar tu restaurante al siguiente nivel? En Impulso Restaurantero te ofrecemos encuestas en tiempo real para que nada se te escape.",
     },
