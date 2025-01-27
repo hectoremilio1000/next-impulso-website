@@ -189,7 +189,7 @@ function NavBar() {
         <div className="header-icons">
           <a
             key="0"
-            href="https://www.facebook.com/Lalloronacantinacdmx"
+            href="https://www.facebook.com/profile.php?id=61572817134152"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -197,7 +197,7 @@ function NavBar() {
           </a>
           <a
             key="1"
-            href="https://www.instagram.com/cantinalallorona/"
+            href="https://www.instagram.com/impulsorestaurantero?igsh=ODczMzE2bTVnbnB3&utm_source=qr"
             target="_blank"
             rel="noopener noreferrer"
           >
