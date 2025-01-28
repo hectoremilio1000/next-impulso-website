@@ -135,10 +135,10 @@ function PruebaGratis({ backgroundImage }) {
 
           <div className={styles.modalContent}>
             <div className={styles.modalHeader}>
-              <h2>
-                Pide tu prueba gratis y además recibe información única de
-                restaurantes exitosos
-              </h2>
+              <p className="text-xs text-white">
+                Pide tu prueba gratis y recibe información única de restaurantes
+                exitosos
+              </p>
             </div>
 
             <div className={styles.modalBody}>
