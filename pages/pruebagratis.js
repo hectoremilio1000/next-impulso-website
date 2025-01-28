@@ -5,6 +5,7 @@ import Link from "next/link";
 import axios from "axios";
 
 function PruebaGratis({ backgroundImage }) {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   // ESTADOS para validaciones, spinner, alertas
   const [loading, setLoading] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
@@ -63,10 +64,7 @@ function PruebaGratis({ backgroundImage }) {
     try {
       setLoading(true);
       // Ajusta la URL según tu backend
-      const response = await axios.post(
-        "http://localhost:3333/api/prospectsmeeting",
-        data
-      );
+      const response = await axios.post(`${apiUrl}/prospectsmeeting`, data);
 
       if (response.status === 200) {
         alert("¡Email enviado!");

@@ -5,6 +5,8 @@ import axios from "axios";
 import Link from "next/link";
 
 function Lalloronacantina() {
+  // URL de tu backend
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const head = [
     {
       title: "Destaca en Internet | Impulso Restaurantero",
@@ -106,10 +108,7 @@ function Lalloronacantina() {
     try {
       setLoading(true);
       // Ajusta la URL según tu backend
-      const response = await axios.post(
-        "http://localhost:3333/api/prospectsmeeting",
-        data
-      );
+      const response = await axios.post(`${apiUrl}/prospectsmeeting`, data);
 
       if (response.status === 200) {
         alert("¡Email enviado!");

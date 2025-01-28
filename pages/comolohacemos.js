@@ -8,6 +8,7 @@ import axios from "axios";
 import styles from "../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta si es necesario
 
 function Comolohacemos() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   // Datos de Preguntas Frecuentes
   const faqs = [
     {
@@ -81,10 +82,7 @@ function Comolohacemos() {
     try {
       setLoading(true);
       // Ajusta la URL según tu backend
-      const response = await axios.post(
-        "http://localhost:3333/api/prospectsmeeting",
-        data
-      );
+      const response = await axios.post(`${apiUrl}/prospectsmeeting`, data);
 
       if (response.status === 200) {
         alert("¡Email enviado!");

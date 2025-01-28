@@ -6,6 +6,8 @@ import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta 
 import axios from "axios";
 
 function Permisos() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
   // --- Metadatos para <Head> ---
   const headData = {
     title: "Permisos y Asesoría 24/7 | Impulso Restaurantero",
@@ -115,10 +117,7 @@ function Permisos() {
     try {
       setLoading2(true);
       // Ajusta la URL según tu backend
-      const response = await axios.post(
-        "http://localhost:3333/api/prospectsmeeting",
-        data
-      );
+      const response = await axios.post(`${apiUrl}/prospectsmeeting`, data);
 
       if (response.status === 200) {
         alert("¡Email enviado!");

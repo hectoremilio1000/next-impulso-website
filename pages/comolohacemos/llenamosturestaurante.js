@@ -6,6 +6,8 @@ import axios from "axios";
 import Link from "next/link";
 
 function Llenamosturestaurante() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
   // --- Metadatos para <Head> ---
   const headData = {
     title: "Llenamos tu Restaurante | Impulso Restaurantero",
@@ -106,10 +108,7 @@ function Llenamosturestaurante() {
     try {
       setLoading2(true);
       // Ajusta la URL según tu backend
-      const response = await axios.post(
-        "http://localhost:3333/api/prospectsmeeting",
-        data
-      );
+      const response = await axios.post(`${apiUrl}/prospectsmeeting`, data);
 
       if (response.status === 200) {
         alert("¡Email enviado!");

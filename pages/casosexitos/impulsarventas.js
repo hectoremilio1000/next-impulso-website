@@ -5,6 +5,8 @@ import axios from "axios";
 import Link from "next/link";
 
 function ImpulsarVentar() {
+  // URL de tu backend
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   // Datos ficticios de ejemplo. Ajusta según la info real de “El Huequito”.
   const info = [
     {
@@ -94,10 +96,7 @@ function ImpulsarVentar() {
     try {
       setLoading(true);
       // Ajusta la URL según tu backend
-      const response = await axios.post(
-        "http://localhost:3333/api/prospectsmeeting",
-        data
-      );
+      const response = await axios.post(`${apiUrl}/prospectsmeeting`, data);
 
       if (response.status === 200) {
         alert("¡Email enviado!");

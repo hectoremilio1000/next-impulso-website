@@ -5,6 +5,7 @@ import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta 
 import axios from "axios";
 
 function Casosexito() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   // --- ESTADOS para el modal y el formulario de “Demo Gratis” ---
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
@@ -60,10 +61,7 @@ function Casosexito() {
     try {
       setLoading(true);
       // Ajusta la URL si tu backend está en otro lugar
-      const response = await axios.post(
-        "http://localhost:3333/api/prospectsmeeting",
-        data
-      );
+      const response = await axios.post(`${apiUrl}/prospectsmeeting`, data);
 
       if (response.status === 200) {
         alert("¡Email enviado!");

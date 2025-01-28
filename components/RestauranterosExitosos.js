@@ -24,6 +24,7 @@ const RestauranterosExitosos = () => {
   const zSpring = useSpring(z);
   const txSpring = useSpring(translateX);
   const tySpring = useSpring(translateY);
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   const transform = useMotionTemplate`translate3d(${translateX}%, ${translateY}em, 0px) 
     scale3d(1, 1, 1) 
@@ -126,11 +127,9 @@ const RestauranterosExitosos = () => {
 
     try {
       setLoading(true);
-      // Llama a tu backend
-      const response = await axios.post(
-        "http://localhost:3333/api/prospectswebsite",
-        data
-      );
+      // Envío al backend
+
+      const response = await axios.post(`${apiUrl}/prospectswebsite`, data);
 
       console.log("Respuesta del backend:", response);
 

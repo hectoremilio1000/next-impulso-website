@@ -8,6 +8,8 @@ import axios from "axios";
 import styles from "../../components/SwiperPrueba/Banner.module.css";
 
 function MejorarProcesos() {
+  // URL de tu backend
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   // Datos adaptados para enfatizar la mejora de procesos, maquinaria, financiamiento
   const info = [
     {
@@ -118,10 +120,7 @@ function MejorarProcesos() {
     try {
       setLoading(true);
       // Ajusta la URL según tu backend
-      const response = await axios.post(
-        "http://localhost:3333/api/prospectsmeeting",
-        data
-      );
+      const response = await axios.post(`${apiUrl}/prospectsmeeting`, data);
 
       if (response.status === 200) {
         alert("¡Email enviado!");

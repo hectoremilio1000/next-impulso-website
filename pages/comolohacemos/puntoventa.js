@@ -6,6 +6,8 @@ import axios from "axios";
 import Link from "next/link";
 
 function Puntoventa() {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
   // --- Metadatos para <Head> ---
   const headData = {
     title: "Punto de Venta 24/7 | Impulso Restaurantero",
@@ -108,10 +110,7 @@ function Puntoventa() {
     try {
       setLoading2(true);
       // Ajusta la URL según tu backend
-      const response = await axios.post(
-        "http://localhost:3333/api/prospectsmeeting",
-        data
-      );
+      const response = await axios.post(`${apiUrl}/prospectsmeeting`, data);
 
       if (response.status === 200) {
         alert("¡Email enviado!");
