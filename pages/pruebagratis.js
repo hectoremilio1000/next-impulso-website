@@ -64,7 +64,7 @@ function PruebaGratis({ backgroundImage }) {
     try {
       setLoading(true);
       // Ajusta la URL según tu backend
-      const response = await axios.post(`${apiUrl}/prospectsmeeting`, data);
+      const response = await axios.post(`${apiUrl}/prospectswebsite`, data);
 
       if (response.status === 200) {
         alert("¡Email enviado!");
