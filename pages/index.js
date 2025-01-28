@@ -57,6 +57,8 @@ export default function Home() {
     setErrors(fieldErrors);
     return Object.keys(fieldErrors).length === 0;
   };
+  // URL de tu backend
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -74,10 +76,10 @@ export default function Home() {
 
     try {
       setLoading(true);
-      const response = await axios.post(
-        "http://localhost:3333/api/prospectsmeeting",
-        data
-      );
+
+      const response = await axios.post(`${apiUrl}/prospectsmeeting`, data);
+
+      // const response = await axios.post("${apiUrl}/prospectsmeeting", data);
 
       if (response.status === 200) {
         // Aquí mostramos alerta de éxito y cerramos modal al darle "OK"
