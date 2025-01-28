@@ -52,6 +52,7 @@ const MySwiper = () => {
     setErrors(fieldErrors);
     return Object.keys(fieldErrors).length === 0;
   };
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   // Envío del formulario
   const handleFormSubmit = async (e) => {
@@ -70,10 +71,10 @@ const MySwiper = () => {
     try {
       setLoading(true);
       // Envío al backend
-      const response = await axios.post(
-        "http://localhost:3333/api/prospectswebsite",
-        data
-      );
+
+      const response = await axios.post(`${apiUrl}/prospectswebsite`, data);
+
+      // const response = await axios.post("${apiUrl}//prospectswebsite", data);
 
       console.log("Respuesta del backend:", response);
 
