@@ -3,14 +3,9 @@ import Head from "next/head";
 
 import { useRouter } from "next/router";
 import { useAppContext } from "../components/context/Context";
-import Encontramos from "../components/Encontramos";
 import * as fbq from "../lib/fpixel";
-import Calendario from "../components/Calendario";
-import QuickInfo4 from "../components/QuickInfo4";
-import Slider from "../components/Sliders/Slider";
-import Link from "next/link";
+
 import NavBar from "../components/NavBarEs/NavBarEs";
-import QuickInfo5 from "../components/QuickInfo5";
 import CasosEstudio from "../components/CasosEstudio";
 import About from "../components/About";
 import RestauranterosExitosos from "../components/RestauranterosExitosos";
@@ -18,6 +13,7 @@ import styles from "../components/SwiperPrueba/Banner.module.css"; // Importa lo
 import axios from "axios";
 
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const MySwiper = dynamic(() => import("../components/SwiperPrueba"), {
   ssr: false,
@@ -180,10 +176,7 @@ export default function Home() {
       {espa ? (
         <>
           <MySwiper />
-          <div
-            id="section-info-banner"
-            className="justify-center bg-black py-[11px]  w-full"
-          >
+          <div className="justify-center bg-black w-full section-info-banner">
             <div className="max-w-[90%] mx-auto flex-col md:flex-row flex overflow-hidden items-center">
               <div className="justify-center max-w-[100%] md:justify-start flex self-center items-center mx-auto">
                 <h1 className="title3-tw text-principal mt-[4px] text-center md:text-start">
@@ -512,19 +505,17 @@ export default function Home() {
 
               {/* Contenedor del texto con z-20 */}
               <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center z-20 p-4">
-                <span className="rounded-full bg-secundario text-white font-semibold px-4 py-2 mb-4">
+                <span className="rounded-full bg-secundario text-white font-semibold px-4 py-2 mb-4 text-sm md:text-lg">
                   ¿QUIERES VER COMO FUNCIONAMOS?
                 </span>
-                <h2 className="title3-tw text-center uppercase text-white px-4 md:px-24 leading-snug">
-                  ES MUY FÁCIL
-                </h2>
-                <p className="my-4 text-white px-4 md:px-24 text-center">
-                  Sólo da click aquí y logra que tu restaurante sea sumamente
+
+                <p className="my-2 text-white px-2 md:px-24 text-center text-base md:text-lg">
+                  Da click aquí y logra que tu restaurante sea sumamente
                   rentable en este año
                 </p>
                 <Link href="/prueba">
-                  <button className="button4 font-bold">
-                    ¡SÍ! QUIERO ACCESO YA
+                  <button className="button4 font-bold text-xs md:text-lg">
+                    QUIERO ACCESO YA
                   </button>
                 </Link>
               </div>
