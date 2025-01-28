@@ -85,12 +85,12 @@ function NavBar() {
               <img src={usFlag} width={20} height={20} />
             </div> */}
 
-            <div
+            {/* <div
               onClick={onIdiomaEspa}
               className="hover:text-amber-600 cursor-pointer toggle-icon"
             >
               <img src={mxFlag} width={20} height={20} />
-            </div>
+            </div> */}
           </div>
         </div>
         <div
