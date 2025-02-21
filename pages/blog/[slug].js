@@ -1,16 +1,53 @@
 // pages/blog/[slug].js
 import React from "react";
-import { useRouter } from "next/router";
 import NavBar from "../../components/NavBarBlack/NavBarEs";
 import { blogPosts } from "../../data/blogPosts";
 
-const SinglePost = () => {
-  const router = useRouter();
-  const { slug } = router.query;
+/**
+ * 1. getStaticPaths
+ * Genera rutas estáticas en build-time para cada `slug` de blogPosts.
+ */
+export async function getStaticPaths() {
+  // Prepara el array de rutas a partir de blogPosts.
+  const paths = blogPosts.map((post) => ({
+    params: { slug: post.slug },
+  }));
 
-  // Encuentra el post por su slug
+  return {
+    paths,
+    // fallback: false => Si entras a una URL que no existe en blogPosts, Next.js devolverá un 404.
+    fallback: false,
+  };
+}
+
+/**
+ * 2. getStaticProps
+ * Dado un slug, busca el post y lo pasa como prop para renderizarlo.
+ */
+export async function getStaticProps({ params }) {
+  const { slug } = params;
   const post = blogPosts.find((p) => p.slug === slug);
 
+  // Si el post no existe, devuélve notFound para un 404.
+  if (!post) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      post,
+    },
+  };
+}
+
+/**
+ * 3. Componente SinglePost
+ * Este componente recibe el `post` desde getStaticProps y lo muestra.
+ */
+const SinglePost = ({ post }) => {
+  // En caso de que no llegue `post` (raro si fallback: false)
   if (!post) {
     return (
       <>
