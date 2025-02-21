@@ -134,6 +134,11 @@ function NavBar() {
                   </Link>
                 </li> */}
                 <li key="4">
+                  <Link href="/blog" className="nav-link hover:text-yellow-400">
+                    Blog
+                  </Link>
+                </li>
+                <li key="5">
                   <Link
                     href="/pruebagratis"
                     className="nav-link hover:text-yellow-400"

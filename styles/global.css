@@ -915,11 +915,6 @@ h4 {
   font-size: 0.875rem;
 }
 
-p {
-  /* margin-bottom: 1.25rem; */
-  color: hsl(210, 22%, 49%);
-}
-
 .section {
   width: 90vw;
   margin: 0 auto;
