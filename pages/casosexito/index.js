@@ -3,6 +3,7 @@ import NavBar from "../../components/NavBarBlack/NavBarEs";
 import Link from "next/link";
 import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta si es necesario
 import axios from "axios";
+import { InlineWidget } from "react-calendly";
 
 function Casosexito() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -190,6 +191,9 @@ function Casosexito() {
           </div>
         </div>
       </>
+      <div className="w-full">
+        <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/reservas-impulsorestaurantero" />
+      </div>
       <div className="bg-gray-50 flex flex-col items-center px-4 py-8 md:px-16 pt-24 md:pt-36">
         <div className="text-center max-w-4xl mb-4">
           <h1 className="text-2xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight text-center">

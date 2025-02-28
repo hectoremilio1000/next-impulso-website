@@ -14,6 +14,7 @@ import axios from "axios";
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { InlineWidget } from "react-calendly";
 
 const MySwiper = dynamic(() => import("../components/SwiperPrueba"), {
   ssr: false,
@@ -354,6 +355,9 @@ export default function Home() {
           </div>
 
           <CasosEstudio />
+          <div className="w-full">
+            <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/reservas-impulsorestaurantero" />
+          </div>
           <About />
           <RestauranterosExitosos />
           <div

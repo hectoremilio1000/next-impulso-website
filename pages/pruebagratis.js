@@ -3,6 +3,7 @@ import NavBar from "../components/NavBarBlack/NavBarEs";
 import styles from "../components/Demo/Demo.module.css"; // Ajusta la ruta si corresponde
 import Link from "next/link";
 import axios from "axios";
+import { InlineWidget } from "react-calendly";
 
 function PruebaGratis({ backgroundImage }) {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -289,6 +290,9 @@ function PruebaGratis({ backgroundImage }) {
             </div>
           </div>
         </div>
+      </div>
+      <div className="w-full">
+        <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/reservas-impulsorestaurantero" />
       </div>
     </>
   );

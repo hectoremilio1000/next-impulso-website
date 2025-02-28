@@ -6,6 +6,7 @@ import axios from "axios";
 
 // Importa tus estilos para el modal y form
 import styles from "../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta si es necesario
+import { InlineWidget } from "react-calendly";
 
 function Comolohacemos() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -326,6 +327,9 @@ function Comolohacemos() {
             </div>
           </div>
         </>
+        <div className="w-full">
+          <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/reservas-impulsorestaurantero" />
+        </div>
         <div className="content grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-24 px-[20px] items-start">
           <FAQ items={faqs} />
           <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[#e5e5e5] rounded-[1.2em] max-w-xl">
