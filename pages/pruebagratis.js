@@ -4,6 +4,7 @@ import styles from "../components/Demo/Demo.module.css"; // Ajusta la ruta si co
 import Link from "next/link";
 import axios from "axios";
 import { InlineWidget } from "react-calendly";
+import WhatsappButton from "../components/WhatsappButton";
 
 function PruebaGratis({ backgroundImage }) {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -294,6 +295,7 @@ function PruebaGratis({ backgroundImage }) {
       <div className="w-full">
         <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/reservas-impulsorestaurantero" />
       </div>
+      <WhatsappButton />
     </>
   );
 }

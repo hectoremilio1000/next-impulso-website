@@ -7,6 +7,7 @@ import axios from "axios";
 // Importa tus estilos para el modal y form
 import styles from "../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta si es necesario
 import { InlineWidget } from "react-calendly";
+import WhatsappButton from "../components/WhatsappButton";
 
 function Comolohacemos() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -476,6 +477,7 @@ function Comolohacemos() {
           </div>
         </div>
       )}
+      <WhatsappButton />
     </>
   );
 }

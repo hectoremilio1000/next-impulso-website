@@ -15,6 +15,7 @@ import axios from "axios";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { InlineWidget } from "react-calendly";
+import WhatsappButton from "../components/WhatsappButton";
 
 const MySwiper = dynamic(() => import("../components/SwiperPrueba"), {
   ssr: false,
@@ -529,6 +530,7 @@ export default function Home() {
       ) : (
         <></>
       )}
+      <WhatsappButton />
     </div>
   );
 }

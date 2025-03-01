@@ -4,6 +4,7 @@ import Link from "next/link";
 import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta si es necesario
 import axios from "axios";
 import { InlineWidget } from "react-calendly";
+import WhatsappButton from "../../components/WhatsappButton";
 
 function Casosexito() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -337,6 +338,7 @@ function Casosexito() {
           </div>
         </div>
       )}
+      <WhatsappButton />
     </>
   );
 }
