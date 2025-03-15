@@ -329,7 +329,7 @@ function Comolohacemos() {
           </div>
         </>
         <div className="w-full">
-          <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/reservas-impulsorestaurantero" />
+          <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/30min?month=2025-03" />
         </div>
         <div className="content grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-24 px-[20px] items-start">
           <FAQ items={faqs} />

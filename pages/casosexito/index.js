@@ -193,7 +193,7 @@ function Casosexito() {
         </div>
       </>
       <div className="w-full">
-        <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/reservas-impulsorestaurantero" />
+        <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/30min?month=2025-03" />
       </div>
       <div className="bg-gray-50 flex flex-col items-center px-4 py-8 md:px-16 pt-24 md:pt-36">
         <div className="text-center max-w-4xl mb-4">

@@ -357,7 +357,7 @@ export default function Home() {
 
           <CasosEstudio />
           <div className="w-full">
-            <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/reservas-impulsorestaurantero" />
+            <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/30min?month=2025-03" />
           </div>
           <About />
           <RestauranterosExitosos />
