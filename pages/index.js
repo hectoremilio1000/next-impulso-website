@@ -376,7 +376,6 @@ export default function Home() {
             {/* Contenido */}
             <div className="relative z-10 max-w-[500px] mx-auto heading-block flex flex-col justify-center items-center mb-16 mt-16 md:mt-0">
               <img
-                className="flex hidden"
                 src="https://cdn.prod.website-files.com/63e6c1e86653498b2e3849c1/63e7ec27bc6a9ab674a69fa1_Mobile_Gym_Owners.webp"
                 loading="lazy"
                 alt=""

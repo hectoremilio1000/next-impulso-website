@@ -168,7 +168,7 @@ function Comolohacemos() {
 
             <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
               <img
-                className=" w-full object-contain rounded-2xl"
+                className=" w-full object-contain rounded-2xl h-[500px]"
                 src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/pagina%2Bvisitas%2Bwebsite.jpg"
                 alt=""
               />
@@ -326,11 +326,36 @@ function Comolohacemos() {
                 <button className="button-small">Descubre más</button>
               </Link>
             </div>
+            <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
+              <img
+                className=" w-full object-contain rounded-2xl h-[450px]"
+                src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/diagnostico-ia-impulso-restaurantero.jpg"
+                alt=""
+              />
+              <h2 className="title3-tw text-center">
+                11. Estudio de Mercado con Inteligencia Artificial{" "}
+              </h2>
+              <p className="parrafo-tw paragraph-feature text-center">
+                Nuestra tecnología, potenciada por Inteligencia Artificial,
+                analiza las respuestas de un cuestionario personalizado para
+                ayudarte a definir una visión clara, misión sólida y un plan de
+                acción para tu restaurante.
+              </p>
+              <Link href="/comolohacemos/ayudaia">
+                <button className="button-small">Descubre más</button>
+              </Link>
+            </div>
+            <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
+              <div className="w-full">
+                <h2 className="text-2xl md:text-4xl font-bold text-gray-900 leading-tight text-center">
+                  Recibe ayuda ahora
+                </h2>
+                <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/30min?month=2025-03" />
+              </div>
+            </div>
           </div>
         </>
-        <div className="w-full">
-          <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/30min?month=2025-03" />
-        </div>
+
         <div className="content grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-24 px-[20px] items-start">
           <FAQ items={faqs} />
           <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[#e5e5e5] rounded-[1.2em] max-w-xl">
