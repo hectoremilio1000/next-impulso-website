@@ -179,7 +179,7 @@ export default function Home() {
         <>
           <MySwiper />
           <div className="justify-center bg-black w-full section-info-banner">
-            <div className="max-w-[90%] mx-auto flex-col md:flex-row flex overflow-hidden items-center">
+            <div className="max-w-[90%] mx-auto flex-col md:flex-row flex overflow-hidden items-center px-6">
               <div className="justify-center max-w-[100%] md:justify-start flex self-center items-center mx-auto">
                 <h1 className="title3-tw text-principal mt-[4px] text-center md:text-start">
                   <span className="title3-tw">

@@ -119,7 +119,7 @@ function Comolohacemos() {
             Podrías estar obteniendo MUCHAS más ventas en línea.
           </h1>
           <p className="text-gray-600 text-sm md:text-2xl">
-            Impulso Restaurantero es la manera más sencilla de COONSEGUIR MÁS
+            Impulso Restaurantero es la manera más sencilla de CONSEGUIR MÁS
             reservas en línea y ofrecer la mejor experiencia a tus clientes.
             Descubre cómo lo hacemos.
           </p>
@@ -316,7 +316,7 @@ function Comolohacemos() {
                 alt=""
               />
               <h2 className="title3-tw text-center">
-                10. Monitorio con Inteligencia Artificial{" "}
+                10. Monitoreo con Inteligencia Artificial{" "}
               </h2>
               <p className="parrafo-tw paragraph-feature text-center">
                 Medimos la productividad de las personas con monitoreo 24/7, así
