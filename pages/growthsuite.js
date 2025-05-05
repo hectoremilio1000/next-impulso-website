@@ -1,288 +1,257 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 import NavBar from "../components/NavBarBlack/NavBarEs";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 
 /**
- * Página Landing – 7 Estrategias Secretas
- * Autor: Impulso Restaurantero
- * Notas:
- *  - Colores: #FFFFFF (bg), #E8D6A3 (accent), #1E1E1E (text)
- *  - Tipografía: League Spartan para títulos – Incluida vía Google Fonts en _document.tsx
- *  - SEO básico & tracking GTM
+ * Landing – GrowthSuite POS (interactivo) – Versión JS
+ * Ajustes: medios con tamaño uniforme y tipografía legible en todos los dispositivos.
  */
 
-export default function GrowthSuite() {
-  /* -------------------------------------------------- */
-  /* 1 · Estado del formulario                          */
-  /* -------------------------------------------------- */
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    restaurant: "",
-  });
+/* -------------------------------------------------- */
+/*  TiltCard utility                                  */
+/* -------------------------------------------------- */
+const TiltCard = ({ children }) => {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const rotateX = useTransform(y, [-120, 120], [15, -15]);
+  const rotateY = useTransform(x, [-120, 120], [-15, 15]);
+
+  return (
+    <motion.article
+      className="rounded-2xl shadow-lg overflow-hidden bg-white"
+      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+      onMouseMove={(e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        x.set(e.clientX - rect.left - rect.width / 2);
+        y.set(e.clientY - rect.top - rect.height / 2);
+      }}
+      onMouseLeave={() => {
+        x.set(0);
+        y.set(0);
+      }}
+    >
+      {children}
+    </motion.article>
+  );
+};
+
+export default function GrowthSuitePOS() {
+  const [form, setForm] = useState({ name: "", email: "", restaurant: "" });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
-  /* -------------------------------------------------- */
-  /* 2 · Validación sencilla                            */
-  /* -------------------------------------------------- */
   const validate = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const newErrors = {};
-    if (!form.name) newErrors.name = "Ingresa tu nombre";
-    if (!emailRegex.test(form.email)) newErrors.email = "Correo inválido";
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    const errs = {};
+    if (!form.name) errs.name = "Ingresa tu nombre";
+    if (!emailRegex.test(form.email)) errs.email = "Correo inválido";
+    setErrors(errs);
+    return Object.keys(errs).length === 0;
   };
 
-  /* -------------------------------------------------- */
-  /* 3 · Envío (placeholder – reemplaza con tu API)     */
-  /* -------------------------------------------------- */
-  const handleSubmit = async () => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!validate()) return;
-
-    try {
-      // TODO: reCAPTCHA + petición real
-      console.log("Payload enviado:", form);
-      setSubmitted(true);
-    } catch (err) {
-      console.error(err);
-    }
+    console.log("Payload:", form);
+    setSubmitted(true);
   };
 
-  /* -------------------------------------------------- */
-  /* 4 · Render                                         */
-  /* -------------------------------------------------- */
   return (
     <>
       <Head>
-        <title>GrowthSuite</title>
+        <title>GrowthSuite POS – Control total 24/7</title>
         <meta
           name="description"
-          content="Descubre la estrategia #1 gratis y aprende a llenar tu restaurante con tácticas que sí funcionan en México."
+          content="El POS que sincroniza cocina, salón y finanzas en tiempo real, visible desde cualquier dispositivo."
         />
       </Head>
 
       <NavBar />
 
-      {/* Sección 1 — Hero */}
+      {/* Hero */}
       <header className="relative bg-white overflow-hidden">
-        {/* Vídeo 8 s (lazy) */}
         <Image
-          src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/ebook/worth-it-first-mexican-taco-stand-to-get-one-michelin-star-v0-msjqcb32yn1d1.jpg"
-          alt="Taquero preparando tacos en la Ciudad de México"
+          src="/images/escritorioGrowthsuite.jpg"
+          alt="Dashboard GrowthSuite POS"
           fill
           priority
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
-
-        <div className="relative z-10 flex flex-col items-center justify-center text-center py-32 px-4 bg-black/50 backdrop-blur-sm">
+        <div className="relative z-10 flex flex-col items-center justify-center text-center py-28 md:py-40 px-4 bg-black/60 backdrop-blur-sm">
           <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight">
-            GrowthSuite
+            GrowthSuite POS
           </h1>
-          <h2 className="text-xl md:text-2xl text-white mb-8 max-w-2xl">
-            La plataforma inteligente que impulsa las ventas y la eficiencia de
-            su restaurante
+          <h2 className="text-lg md:text-2xl text-white mb-8 max-w-2xl">
+            Toma pedidos, revisa tus ventas al instante en tu móvil.
           </h2>
           <a
             href="https://calendly.com/clientes-impulsorestaurantero/30min"
             className="inline-block text-white bg-principal font-bold py-4 px-8 rounded-full shadow-lg hover:scale-105 transition-transform"
           >
-            Reserva aqui
+            Agenda tu demo gratis
           </a>
         </div>
       </header>
 
-      {/* Sección 2 — Problema & Promesa */}
+      {/* Dispositivos */}
+
       <section className="bg-gray-50 py-12 px-4 md:px-20 text-center">
-        <h3 className="text-sm md:text-xl font-bold mb-8 text-[#1E1E1E]">
-          ¿Se pregunta por qué las mesas siguen vacías entre semana?
-        </h3>
         <h3 className="text-3xl md:text-4xl font-bold mb-8 text-[#1E1E1E]">
-          ¿Le preocupa el aumento de costos o la falta de coordinación en su
-          equipo?
+          ¿Aún usas un POS desconectado que te da reportes al final del día?
         </h3>
-        <p className="text-lg md:text-2xl max-w-3xl mx-auto mb-8 text-gray-700">
-          Growth Suite se diseñó para resolver esos retos y devolverle la
-          tranquilidad de un negocio que crece con rumbo claro.
+        <p className="text-lg md:text-2xl max-w-4xl mx-auto text-gray-700">
+          Con GrowthSuite POS ves cada venta en segundos, reduces tiempos de
+          espera y controlas costos de inmediato. Sin licencias complicadas ni
+          hardware propietario.
         </p>
       </section>
 
-      {/* Sección 3 — Vista previa Estrategia #1 */}
+      {/* Características clave */}
       <section className="py-6 px-4 md:px-20 bg-white">
-        <div className="grid md:grid-cols-2 gap-8 items-start max-w-6xl mx-auto">
-          <Image
-            src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/ebook/Personal-de-la-taqueri%CC%81a-Tacos-1986.jpg"
-            alt="Taquería El Campeón en CDMX"
-            width={640}
-            height={420}
-            className="rounded-2xl shadow-lg"
-          />
+        <h3 className="text-3xl md:text-4xl font-bold text-center mb-12 text-[#1E1E1E]">
+          Qué hace único a GrowthSuite POS
+        </h3>
 
-          <article className="space-y-6 text-gray-800">
-            <h3 className="text-3xl md:text-4xl font-bold text-[#1E1E1E]">
-              ¿Qué es Growth Suite?
-            </h3>
-            <p>
-              Una solución SaaS en la nube que conecta ventas, marketing,
-              inventarios y capacitación en un único tablero. Reúne los datos
-              clave de su punto de venta, redes sociales y operaciones diarias;
-              los transforma en acciones concretas que atraen clientes,
-              optimizan costos y alinean a todo el personal.
-            </p>
-          </article>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto text-gray-800">
+          {[
+            {
+              icon: "🖥️",
+              title: "Monitor de producción integrado",
+              desc: "Órdenes enviadas directamente a cocina con estatus en vivo (sin correr papel).",
+            },
+            {
+              icon: "📱",
+              title: "Tabletas para meseros",
+              desc: "Toma de pedidos y cobro sin regresar a la caja — más comensales atendidos por turno.",
+            },
+            {
+              icon: "🖨️",
+              title: "Compatibilidad con impresoras estándar",
+              desc: "Conecta tu Epson/Thermal ya existente; configuración en menos de 5 minutos.",
+            },
+            {
+              icon: "☁️",
+              title: "Reportes en la nube",
+              desc: "Ventas, propinas y costos accesibles desde cualquier teléfono o laptop.",
+            },
+            {
+              icon: "📶",
+              title: "Modo offline inteligente",
+              desc: "Sigue vendiendo incluso si se corta internet; los datos se sincronizan al volver la conexión.",
+            },
+            {
+              icon: "🔐",
+              title: "Seguridad y respaldo",
+              desc: "Tus cifras se cifran y almacenan en servidores ISO 27001; backup automático diario.",
+            },
+          ].map((f, i) => (
+            <div
+              key={i}
+              className="p-6 bg-gray-50 rounded-2xl shadow-sm hover:shadow-md transition"
+            >
+              <div className="text-4xl mb-4">{f.icon}</div>
+              <h4 className="font-bold text-xl mb-2">{f.title}</h4>
+              <p>{f.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
-      <section className="bg-gray-50 py-6 px-4 md:px-20">
-        <h3 className="text-3xl md:text-4xl font-bold text-center mb-10 text-[#1E1E1E]">
-          Principales problemas que resuelve
+      <section className="py-16 px-4 md:px-20 bg-white">
+        <h3 className="text-3xl md:text-4xl font-bold text-center mb-8 text-[#1E1E1E]">
+          Control total, 24/7 y desde donde estés
         </h3>
-
-        <ol className="max-w-4xl mx-auto space-y-4 text-left text-gray-700 list-decimal list-inside grid grid-cols-1 md:grid-cols-3 gap-3">
-          <li className="px-3 py-2 text-lg bg-gray-100 text-gray-800">
-            Desafío habitual Cómo lo aborda Growth Suite Mesas vacías y poca
-            afluencia
-          </li>
-          <li className="px-3 py-2 text-lg bg-gray-100 text-gray-800">
-            Campañas automáticas (WhatsApp, correo, redes) basadas en
-            comportamientos reales de sus clientes. Ticket promedio bajo
-          </li>
-          <li className="px-3 py-2 text-lg bg-gray-100 text-gray-800">
-            Sugerencias de venta adicional en pantalla para meseros y
-            recomendaciones personalizadas para el comensal.
-          </li>
-          <li className="px-3 py-2 text-lg bg-gray-100 text-gray-800">
-            Costos de alimentos en alza Recetas estandarizadas, alertas de merma
-            y comparativo costo teórico vs. real.
-          </li>
-          <li className="px-3 py-2 text-lg bg-gray-100 text-gray-800">
-            Falta de procesos claros Check-lists de apertura y cierre, manuales
-            interactivos y recordatorios automáticos.
-          </li>
-          <li className="px-3 py-2 text-lg bg-gray-100 text-gray-800">
-            Tardanza en generar reportes Panel en tiempo real con ventas,
-            inventario y métricas financieras—sin hojas de cálculo manuales.
-          </li>
-        </ol>
-      </section>
-      <section className="bg-gray-50 py-6 px-4 md:px-20">
-        <h3 className="text-3xl md:text-4xl font-bold text-center mb-10 text-[#1E1E1E]">
-          Capacidades clave
-        </h3>
-
-        <ol className="max-w-3xl mx-auto space-y-4 text-left text-gray-700 list-decimal list-inside">
-          <li>
-            <b>Definición de concepto y menú</b>{" "}
-            <p>
-              Un breve cuestionario analiza su mercado y propone hasta tres
-              conceptos viables con precios de referencia.
-            </p>
-          </li>
-          <li>
-            <b>Marketing orientado a resultados</b>
-            <p>
-              Plantillas preconfiguradas y seguimiento de píxeles (Meta, Google,
-              TikTok) para medir cada campaña.
-            </p>
-          </li>
-          <li>
-            <b>Sincronización con el punto de venta</b>
-            <p>
-              Ventas en tiempo real, desglose por hora y alertas de productos
-              estrella.
-            </p>
-          </li>
-          <li>
-            <b>Gestión de inventario y costos</b>
-            <p>
-              Escandallo automático, control de stock y proyecciones de compra
-              ajustadas.
-            </p>
-          </li>
-          <li>
-            <b>Capacitación y recursos humanos</b>
-            <p>
-              Manuales y evaluaciones en línea con recompensas por avance; todos
-              conocen sus funciones y estándares.
-            </p>
-          </li>
-          <li>
-            <b>Finanzas y cumplimiento</b>
-            <p>
-              Panel fiscal (IVA, ISR) con recordatorios de licencias y
-              sugerencias de optimización tributaria en México.
-            </p>
-          </li>
-          <li>
-            <b>Beneficios que notará en los primeros 90 días</b>
-            <p>
-              Incremento estimado del 15 % en ventas gracias a campañas
-              dirigidas y técnicas de upselling.
-            </p>
-          </li>
-        </ol>
-      </section>
-      <section className="bg-gray-50 py-6 px-4 md:px-20">
-        <h3 className="text-5xl md:text-4xl font-bold text-center mb-10 text-[#1E1E1E]">
-          Beneficios que notará en los primeros 90 días
-        </h3>
-
-        <ol className="max-w-3xl mx-auto space-y-4 text-left text-gray-700 list-decimal list-inside">
-          <li>
-            Incremento estimado del 15 % en ventas gracias a campañas dirigidas
-            y técnicas de upselling.
-          </li>
-          <li>
-            Reducción aproximada del 10 % en costo de alimentos mediante control
-            preciso de inventario.
-          </li>
-          <li>
-            Ahorro significativo de tiempo administrativo: reportes automáticos
-            y accesibles desde cualquier dispositivo.
-          </li>
-        </ol>
-      </section>
-      <section className="bg-gray-50 py-6 px-4 md:px-20">
-        <h3 className="text-5xl md:text-4xl font-bold text-center mb-10 text-[#1E1E1E]">
-          ¿Para quién está pensado?
-        </h3>
-
-        <ol className="max-w-3xl mx-auto space-y-4 text-left text-gray-700 list-decimal list-inside">
-          <li>Restaurantes nuevos que buscan un arranque sólido.</li>
-          <li>
-            Negocios consolidados que desean elevar sus resultados entre semana
-            y fines de semana.
-          </li>
-          <li>
-            Grupos o cadenas que requieren uniformidad operativa en todas sus
-            sucursales.
-          </li>
-          <li>
-            Funciona igual de bien para cantinas, cafeterías, bares o
-            restaurantes de especialidad.
-          </li>
-        </ol>
-      </section>
-      <section className="bg-gray-50 py-6 px-4 md:px-20 flex flex-col items-center">
-        <h3 className="text-5xl md:text-4xl font-bold text-center mb-4 text-[#1E1E1E]">
-          Próximo paso
-        </h3>
-        <h4 className="text-center text-lg mb-4">
-          ¿Listo para profesionalizar la operación y aumentar las ventas?
-          Reserve una videollamada de 15 minutos:
-        </h4>
-        <button className="bg-principal mb-3 text-white font-bold px-3 py-2 rounded-full">
-          Solicitar una demo
-        </button>
-        <p className="text-center text-sm">
-          Haga clic en «Solicitar demo» y descubra cómo Growth Suite puede
-          adaptarse a sus objetivos.
+        <p className="text-lg md:text-2xl text-gray-700 max-w-3xl mx-auto mb-12 text-center">
+          GrowthSuite POS se adapta a tu flujo de trabajo: escritorio para la
+          administración, tablets para meseros, monitores en cocina y reportes
+          en tu celular.
         </p>
+
+        <div className="grid gap-10 md:grid-cols-2 max-w-6xl mx-auto">
+          {[
+            {
+              src: "/images/escritorioGrowthsuite.jpg",
+              alt: "Panel de administración en escritorio",
+              caption:
+                "Admin Dashboard: controla inventarios, costos y ventas en gran detalle.",
+            },
+            {
+              src: "/images/appandroidgrowthsuite2.jpg",
+              alt: "Tablet robusta con POS",
+              caption:
+                "Tabletas para meseros: toma pedidos al instante y evita filas en caja.",
+            },
+            {
+              src: "/images/appandroidgrowthsuite.jpg",
+              alt: "Interfaz Android de GrowthSuite",
+              caption:
+                "Mapa de mesas en vivo: disponibilidad y tiempos de servicio al instante.",
+            },
+          ].map((card, i) => (
+            <TiltCard key={i}>
+              <figure>
+                <Image
+                  src={card.src}
+                  alt={card.alt}
+                  width={800}
+                  height={500}
+                  className="w-full h-60 sm:h-72 md:h-80 lg:h-96 object-cover"
+                />
+                <figcaption className="p-4 text-center text-sm md:text-base text-gray-700 bg-white">
+                  {card.caption}
+                </figcaption>
+              </figure>
+            </TiltCard>
+          ))}
+
+          {/* Video demo */}
+          <TiltCard>
+            <figure>
+              <div className="relative w-full h-60 sm:h-72 md:h-80 lg:h-96">
+                <iframe
+                  src="https://www.youtube.com/embed/OxvCv8NAeVQ"
+                  title="Demo GrowthSuite POS"
+                  className="absolute inset-0 w-full h-full rounded-2xl"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <figcaption className="p-4 text-center text-sm md:text-base text-gray-700 bg-white">
+                Video 60 s: descubre cómo todos los dispositivos trabajan en
+                conjunto.
+              </figcaption>
+            </figure>
+          </TiltCard>
+        </div>
       </section>
+
+      {/* CTA */}
+      <header className="relative bg-white overflow-hidden">
+        {/* Vídeo 8 s (lazy) */}
+        <Image
+          src="/images/fotomeserogrwothsuite.jpg"
+          alt="Taquero preparando tacos en la Ciudad de México"
+          fill
+          priority
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div className="relative z-10 flex flex-col items-center justify-center text-center py-32 px-4 bg-black/50 backdrop-blur-sm">
+          <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight">
+            Pídelo ya
+          </h1>
+          <h2 className="text-xl md:text-2xl text-white mb-8 max-w-2xl">
+            Un punto de venta que te transforma la vida
+          </h2>
+          <a
+            href="https://wa.me/5215531491808?text=Hola%20quiero%20un%20restaurante%20exitoso"
+            className="inline-block text-white bg-[#25D366] font-bold py-4 px-8 rounded-full shadow-lg hover:scale-105 transition-transform"
+          >
+            Dame mi muestra gratis
+          </a>
+        </div>
+      </header>
     </>
   );
 }
