@@ -16,6 +16,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { InlineWidget } from "react-calendly";
 import WhatsappButton from "../components/WhatsappButton";
+import Image from "next/image";
 
 const MySwiper = dynamic(() => import("../components/SwiperPrueba"), {
   ssr: false,
@@ -368,23 +369,26 @@ export default function Home() {
               backgroundPosition: "50%",
               backgroundSize: "cover",
             }}
-            className="relative flex flex-col items-center justify-center md:pt-[240px] pb-[58px] md:pb-[126px] px-2"
+            className="relative flex flex-col items-center justify-center md:pt-[50px] pb-[58px] md:pb-[50px] px-2"
           >
             {/* Aquí se agrega el overlay para la opacidad */}
             <div className="absolute inset-0 bg-black opacity-80"></div>
 
             {/* Contenido */}
-            <div className="relative z-10 max-w-[500px] mx-auto heading-block flex flex-col justify-center items-center mb-16 mt-16 md:mt-0">
-              <img
-                src="https://cdn.prod.website-files.com/63e6c1e86653498b2e3849c1/63e7ec27bc6a9ab674a69fa1_Mobile_Gym_Owners.webp"
-                loading="lazy"
-                alt=""
+            <div className="relative z-10 max-w-[700px] mx-auto heading-block flex flex-col justify-center items-center mb-16 mt-16 md:mt-0">
+              <Image
+                src="/hombre-exitoso-impulso.jpg"
+                width={400} // píxeles deseados (o height)
+                height={400}
+                alt="Hombre de negocios exitoso Impulso Restaurantero"
+                priority={false} // deja que sea lazy-loaded
+                className="rounded-xl shadow-lg" // Tailwind opcional
               />
-              <h2 className="title2-tw text-center uppercase mb-4 text-white">
+              <h2 className="text-xl md:text-4xl text-center uppercase mb-2 mt-2 text-white">
                 RESULTADOS REALES <br /> DE DUEÑOS DE <br /> RESTAURANTES REALES
               </h2>
               <p
-                className="parrafo-tw text-center mb-4 paragraph cn"
+                className="parrafo-tw text-center mb-4 mx-2 paragraph cn"
                 style={{ color: "white" }}
               >
                 Impulso Restaurantero ha ayudado a más de 1,000 dueños de
