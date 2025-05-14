@@ -129,20 +129,23 @@ function Comolohacemos() {
         <div className="mt-6 mb-4">
           {/* Botón que ABRE el modal para “Demo Gratis” */}
           <Link href="/prueba">
-            <button className="button-small">Prueba Gratis ¡YA!</button>
+            <button className="button-small text-center">
+              Prueba Gratis ¡YA!
+            </button>
           </Link>
         </div>
-
-        <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[#e5e5e5] rounded-[1.2em] max-w-xl">
-          <img
-            className=" w-full object-contain "
-            src="https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/seccion1/649c99bf1948a130a34f7abb_Wins+copy.png"
-            alt=""
-          />
-          <h2 className="text-2xl md:text-5xl font-bold text-gray-900 mb-2 mt-4 leading-tight">
-            ¿Cómo lo hacemos?
-          </h2>
-        </div>
+        <img
+          className=" w-full object-contain px-4"
+          src="Impulso_tecnologias.jpg"
+          alt=""
+        />
+        <h2 className="text-2xl md:text-5xl font-bold text-black mb-2 mt-4 leading-tight">
+          ¿Cómo lo hacemos?
+        </h2>
+        <p className="text-gray-600 text-sm md:text-2xl text-center">
+          Unimos todos los módulos de nuestra plataforma a través del whatsapp
+        </p>
+        <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[#e5e5e5] rounded-[1.2em] max-w-xl"></div>
         {/* Image Section */}
         <>
           <div className="content grid grid-cols-1 md:grid-cols-2 gap-8 px-[20px] items-start">
