@@ -13,6 +13,9 @@ module.exports = {
   ],
   theme: {
     fontSize: {
+      h1: { fontWeight: "800", letterSpacing: "-0.02em" },
+      h2: { fontWeight: "700", letterSpacing: "-0.01em" },
+      p: { lineHeight: "1.7" },
       sm: "0.8rem",
       base: "1rem",
       xl: "1.25rem",
