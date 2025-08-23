@@ -198,7 +198,7 @@ export default function Home() {
                 <div style={{ display: "flex", justifyContent: "center" }}>
                   {/* Cambiamos a toggleModal en lugar de openModal */}
                   <button className={styles.button4} onClick={toggleModal}>
-                    DARME UNA CITA ¡YA GRATIS!
+                    DARME UNA CITA ¡SIN COSTO!
                   </button>
                   {isModalOpen && (
                     <div className={styles.modalOverlay}>

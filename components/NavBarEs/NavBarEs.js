@@ -143,7 +143,7 @@ function NavBar() {
                     href="/pruebagratis"
                     className="nav-link hover:text-yellow-400"
                   >
-                    Prueba Gratis
+                    Sin Costo
                   </Link>
                 </li>
               </>
