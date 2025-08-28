@@ -178,13 +178,14 @@ function Casosexito() {
           <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
             <img
               className=" w-full object-contain"
-              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/amigo-impulso-restaurantero.jpg"
+              src="/imagenes/yesenia_2.png"
               alt=""
             />
             <h2 className="title3-tw text-center">CRECIMIENTO SIN LÍMITES</h2>
             <p className="parrafo-tw paragraph-feature text-center">
-              En menos de 1 año logré salir de mis deudas que tanto me tenían en
-              depresión y logré recuperar a mi familia y a mi empresa.
+              Creía que mi mayor responsabilidad era mantener el negocio de mi
+              familia, pero no, el objetivo era más importante, llegar a más
+              personas para hacerlo crecer.
             </p>
             <Link href="/casosexitos/ayudaestrategica">
               <button className="button-small">LEE COMO LO LOGRÉ</button>
@@ -193,7 +194,7 @@ function Casosexito() {
         </div>
       </>
       <div className="w-full">
-        <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/30min?month=2025-03" />
+        <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/impulso-restaurantero" />
       </div>
       <div className="bg-gray-50 flex flex-col items-center px-4 py-8 md:px-16 pt-24 md:pt-36">
         <div className="text-center max-w-4xl mb-4">
@@ -224,7 +225,7 @@ function Casosexito() {
             </div>
             {/* Botón que abre el modal */}
             <button className="button-small" onClick={toggleModal}>
-              Demo Gratis
+              Sin costo
             </button>
           </div>
         </div>
@@ -235,7 +236,7 @@ function Casosexito() {
         <div className={styles.modalOverlay}>
           <div className={styles.modalContent}>
             <div className={styles.modalHeader}>
-              <h2>Obtén Tu Demo Gratis Ahora</h2>
+              <h2>Obtén tu Demo sin costo</h2>
               <button className={styles.closeModal} onClick={toggleModal}>
                 &times;
               </button>
@@ -329,7 +330,7 @@ function Casosexito() {
                   </div>
                   <div>
                     <button type="submit" className={styles.hsSubmit}>
-                      Sí, quiero mi demo gratis
+                      Sí, quiero mi demo sin costo
                     </button>
                   </div>
                 </form>

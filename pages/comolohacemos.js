@@ -130,13 +130,13 @@ function Comolohacemos() {
           {/* Botón que ABRE el modal para “Demo Gratis” */}
           <Link href="/prueba">
             <button className="button-small text-center">
-              Prueba Gratis ¡YA!
+              Prueba sin costo ¡YA!
             </button>
           </Link>
         </div>
         <img
-          className=" w-full object-contain px-4"
-          src="Impulso_tecnologias.jpg"
+          className=" w-full object-contain px-4 rounded-lg"
+          src="/imagenes/como_lo_hacemos.jpeg"
           alt=""
         />
         <h2 className="text-2xl md:text-5xl font-bold text-black mb-2 mt-4 leading-tight">
@@ -353,7 +353,7 @@ function Comolohacemos() {
                 <h2 className="text-2xl md:text-4xl font-bold text-gray-900 leading-tight text-center">
                   Recibe ayuda ahora
                 </h2>
-                <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/30min?month=2025-03" />
+                <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/impulso-restaurantero" />
               </div>
             </div>
           </div>
@@ -395,7 +395,7 @@ function Comolohacemos() {
             </div>
             {/* Botón que abre el mismo modal */}
             <button className="button-small" onClick={toggleModal}>
-              Demo Gratis
+              Demo sin costo
             </button>
           </div>
         </div>
@@ -406,7 +406,7 @@ function Comolohacemos() {
         <div className={styles.modalOverlay}>
           <div className={styles.modalContent}>
             <div className={styles.modalHeader}>
-              <h2>Obtén Tu Demo Gratis Ahora</h2>
+              <h2>Obtén Tu Demo sin costo Ahora</h2>
               <button className={styles.closeModal} onClick={toggleModal}>
                 &times;
               </button>
@@ -496,7 +496,7 @@ function Comolohacemos() {
                   </div>
                   <div>
                     <button type="submit" className={styles.hsSubmit}>
-                      Sí, quiero mi demo gratis
+                      Sí, quiero mi demo sin costo
                     </button>
                   </div>
                 </form>

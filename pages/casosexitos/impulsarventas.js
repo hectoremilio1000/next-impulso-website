@@ -146,7 +146,7 @@ function ImpulsarVentar() {
         <div className="mt-6 mb-4">
           {/* Botón que ABRE el nuevo modal de Demo Gratis */}
           <Link href="/prueba">
-            <button className="button-small">Prueba Gratis ¡YA!</button>
+            <button className="button-small">Prueba sin costo ¡YA!</button>
           </Link>
         </div>
         {/* Sección 2-col */}
@@ -257,7 +257,7 @@ function ImpulsarVentar() {
               <div>
                 <div className="mb-8 text-center">
                   <p className="text-3xl md:text-4xl font-bold text-white">
-                    15 días gratis
+                    15 días sin costo
                   </p>
                   <p className="text-lg text-gray-300">Sin compromisos</p>
                 </div>
@@ -265,7 +265,7 @@ function ImpulsarVentar() {
               </div>
               {/* Botón que abre el modal */}
               <button className="button-small" onClick={toggleModal}>
-                Demo Gratis
+                Demo sin costo
               </button>
             </div>
           </div>
@@ -277,7 +277,7 @@ function ImpulsarVentar() {
         <div className={styles.modalOverlay}>
           <div className={styles.modalContent}>
             <div className={styles.modalHeader}>
-              <h2>Obtén Tu Demo Gratis Ahora</h2>
+              <h2>Obtén Tu Demo sin costo Ahora</h2>
               <button className={styles.closeModal} onClick={toggleModal}>
                 &times;
               </button>
@@ -371,7 +371,7 @@ function ImpulsarVentar() {
                   </div>
                   <div>
                     <button type="submit" className={styles.hsSubmit}>
-                      Sí, quiero mi demo gratis
+                      Sí, quiero mi demo sin costo
                     </button>
                   </div>
                 </form>

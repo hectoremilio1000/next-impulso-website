@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 
 import { useRouter } from "next/router";
@@ -23,7 +23,10 @@ const MySwiper = dynamic(() => import("../components/SwiperPrueba"), {
 });
 
 export default function Home() {
+  // tu modal de formulario (ya lo usas)
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showEntryModal, setShowEntryModal] = useState(true);
+
   const [alertMessage, setAlertMessage] = useState(""); // Mensaje global de alerta
   const [alertType, setAlertType] = useState(""); // Tipo de alerta (error o success)
   const [errors, setErrors] = useState({}); // Para errores específicos de campos
@@ -106,7 +109,32 @@ export default function Home() {
     }
   };
 
-  const router = useRouter();
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const seen = sessionStorage.getItem("seenEntryModal");
+    if (!seen) {
+      setShowEntryModal(true);
+      sessionStorage.setItem("seenEntryModal", "1");
+    }
+  }, []);
+
+  // Cerrar con ESC y bloquear scroll cuando haya modal abierto
+  useEffect(() => {
+    const onKey = (e) => e.key === "Escape" && setShowEntryModal(false);
+    if (showEntryModal) document.addEventListener("keydown", onKey);
+    document.body.style.overflow =
+      showEntryModal || isModalOpen ? "hidden" : "";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [showEntryModal, isModalOpen]);
+
+  // Al hacer clic en CTA del modal de bienvenida, abre tu formulario
+  const openFormFromEntry = () => {
+    setShowEntryModal(false);
+    setIsModalOpen(true); // reutiliza tu modal existente del formulario
+  };
 
   const { ingles, espa } = useAppContext();
 
@@ -190,7 +218,7 @@ export default function Home() {
                   <span className="title3-tw text-[#fff]">TALLER EN LÍNEA</span>
                   <br />
                   <span className="span4-tw">
-                    NO TE LO PIERDAS. PRIMEROS 15 DUEÑOS RESTAURANTEROS.
+                    NO TE LO PIERDAS. PRIMEROS 15 LÍDERES RESTAURANTEROS.
                   </span>
                 </h1>
               </div>
@@ -204,7 +232,7 @@ export default function Home() {
                     <div className={styles.modalOverlay}>
                       <div className={styles.modalContent}>
                         <div className={styles.modalHeader}>
-                          <h2>RECOMENDACIONES EN VIVO</h2>
+                          <h2>ESTÁS A UN CLICK DE LOGRAR TUS SUEÑOS</h2>
                           <button
                             className={styles.closeModal}
                             onClick={toggleModal}
@@ -358,7 +386,7 @@ export default function Home() {
 
           <CasosEstudio />
           <div className="w-full">
-            <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/30min?month=2025-03" />
+            <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/impulso-restaurantero" />
           </div>
           <About />
           <RestauranterosExitosos />
@@ -529,6 +557,111 @@ export default function Home() {
               </div>
             </div>
           </div>
+          {showEntryModal && (
+            <div
+              className="fixed inset-0 z-[9999] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="entry-modal-title"
+              onClick={() => setShowEntryModal(false)}
+            >
+              {/* Card (no cierra al hacer click dentro) */}
+              <div
+                onClick={(e) => e.stopPropagation()}
+                className="
+        relative w-full max-w-[760px]
+        rounded-[28px] overflow-hidden text-white
+        shadow-[0_30px_120px_rgba(0,0,0,.45)]
+        ring-1 ring-white/10
+        bg-[#0b0b0b]
+      "
+              >
+                {/* Borde/halo dorado sutil con pseudo-elementos */}
+                <div
+                  className="
+        pointer-events-none absolute inset-0
+        before:content-[''] before:absolute before:inset-[-2px]
+        before:rounded-[32px]
+        before:bg-[radial-gradient(1200px_300px_at_50%_120%,rgba(245,197,94,.18),transparent)]
+        after:content-[''] after:absolute after:-inset-px after:rounded-[32px]
+        after:ring-1 after:ring-white/10
+      "
+                />
+
+                {/* Header con logo */}
+                <div className="flex items-center gap-3 px-6 pt-5">
+                  <img
+                    src="https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png"
+                    alt="Impulso Restaurantero"
+                    className="h-8 w-auto"
+                  />
+                  <span className="text-sm tracking-[.12em] text-amber-300/90 font-semibold">
+                    IMPULSO <span className="text-white/90">RESTAURANTERO</span>
+                  </span>
+                </div>
+
+                {/* Contenido */}
+                <div className="px-6 md:px-14 pb-7 md:pb-10 pt-4 relative">
+                  {/* flecha decorativa */}
+                  {/* <div className="flex justify-center md:justify-end pr-0 md:pr-6">
+                    <span className="text-amber-300/90 text-2xl md:text-3xl">
+                      ↗
+                    </span>
+                  </div> */}
+
+                  <h2
+                    id="entry-modal-title"
+                    className="text-center font-extrabold leading-[1.05] tracking-tight
+                     text-[28px] md:text-[42px] lg:text-[48px]"
+                  >
+                    <span className="block">Si todo lo que ves</span>
+                    <span className="block">te hace sentido,</span>
+                    <span className="block">
+                      <span className="text-amber-400">qué esperas</span>
+                    </span>
+                    <span className="block">para registrarte?</span>
+                  </h2>
+
+                  {/* CTA */}
+                  <div className="mt-6 md:mt-7 flex justify-center">
+                    <button
+                      onClick={openFormFromEntry}
+                      className="
+              inline-flex items-center justify-center
+              rounded-xl px-6 py-3 md:px-8 md:py-4
+              text-base md:text-lg font-semibold
+              bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800
+              shadow-[0_10px_30px_rgba(16,185,129,.35)]
+              focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-400
+            "
+                    >
+                      Solicitar mi demo sin costo
+                    </button>
+                  </div>
+
+                  {/* Nota inferior */}
+                  <div className="mt-4 md:mt-5 flex items-center justify-center gap-2 text-sm text-white/80">
+                    <span className="text-amber-300">↪</span>
+                    <span>No te quedes fuera</span>
+                  </div>
+                </div>
+
+                {/* Botón cerrar (esquina) */}
+                <button
+                  onClick={() => setShowEntryModal(false)}
+                  aria-label="Cerrar"
+                  className="
+          absolute right-3 top-3 h-9 w-9 rounded-full
+          bg-white/10 hover:bg-white/20
+          flex items-center justify-center text-xl leading-none
+          backdrop-blur-sm
+        "
+                >
+                  ×
+                </button>
+              </div>
+            </div>
+          )}
         </>
       ) : (
         <></>

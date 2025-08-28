@@ -32,11 +32,11 @@ const About = () => {
                 <p className="font-bold title4-tw text-block-6">Dueños</p>
               </div> */}
               <div>
-                <h1 className="counter font-bold">+$2B</h1>
+                <h1 className="counter font-bold">+$150MP</h1>
                 <p className="font-bold title4-tw text-block-6">Ganancias</p>
               </div>
               <div>
-                <h1 className="counter font-bold ">+1,000</h1>
+                <h1 className="counter font-bold ">+350</h1>
                 <p className="font-bold title4-tw text-block-6">Clientes</p>
               </div>
             </div>
