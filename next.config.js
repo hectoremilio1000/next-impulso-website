@@ -45,6 +45,13 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  remotePatterns: [
+    {
+      protocol: "https",
+      hostname: "media.impulsorestaurantero.com",
+      pathname: "/traspasos/**",
+    },
+  ],
 };
 
 module.exports = nextConfig;

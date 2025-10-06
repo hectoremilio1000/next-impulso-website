@@ -1,3 +1,4 @@
+// /Users/hectoremilio/Proyectos/nextjs/impulso_restaurantero/next-impulso-website-final/components/NavBarBlack/NavBarEs.js
 import Link from "next/link";
 import React, { useState } from "react";
 import Image from "next/image";
