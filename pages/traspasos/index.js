@@ -1,7 +1,7 @@
 // /pages/traspasos/index.js
 import { useEffect, useMemo, useState } from "react";
 import Head from "next/head";
-import TraspasoCard from "./TraspasoCard";
+import TraspasoCard from "../../components/Traspasos/TraspasoCard";
 import { listTraspasos } from "../../lib/traspasosApi";
 import Link from "next/link";
 import NavBar from "../../components/NavBarBlack/NavBarEs";
