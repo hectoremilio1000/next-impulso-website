@@ -1,3 +1,4 @@
+// /pages/traspasos/[id].js
 import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useState, useMemo } from "react";
@@ -30,25 +31,50 @@ export default function TraspasoDetalle() {
     })();
   }, [id]);
 
-  const { fichaPath, fichaUrl, waHref } = useMemo(() => {
-    if (!data) return { fichaPath: "", fichaUrl: "", waHref: "" };
+  const { fichaPath, fichaUrl, waHref, isDraft, isArchived } = useMemo(() => {
+    if (!data)
+      return {
+        fichaPath: "",
+        fichaUrl: "",
+        waHref: "",
+        isDraft: false,
+        isArchived: false,
+      };
     const fichaPath = `/traspasos/${data.id}`;
     const origin =
       typeof window !== "undefined" && window.location?.origin
         ? window.location.origin
-        : ""; // vacío en build estático
+        : "";
     const fichaUrl = origin ? `${origin}${fichaPath}` : fichaPath;
     const waText = `Hola, me interesa el traspaso "${data.title}" (ID ${data.id}). Lo vi en Impulso Restaurantero. ¿Podemos coordinar una visita? ${fichaUrl}`;
     const waHref = `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent(
       waText
     )}`;
-    return { fichaPath, fichaUrl, waHref };
+    return {
+      fichaPath,
+      fichaUrl,
+      waHref,
+      isDraft: data.status === "draft",
+      isArchived: data.status === "archived",
+    };
   }, [data]);
 
   if (loading)
     return <div className="mx-auto max-w-6xl px-4 py-8">Cargando…</div>;
   if (notFound || !data)
     return <div className="mx-auto max-w-6xl px-4 py-8">No encontrado</div>;
+
+  const badgeText = isArchived
+    ? "Traspaso logrado"
+    : isDraft
+    ? "Muy pronto"
+    : "Disponible";
+  const badgeClass = isArchived
+    ? "bg-red-700 text-white"
+    : isDraft
+    ? "bg-amber-400 text-black"
+    : "bg-emerald-600 text-white";
+
   return (
     <>
       <Head>
@@ -66,10 +92,14 @@ export default function TraspasoDetalle() {
         {Array.isArray(data.photos) && data.photos[0]?.url ? (
           <meta property="og:image" content={data.photos[0].url} />
         ) : null}
+        {/* No indexar fichas ya traspasadas */}
+        {isArchived && <meta name="robots" content="noindex" />}
       </Head>
+
       <NavBar />
+
       <div className="mx-auto max-w-6xl px-4 pt-20 md:pt-24 pb-24 space-y-6">
-        {/* Encabezado superior con botón responsive */}
+        {/* Encabezado superior + CTA */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
           <div className="flex items-center gap-3">
             <Link
@@ -78,17 +108,37 @@ export default function TraspasoDetalle() {
             >
               ← Ver lista
             </Link>
+            <span
+              className={`rounded-full px-2.5 py-1 text-xs font-semibold ${badgeClass}`}
+            >
+              {badgeText}
+            </span>
           </div>
 
+          {/* Botón WhatsApp: desactivado si draft o archived */}
           <a
-            href={waHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-lg bg-emerald-600 px-4 py-2 font-medium text-white hover:bg-emerald-500 shadow-sm w-full sm:w-auto transition"
+            href={isArchived || isDraft ? undefined : waHref}
+            target={isArchived || isDraft ? undefined : "_blank"}
+            rel={isArchived || isDraft ? undefined : "noopener noreferrer"}
+            aria-disabled={isArchived || isDraft}
+            className={`inline-flex items-center justify-center rounded-lg px-4 py-2 font-medium shadow-sm w-full sm:w-auto transition
+              ${
+                isArchived || isDraft
+                  ? "bg-slate-200 text-slate-500 cursor-not-allowed pointer-events-none"
+                  : "bg-emerald-600 text-white hover:bg-emerald-500"
+              }`}
+            title={
+              isArchived
+                ? "Este traspaso ya se realizó"
+                : isDraft
+                ? "Aún no disponible"
+                : "Agendar por WhatsApp"
+            }
           >
             📲 Agendar por WhatsApp
           </a>
         </div>
+
         <header className="space-y-1">
           <h1 className="text-4xl font-bold tracking-tight">{data.title}</h1>
           <p className="black">
@@ -96,6 +146,7 @@ export default function TraspasoDetalle() {
           </p>
         </header>
 
+        {/* Galería */}
         {Array.isArray(data.photos) && data.photos.length > 0 && (
           <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
             {data.photos.map((p) => (
@@ -110,6 +161,10 @@ export default function TraspasoDetalle() {
                   className="object-cover"
                   sizes="(max-width:768px) 50vw, 33vw"
                 />
+                {/* Tinte rojo si está traspasado */}
+                {isArchived && (
+                  <div className="absolute inset-0 bg-red-700/40 mix-blend-multiply pointer-events-none" />
+                )}
               </figure>
             ))}
           </div>

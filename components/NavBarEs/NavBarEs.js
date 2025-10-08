@@ -140,10 +140,10 @@ function NavBar() {
                 </li>
                 <li key="5">
                   <Link
-                    href="/pruebagratis"
+                    href="/traspasos"
                     className="nav-link hover:text-yellow-400"
                   >
-                    Sin Costo
+                    Traspasos
                   </Link>
                 </li>
               </>

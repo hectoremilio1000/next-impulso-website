@@ -619,7 +619,7 @@ export default function Home() {
                     <span className="block">
                       <span className="text-amber-400">qué esperas</span>
                     </span>
-                    <span className="block">para registrarte?</span>
+                    <span className="block">para ser parte?</span>
                   </h2>
 
                   {/* CTA */}
@@ -635,7 +635,7 @@ export default function Home() {
               focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-400
             "
                     >
-                      Solicitar mi demo sin costo
+                      ¡Quiero crecer mi negocio ya!
                     </button>
                   </div>
 
