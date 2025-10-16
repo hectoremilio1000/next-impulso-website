@@ -1,33 +1,9 @@
-import { useEffect, Fragment } from "react";
+// /pages/blog/[slug].js
+import { useEffect, useState, Fragment } from "react";
+import { useRouter } from "next/router";
 import NavBar from "../../components/NavBarBlack/NavBarEs";
+import { getBlogPostBySlug } from "../../lib/blogApi";
 
-/* ───────────── rutas estáticas ───────────── */
-export async function getStaticPaths() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/blog-posts?limit=100`
-  );
-  const { data } = await res.json();
-
-  return {
-    paths: data.map((p) => ({ params: { slug: p.slug } })),
-    fallback: false,
-  };
-}
-
-/* ───────────── datos por slug ───────────── */
-export async function getStaticProps({ params }) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/blog-posts/${params.slug}`
-  );
-
-  if (res.status === 404) return { notFound: true };
-
-  const post = await res.json();
-  console.log("[getStaticProps] post ⇒", post);
-  return { props: { post } };
-}
-
-/* ───────────── Renderizador de bloques ───────────── */
 function RenderBlock({ block }) {
   switch (block.type) {
     case "heading":
@@ -41,7 +17,7 @@ function RenderBlock({ block }) {
         <figure className="my-10">
           <img
             className="w-full max-w-3xl mx-auto rounded-lg shadow-md"
-            src={block.imageUrl}
+            src={block.imageUrl || "/images/placeholder-img.webp"}
             alt=""
           />
         </figure>
@@ -51,11 +27,46 @@ function RenderBlock({ block }) {
   }
 }
 
-/* ───────────── componente página ───────────── */
-export default function SinglePost({ post }) {
+export default function SinglePost() {
+  const router = useRouter();
+  const { slug } = router.query;
+
+  const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
+
   useEffect(() => {
-    console.log("[SinglePost] post ⇒", post);
-  }, [post]);
+    if (!slug) return;
+    (async () => {
+      try {
+        const p = await getBlogPostBySlug(slug);
+        setPost(p);
+      } catch {
+        setNotFound(true);
+      } finally {
+        setLoading(false);
+      }
+    })();
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <>
+        <NavBar />
+        <div className="mx-auto max-w-5xl px-4 pt-24 pb-12">Cargando…</div>
+      </>
+    );
+  }
+  if (notFound || !post) {
+    return (
+      <>
+        <NavBar />
+        <div className="mx-auto max-w-5xl px-4 pt-24 pb-12">No encontrado</div>
+      </>
+    );
+  }
+
+  const cover = post.coverImage || "/images/placeholder-cover.webp";
 
   return (
     <>
@@ -64,7 +75,7 @@ export default function SinglePost({ post }) {
       {/* Banner */}
       <div
         className="relative h-[45vh] md:h-[80vh] pt-16 bg-center bg-cover"
-        style={{ backgroundImage: `url(${post.coverImage})` }}
+        style={{ backgroundImage: `url(${cover})` }}
       >
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
@@ -74,23 +85,26 @@ export default function SinglePost({ post }) {
             <p className="italic text-lg mb-4">{post.bannerPhrase}</p>
           )}
 
-          {post.author && (
-            <p className="text-sm">
-              <span className="font-semibold">Autor:</span> {post.author.name}
-              <br />
-              <span className="font-semibold">Fecha:</span>{" "}
-              {new Date(post.publishedAt).toLocaleDateString("es-MX")}
-            </p>
-          )}
+          <p className="text-sm">
+            <span className="font-semibold">Autor:</span>{" "}
+            {post?.author?.name || "Impulso Restaurantero"}
+            <br />
+            <span className="font-semibold">Fecha:</span>{" "}
+            {post.publishedAt
+              ? new Date(post.publishedAt).toLocaleDateString("es-MX")
+              : ""}
+          </p>
         </div>
       </div>
 
-      {/* Contenido basado en bloques ★ */}
+      {/* Contenido por bloques */}
       <section className="bg-gray-50 px-4 md:px-16 py-12 font-serif">
         <article className="prose lg:prose-lg max-w-3xl mx-auto">
           {post.blocks?.length ? (
             post.blocks
-              .sort((a, b) => a.order - b.order)
+              .sort(
+                (a, b) => (a.order ?? a.sortOrder) - (b.order ?? b.sortOrder)
+              )
               .map((block) => (
                 <Fragment key={block.id}>
                   <RenderBlock block={block} />
