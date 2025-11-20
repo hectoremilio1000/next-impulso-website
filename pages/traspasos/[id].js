@@ -1,52 +1,32 @@
 // /pages/traspasos/[id].js
 import Head from "next/head";
 import Image from "next/image";
-import { useEffect, useState, useMemo } from "react";
-import { useRouter } from "next/router";
+import { useMemo } from "react";
 import Link from "next/link";
-import { getTraspaso, money } from "../../lib/traspasosApi";
+import { listTraspasos, getTraspaso, money } from "../../lib/traspasosApi";
 import NavBar from "../../components/NavBarBlack/NavBarEs";
 
 const WHATS_NUMBER = "525531491808";
 
-export default function TraspasoDetalle() {
-  const router = useRouter();
-  const { id } = router.query;
-
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [notFound, setNotFound] = useState(false);
-
-  useEffect(() => {
-    if (!id) return;
-    (async () => {
-      try {
-        const { data } = await getTraspaso(id);
-        setData(data);
-      } catch (e) {
-        setNotFound(true);
-      } finally {
-        setLoading(false);
-      }
-    })();
-  }, [id]);
+export default function TraspasoDetalle({ traspaso }) {
+  // Si por alguna razón no hay datos:
+  if (!traspaso) {
+    return (
+      <>
+        <NavBar />
+        <div className="mx-auto max-w-6xl px-4 py-8">No encontrado</div>
+      </>
+    );
+  }
 
   const { fichaPath, fichaUrl, waHref, isDraft, isArchived } = useMemo(() => {
-    if (!data)
-      return {
-        fichaPath: "",
-        fichaUrl: "",
-        waHref: "",
-        isDraft: false,
-        isArchived: false,
-      };
-    const fichaPath = `/traspasos/${data.id}`;
+    const fichaPath = `/traspasos/${traspaso.id}`;
     const origin =
       typeof window !== "undefined" && window.location?.origin
         ? window.location.origin
         : "";
     const fichaUrl = origin ? `${origin}${fichaPath}` : fichaPath;
-    const waText = `Hola, me interesa el traspaso "${data.title}" (ID ${data.id}). Lo vi en Impulso Restaurantero. ¿Podemos coordinar una visita? ${fichaUrl}`;
+    const waText = `Hola, me interesa el traspaso "${traspaso.title}" (ID ${traspaso.id}). Lo vi en Impulso Restaurantero. ¿Podemos coordinar una visita? ${fichaUrl}`;
     const waHref = `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent(
       waText
     )}`;
@@ -54,15 +34,10 @@ export default function TraspasoDetalle() {
       fichaPath,
       fichaUrl,
       waHref,
-      isDraft: data.status === "draft",
-      isArchived: data.status === "archived",
+      isDraft: traspaso.status === "draft",
+      isArchived: traspaso.status === "archived",
     };
-  }, [data]);
-
-  if (loading)
-    return <div className="mx-auto max-w-6xl px-4 py-8">Cargando…</div>;
-  if (notFound || !data)
-    return <div className="mx-auto max-w-6xl px-4 py-8">No encontrado</div>;
+  }, [traspaso]);
 
   const badgeText = isArchived
     ? "Traspaso logrado"
@@ -78,21 +53,19 @@ export default function TraspasoDetalle() {
   return (
     <>
       <Head>
-        <title>{data.title} | Traspasos</title>
+        <title>{traspaso.title} | Traspasos</title>
         <meta
           name="description"
-          content={`${data.colonia ?? ""} · ${data.alcaldia ?? ""}`}
+          content={`${traspaso.colonia ?? ""} · ${traspaso.alcaldia ?? ""}`}
         />
-        {/* Open Graph básico */}
-        <meta property="og:title" content={`${data.title} | Traspasos`} />
+        <meta property="og:title" content={`${traspaso.title} | Traspasos`} />
         <meta
           property="og:description"
-          content={`${data.colonia ?? ""} · ${data.alcaldia ?? ""}`}
+          content={`${traspaso.colonia ?? ""} · ${traspaso.alcaldia ?? ""}`}
         />
-        {Array.isArray(data.photos) && data.photos[0]?.url ? (
-          <meta property="og:image" content={data.photos[0].url} />
+        {Array.isArray(traspaso.photos) && traspaso.photos[0]?.url ? (
+          <meta property="og:image" content={traspaso.photos[0].url} />
         ) : null}
-        {/* No indexar fichas ya traspasadas */}
         {isArchived && <meta name="robots" content="noindex" />}
       </Head>
 
@@ -115,7 +88,7 @@ export default function TraspasoDetalle() {
             </span>
           </div>
 
-          {/* Botón WhatsApp: desactivado si draft o archived */}
+          {/* Botón WhatsApp */}
           <a
             href={isArchived || isDraft ? undefined : waHref}
             target={isArchived || isDraft ? undefined : "_blank"}
@@ -140,28 +113,30 @@ export default function TraspasoDetalle() {
         </div>
 
         <header className="space-y-1">
-          <h1 className="text-4xl font-bold tracking-tight">{data.title}</h1>
+          <h1 className="text-4xl font-bold tracking-tight">
+            {traspaso.title}
+          </h1>
           <p className="black">
-            {data.colonia || "—"} · {data.alcaldia || "—"} · {data.ciudad}
+            {traspaso.colonia || "—"} · {traspaso.alcaldia || "—"} ·{" "}
+            {traspaso.ciudad}
           </p>
         </header>
 
         {/* Galería */}
-        {Array.isArray(data.photos) && data.photos.length > 0 && (
+        {Array.isArray(traspaso.photos) && traspaso.photos.length > 0 && (
           <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
-            {data.photos.map((p) => (
+            {traspaso.photos.map((p) => (
               <figure
                 key={p.id}
                 className="relative aspect-[4/3] overflow-hidden rounded-xl border bg-slate-100"
               >
                 <Image
                   src={p.url}
-                  alt={data.title}
+                  alt={traspaso.title}
                   fill
                   className="object-cover"
                   sizes="(max-width:768px) 50vw, 33vw"
                 />
-                {/* Tinte rojo si está traspasado */}
                 {isArchived && (
                   <div className="absolute inset-0 bg-red-700/40 mix-blend-multiply pointer-events-none" />
                 )}
@@ -176,21 +151,21 @@ export default function TraspasoDetalle() {
             <div className="grid grid-cols-2 gap-3 text-sm">
               <div className="rounded-xl border bg-slate-50 p-3">
                 <div className="text-slate-500">Renta</div>
-                <div className="font-medium">{money(data.rentaMx)}</div>
+                <div className="font-medium">{money(traspaso.rentaMx)}</div>
               </div>
               <div className="rounded-xl border bg-slate-50 p-3">
                 <div className="text-slate-500">Traspaso</div>
-                <div className="font-medium">{money(data.traspasoMx)}</div>
+                <div className="font-medium">{money(traspaso.traspasoMx)}</div>
               </div>
               <div className="rounded-xl border bg-slate-50 p-3">
                 <div className="text-slate-500">Metros</div>
                 <div className="font-medium">
-                  {data.metrosCuadrados ?? 0} m²
+                  {traspaso.metrosCuadrados ?? 0} m²
                 </div>
               </div>
               <div className="rounded-xl border bg-slate-50 p-3">
                 <div className="text-slate-500">Aforo</div>
-                <div className="font-medium">{data.aforo ?? 0}</div>
+                <div className="font-medium">{traspaso.aforo ?? 0}</div>
               </div>
             </div>
           </div>
@@ -200,29 +175,76 @@ export default function TraspasoDetalle() {
             <div className="text-sm text-slate-700 space-y-1">
               <div>
                 <span className="text-slate-500">Nombre:</span>{" "}
-                {data.contactoNombre ?? "—"}
+                {traspaso.contactoNombre ?? "—"}
               </div>
               <div>
                 <span className="text-slate-500">Tel:</span>{" "}
-                {data.contactoTel ?? "—"}
+                {traspaso.contactoTel ?? "—"}
               </div>
               <div>
                 <span className="text-slate-500">WhatsApp:</span>{" "}
-                {data.contactoWhatsapp ?? "—"}
+                {traspaso.contactoWhatsapp ?? "—"}
               </div>
             </div>
           </div>
         </section>
 
-        {data.descripcion && (
+        {traspaso.descripcion && (
           <div className="rounded-2xl border bg-white p-5 shadow-sm">
             <h2 className="mb-2 text-lg font-semibold">Descripción</h2>
             <p className="whitespace-pre-wrap text-slate-700">
-              {data.descripcion}
+              {traspaso.descripcion}
             </p>
           </div>
         )}
       </div>
     </>
   );
+}
+
+/* 🔥 SSG para output:"export" */
+
+export async function getStaticPaths() {
+  try {
+    const { data } = await listTraspasos(""); // { data: [...] }
+    const rows = Array.isArray(data) ? data : [];
+
+    const paths = rows
+      .filter((t) => t.id != null)
+      .map((t) => ({
+        params: { id: String(t.id) },
+      }));
+
+    return {
+      paths,
+      fallback: false, // con "export" tiene que ser false
+    };
+  } catch (e) {
+    console.error("Error en getStaticPaths /traspasos:", e);
+    return {
+      paths: [],
+      fallback: false,
+    };
+  }
+}
+
+export async function getStaticProps({ params }) {
+  try {
+    const res = await getTraspaso(params.id);
+    // tu API devuelve { data: {...} }
+    const traspaso = res?.data ?? res;
+
+    if (!traspaso) {
+      return { notFound: true };
+    }
+
+    return {
+      props: {
+        traspaso,
+      },
+    };
+  } catch (e) {
+    console.error("Error en getStaticProps /traspasos/[id]:", e);
+    return { notFound: true };
+  }
 }

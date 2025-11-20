@@ -1,8 +1,8 @@
 // /pages/blog/[slug].js
-import { useEffect, useState, Fragment } from "react";
-import { useRouter } from "next/router";
+
+import { Fragment } from "react";
 import NavBar from "../../components/NavBarBlack/NavBarEs";
-import { getBlogPostBySlug } from "../../lib/blogApi";
+import { getBlogPostBySlug, listBlogPosts } from "../../lib/blogApi";
 
 function RenderBlock({ block }) {
   switch (block.type) {
@@ -27,37 +27,8 @@ function RenderBlock({ block }) {
   }
 }
 
-export default function SinglePost() {
-  const router = useRouter();
-  const { slug } = router.query;
-
-  const [post, setPost] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [notFound, setNotFound] = useState(false);
-
-  useEffect(() => {
-    if (!slug) return;
-    (async () => {
-      try {
-        const p = await getBlogPostBySlug(slug);
-        setPost(p);
-      } catch {
-        setNotFound(true);
-      } finally {
-        setLoading(false);
-      }
-    })();
-  }, [slug]);
-
-  if (loading) {
-    return (
-      <>
-        <NavBar />
-        <div className="mx-auto max-w-5xl px-4 pt-24 pb-12">Cargando…</div>
-      </>
-    );
-  }
-  if (notFound || !post) {
+export default function SinglePost({ post }) {
+  if (!post) {
     return (
       <>
         <NavBar />
@@ -117,4 +88,54 @@ export default function SinglePost() {
       </section>
     </>
   );
+}
+
+/**
+ * Genera TODAS las rutas estáticas /blog/[slug]
+ * compatibles con output: "export".
+ */
+export async function getStaticPaths() {
+  try {
+    const { data } = await listBlogPosts(200, 1); // ajusta el 200 si quieres
+    const posts = Array.isArray(data) ? data : [];
+
+    const paths = posts
+      .filter((p) => !!p.slug)
+      .map((p) => ({
+        params: { slug: p.slug },
+      }));
+
+    return {
+      paths,
+      fallback: false, // con output: "export" debe ser false
+    };
+  } catch (e) {
+    console.error("Error en getStaticPaths blog:", e);
+    return {
+      paths: [],
+      fallback: false,
+    };
+  }
+}
+
+/**
+ * Para cada slug definido arriba, construimos la página estática.
+ */
+export async function getStaticProps({ params }) {
+  try {
+    const post = await getBlogPostBySlug(params.slug);
+
+    if (!post) {
+      return { notFound: true };
+    }
+
+    return {
+      props: {
+        post,
+      },
+    };
+  } catch (e) {
+    console.error("Error en getStaticProps blog slug:", e);
+    return { notFound: true };
+  }
 }
