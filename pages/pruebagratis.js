@@ -3,7 +3,7 @@ import NavBar from "../components/NavBarBlack/NavBarEs";
 import styles from "../components/Demo/Demo.module.css"; // Ajusta la ruta si corresponde
 import Link from "next/link";
 import axios from "axios";
-import { InlineWidget } from "react-calendly";
+import BookingWidget from "../components/BookingWidget";
 import WhatsappButton from "../components/WhatsappButton";
 
 function PruebaGratis({ backgroundImage }) {
@@ -292,8 +292,8 @@ function PruebaGratis({ backgroundImage }) {
           </div>
         </div>
       </div>
-      <div className="w-full">
-        <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/30min?month=2025-03" />
+      <div className="w-full max-w-[900px] mx-auto px-4 py-8">
+        <BookingWidget eventTypeSlug="agenda-demo" />
       </div>
       <WhatsappButton />
     </>

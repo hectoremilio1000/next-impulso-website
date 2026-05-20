@@ -6,7 +6,7 @@ import axios from "axios";
 
 // Importa tus estilos para el modal y form
 import styles from "../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta si es necesario
-import { InlineWidget } from "react-calendly";
+import BookingWidget from "../components/BookingWidget";
 import WhatsappButton from "../components/WhatsappButton";
 
 function Comolohacemos() {
@@ -353,7 +353,7 @@ function Comolohacemos() {
                 <h2 className="text-2xl md:text-4xl font-bold text-gray-900 leading-tight text-center">
                   Recibe ayuda ahora
                 </h2>
-                <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/impulso-restaurantero" />
+                <BookingWidget eventTypeSlug="agenda-demo" />
               </div>
             </div>
           </div>
