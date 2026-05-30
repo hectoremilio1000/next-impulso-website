@@ -23,15 +23,18 @@ export default function BookingWidget({
   slug = DEFAULT_SLUG,
   eventTypeSlug,
   initialHeight = 560,
+  maxWidth = null,
 }) {
   const [src, setSrc] = useState("");
   const [height, setHeight] = useState(initialHeight);
   const iframeRef = useRef(null);
 
   useEffect(() => {
-    const url = buildBookingWidgetUrl(WIDGET_BASE_URL, slug, eventTypeSlug);
+    const url = buildBookingWidgetUrl(WIDGET_BASE_URL, slug, eventTypeSlug, {
+      maxWidth,
+    });
     setSrc(url);
-  }, [slug, eventTypeSlug]);
+  }, [slug, eventTypeSlug, maxWidth]);
 
   /* Listen for height updates from the embedded widget (cross-origin postMessage) */
   useEffect(() => {
@@ -73,6 +76,8 @@ export default function BookingWidget({
       title="Agenda con Impulso Restaurantero"
       style={{
         width: "100%",
+        maxWidth: maxWidth ? `${maxWidth}px` : undefined,
+        marginInline: maxWidth ? "auto" : undefined,
         height,
         border: 0,
         borderRadius: 12,
