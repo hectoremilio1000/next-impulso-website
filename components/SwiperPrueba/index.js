@@ -105,11 +105,11 @@ const MySwiper = () => {
     >
       <div className={styles.content}>
         <div className={styles["block-hero"]}>
-          <div className={styles.subtitle}>DUEÑOS RESTAURANTEROS</div>
+          <div className={styles.subtitle}>LÍDERES RESTAURANTEROS</div>
           <h1 className={`${styles["heading-13"]} ${styles.desktop}`}>
             ¿QUIERES MÁS <br /> CLIENTES? <br />
           </h1>
-          <h1 className={`${styles["heading-13"]} ${styles.mobile}`}>
+          <h1 className={`${styles["heading-13"]} ${styles.mobile} pt-4`}>
             ¿QUIERES MÁS <br /> CLIENTES? <br />
           </h1>
           <div className={`${styles.largeText} ${styles.mobile}`}>

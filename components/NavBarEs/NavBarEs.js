@@ -125,14 +125,14 @@ function NavBar() {
                     Cómo lo hacemos
                   </Link>
                 </li>
-                {/* <li key="3">
+                <li key="3">
                   <Link
                     href="/contacto"
                     className="nav-link hover:text-yellow-400"
                   >
                     Contacto
                   </Link>
-                </li> */}
+                </li>
                 <li key="4">
                   <Link href="/blog" className="nav-link hover:text-yellow-400">
                     Blog
@@ -140,10 +140,10 @@ function NavBar() {
                 </li>
                 <li key="5">
                   <Link
-                    href="/pruebagratis"
+                    href="/traspasos"
                     className="nav-link hover:text-yellow-400"
                   >
-                    Prueba Gratis
+                    Traspasos
                   </Link>
                 </li>
               </>

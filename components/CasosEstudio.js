@@ -6,6 +6,9 @@ import {
   useMotionTemplate,
 } from "framer-motion";
 import Link from "next/link";
+
+import { YouTubeEmbed } from "@next/third-parties/google";
+
 const CasosEstudio = () => {
   const ref = useRef(null);
 
@@ -88,18 +91,19 @@ const CasosEstudio = () => {
           viewport={{ once: true }} // Solo ejecuta la animación una vez
           className="title2-tw text-center uppercase"
         >
-          Con la confianza de más de
-          <br /> 1,000+ RESTAURANTEROS <br /> DEL MUNDO
+          Más de 10 años de experiencia
+          <br /> que garantizan resultados
         </motion.h2>
       </div>
       <div className="w-[100%] max-w-[1085px] flex flex-col justify-center items-center">
         <div className="content grid grid-cols-1 md:grid-cols-2 gap-8 px-[20px] items-start">
-          <div className="w-full flex flex-col items-center gap-4 p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
+          <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
             <Link href="/casosexito">
-              <img
-                className=" w-full object-contain"
-                src="https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/seccion1/649c99bff8de9f73cec2b5c5_Videos+copy.png"
-                alt=""
+              <iframe
+                className="w-full aspect-video self-stretch md:min-h-128 h-48"
+                src="https://www.youtube.com/embed/N9o8Pa11K0E"
+                title="Product Overview Video"
+                aria-hidden="true"
               />
             </Link>
             <h2 className="title3-tw text-center">Historias Inspiradoras</h2>

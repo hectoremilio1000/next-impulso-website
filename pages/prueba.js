@@ -204,8 +204,8 @@ function Prueba() {
         <div className="bg-gray-50 flex flex-col items-center px-4 py-8 md:px-16 pt-24 md:pt-36">
           <div className="text-center max-w-4xl">
             <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
-              Descubre cómo transformamos tu negocio con tecnología e
-              inteligencia artificial
+              Descubre como transformamos tu negocio con tecnología y nuestra
+              experiencia en el sector
             </h1>
             <p className="text-gray-600 text-sm md:text-2xl">
               Impulso Restaurantero es la manera más sencilla de CONSEGUIR MÁS

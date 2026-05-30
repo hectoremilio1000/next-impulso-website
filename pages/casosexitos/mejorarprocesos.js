@@ -279,7 +279,7 @@ function MejorarProcesos() {
               <div>
                 <div className="mb-8 text-center">
                   <p className="text-3xl md:text-4xl font-bold text-white">
-                    15 días gratis
+                    15 días sin costo
                   </p>
                   <p className="text-lg text-gray-300">Sin compromisos</p>
                 </div>
@@ -287,7 +287,7 @@ function MejorarProcesos() {
               </div>
               {/* Botón que ABRE el modal “Demo Gratis” */}
               <button className="button-small" onClick={toggleModal}>
-                Demo Gratis
+                Demo sin costo
               </button>
             </div>
           </div>
@@ -299,7 +299,7 @@ function MejorarProcesos() {
         <div className={styles.modalOverlay}>
           <div className={styles.modalContent}>
             <div className={styles.modalHeader}>
-              <h2>Obtén Tu Demo Gratis Ahora</h2>
+              <h2>Obtén Tu Demo sin costo Ahora</h2>
               <button className={styles.closeModal} onClick={toggleModal}>
                 &times;
               </button>
@@ -389,7 +389,7 @@ function MejorarProcesos() {
                   </div>
                   <div>
                     <button type="submit" className={styles.hsSubmit}>
-                      Sí, quiero mi demo gratis
+                      Sí, quiero mi demo sin costo
                     </button>
                   </div>
                 </form>

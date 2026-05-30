@@ -156,7 +156,7 @@ function Lalloronacantina() {
         <div className="mt-6 mb-4">
           {/* Botón que ABRE el nuevo modal de Demo Gratis */}
           <Link href="/prueba">
-            <button className="button-small">Prueba Gratis ¡YA!</button>
+            <button className="button-small">Prueba Sin costo ¡YA!</button>
           </Link>
         </div>
         <div className="content grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-36 px-[20px] items-center">
@@ -221,12 +221,24 @@ function Lalloronacantina() {
           </div>
         </div>
         <div className="content grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-36 px-[20px] items-center">
-          <div className="w-full flex flex-col items-center gap-4 justify-start p-2 bg-[#fbfbfad9] border-[#e5e5e5] max-w-xl">
-            <img
-              className="w-full object-contain rounded-[1.2em]"
-              src={info[0].imagen3}
-              alt=""
-            />
+          <div className="flex flex-col justify-center p-6 bg-[#fbfbfad9] border border-[#e5e5e5] rounded-[1.2em] h-full">
+            <div className="mx-auto w-full max-w-[420px] md:max-w-[480px] lg:max-w-[520px]">
+              <div
+                className="relative w-full overflow-hidden rounded-xl bg-black shadow"
+                style={{ aspectRatio: "9 / 16" }} // Short vertical
+              >
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src="https://www.youtube.com/embed/1XGtnXmETD8?modestbranding=1&rel=0&playsinline=1&controls=1"
+                  title="Camino al éxito en el mundo restaurantero"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                />
+              </div>
+            </div>
           </div>
           <div className="w-full flex flex-col items-center gap-4 justify-center p-2 bg-[#fbfbfad9] border-[#e5e5e5] rounded-[1.2em] max-w-2xl">
             <h2 className="text-2xl md:text-5xl font-bold text-gray-900 leading-tight text-center">
@@ -257,7 +269,7 @@ function Lalloronacantina() {
               <div>
                 <div className="mb-8 text-center">
                   <p className="text-3xl md:text-4xl font-bold text-white">
-                    15 días gratis
+                    15 días sin costo
                   </p>
                   <p className="text-lg text-gray-300">Sin compromisos</p>
                 </div>
@@ -265,7 +277,7 @@ function Lalloronacantina() {
               </div>
               {/* Botón que abre el modal para “Demo Gratis” */}
               <button className="button-small" onClick={toggleModal}>
-                Demo Gratis ya
+                Demo sin costo ya
               </button>
             </div>
           </div>
@@ -277,7 +289,7 @@ function Lalloronacantina() {
         <div className={styles.modalOverlay}>
           <div className={styles.modalContent}>
             <div className={styles.modalHeader}>
-              <h2>Obtén Tu Demo Gratis Ahora</h2>
+              <h2>Obtén Tu Demo sin costo Ahora</h2>
               <button className={styles.closeModal} onClick={toggleModal}>
                 &times;
               </button>
@@ -370,7 +382,7 @@ function Lalloronacantina() {
                   </div>
                   <div>
                     <button type="submit" className={styles.hsSubmit}>
-                      Sí, quiero mi demo gratis
+                      Sí, quiero mi demo sin costo
                     </button>
                   </div>
                 </form>
