@@ -14,7 +14,7 @@ import axios from "axios";
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { InlineWidget } from "react-calendly";
+import BookingWidget from "../components/BookingWidget";
 import WhatsappButton from "../components/WhatsappButton";
 import Image from "next/image";
 
@@ -408,8 +408,8 @@ export default function Home() {
           </div>
 
           <CasosEstudio />
-          <div className="w-full">
-            <InlineWidget url="https://calendly.com/clientes-impulsorestaurantero/impulso-restaurantero" />
+          <div className="w-full max-w-[900px] mx-auto px-4 py-8">
+            <BookingWidget eventTypeSlug="agenda-demo" />
           </div>
           <About />
           <RestauranterosExitosos />
