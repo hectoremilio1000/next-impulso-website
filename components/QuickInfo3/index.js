@@ -64,7 +64,7 @@ function QuickInfo3() {
             <div>
               <img
                 className="imagen2AbajoTexto1Home"
-                src="https://imagenesrutalab.s3.amazonaws.com/llorona/cumple/ninas4pinata.JPG"
+                src="/images/llorona/ninas4pinata.jpeg"
                 alt="Música en vivo"
               />
               <p className="textoFotosHome text-black">
@@ -143,7 +143,7 @@ function QuickInfo3() {
               <div>
                 <img
                   className="imagen2AbajoTexto1Home"
-                  src="https://imagenesrutalab.s3.amazonaws.com/llorona/cumple/ninas4pinata.JPG"
+                  src="/images/llorona/ninas4pinata.jpeg"
                   alt="Música en vivo"
                 />
                 <p className="textoFotosHome text-black">

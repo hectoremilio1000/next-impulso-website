@@ -241,7 +241,7 @@ a[href="https://elfsight.com/google-reviews-widget/?utm_source=websites&utm_medi
 }
 
 .bannerMenu {
-  background-image: url("https://imagenesrutalab.s3.amazonaws.com/llorona/banner/bannerMenu.jpg");
+  background-image: url("/images/llorona/banner-cantina.jpg");
   background-size: cover !important;
   background-repeat: no-repeat;
   height: 100vh;
@@ -255,7 +255,7 @@ a[href="https://elfsight.com/google-reviews-widget/?utm_source=websites&utm_medi
 } */
 
 .bannerHomeIngles {
-  background-image: url("https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/lugarafuera.jpg") !important;
+  background-image: url("/images/llorona/lugarAfuera.jpg") !important;
   background-size: cover !important;
   background-repeat: no-repeat;
   height: 90vh;
@@ -264,7 +264,7 @@ a[href="https://elfsight.com/google-reviews-widget/?utm_source=websites&utm_medi
 }
 
 .bannerSalsa {
-  background-image: url("https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/grupo+cubano+en+vivo.JPG");
+  background-image: url("/images/llorona/nextimage-grupo-salsa-mexico.webp");
   background-size: cover !important;
   background-repeat: no-repeat;
   height: 90vh;
@@ -272,7 +272,7 @@ a[href="https://elfsight.com/google-reviews-widget/?utm_source=websites&utm_medi
 }
 
 .bannerHomeFinal {
-  background-image: url("https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/lugarperfectoCDMXlloronaterraza.jpg");
+  background-image: url("/images/llorona/nextimage-mejorterrazacdmxcantinalallorona.webp");
   background-size: cover !important;
   background-repeat: no-repeat;
   height: 90vh;
@@ -282,7 +282,7 @@ a[href="https://elfsight.com/google-reviews-widget/?utm_source=websites&utm_medi
 }
 
 .bannerHomeFinal1 {
-  background-image: url("https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/terrazaespecialromanceromacondesaamigoscantina.jpg");
+  background-image: url("/images/llorona/nextimage-fotosbanner-cantina-llorona-afuera-lugar.webp");
   background-size: cover !important;
   background-repeat: no-repeat;
   height: 90vh;
@@ -292,7 +292,7 @@ a[href="https://elfsight.com/google-reviews-widget/?utm_source=websites&utm_medi
 }
 
 .bannerVacantes {
-  background-image: url("https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/vacante/Screenshot+2023-06-03+at+3.43.28.png");
+  background-image: url("/images/llorona/IMG_0059.jpg");
   background-size: cover !important;
   background-repeat: no-repeat;
   height: 90vh;
@@ -301,7 +301,7 @@ a[href="https://elfsight.com/google-reviews-widget/?utm_source=websites&utm_medi
 }
 
 .bannerPremios {
-  background-image: url("https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/hamburguesas/1528926142blue-cheese-and-caramelized-onion-burgers-large.jpg") !important;
+  background-image: url("/images/llorona/hamburguesas-hamburguesa-jack-suizo.webp") !important;
   background-size: cover !important;
   background-repeat: no-repeat;
   height: 90vh;
@@ -310,7 +310,7 @@ a[href="https://elfsight.com/google-reviews-widget/?utm_source=websites&utm_medi
 }
 
 .bannerFranquicias {
-  background-image: url("https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/fotosBanner/IMG_0903.jpg") !important;
+  background-image: url("/images/llorona/IMG_0062.jpg") !important;
   background-size: cover !important;
   background-repeat: no-repeat;
   height: 90vh;
@@ -325,7 +325,7 @@ a[href="https://elfsight.com/google-reviews-widget/?utm_source=websites&utm_medi
 } */
 
 .bannerHome {
-  background-image: url("https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/lugarafuera.jpg");
+  background-image: url("/images/llorona/lugarAfuera.jpg");
   background-size: cover !important;
   background-repeat: no-repeat;
 
@@ -365,7 +365,7 @@ a[href="https://elfsight.com/google-reviews-widget/?utm_source=websites&utm_medi
 }
 
 .bannerCantina {
-  background-image: url("https://imagenesrutalab.s3.amazonaws.com/llorona/cantina/bannerCantina.jpg");
+  background-image: url("/images/llorona/banner-cantina.jpg");
   background-size: cover;
   height: 100vh;
   background-position: top;
@@ -646,7 +646,7 @@ ul {
   }
 
   .bannerHome {
-    background-image: url("https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/lugarafuera.jpg");
+    background-image: url("/images/llorona/lugarAfuera.jpg");
     background-size: cover !important;
     background-repeat: no-repeat;
 
@@ -671,7 +671,7 @@ ul {
   }
 
   .bannerMenu {
-    background-image: url("https://imagenesrutalab.s3.amazonaws.com/llorona/banner/bannerMenuMovil.jpg");
+    background-image: url("/images/llorona/banner-cantina-movil.jpg");
     background-size: cover !important;
     background-repeat: no-repeat;
     height: 100vh;
@@ -694,7 +694,7 @@ ul {
   }
 
   .bannerPremios {
-    background-image: url("https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/hamburguesaChile.jpg") !important;
+    background-image: url("/images/llorona/galeriaimagenes-hamburguesahuevo.jpeg") !important;
     background-size: cover !important;
     background-repeat: no-repeat;
     height: 90vh;
@@ -703,7 +703,7 @@ ul {
   }
 
   .bannerVacantes {
-    background-image: url("https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/vacante/Screenshot+2023-06-03+at+3.43.28.png");
+    background-image: url("/images/llorona/IMG_0059.jpg");
     background-size: cover !important;
     background-repeat: no-repeat;
     height: 90vh;
@@ -712,7 +712,7 @@ ul {
   }
 
   .bannerHomeFinal {
-    background-image: url("https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/lugarperfectoCDMXlloronaterraza.jpg") !important;
+    background-image: url("/images/llorona/nextimage-mejorterrazacdmxcantinalallorona.webp") !important;
     background-size: cover !important;
     background-repeat: no-repeat;
     height: 90vh;
@@ -721,7 +721,7 @@ ul {
   }
 
   .bannerHomeFinal1 {
-    background-image: url("https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/terrazaespecialromanceromacondesaamigoscantina.jpg");
+    background-image: url("/images/llorona/nextimage-fotosbanner-cantina-llorona-afuera-lugar.webp");
     background-size: scale-down !important;
     background-attachment: scroll;
     background-repeat: no-repeat;
@@ -731,7 +731,7 @@ ul {
   }
 
   .bannerSalsa {
-    background-image: url("https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/grupo+cubano+en+vivo.JPG");
+    background-image: url("/images/llorona/nextimage-grupo-salsa-mexico.webp");
     background-size: cover !important;
     background-repeat: no-repeat;
     height: 90vh !important;
@@ -740,7 +740,7 @@ ul {
   }
 
   .bannerHomeIngles {
-    background-image: url("https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/portadaHome/muertosDiamexicollorona.jpg") !important;
+    background-image: url("/images/llorona/nextimage-festejo-cantina-llorona-salsa-baile.webp") !important;
     background-size: cover !important;
     background-repeat: no-repeat;
     height: 90vh;
@@ -749,7 +749,7 @@ ul {
   }
 
   .bannerFranquicias {
-    background-image: url("https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/fotosBanner/IMG_0904.jpg") !important;
+    background-image: url("/images/llorona/IMG_0063.jpg") !important;
     background-size: cover !important;
     background-repeat: no-repeat;
     height: 90vh;
@@ -772,7 +772,7 @@ ul {
   }
 
   .bannerCantina {
-    background-image: url("https://imagenesrutalab.s3.amazonaws.com/llorona/cantina/bannerCantina500x1000.jpg") !important;
+    background-image: url("/images/llorona/banner-cantina-movil.jpg") !important;
     background-size: cover !important;
     height: 90vh !important;
     background-position: center !important;
