@@ -13,7 +13,7 @@ const HeaderEn = () => {
             <meta property="og:url" content="https://lalloronacantina.com/" />
             <meta name="og:title" content="Llorona" />
             <meta property="og:type" content="Llorona" />
-            <meta property="og:image" content="https://imagenesrutalab.s3.amazonaws.com/llorona/logo/logo_alta_sin_nombre.png" />
+            <meta property="og:image" content="/images/logos/llorona-calaca.png" />
             <link rel="apple-touch-icon" href="../logo192.png" />
             <link rel="manifest" href="../manifest.json" />
         </Head>

@@ -56,7 +56,7 @@ const Slider = () => {
                 <div className="w-full">
                   <img
                     className="rounded-lg border-2 border-white w-full h-[300px] object-top object-cover"
-                    src="https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/tostadaCantinera.jpg"
+                    src="/images/llorona/nextimage-tostadacantinera.webp"
                     alt=""
                   />
                   <h1 className="text-2xl md:text-5xl text-white mt-3">
@@ -69,7 +69,7 @@ const Slider = () => {
                 <div className="w-full">
                   <img
                     className="rounded-lg border-2 border-white w-full h-[300px] object-bottom object-cover"
-                    src="https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/mixologiaIncreible.jpg"
+                    src="/images/llorona/nextimage-mixologiaincreible.webp"
                     alt=""
                   />
                   <h1 className="text-2xl md:text-5xl text-white mt-3">
@@ -84,7 +84,7 @@ const Slider = () => {
                 <div className="w-full">
                   <img
                     className="rounded-lg border-2 border-white w-full h-[300px] object-top object-cover"
-                    src="https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/postresDeliciosos.jpeg"
+                    src="/images/llorona/postresDeliciosos.jpeg"
                     alt=""
                   />
                   <h1 className="text-2xl md:text-5xl text-white mt-3">
@@ -99,7 +99,7 @@ const Slider = () => {
                 <div className="w-full">
                   <img
                     className="rounded-lg border-2 border-white w-full h-[300px] object-top object-cover"
-                    src="https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/mixologiaMexicana.jpg"
+                    src="/images/llorona/nextimage-mixologiamexicana.webp"
                     alt=""
                   />
                   <h1 className="text-2xl md:text-5xl text-white mt-3">
@@ -155,7 +155,7 @@ const Slider = () => {
                 <div className="w-full">
                   <img
                     className="rounded-lg border-2 border-white w-full h-[300px] object-top object-cover"
-                    src="https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/tostadaCantinera.jpg"
+                    src="/images/llorona/nextimage-tostadacantinera.webp"
                     alt=""
                   />
                   <h1 className="text-2xl md:text-5xl text-white mt-3">
@@ -170,7 +170,7 @@ const Slider = () => {
                 <div className="w-full">
                   <img
                     className="rounded-lg border-2 border-white w-full h-[300px] object-top object-cover"
-                    src="https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/mixologiaIncreible.jpg"
+                    src="/images/llorona/nextimage-mixologiaincreible.webp"
                     alt=""
                   />
                   <h1 className="text-2xl md:text-5xl text-white mt-3">
@@ -185,7 +185,7 @@ const Slider = () => {
                 <div className="w-full">
                   <img
                     className="rounded-lg border-2 border-white w-full h-[300px] object-top object-cover"
-                    src="https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/postresDeliciosos.jpeg"
+                    src="/images/llorona/postresDeliciosos.jpeg"
                     alt=""
                   />
                   <h1 className="text-2xl md:text-5xl text-white mt-3">
@@ -200,7 +200,7 @@ const Slider = () => {
                 <div className="w-full">
                   <img
                     className="rounded-lg border-2 border-white w-full h-[300px] object-top object-cover"
-                    src="https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/mixologiaMexicana.jpg"
+                    src="/images/llorona/nextimage-mixologiamexicana.webp"
                     alt=""
                   />
                   <h1 className="text-2xl md:text-5xl text-white mt-3">

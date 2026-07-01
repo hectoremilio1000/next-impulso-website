@@ -16,7 +16,7 @@ function Permisos() {
       "Te ayudamos a mantener todos los permisos y requisitos legales de tu restaurante al día. Asesoría especializada las 24 horas.",
     url: "https://www.impulsorestaurantero.com/",
     image:
-      "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png", // Ajusta si deseas otra imagen
+      "/images/logos/impulso-solo.png", // Ajusta si deseas otra imagen
   };
 
   // --- Datos de la página ---
@@ -27,14 +27,14 @@ function Permisos() {
       parrafo1:
         "Te ayudamos a mantener todos los permisos y requisitos legales de tu restaurante siempre al día, asegurando que cumplas con todas las normativas vigentes de manera eficiente y sin preocupaciones.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/tramites-impulso-restaurantero.png", // Ajusta la imagen a tu gusto
+        "/images/impulso/tramites.jpeg", // Ajusta la imagen a tu gusto
 
       // Sección 2
       titulo2: "Seguridad y Cumplimiento",
       parrafo2:
         "Evita multas y cierres inesperados. Nuestro equipo se encarga de que tu negocio esté siempre en regla con las instituciones correspondientes, desde salubridad hasta permisos de alcohol.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/abrir-restaurante-tramites-licencias-impulso.jpg", // Ajusta la imagen a tu gusto
+        "/images/impulso/abrir-restaurante-licencias.jpeg", // Ajusta la imagen a tu gusto
 
       // 3 Razones
       titulorazones: "3 RAZONES PARA DEJARNOS EN CARGO TODOS TUS PERMISOS",
@@ -53,7 +53,7 @@ function Permisos() {
       parrafo3:
         "Nuestra prioridad es que operes con total tranquilidad. Conoce cómo hemos acompañado a restaurantes de diferentes tamaños y conceptos a lograr la regularización de sus permisos sin complicaciones.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/tramites-restaurante-impulso-restaurantero.jpeg", // Ajusta la imagen a tu gusto
+        "/images/impulso/tramites-restaurante.jpg", // Ajusta la imagen a tu gusto
 
       // Sección Final
       titulo4:
@@ -277,7 +277,7 @@ function Permisos() {
           <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
             {/* Imagen de fondo */}
             <img
-              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg"
+              src="/images/banner-restaurante.jpeg"
               alt="Background"
               className="absolute top-0 left-0 w-full h-full object-cover z-0"
             />

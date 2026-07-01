@@ -153,7 +153,7 @@ function Comolohacemos() {
               <Link href="/comolohacemos/destacaeninternet">
                 <img
                   className=" w-full object-contain"
-                  src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/googleSeo.png"
+                  src="/images/impulso/googleseo.jpeg"
                   alt=""
                 />
               </Link>
@@ -172,7 +172,7 @@ function Comolohacemos() {
             <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
               <img
                 className=" w-full object-contain rounded-2xl h-[500px]"
-                src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/pagina%2Bvisitas%2Bwebsite.jpg"
+                src="/images/impulso/trafico-web.jpeg"
                 alt=""
               />
               <h2 className="title3-tw text-center">
@@ -191,7 +191,7 @@ function Comolohacemos() {
               <Link href="/casosexito">
                 <img
                   className=" w-full object-contain rounded-2xl"
-                  src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/punto-venta%2Bimpuloso%2Brestaurantero.jpg"
+                  src="/images/impulso/pos-restaurante.png"
                   alt=""
                 />
               </Link>
@@ -210,7 +210,7 @@ function Comolohacemos() {
             <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
               <img
                 className=" w-full object-contain"
-                src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/recursos%2Bhumanps%2Bmanuales%2Bia.png"
+                src="/images/impulso/rh-manuales-ia.jpg"
                 alt=""
               />
               <h2 className="title3-tw text-center">
@@ -265,7 +265,7 @@ function Comolohacemos() {
             <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
               <img
                 className=" w-full object-contain rounded-2xl"
-                src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/financiamiento-empresa-impulso.jpg"
+                src="/images/impulso/financiamiento-empresa.jpeg"
                 alt=""
               />
               <h2 className="title3-tw text-center">
@@ -281,7 +281,7 @@ function Comolohacemos() {
             <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
               <img
                 className=" w-full object-contain rounded-2xl"
-                src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/encuesta-servicio-tiempo-real-impulso.jpg"
+                src="/images/impulso/encuesta-tiempo-real.png"
                 alt=""
               />
               <h2 className="title3-tw text-center">
@@ -298,7 +298,7 @@ function Comolohacemos() {
             <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
               <img
                 className=" w-full object-contain rounded-2xl"
-                src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/inventarios%2Bcontrol%2Beficiencia%2Bimpulso.jpg"
+                src="/images/impulso/control-inventario.jpg"
                 alt=""
               />
               <h2 className="title3-tw text-center">
@@ -315,7 +315,7 @@ function Comolohacemos() {
             <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
               <img
                 className=" w-full object-contain rounded-2xl"
-                src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/reconocimiento-impulso-restaurante.jpg"
+                src="/images/impulso/reconocimiento-premio.webp"
                 alt=""
               />
               <h2 className="title3-tw text-center">
@@ -332,7 +332,7 @@ function Comolohacemos() {
             <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
               <img
                 className=" w-full object-contain rounded-2xl h-[450px]"
-                src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/diagnostico-ia-impulso-restaurantero.jpg"
+                src="/images/impulso/diagnostico-ia.webp"
                 alt=""
               />
               <h2 className="title3-tw text-center">
@@ -364,7 +364,7 @@ function Comolohacemos() {
           <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[#e5e5e5] rounded-[1.2em] max-w-xl">
             <img
               className=" w-full object-contain "
-              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/comolohacemos%2Bpagina.png"
+              src="/images/impulso/portada-comolohacemos.jpeg"
               alt=""
             />
           </div>
@@ -379,7 +379,7 @@ function Comolohacemos() {
         <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
           {/* Imagen de fondo */}
           <img
-            src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg"
+            src="/images/banner-restaurante.jpeg"
             alt="Background"
             className="absolute top-0 left-0 w-full h-full object-cover z-0"
           />

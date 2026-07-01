@@ -123,7 +123,7 @@ export default function TraspasosPage() {
         <section className="relative isolate overflow-hidden">
           <div className="relative h-[220px] md:h-[320px]">
             <img
-              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg"
+              src="/images/banner-restaurante.jpeg"
               alt="Fondo traspasos"
               className="absolute inset-0 h-full w-full object-cover"
             />

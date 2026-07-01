@@ -17,7 +17,7 @@ function Puntoventa() {
       "Con Impulso Restaurantero, tendrás un punto de venta rápido, seguro y con asistencia en todo momento, para que tu equipo se enfoque en ofrecer la mejor experiencia.",
     url: "https://www.impulsorestaurantero.com/",
     image:
-      "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png",
+      "/images/logos/impulso-solo.png",
   };
 
   // --- Datos principales de la página ---
@@ -27,12 +27,12 @@ function Puntoventa() {
       parrafo1:
         "Te proporcionamos un punto de venta robusto para agilizar la operación de tu restaurante y atender a tus clientes sin interrupciones. Disfruta de asistencia personalizada en todo momento.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/punto-venta%2Bimpuloso%2Brestaurantero.jpg",
+        "/images/impulso/pos-restaurante.png",
       titulo2: "Agilidad y Eficiencia",
       parrafo2:
         "Olvídate de los retrasos y la confusión en tu operación diaria. Con nuestra tecnología, cada pedido se procesa rápido y queda registrado para un seguimiento preciso de las ventas.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/punto-impulso-restaurantero-crecer-ventas.png ",
+        "/images/impulso/pos-crecer-ventas.png ",
       titulorazones:
         "3 CLAVES PARA OPTIMIZAR TU RESTAURANTE CON NUESTRO PUNTO DE VENTA",
       razon1: "Procesos Sin Errores",
@@ -48,7 +48,7 @@ function Puntoventa() {
       parrafo3:
         "Conoce cómo cientos de dueños de restaurantes han elevado sus ventas gracias a un punto de venta confiable y fácil de usar. Agiliza tus operaciones y enfócate en lo que importa: el cliente.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/Punto-de-Venta-impulso.png",
+        "/images/impulso/pos-pantalla.png",
       titulo4:
         "¿Listo para un punto de venta que nunca te falle? Nuestro soporte 24/7 te permitirá ofrecer un servicio impecable en cada pedido.",
     },
@@ -271,7 +271,7 @@ function Puntoventa() {
           <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
             {/* Imagen de fondo */}
             <img
-              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg"
+              src="/images/banner-restaurante.jpeg"
               alt="Background"
               className="absolute top-0 left-0 w-full h-full object-cover z-0"
             />

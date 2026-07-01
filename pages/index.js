@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Head from "next/head";
 
 import { useRouter } from "next/router";
@@ -25,7 +25,9 @@ const MySwiper = dynamic(() => import("../components/SwiperPrueba"), {
 export default function Home() {
   // tu modal de formulario (ya lo usas)
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [showEntryModal, setShowEntryModal] = useState(true);
+  const [showEntryModal, setShowEntryModal] = useState(false);
+  const entryCtaRef = useRef(null);
+  const lastActiveElementRef = useRef(null);
 
   const [alertMessage, setAlertMessage] = useState(""); // Mensaje global de alerta
   const [alertType, setAlertType] = useState(""); // Tipo de alerta (error o success)
@@ -115,13 +117,19 @@ export default function Home() {
     if (!seen) {
       setShowEntryModal(true);
       sessionStorage.setItem("seenEntryModal", "1");
+    } else {
+      setShowEntryModal(false);
     }
   }, []);
 
   // Cerrar con ESC y bloquear scroll cuando haya modal abierto
   useEffect(() => {
-    const onKey = (e) => e.key === "Escape" && setShowEntryModal(false);
-    if (showEntryModal) document.addEventListener("keydown", onKey);
+    const onKey = (e) => {
+      if (e.key !== "Escape") return;
+      if (showEntryModal) setShowEntryModal(false);
+      else if (isModalOpen) toggleModal();
+    };
+    document.addEventListener("keydown", onKey);
     document.body.style.overflow =
       showEntryModal || isModalOpen ? "hidden" : "";
     return () => {
@@ -129,6 +137,20 @@ export default function Home() {
       document.body.style.overflow = "";
     };
   }, [showEntryModal, isModalOpen]);
+
+  useEffect(() => {
+    if (!showEntryModal) {
+      if (lastActiveElementRef.current?.focus) {
+        lastActiveElementRef.current.focus();
+      }
+      return;
+    }
+    lastActiveElementRef.current = document.activeElement;
+    const id = requestAnimationFrame(() => {
+      entryCtaRef.current?.focus();
+    });
+    return () => cancelAnimationFrame(id);
+  }, [showEntryModal]);
 
   // Al hacer clic en CTA del modal de bienvenida, abre tu formulario
   const openFormFromEntry = () => {
@@ -161,7 +183,7 @@ export default function Home() {
           <meta property="og:type" content="Impulso Restaurantero" />
           <meta
             property="og:image"
-            content="https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png"
+            content="/images/logos/impulso-solo.png"
           />
           <link rel="apple-touch-icon" href="../logo192.png" />
           <link rel="manifest" href="../manifest.json" />
@@ -197,7 +219,7 @@ export default function Home() {
           <meta property="og:type" content="Restaurant Boost" />
           <meta
             property="og:image"
-            content="https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png"
+            content="/images/logos/impulso-solo.png"
           />
           <link rel="apple-touch-icon" href="../logo192.png" />
           <link rel="manifest" href="../manifest.json" />
@@ -212,13 +234,11 @@ export default function Home() {
               <div className="justify-center max-w-[100%] md:justify-start flex self-center items-center mx-auto">
                 <h1 className="title3-tw text-principal mt-[4px] text-center md:text-start">
                   <span className="title3-tw">
-                    QUINCE DÍAS PARA CAMBIAR TU RESTAURANTE PARA SIEMPRE
-                  </span>{" "}
+                    HAZ CRECER LAS VENTAS DE TU RESTAURANTE EN LOS PRÓXIMOS 30 DÍAS
+                  </span>
                   <br />
-                  <span className="title3-tw text-[#fff]">TALLER EN LÍNEA</span>
-                  <br />
-                  <span className="span4-tw">
-                    NO TE LO PIERDAS. PRIMEROS 15 LÍDERES RESTAURANTEROS.
+                  <span className="span4-tw text-[#fff]">
+                    Estrategia, marketing e influencers. Nosotros lo implementamos contigo.
                   </span>
                 </h1>
               </div>
@@ -226,13 +246,16 @@ export default function Home() {
                 <div style={{ display: "flex", justifyContent: "center" }}>
                   {/* Cambiamos a toggleModal en lugar de openModal */}
                   <button className={styles.button4} onClick={toggleModal}>
-                    DARME UNA CITA ¡SIN COSTO!
+                    Quiero hacer crecer mi restaurante
                   </button>
                   {isModalOpen && (
                     <div className={styles.modalOverlay}>
                       <div className={styles.modalContent}>
                         <div className={styles.modalHeader}>
-                          <h2>ESTÁS A UN CLICK DE LOGRAR TUS SUEÑOS</h2>
+                          <h2>Agenda tu diagnóstico gratuito</h2>
+                          <p className="text-sm text-gray-300 mt-1">
+                            Te ayudamos a identificar cómo aumentar tus ventas y atraer más clientes en tu restaurante.
+                          </p>
                           <button
                             className={styles.closeModal}
                             onClick={toggleModal}
@@ -356,27 +379,27 @@ export default function Home() {
             <div className="max-w-[90%] mx-auto bg-black rounded-b-[25px] flex items-center pt-[13px] pb-[18px] px-[30px]">
               <div className="flex w-[95%] justify-between">
                 <img
-                  src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/mayta-logo-new.svg"
+                  src="/images/logos/mayta-logo-new.svg"
                   alt="Mayte"
                   className="h-6 md:h-10 px-2"
                 />
                 <img
-                  src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/logoDonde.png"
+                  src="/images/logos/logo-dondeir.webp"
                   alt="Donde Ir"
                   className="h-6 md:h-10"
                 />
                 <img
-                  src="https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logosEmpresasSocios/lalloronblanco.png"
+                  src="/images/logos/llorona-completo.png"
                   alt="La Llorona"
                   className="h-8 md:h-10"
                 />
                 <img
-                  src="https://www.trendmexico.com/wp-content/uploads/2023/03/bar-bunny-universidad-logo-300x300.jpg"
+                  src="/images/logos/trend.png"
                   alt="Bar Bunny"
                   className="h-10 md:h-12"
                 />
                 <img
-                  src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/mr+lucho.jpg"
+                  src="/images/logos/mr-lucho.png"
                   alt="Mr lucho"
                   className="h-10 md:h-12"
                 />
@@ -393,7 +416,7 @@ export default function Home() {
           <div
             style={{
               backgroundImage:
-                "url('https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/seccion1/649c99bf1948a130a34f7abb_Wins+copy.png')",
+                "url('/images/impulso/wins.jpeg')",
               backgroundPosition: "50%",
               backgroundSize: "cover",
             }}
@@ -434,105 +457,88 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center py-16 px-2">
             <div className="heading-block flex flex-col justify-center items-center mb-16">
               <span className="rounded-full bg-secundario text-principal font-semibold px-4 py-2 mb-4">
-                CONVIÉRTETE EN EL 1% MÁS EXCLUSIVO
+                NUESTRO MÉTODO
               </span>
               <h2 className="title2-tw text-center uppercase">
-                6 RAZONES POR QUÉ <br />
-                NUESTROS RESTAURANTEROS TRIUNFAN
+                ¿Cómo hacemos crecer <br />
+                tu restaurante?
               </h2>
             </div>
             <div className="max-w-[1050px] mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="bg-gray-100 flex flex-col gap-3 items-start p-6 md:p-8">
-                  <span className="inline-block p-4 rounded text-white bg-principal">
+                <div className="bg-gray-100 flex flex-col gap-4 items-start p-6 md:p-8 rounded-[1.2em]">
+                  <span className="inline-block p-4 rounded text-white bg-principal text-xl font-bold">
                     1
                   </span>
-                  <h5 className="text-[12px] md:text-[18px] font-bold">
-                    Maestros de la Ejecución
-                  </h5>
+                  <h3 className="text-[16px] md:text-[20px] font-bold">
+                    Estrategia
+                  </h3>
                   <p className="parrafo-tw paragraph-feature">
-                    Los dueños exitosos de restaurantes saben que no tomar una
-                    decisión también es una decisión. Actúan de inmediato sobre
-                    sus objetivos con metodologías probadas.
+                    Hacemos un diagnóstico completo de tu restaurante: ventas,
+                    costos, operación y clientes. Con eso, creamos un plan de
+                    acción personalizado con metas claras a 30, 60 y 90 días.
                   </p>
                 </div>
-                <div className="bg-gray-100 flex flex-col gap-3 items-start p-6 md:p-8">
-                  <span className="inline-block p-4 rounded text-white bg-principal">
+                <div className="bg-gray-100 flex flex-col gap-4 items-start p-6 md:p-8 rounded-[1.2em]">
+                  <span className="inline-block p-4 rounded text-white bg-principal text-xl font-bold">
                     2
                   </span>
-                  <h1 className="text-[12px] md:text-[18px] font-bold">
-                    El Héroe de Su Propia Historia
-                  </h1>
+                  <h3 className="text-[16px] md:text-[20px] font-bold">
+                    Marketing
+                  </h3>
                   <p className="parrafo-tw paragraph-feature">
-                    Saben que nadie vendrá a salvarlos y que su destino está en
-                    sus propias manos. Asumen total responsabilidad en definir
-                    sus valores, reconocer sus debilidades y superar obstáculos.
+                    Diseñamos y ejecutamos campañas en Facebook, Instagram,
+                    TikTok y Google que atraen clientes reales a tu restaurante.
+                    SEO, anuncios pagados y contenido que convierte.
                   </p>
                 </div>
-                <div className="bg-gray-100 flex flex-col gap-3 items-start p-6 md:p-8">
-                  <span className="inline-block p-4 rounded text-white bg-principal">
+                <div className="bg-gray-100 flex flex-col gap-4 items-start p-6 md:p-8 rounded-[1.2em]">
+                  <span className="inline-block p-4 rounded text-white bg-principal text-xl font-bold">
                     3
                   </span>
-                  <h1 className="text-[12px] md:text-[18px] font-bold">
-                    Dedicados a Servir a Su Comunidad
-                  </h1>
+                  <h3 className="text-[16px] md:text-[20px] font-bold">
+                    Influencers
+                  </h3>
                   <p className="parrafo-tw paragraph-feature">
-                    En el fondo, están en este negocio para cambiar vidas,
-                    ayudar a las personas y ser maestros de la transformación.
-                    El éxito de sus clientes es también su propio éxito.
-                  </p>
-                </div>
-                <div className="bg-gray-100 flex flex-col gap-3 items-start p-6 md:p-8">
-                  <span className="inline-block p-4 rounded text-white bg-principal">
-                    4
-                  </span>
-                  <h1 className="text-[12px] md:text-[18px] font-bold">
-                    Aprendices de por Vida
-                  </h1>
-                  <p className="parrafo-tw paragraph-feature">
-                    No hay espacio para el ego en el camino de un restaurantero
-                    exitoso. Para mantenerse al día con las tendencias y mejores
-                    prácticas de la industria, están en constante crecimiento,
-                    aceptan retroalimentación y confían en sus mentores, tal
-                    como sus clientes confían en ellos.
-                  </p>
-                </div>
-                <div className="bg-gray-100 flex flex-col gap-3 items-start p-6 md:p-8">
-                  <span className="inline-block p-4 rounded text-white bg-principal">
-                    5
-                  </span>
-                  <h1 className="text-[12px] md:text-[18px] font-bold">
-                    Amantes del Crecimiento
-                  </h1>
-                  <p className="parrafo-tw paragraph-feature">
-                    Los dueños exitosos de restaurantes están orgullosos pero
-                    nunca satisfechos. Cuando alcanzan una meta, ya están
-                    mirando hacia el siguiente objetivo y siempre con tecnología
-                    de punta.
-                  </p>
-                </div>
-                <div className="bg-gray-100 flex flex-col gap-3 items-start p-6 md:p-8">
-                  <span className="inline-block p-4 rounded text-white bg-principal">
-                    6
-                  </span>
-                  <h1 className="text-[12px] md:text-[18px] font-bold">
-                    Expertos Comunicadores
-                  </h1>
-                  <p className="parrafo-tw paragraph-feature">
-                    Las conversaciones difíciles son algo natural para los
-                    restauranteros exitosos. Dicen lo que se necesita decir sin
-                    endulzarlo. Saben que guardar comentarios valiosos perjudica
-                    a todos.
+                    Te conectamos con creadores de contenido que llenan
+                    restaurantes. Gestionamos las colaboraciones, medimos
+                    resultados y escalamos lo que funciona.
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Sección GrowthSuite cross-sell */}
+          <div
+            className="relative flex flex-col items-center justify-center py-16 px-4"
+            style={{ backgroundColor: "#0b0b0b" }}
+          >
+            <div className="max-w-[700px] mx-auto text-center">
+              <h2 className="text-xl md:text-3xl font-bold text-white mb-4 uppercase">
+                No solo te asesoramos. <br />
+                <span className="text-principal">También lo operamos contigo.</span>
+              </h2>
+              <p className="parrafo-tw text-gray-300 mb-6">
+                Usamos nuestro propio sistema con inteligencia artificial para
+                controlar ventas, inventario y operación de tu restaurante en
+                tiempo real. Tecnología que trabaja para ti las 24 horas.
+              </p>
+              <a
+                href="/comolohacemos"
+                className="inline-block"
+              >
+                <button className="button4 font-bold">
+                  Conoce nuestro sistema
+                </button>
+              </a>
             </div>
           </div>
           <div className="bg-gray-50 flex flex-col items-center px-4 py-8 md:px-16">
             <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
               {/* Imagen de fondo */}
               <img
-                src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg"
+                src="/images/banner-restaurante.jpeg"
                 alt="Background"
                 className="absolute top-0 left-0 w-full h-full object-cover z-0"
               />
@@ -551,7 +557,7 @@ export default function Home() {
                 </p>
                 <Link href="/prueba">
                   <button className="button4 font-bold text-xs md:text-lg">
-                    QUIERO ACCESO YA
+                    Quiero que mi restaurante venda más
                   </button>
                 </Link>
               </div>
@@ -560,9 +566,7 @@ export default function Home() {
           {showEntryModal && (
             <div
               className="fixed inset-0 z-[9999] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4"
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="entry-modal-title"
+              role="presentation"
               onClick={() => setShowEntryModal(false)}
             >
               {/* Card (no cierra al hacer click dentro) */}
@@ -575,6 +579,9 @@ export default function Home() {
         ring-1 ring-white/10
         bg-[#0b0b0b]
       "
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="entry-modal-title"
               >
                 {/* Borde/halo dorado sutil con pseudo-elementos */}
                 <div
@@ -591,7 +598,7 @@ export default function Home() {
                 {/* Header con logo */}
                 <div className="flex items-center gap-3 px-6 pt-5">
                   <img
-                    src="https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png"
+                    src="/images/logos/impulso-solo.png"
                     alt="Impulso Restaurantero"
                     className="h-8 w-auto"
                   />
@@ -626,6 +633,8 @@ export default function Home() {
                   <div className="mt-6 md:mt-7 flex justify-center">
                     <button
                       onClick={openFormFromEntry}
+                      ref={entryCtaRef}
+                      type="button"
                       className="
               inline-flex items-center justify-center
               rounded-xl px-6 py-3 md:px-8 md:py-4
@@ -650,6 +659,7 @@ export default function Home() {
                 <button
                   onClick={() => setShowEntryModal(false)}
                   aria-label="Cerrar"
+                  type="button"
                   className="
           absolute right-3 top-3 h-9 w-9 rounded-full
           bg-white/10 hover:bg-white/20

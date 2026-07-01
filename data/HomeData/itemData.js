@@ -11,16 +11,16 @@ const itemData = [
     title: "Hamburguesa de camarón",
   },
   {
-    img: "https://imagenesrutalab.s3.amazonaws.com/llorona/mixologia/IMG_8064.jpg",
+    img: "/images/llorona/IMG_8064.jpg",
     title: "Pierde almas bad_redhead",
   },
   {
-    img: "https://imagenesrutalab.s3.amazonaws.com/llorona/galeriaimagenes/hamburguesahuevo.jpg",
+    img: "/images/llorona/galeriaimagenes-hamburguesahuevo.jpeg",
     title: "DON HUEVO",
     cols: 2,
   },
   {
-    img: "https://imagenesrutalab.s3.amazonaws.com/llorona/postres/IMG_8755.jpg",
+    img: "/images/llorona/postres-img-8755.webp",
     title: "Molten de Chocolate",
     cols: 2,
   },

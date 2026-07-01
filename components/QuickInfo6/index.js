@@ -5,7 +5,7 @@ function QuickInfo6({ idioma }) {
   const testimonialsEs = [
     {
       photo:
-        "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/logo+timeout.jpeg",
+        "/images/logos/timeout.svg",
       rating: 5,
       nombre: "Revista Time Out",
       url: "https://www.timeoutmexico.mx/ciudad-de-mexico/bares-y-cantinas/la-llorona",
@@ -14,7 +14,7 @@ function QuickInfo6({ idioma }) {
     },
     {
       photo:
-        "https://1000marcas.net/wp-content/uploads/2020/03/logo-Forbes-1024x576.png",
+        "/images/logos/forbes.png",
       rating: 5,
       nombre: "Forbes",
       url: "https://www.forbes.com.mx/forbes-life/la-llorona-cantina-del-siglo-xxi/#google_vignette",
@@ -23,7 +23,7 @@ function QuickInfo6({ idioma }) {
     },
     {
       photo:
-        "https://www.att.com.mx/dw/image/v2/BJKW_PRD/on/demandware.static/-/Sites-att-Library/default/dw148ea01a/images/migration/entretenimiento/DondeIR.jpeg",
+        "/images/logos/dondeir-press.webp",
       rating: 5,
       nombre: "Donde ir",
       url: "https://www.dondeir.com/restaurante/la-llorona-restaurante-cantina-grill-en-condesa/14684/",
@@ -32,7 +32,7 @@ function QuickInfo6({ idioma }) {
     },
     {
       photo:
-        "https://img.chilango.com/2017/01/logoChilangoWeb-300x128.png",
+        "/images/logos/chilango.webp",
       rating: 5,
       nombre: "Chilango",
       url: "https://www.chilango.com/comida/la-llorona-la-nueva-cantina-de-la-condesa/",
@@ -41,7 +41,7 @@ function QuickInfo6({ idioma }) {
     },
     {
       photo:
-        "https://revistatop.com.mx/wp-content/uploads/2020/02/Logotipo1.png",
+        "/images/logos/revista-top.png",
       rating: 5,
       nombre: "Tpp",
       url: "https://revistatop.com.mx/inauguracion-de-la-llorona/",

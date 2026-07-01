@@ -15,12 +15,12 @@ function AyudaEstrategica() {
       parrafo1:
         "Con el apoyo de Impulso Restaurantero, Morimoto logró asegurar todos sus permisos de operación, implementar un punto de venta con soporte 24/7 y llenar su lugar gracias al Growth Hacking: un conjunto de estrategias que disparan el alcance y las reservas en poco tiempo.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/restaurantes-japoneses-cdmx-impulso-restaurantero.jpg",
+        "/images/impulso/japones-cdmx.jpeg",
       titulo2: "Tradición Japonesa con un Toque de Innovación",
       parrafo2:
         "Transformamos el concepto tradicional de la gastronomía japonesa en una experiencia vibrante y moderna. Con un diseño auténtico y un menú irresistible, Morimoto enamora a quienes buscan lo mejor de la tradición con un toque actual.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/estrategias-crecimiento-growth-impulso.jpg",
+        "/images/impulso/estrategia-growth.jpeg",
       titulorazones:
         "3 CLAVES QUE CONVIRTIERON A MORIMOTO EN EL NUEVO HOTSPOT JAPONÉS DE LA CDMX",
       razon1: "Permisos Gestionados y Operación Legal",
@@ -36,7 +36,7 @@ function AyudaEstrategica() {
       parrafo3:
         "Descubre cómo convertimos a Morimoto en un referente innovador, fusionando la tradición nipona con la vanguardia digital. Con asesoría permanente, logramos posicionarlos como el lugar favorito para quienes buscan auténtica comida japonesa en la Ciudad de México.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/comiendo-comida-rica-japonesa-impulso.jpg",
+        "/images/impulso/comida-japonesa.webp",
       titulo4:
         "¿Sabías que podrías duplicar tus ventas con las estrategias correctas? En Impulso Restaurantero, hicimos que Morimoto se convirtiera en el nuevo epicentro de la cultura japonesa.",
     },
@@ -245,7 +245,7 @@ function AyudaEstrategica() {
           <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
             {/* Imagen de fondo */}
             <img
-              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/restaurantes-japoneses-cdmx-impulso-restaurantero.jpg"
+              src="/images/impulso/japones-cdmx.jpeg"
               alt="rica comida"
               className="absolute top-0 left-0 w-full h-full object-cover z-0"
             />
