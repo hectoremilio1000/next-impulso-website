@@ -186,7 +186,7 @@ const itemData = [
     title: "Coyote con Cannabis",
   },
   {
-    img: "https://imagenesrutalab.s3.amazonaws.com/llorona/mezcal/foto+botella+calaca+mezcal+abbywood.JPG",
+    img: "/images/llorona/nextimage-foto-botella-calaca-mezcal-abbywood.jpeg",
     title: "La pasión nos une AbbyWoo",
     cols: 2,
   },
