@@ -34,7 +34,7 @@ const MySwiper = () => {
         <div
           style={{
             backgroundImage:
-              "url(https://imagenesrutalab.s3.amazonaws.com/llorona/cumple/pinatacumpleanera.JPG)",
+              "url(/images/llorona/ninas4pinata.jpeg)",
             height: "80vh",
             backgroundSize: "cover",
             backgroundPosition: "center center",

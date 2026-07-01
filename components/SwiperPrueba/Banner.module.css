@@ -106,7 +106,7 @@
       rgba(184, 161, 72, 0.9) 91%,
       #000 98%
     ),
-    url("https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/banner/impulso%2Brestaurantero%2Blogros%2Bexito.jpg");
+    url("/images/impulso/banner-restaurantes.jpg");
   background-position: 0 0, 70% 100%;
   background-size: cover;
   width: 100%;
