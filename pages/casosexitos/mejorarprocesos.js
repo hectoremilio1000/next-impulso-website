@@ -18,12 +18,12 @@ function MejorarProcesos() {
       parrafo1:
         "Con Impulso Restaurantero, San Giorgio Pizzería transformó completamente sus métodos de trabajo y pudo adquirir maquinaria a bajo costo, con financiamiento accesible y asesoría para desarrollar productos altamente rentables. Esto les permitió recuperar la inversión en tiempo récord.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/donde-comer-pizzas-impulso-resta.jpg",
+        "/images/impulso/donde-comer-pizzas.avif",
       titulo2: "Procesos Eficientes, Grandes Resultados",
       parrafo2:
         "La clave estuvo en optimizar cada paso: desde la gestión de inventarios hasta la compra de equipos con tasas de interés muy bajas. Nuestro programa se basa en la excelencia operativa, la automatización inteligente y la asesoría 24/7 para ayudarte a crecer sin fricciones.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/horno-eficiente-lograr.jpg",
+        "/images/impulso/horno.jpeg",
       titulorazones:
         "3 CLAVES QUE CONVIRTIERON A ESTE RESTAURANTE EN UN EJEMPLO DE PROCESOS EFICIENTES",
       razon1: "Evaluación Exhaustiva y Financiamiento Inteligente",
@@ -39,7 +39,7 @@ function MejorarProcesos() {
       parrafo3:
         "Con estas mejoras de procesos, la pizzería pueden enfocarse en lo que realmente importa: crear experiencias memorables para los comensales. Mientras tanto, la tecnología y los flujos de trabajo optimizados mantienen el negocio rentable y creciendo día tras día.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/pizzas-de-masa-madre-impulso-restaurantero.jpg",
+        "/images/impulso/pizza-masa-madre.avif",
       titulo4:
         "¿Quieres escalar tu restaurante y recuperar tu inversión en tiempo récord? Descubre cómo Impulso Restaurantero puede ayudarte a modernizar procesos, adquirir equipos accesibles y diseñar productos más rentables.",
     },
@@ -268,7 +268,7 @@ function MejorarProcesos() {
           <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
             {/* Imagen de fondo */}
             <img
-              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/horno-eficiente-lograr.jpg"
+              src="/images/impulso/horno.jpeg"
               alt="Background"
               className="absolute top-0 left-0 w-full h-full object-cover z-0"
             />

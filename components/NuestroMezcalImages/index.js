@@ -7,11 +7,11 @@ function NuestroMezcalImages() {
   const image1 =
     "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/IMG_0043+(1).jpg";
   const image2 =
-    "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/foto%2Bbotella%2Bcalaca%2Bmezcal%2Babbywood.jpeg";
+    "/images/llorona/nextimage-foto-botella-calaca-mezcal-abbywood.jpeg";
   const image3 =
     "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/IMG_9973+(1).jpg";
   const image4 =
-    "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/mezcal%2Bcannabis%2Bllorona.jpg";
+    "/images/llorona/nextimage-mezcal-cannabis-llorona.jpg";
   return (
     <div>
       <div>
@@ -171,18 +171,18 @@ function NuestroMezcalImages() {
 
 const itemData = [
   {
-    img: "https://imagenesrutalab.s3.amazonaws.com/llorona/mezcal/IMG_9973.jpg",
+    img: "/images/llorona/mezcal-img-9973.jpg",
     title: "Niurka con su hija Romi Marcos degustando nuestro Mezcal",
     rows: 2,
     cols: 2,
     featured: true,
   },
   {
-    img: "https://imagenesrutalab.s3.amazonaws.com/llorona/mezcal/IMG_0043.jpg",
+    img: "/images/llorona/mezcal-img-0043.jpg",
     title: "Nuestra botella Calavera",
   },
   {
-    img: "https://imagenesrutalab.s3.amazonaws.com/llorona/mezcal/mezcal+cannabis+llorona.jpg",
+    img: "/images/llorona/mezcal+cannabis+llorona.jpg",
     title: "Coyote con Cannabis",
   },
   {

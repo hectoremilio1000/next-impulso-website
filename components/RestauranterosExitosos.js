@@ -202,7 +202,7 @@ const RestauranterosExitosos = () => {
                 <motion.img
                   style={{ transformStyle: "preserve-3d", transform }}
                   className="rounded-[1.2em] w-[100%] relative mt-4 md:w-[50%] md:absolute md:right-0 md:top-0"
-                  src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg"
+                  src="/images/banner-restaurante.jpeg"
                   alt="restaurant"
                 />
               </div>

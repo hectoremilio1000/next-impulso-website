@@ -17,7 +17,7 @@ function AyudaIA() {
       "Utilizamos un formulario potenciado con IA para ayudarte a definir la visión, misión y plan de acción de tu restaurante, adaptado a tus objetivos.",
     url: "https://www.impulsorestaurantero.com/",
     image:
-      "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png",
+      "/images/logos/impulso-solo.png",
   };
 
   // --- Datos principales de la página ---
@@ -28,14 +28,14 @@ function AyudaIA() {
       parrafo1:
         "Nuestra tecnología, potenciada por Inteligencia Artificial, analiza las respuestas de un cuestionario personalizado para ayudarte a definir una visión clara, misión sólida y un plan de acción para tu restaurante. Todo se ajusta a tus objetivos a corto y mediano plazo.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/diagnostico-ia-impulso-restaurantero.jpg",
+        "/images/impulso/diagnostico-ia.webp",
 
       // Segunda sección
       titulo2: "Estudio de Mercado Automático",
       parrafo2:
         "¿No sabes por dónde empezar? Nuestro sistema evalúa la información de tu cuestionario y, en tiempo real, te entrega un análisis de mercado, competidores y oportunidades de diferenciación. Con estos datos, podrás crear un concepto único que resuene con tus clientes.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/estudio-mercado-ia-impulso-restaurantero.png",
+        "/images/impulso/estudio-mercado-ia.jpeg",
 
       // Razones
       titulorazones:
@@ -55,7 +55,7 @@ function AyudaIA() {
       parrafo3:
         "Hemos ayudado a negocios en planeación y restaurantes ya operando a redefinir su rumbo con información real y estrategias accionables. Con nuestra herramienta de IA, podrás trazar un camino seguro hacia el éxito.",
       imagen3:
-        "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/festejo+cantina+llorona+salsa+baile.jpg",
+        "/images/llorona/nextimage-festejo-cantina-llorona-salsa-baile.webp",
 
       // Último bloque antes del CTA final
       titulo4:
@@ -270,7 +270,7 @@ function AyudaIA() {
           <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
             {/* Imagen de fondo */}
             <img
-              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg"
+              src="/images/banner-restaurante.jpeg"
               alt="Fondo IA"
               className="absolute top-0 left-0 w-full h-full object-cover z-0"
             />

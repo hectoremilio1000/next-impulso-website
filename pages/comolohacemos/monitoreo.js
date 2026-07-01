@@ -16,7 +16,7 @@ function Monitoreo() {
       "Medimos la productividad de tu equipo 24/7 y recopilamos datos de tus clientes para mejorar la eficiencia de tu restaurante.",
     url: "https://www.impulsorestaurantero.com/",
     image:
-      "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png",
+      "/images/logos/impulso-solo.png",
   };
 
   // --- Datos de la página ---
@@ -26,12 +26,12 @@ function Monitoreo() {
       parrafo1:
         "Controla la productividad de tu equipo y recopila información de tus clientes con sistemas de monitoreo 24/7. Aprovecha los datos para optimizar procesos y aumentar tus ventas.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/monitoreo-camaras-impulso.jpg",
+        "/images/impulso/monitoreo-camaras.webp",
       titulo2: "Productividad y Seguridad",
       parrafo2:
         "Nuestros sistemas te ayudan a supervisar el desempeño del personal, garantizando calidad en el servicio y la seguridad de tu negocio. Los datos obtenidos son clave para tomar decisiones basadas en métricas reales.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/circuito-cerrado-impulso.jpg",
+        "/images/impulso/circuito-cerrado.jpeg",
       titulorazones: "3 FORMAS EN QUE EL MONITOREO 24/7 IMPULSA TU RESTAURANTE",
       razon1: "Seguridad y Control de Procesos",
       parraforazon1:
@@ -46,7 +46,7 @@ function Monitoreo() {
       parrafo3:
         "Descubre cómo otros restauranteros han mejorado su productividad y la experiencia de sus clientes con monitoreo inteligente 24/7.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/impulso-camaras-seguridad.jpg",
+        "/images/impulso/camaras-seguridad.webp",
       titulo4:
         "¿Listo para transformar tu operación y maximizar tus ganancias con ayuda de la IA?",
     },
@@ -269,7 +269,7 @@ function Monitoreo() {
           <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
             {/* Imagen de fondo */}
             <img
-              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg"
+              src="/images/banner-restaurante.jpeg"
               alt="Background"
               className="absolute top-0 left-0 w-full h-full object-cover z-0"
             />

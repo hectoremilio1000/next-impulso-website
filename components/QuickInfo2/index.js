@@ -36,7 +36,7 @@ function QuickInfo2() {
             <div>
               <img
                 className="iconoAbajoTexto1Home"
-                src="https://imagenesrutalab.s3.amazonaws.com/llorona/iconos/bol.png"
+                src="/images/llorona/iconos-bol.svg"
                 alt="menú alimentos"
               />
               <p className="textoFotosHome text-black">Menú Alimentos</p>
@@ -46,7 +46,7 @@ function QuickInfo2() {
             <div>
               <img
                 className="iconoAbajoTexto1Home"
-                src="https://imagenesrutalab.s3.amazonaws.com/llorona/iconos/tequila.png"
+                src="/images/llorona/iconos-tequila.svg"
                 alt="Pierde Almas con Mezcal"
               />
               <p className="textoFotosHome text-black">Mixología Artesanal</p>
@@ -56,7 +56,7 @@ function QuickInfo2() {
             <div>
               <img
                 className="iconoAbajoTexto1Home"
-                src="https://imagenesrutalab.s3.amazonaws.com/llorona/iconos/mezcal.png"
+                src="/images/llorona/iconos-mezcal.svg"
                 alt="Mezcales y Pulque Artesanal"
               />
               <p className="textoFotosHome text-black">
@@ -84,7 +84,7 @@ function QuickInfo2() {
             <div>
               <img
                 className="iconoAbajoTexto1Home"
-                src="https://imagenesrutalab.s3.amazonaws.com/llorona/iconos/whisky.png"
+                src="/images/llorona/iconos-whisky.svg"
                 alt="Destilados"
               />
               <p className="textoFotosHome text-black">Destilados</p>
@@ -94,7 +94,7 @@ function QuickInfo2() {
             <div>
               <img
                 className="iconoAbajoTexto1Home"
-                src="https://imagenesrutalab.s3.amazonaws.com/llorona/iconos/taza-de-cafe.png"
+                src="/images/llorona/iconos-taza-de-cafe.svg"
                 alt="Pierde Almas con Mezcal"
               />
               <p className="textoFotosHome text-black">
@@ -133,7 +133,7 @@ function QuickInfo2() {
             <div>
               <img
                 className="iconoAbajoTexto1Home"
-                src="https://imagenesrutalab.s3.amazonaws.com/llorona/iconos/bol.png"
+                src="/images/llorona/iconos-bol.svg"
                   alt="food menu"
               />
                 <p className="textoFotosHome text-black">Food menu</p>
@@ -143,7 +143,7 @@ function QuickInfo2() {
             <div>
               <img
                 className="iconoAbajoTexto1Home"
-                src="https://imagenesrutalab.s3.amazonaws.com/llorona/iconos/tequila.png"
+                src="/images/llorona/iconos-tequila.svg"
                   alt="Artisan Mixology"
               />
                 <p className="textoFotosHome text-black">Artisan Mixology</p>
@@ -153,7 +153,7 @@ function QuickInfo2() {
             <div>
               <img
                 className="iconoAbajoTexto1Home"
-                src="https://imagenesrutalab.s3.amazonaws.com/llorona/iconos/mezcal.png"
+                src="/images/llorona/iconos-mezcal.svg"
                   alt="Mezcales & Sotoles Handmade"
               />
               <p className="textoFotosHome text-black">
@@ -181,7 +181,7 @@ function QuickInfo2() {
             <div>
               <img
                 className="iconoAbajoTexto1Home"
-                src="https://imagenesrutalab.s3.amazonaws.com/llorona/iconos/whisky.png"
+                src="/images/llorona/iconos-whisky.svg"
                   alt="Distillates"
               />
                 <p className="textoFotosHome text-black">Distillates</p>
@@ -191,7 +191,7 @@ function QuickInfo2() {
             <div>
               <img
                 className="iconoAbajoTexto1Home"
-                src="https://imagenesrutalab.s3.amazonaws.com/llorona/iconos/taza-de-cafe.png"
+                src="/images/llorona/iconos-taza-de-cafe.svg"
                   alt="Coffee, Sodas and Industrial Beers"
               />
               <p className="textoFotosHome text-black">

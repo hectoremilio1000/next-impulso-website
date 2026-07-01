@@ -106,7 +106,7 @@ function PruebaGratis({ backgroundImage }) {
         <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
           {/* Imagen de fondo */}
           <img
-            src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg"
+            src="/images/banner-restaurante.jpeg"
             alt="Background"
             className="absolute top-0 left-0 w-full h-full object-cover z-0"
           />

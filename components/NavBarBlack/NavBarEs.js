@@ -7,7 +7,7 @@ import logo from "../../data/imagenes/logoPalabrasFinalImpulsoRestaurantero.png"
 // css navbar
 
 // icons react
-import { FaAlignRight } from "react-icons/fa";
+import { FaAlignRight, FaTimes } from "react-icons/fa";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import "./navbar.module.css";
 import { useRouter } from "next/navigation";
@@ -17,7 +17,7 @@ const usFlag =
   "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/banderas/um.svg";
 
 const mxFlag =
-  "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/banderas/mx.svg";
+  "/images/llorona/mx.svg";
 
 function NavBar() {
   const [current, setCurrent] = useState("");
@@ -73,12 +73,21 @@ function NavBar() {
           </div>
 
           <div className="flex justify-center">
-            <FaAlignRight
-              className="toggle-icon mr-2"
-              onClick={() => {
-                handleNavbar();
-              }}
-            />
+            {linkswraper ? (
+              <FaTimes
+                className="toggle-icon mr-2"
+                onClick={() => {
+                  handleNavbar();
+                }}
+              />
+            ) : (
+              <FaAlignRight
+                className="toggle-icon mr-2"
+                onClick={() => {
+                  handleNavbar();
+                }}
+              />
+            )}
             {/* <div
               onClick={onIdiomaIngles}
               className="hover:text-amber-600 toggle-icon cursor-pointer mr-2"

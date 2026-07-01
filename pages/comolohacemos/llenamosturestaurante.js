@@ -17,7 +17,7 @@ function Llenamosturestaurante() {
       "Con Impulso Restaurantero, obtén una página web optimizada y un sistema de reservas que dispara la afluencia de comensales.",
     url: "https://www.impulsorestaurantero.com/",
     image:
-      "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png",
+      "/images/logos/impulso-solo.png",
   };
 
   // --- Datos de la página ---
@@ -27,12 +27,12 @@ function Llenamosturestaurante() {
       parrafo1:
         "Diseñamos una web optimizada y un sistema de reservas que te permitirán tener más clientes cada día. Haz que tu restaurante sea el lugar favorito en tu zona.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/pagina%2Bvisitas%2Bwebsite.jpg",
+        "/images/impulso/trafico-web.jpeg",
       titulo2: "Una Página que Convierte Visitas en Reservas",
       parrafo2:
         "No basta con tener un sitio bonito. Necesitas que cada clic se convierta en un nuevo comensal. Con nuestras técnicas de conversión y marketing, tu restaurante se llena rápido.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/tacos-deliciosos-impulso-restaurantero.jpg", // Cambia si prefieres otra imagen
+        "/images/impulso/tacos-deliciosos.jpeg", // Cambia si prefieres otra imagen
       titulorazones:
         "3 CLAVES PARA LLENAR TU RESTAURANTE CON NUESTRA TECNOLOGÍA",
       razon1: "Diseño Web Enfocado en Reservas",
@@ -48,7 +48,7 @@ function Llenamosturestaurante() {
       parrafo3:
         "Hemos ayudado a más de 1,000 restauranteros a llenar sus mesas cada semana. Olvídate de la incertidumbre y descubre cómo la tecnología puede disparar tu facturación.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/restaurante-lleno-impulso.jpg", // Ajusta la imagen si deseas
+        "/images/impulso/restaurante-lleno.jpeg", // Ajusta la imagen si deseas
       titulo4:
         "¿Quieres un restaurante lleno todos los días? Con nuestras estrategias, verás más clientes y menos sillas vacías.",
     },
@@ -270,7 +270,7 @@ function Llenamosturestaurante() {
           <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
             {/* Imagen de fondo */}
             <img
-              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg"
+              src="/images/banner-restaurante.jpeg"
               alt="Background"
               className="absolute top-0 left-0 w-full h-full object-cover z-0"
             />

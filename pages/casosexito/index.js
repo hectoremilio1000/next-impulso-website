@@ -119,7 +119,7 @@ function Casosexito() {
             <Link href="/casosexitos/lalloronacantina">
               <img
                 className=" w-full object-contain"
-                src="https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/festejo+cantina+llorona+salsa+baile.jpg"
+                src="/images/llorona/nextimage-festejo-cantina-llorona-salsa-baile.webp"
                 alt=""
               />
             </Link>
@@ -136,7 +136,7 @@ function Casosexito() {
           <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
             <img
               className=" w-full object-contain"
-              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/tranajando-ayuda-impulso-restaurantero.jpg"
+              src="/images/impulso/trabajando-ayuda.jpeg"
               alt=""
             />
             <h2 className="title3-tw text-center">
@@ -159,7 +159,7 @@ function Casosexito() {
             <Link href="/123">
               <img
                 className=" w-full object-contain"
-                src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/pizza-impulso-restaurantero.jpg"
+                src="/images/impulso/pizza-portada.png"
                 alt=""
               />
             </Link>
@@ -208,7 +208,7 @@ function Casosexito() {
         <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
           {/* Imagen de fondo */}
           <img
-            src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg"
+            src="/images/banner-restaurante.jpeg"
             alt="Background"
             className="absolute top-0 left-0 w-full h-full object-cover z-0"
           />

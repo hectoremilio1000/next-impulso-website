@@ -23,7 +23,7 @@ const MySwiper = () => {
         <div
           style={{
             backgroundImage:
-              "url(https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/banner/Restaurantes.png)",
+              "url(/images/impulso/banner-restaurantes.jpg)",
             height: "90vh",
             backgroundSize: "cover",
             backgroundPosition: "center center",

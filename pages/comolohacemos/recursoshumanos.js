@@ -16,7 +16,7 @@ function Recursoshumanos() {
       "Te ofrecemos manuales y un departamento de recursos humanos con inteligencia artificial, así como manejo de despidos, optimizando la gestión de tu personal.",
     url: "https://www.impulsorestaurantero.com/",
     image:
-      "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png",
+      "/images/logos/impulso-solo.png",
   };
 
   // --- Datos de la página ---
@@ -26,12 +26,12 @@ function Recursoshumanos() {
       parrafo1:
         "En Impulso Restaurantero ofrecemos manuales especializados y un departamento de recursos humanos con inteligencia artificial para optimizar la gestión de tu personal, así como el manejo de despidos de manera profesional.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/estructura-recursos-humanos.jpg",
+        "/images/impulso/rh-estructura.jpg",
       titulo2: "Un Equipo Más Eficiente",
       parrafo2:
         "Con nuestro enfoque de IA, te ayudamos a crear manuales de procedimientos claros, capacitar a tu personal y automatizar procesos administrativos. Optimiza la productividad y reduce la rotación laboral.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/recursos-humanos-ia-impulso.jpg",
+        "/images/impulso/rh-con-ia.png",
       titulorazones:
         "3 RAZONES PARA IMPLEMENTAR RECURSOS HUMANOS CON INTELIGENCIA ARTIFICIAL",
       razon1: "Automatización de Procesos Clave",
@@ -47,7 +47,7 @@ function Recursoshumanos() {
       parrafo3:
         "Descubre cómo otros restauranteros han transformado su cultura organizacional y mejorado la retención de talentos gracias a nuestros servicios de Recursos Humanos con IA.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/recursoshumanos-impulso-restaurantero.jpg",
+        "/images/impulso/equipo-personal.jpg",
       titulo4:
         "¿Listo para optimizar tu departamento de recursos humanos y reducir la rotación laboral?",
     },
@@ -270,7 +270,7 @@ function Recursoshumanos() {
           <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
             {/* Imagen de fondo */}
             <img
-              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg"
+              src="/images/banner-restaurante.jpeg"
               alt="Background"
               className="absolute top-0 left-0 w-full h-full object-cover z-0"
             />
