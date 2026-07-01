@@ -17,7 +17,7 @@ const usFlag =
   "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/banderas/um.svg";
 
 const mxFlag =
-  "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/banderas/mx.svg";
+  "/images/llorona/mx.svg";
 
 function NavBar() {
   const [current, setCurrent] = useState("");

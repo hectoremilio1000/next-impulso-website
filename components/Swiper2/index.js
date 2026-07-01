@@ -23,7 +23,7 @@ const MySwiper = () => {
         <div
           style={{
             backgroundImage:
-              "url(https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/mejorterrazaCDMXcantinalallorona.jpg)",
+              "url(/images/llorona/nextimage-mejorterrazacdmxcantinalallorona.webp)",
             height: "80vh",
             backgroundSize: "cover",
             backgroundPosition: "center center",
@@ -45,7 +45,7 @@ const MySwiper = () => {
         <div
           style={{
             backgroundImage:
-              "url(https://imagenesrutalab.s3.amazonaws.com/llorona/franquicia/IMG_0071.jpg)",
+              "url(/images/llorona/IMG_0071.jpg)",
             height: "80vh",
             backgroundSize: "cover",
             backgroundPosition: "center center",
@@ -67,7 +67,7 @@ const MySwiper = () => {
         <div
           style={{
             backgroundImage:
-              "url(https://imagenesrutalab.s3.amazonaws.com/llorona/franquicias/nin%CC%83as+hermosas.jpg)",
+              "url(/images/llorona/franquicias-ninas-hermosas.webp)",
             height: "80vh",
             backgroundSize: "cover",
             backgroundPosition: "center center",
@@ -79,7 +79,7 @@ const MySwiper = () => {
         <div
           style={{
             backgroundImage:
-              "url(https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/ninas4pinata.jpeg)",
+              "url(/images/llorona/ninas4pinata.jpeg)",
             height: "80vh",
             backgroundSize: "cover",
             backgroundPosition: "top center",

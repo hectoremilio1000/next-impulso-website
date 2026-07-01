@@ -16,7 +16,7 @@ function Lealtad() {
       "Creamos programas de lealtad innovadores a través de una tarjeta de recompensas, para que tus comensales regresen una y otra vez.",
     url: "https://www.impulsorestaurantero.com/",
     image:
-      "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png",
+      "/images/logos/impulso-solo.png",
   };
 
   // --- Datos de la página ---
@@ -27,12 +27,12 @@ function Lealtad() {
         "Creamos programas de lealtad innovadores utilizando una tarjeta de recompensas y estrategias de marketing personalizadas, para que tus comensales regresen una y otra vez.",
 
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/programa-amigos-lealtads.jpeg",
+        "/images/impulso/programa-amigos.webp",
       titulo2: "Recompensas que Fidelizan",
       parrafo2:
         "Diseñamos planes de puntos, descuentos o regalos exclusivos, siempre alineados con el concepto de tu restaurante. Así, no solo aumentas visitas, sino que fortaleces el vínculo con tus clientes.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/fidelizar-restaurantes-impulso-restaurantero.jpg ",
+        "/images/impulso/fidelizar-clientes.jpg ",
       titulorazones: "3 MOTIVOS PARA IMPLEMENTAR NUESTRO PROGRAMA DE LEALTAD",
       razon1: "Incremento de Visitas Recurrentes",
       parraforazon1:
@@ -47,7 +47,7 @@ function Lealtad() {
       parrafo3:
         "Nuestra implementación de programas de lealtad ha ayudado a restaurantes de distintos tamaños a construir una relación sólida con sus clientes, impulsando la recurrencia y el boca en boca positivo.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/fidelizacion-programa-lealtad.jpeg",
+        "/images/impulso/programa-fidelizacion.png",
       titulo4:
         "¿Listo para recompensar a tus clientes más fieles y hacerlos sentir parte de tu familia gastronómica?",
     },
@@ -268,7 +268,7 @@ function Lealtad() {
           <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
             {/* Imagen de fondo */}
             <img
-              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/fidelizar-restaurantes-impulso-restaurantero.jpg"
+              src="/images/impulso/fidelizar-clientes.jpg"
               alt="lealtad"
               className="absolute top-0 left-0 w-full h-full object-cover z-0"
             />

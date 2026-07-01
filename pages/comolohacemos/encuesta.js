@@ -16,7 +16,7 @@ function Encuesta() {
       "Conoce cómo Impulso Restaurantero implementa encuestas de servicio en tiempo real para mejorar la experiencia de tus clientes y aumentar tus ventas.",
     url: "https://www.impulsorestaurantero.com/",
     image:
-      "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png",
+      "/images/logos/impulso-solo.png",
   };
 
   // --- Datos principales de la página ---
@@ -26,12 +26,12 @@ function Encuesta() {
       parrafo1:
         "Impulso Restaurantero te ayuda a recopilar opiniones y calificaciones de tus clientes al momento, permitiendo ajustes inmediatos y aumentando la satisfacción.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/encuesta-servicio-tiempo-real-impulso.jpg",
+        "/images/impulso/encuesta-tiempo-real.png",
       titulo2: "Retroalimentación Instantánea",
       parrafo2:
         "Mediante tecnología avanzada, puedes recibir comentarios de tus clientes en tiempo real durante su visita. Detecta problemas antes de que se vayan y fidelízalos con mejoras inmediatas.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/encuesta-restaurante-amigos-impulso.jpeg", // Cambia si tienes otra imagen
+        "/images/impulso/encuesta-clientes.png", // Cambia si tienes otra imagen
       titulorazones:
         "3 CLAVES QUE HACEN DE NUESTRAS ENCUESTAS UNA HERRAMIENTA PODEROSA",
       razon1: "Captura la Opinión en el Momento Preciso",
@@ -47,7 +47,7 @@ function Encuesta() {
       parrafo3:
         "Descubre cómo nuestras encuestas en tiempo real han transformado la experiencia de cientos de restaurantes, permitiéndoles corregir fallas al instante y ganar la confianza de los comensales.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/encuesta-profresional-impulso.jpg", // Ajusta si lo deseas
+        "/images/impulso/encuesta-profesional.jpeg", // Ajusta si lo deseas
       titulo4:
         "¿Listo para escuchar a tus clientes y llevar tu restaurante al siguiente nivel? En Impulso Restaurantero te ofrecemos encuestas en tiempo real para que nada se te escape.",
     },
@@ -269,7 +269,7 @@ function Encuesta() {
           <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
             {/* Imagen de fondo */}
             <img
-              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg"
+              src="/images/banner-restaurante.jpeg"
               alt="Fondo encuestas"
               className="absolute top-0 left-0 w-full h-full object-cover z-0"
             />

@@ -15,12 +15,12 @@ function ImpulsarVentar() {
       parrafo1:
         "Con ayuda de Impulso Restaurantero, El Huequito pasó de ser un lugar tradicional de tacos a un fenómeno digital con millones de ventas mensuales. Adaptamos estrategias de marketing que dispararon sus pedidos a domicilio y reservas.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/tacos-deliciosos-impulso-restaurantero.jpg",
+        "/images/impulso/tacos-deliciosos.jpeg",
       titulo2: "Auténtica Tradición, Enfoque Innovador",
       parrafo2:
         "Creamos una experiencia digital para mostrar la calidad de la carne y el sabor único de El Huequito. Con un enfoque que une tradición y tecnología, los clientes descubren sus tacos favoritos por internet y los reciben en minutos.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/ricos-tacos-comida-impulso.jpg",
+        "/images/impulso/tacos-2.webp",
       titulorazones:
         "3 CLAVES QUE HICIERON DE EL HUEQUITO UNA SENSACIÓN EN EL MUNDO DIGITAL",
       razon1: "Campañas segmentadas en Google Ads",
@@ -36,7 +36,7 @@ function ImpulsarVentar() {
       parrafo3:
         "Con innovaciones digitales y una estrategia efectiva de marketing, El Huequito sigue expandiéndose en la CDMX y más allá. Es un referente obligado para todos los amantes de los tacos tradicionales, ahora con una presencia global en internet.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/tacos-ricos-impulso-crecer.jpg",
+        "/images/impulso/tacos-2.webp",
       titulo4:
         "¿Quieres que tu restaurante sea la próxima historia de éxito? Descubre cómo Impulso Restaurantero puede duplicar o triplicar tus ventas en pocas semanas.",
     },
@@ -246,7 +246,7 @@ function ImpulsarVentar() {
           <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
             {/* Imagen de fondo */}
             <img
-              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/casosexito/tacos-deliciosos-impulso-restaurantero.jpg"
+              src="/images/impulso/tacos-deliciosos.jpeg"
               alt="delicioso"
               className="absolute top-0 left-0 w-full h-full object-cover z-0"
             />

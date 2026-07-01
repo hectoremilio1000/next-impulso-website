@@ -16,7 +16,7 @@ function Inventarios() {
       "Te ayudamos con un control de inventarios inteligente que reduce desperdicios, optimiza compras y aumenta tus ganancias.",
     url: "https://www.impulsorestaurantero.com/",
     image:
-      "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png",
+      "/images/logos/impulso-solo.png",
   };
 
   // --- Datos de la página ---
@@ -26,12 +26,12 @@ function Inventarios() {
       parrafo1:
         "Control preciso y procesos optimizados para reducir costos y aumentar ganancias.",
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/inteligencia-impulso-restaurantero.jpg", // Cambia por la imagen que desees
+        "/images/impulso/inteligencia-datos.webp", // Cambia por la imagen que desees
       titulo2: "Gestión Eficiente de Recursos",
       parrafo2:
         "Mantén un control en tiempo real de tu inventario, recibe alertas automáticas de stock y pronósticos de demanda para tomar decisiones basadas en datos.",
       imagen2:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/inventario-restaurantes-impulso-restaurantero.jpg", // Cambia por la imagen que desees
+        "/images/impulso/inventario-restaurante.jpeg", // Cambia por la imagen que desees
       titulorazones:
         "3 BENEFICIOS DE NUESTRO CONTROL DE INVENTARIO PARA TU RESTAURANTE",
       razon1: "Reducción de Desperdicios",
@@ -47,7 +47,7 @@ function Inventarios() {
       parrafo3:
         "Descubre cómo restauranteros han optimizado sus procesos de inventario, reduciendo costos y aumentando sus ganancias.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/comolohacemos/mejora-impulso-inventarios.jpg", // Cambia por la imagen que desees
+        "/images/impulso/mejora-inventarios.jpg", // Cambia por la imagen que desees
       titulo4:
         "¿Listo para tener un control total de tu inventario y maximizar tus ganancias?",
     },
@@ -270,7 +270,7 @@ function Inventarios() {
           <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
             {/* Imagen de fondo */}
             <img
-              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg"
+              src="/images/banner-restaurante.jpeg"
               alt="Background"
               className="absolute top-0 left-0 w-full h-full object-cover z-0"
             />

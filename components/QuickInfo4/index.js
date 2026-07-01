@@ -24,7 +24,7 @@ function QuickInfo4() {
                 <div>
                   <img
                     className="w-full object-cover h-[400px]"
-                    src="https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/inicio/mezcalArtesanalllorona.jpg"
+                    src="/images/llorona/nextimage-inicio-mezcalartesanalllorona.webp"
                     alt="mezcales oaxaca"
                   />
                 </div>
@@ -34,7 +34,7 @@ function QuickInfo4() {
                 <div>
                   <img
                     className="w-full object-cover h-[400px]"
-                    src="https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/inicio/mezcales+artesanales+de+oaxaca+cdmx.jpg"
+                    src="/images/llorona/nextimage-inicio-mezcales-artesanales-de-oaxaca-cdmx.webp"
                     alt="mezcales oaxaca"
                   />
                 </div>
@@ -43,7 +43,7 @@ function QuickInfo4() {
                 <div>
                   <img
                     className="w-full object-cover h-[400px]"
-                    src="https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/inicio/mezcales+con+sabor+unico+traidos+directamente+de+oaxaca.jpg"
+                    src="/images/llorona/nextimage-inicio-mezcales-con-sabor-unico-traidos-directamente-de-oaxaca.webp"
                     alt="mezcales oaxaca"
                   />
                 </div>
@@ -52,7 +52,7 @@ function QuickInfo4() {
                 <div>
                   <img
                     className="w-full object-cover h-[400px]"
-                    src="https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/inicio/sotoles+bacanoras+mezcales+en+cdmx+unicos.jpg"
+                    src="/images/llorona/nextimage-inicio-sotoles-bacanoras-mezcales-en-cdmx-unicos.webp"
                     alt="mezcales oaxaca"
                   />
                 </div>
@@ -76,7 +76,7 @@ function QuickInfo4() {
                 <div>
                   <img
                     className="w-full object-cover h-[400px]"
-                    src="https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/inicio/mezcalArtesanalllorona.jpg"
+                    src="/images/llorona/nextimage-inicio-mezcalartesanalllorona.webp"
                     alt="mezcales oaxaca"
                   />
                 </div>
@@ -86,7 +86,7 @@ function QuickInfo4() {
                 <div>
                   <img
                     className="w-full object-cover h-[400px]"
-                    src="https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/inicio/mezcales+artesanales+de+oaxaca+cdmx.jpg"
+                    src="/images/llorona/nextimage-inicio-mezcales-artesanales-de-oaxaca-cdmx.webp"
                     alt="mezcales oaxaca"
                   />
                 </div>
@@ -95,7 +95,7 @@ function QuickInfo4() {
                 <div>
                   <img
                     className="w-full object-cover h-[400px]"
-                    src="https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/inicio/mezcales+con+sabor+unico+traidos+directamente+de+oaxaca.jpg"
+                    src="/images/llorona/nextimage-inicio-mezcales-con-sabor-unico-traidos-directamente-de-oaxaca.webp"
                     alt="mezcales oaxaca"
                   />
                 </div>
@@ -104,7 +104,7 @@ function QuickInfo4() {
                 <div>
                   <img
                     className="w-full object-cover h-[400px]"
-                    src="https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/inicio/sotoles+bacanoras+mezcales+en+cdmx+unicos.jpg"
+                    src="/images/llorona/nextimage-inicio-sotoles-bacanoras-mezcales-en-cdmx-unicos.webp"
                     alt="mezcales oaxaca"
                   />
                 </div>

@@ -15,7 +15,7 @@ function Lalloronacantina() {
         "Te ayudamos a destacar en internet con páginas optimizadas, técnicas avanzadas de SEO y estrategias digitales efectivas.",
       url: "https://www.impulsorestaurantero.com/",
       image:
-        "https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png",
+        "/images/logos/impulso-solo.png",
     },
   ];
 
@@ -26,12 +26,12 @@ function Lalloronacantina() {
         "Transformamos nuestra visión en realidad con una estrategia integral que combinó marketing digital, optimización de redes sociales y una oferta gastronómica única. Logramos que Cantina La Llorona se posicionara como el lugar favorito en Roma Condesa",
 
       imagen1:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/llorona/nextImage/fotosBanner/cantina%2Bllorona%2Bafuera%2Blugar.jpg",
+        "/images/llorona/nextimage-fotosbanner-cantina-llorona-afuera-lugar.webp",
       titulo2: "Un Modelo Innovador de Cantina que Enamora",
       parrafo2:
         "Transformamos el concepto tradicional de una cantina en una experiencia vibrante y moderna, logrando que nuestros clientes se enamoren del nuevo enfoque. Con un diseño auténtico y una propuesta gastronómica única.",
       imagen2:
-        "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/inicio/chicharron%2Bpork%2Bbelly%2Bguacamole%2Bcantina%2Bllorona.jpg",
+        "/images/llorona/nextimage-inicio-chicharron-pork-belly-guacamole-cantina-llorona.webp",
       titulorazones:
         "3 CLAVES QUE CONVIRTIERON A CANTINA LA LLORONA EN EL NUEVO HOTSPOT DE LA ROMA CONDESA",
       razon1:
@@ -258,7 +258,7 @@ function Lalloronacantina() {
           <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
             {/* Imagen de fondo */}
             <img
-              src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/llorona/nextImage/inicio/llorona%2Bson%2Bgrupo%2Bcuano%2Bcantina%2Bweb.jpg"
+              src="/images/llorona/nextimage-inicio-llorona-son-grupo-cuano-cantina-web.webp"
               alt="Background"
               className="absolute top-0 left-0 w-full h-full object-cover z-0"
             />

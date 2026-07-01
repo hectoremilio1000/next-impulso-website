@@ -78,7 +78,7 @@ function QuickInfo3() {
             <div>
               <img
                 className="imagen2AbajoTexto1Home"
-                src="https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/festejo+cantina+llorona+salsa+baile.jpg"
+                src="/images/llorona/nextimage-festejo-cantina-llorona-salsa-baile.webp"
                 alt="Baila en grande con tus amigos"
               />
               <p className="textoFotosHome text-black">
@@ -91,7 +91,7 @@ function QuickInfo3() {
             <div>
               <img
                 className="imagen2AbajoTexto1Home"
-                src="https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/niurka+cantina+la+llorona+festejo.jpg"
+                src="/images/llorona/nextimage-niurka-cantina-la-llorona-festejo.webp"
               />
               <p className="textoFotosHome text-black">
                 Baila y disfruta
@@ -155,7 +155,7 @@ function QuickInfo3() {
               <div>
                 <img
                   className="imagen2AbajoTexto1Home"
-                  src="https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/festejo+cantina+llorona+salsa+baile.jpg"
+                  src="/images/llorona/nextimage-festejo-cantina-llorona-salsa-baile.webp"
                   alt="Baila en grande con tus amigos"
                 />
                 <p className="textoFotosHome text-black">
@@ -167,7 +167,7 @@ function QuickInfo3() {
               <div>
                 <img
                   className="imagen2AbajoTexto1Home"
-                  src="https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/niurka+cantina+la+llorona+festejo.jpg"
+                  src="/images/llorona/nextimage-niurka-cantina-la-llorona-festejo.webp"
                 />
                 <p className="textoFotosHome text-black">
                   Dance and enjoy with great <br/>artists, including Niurka

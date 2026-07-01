@@ -58,7 +58,7 @@ function QuickInfo() {
                 <div>
                   <img
                     className="h-[220px] object-cover w-full rounded"
-                    src="https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/aguacateRibeyeLlorona.jpg"
+                    src="/images/llorona/nextimage-aguacateribeyellorona.webp"
                     alt="tacos y cocteles"
                   />
                 </div>

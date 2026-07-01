@@ -119,7 +119,7 @@ const CasosEstudio = () => {
           <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
             <img
               className=" w-full object-contain"
-              src="https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/seccion1/649c99bf1948a130a34f7abb_Wins+copy.png"
+              src="/images/impulso/wins.jpeg"
               alt=""
             />
             <h2 className="title3-tw text-center">Construye tu éxito</h2>

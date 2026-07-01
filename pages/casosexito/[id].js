@@ -16,7 +16,7 @@ const CasoDeExito = () => {
           className="absolute inset-0 bg-cover bg-center grayscale opacity-5 z-40"
           style={{
             backgroundImage:
-              "url('https://imagenesrutalab.s3.us-east-1.amazonaws.com/llorona/nextImage/fotosBanner/cantina%2Bllorona%2Bafuera%2Blugar.jpg')",
+              "url('/images/llorona/nextimage-fotosbanner-cantina-llorona-afuera-lugar.webp')",
           }}
         ></div>
         <div className="mx-auto max-w-[1018px] relative z-50">
@@ -47,7 +47,7 @@ const CasoDeExito = () => {
                           ></iframe> */}
               <img
                 className="w-full object-cover rounded "
-                src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/llorona/nextImage/fotosBanner/cantina%2Bllorona%2Bafuera%2Blugar.jpg"
+                src="/images/llorona/nextimage-fotosbanner-cantina-llorona-afuera-lugar.webp"
                 alt=""
               />
             </div>

@@ -183,7 +183,7 @@ export default function Home() {
           <meta property="og:type" content="Impulso Restaurantero" />
           <meta
             property="og:image"
-            content="https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png"
+            content="/images/logos/impulso-solo.png"
           />
           <link rel="apple-touch-icon" href="../logo192.png" />
           <link rel="manifest" href="../manifest.json" />
@@ -219,7 +219,7 @@ export default function Home() {
           <meta property="og:type" content="Restaurant Boost" />
           <meta
             property="og:image"
-            content="https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png"
+            content="/images/logos/impulso-solo.png"
           />
           <link rel="apple-touch-icon" href="../logo192.png" />
           <link rel="manifest" href="../manifest.json" />
@@ -379,27 +379,27 @@ export default function Home() {
             <div className="max-w-[90%] mx-auto bg-black rounded-b-[25px] flex items-center pt-[13px] pb-[18px] px-[30px]">
               <div className="flex w-[95%] justify-between">
                 <img
-                  src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/mayta-logo-new.svg"
+                  src="/images/logos/mayta-logo-new.svg"
                   alt="Mayte"
                   className="h-6 md:h-10 px-2"
                 />
                 <img
-                  src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/logoDonde.png"
+                  src="/images/logos/logo-dondeir.webp"
                   alt="Donde Ir"
                   className="h-6 md:h-10"
                 />
                 <img
-                  src="https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logosEmpresasSocios/lalloronblanco.png"
+                  src="/images/logos/llorona-completo.png"
                   alt="La Llorona"
                   className="h-8 md:h-10"
                 />
                 <img
-                  src="https://www.trendmexico.com/wp-content/uploads/2023/03/bar-bunny-universidad-logo-300x300.jpg"
+                  src="/images/logos/trend.png"
                   alt="Bar Bunny"
                   className="h-10 md:h-12"
                 />
                 <img
-                  src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/mr+lucho.jpg"
+                  src="/images/logos/mr-lucho.png"
                   alt="Mr lucho"
                   className="h-10 md:h-12"
                 />
@@ -416,7 +416,7 @@ export default function Home() {
           <div
             style={{
               backgroundImage:
-                "url('https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/seccion1/649c99bf1948a130a34f7abb_Wins+copy.png')",
+                "url('/images/impulso/wins.jpeg')",
               backgroundPosition: "50%",
               backgroundSize: "cover",
             }}
@@ -538,7 +538,7 @@ export default function Home() {
             <div className="relative w-full max-w-3xl rounded-3xl overflow-hidden h-64 md:h-96">
               {/* Imagen de fondo */}
               <img
-                src="https://imagenesrutalab.s3.us-east-1.amazonaws.com/impulsoRestaurantero/seccion1/restaurant-hall-with-round-table-some-chairs-fireplace-plants1.jpg"
+                src="/images/banner-restaurante.jpeg"
                 alt="Background"
                 className="absolute top-0 left-0 w-full h-full object-cover z-0"
               />
@@ -598,7 +598,7 @@ export default function Home() {
                 {/* Header con logo */}
                 <div className="flex items-center gap-3 px-6 pt-5">
                   <img
-                    src="https://imagenesrutalab.s3.amazonaws.com/impulsoRestaurantero/logo/logoSoloImpulsoRestaurantero.png"
+                    src="/images/logos/impulso-solo.png"
                     alt="Impulso Restaurantero"
                     className="h-8 w-auto"
                   />
