@@ -25,23 +25,31 @@
   @apply text-[14px] md:text-[25px];
 }
 .button4 {
-  color: #fff;
+  color: #2a2205;
   text-align: center;
   letter-spacing: 0.025em;
   background-color: transparent;
-  background-image: linear-gradient(20deg, #6e5e19, #d5c345);
+  background-image: linear-gradient(135deg, #c8a02e, #ecd063);
+  border: none;
+  cursor: pointer;
   border-radius: 14px;
   padding: 0.9em 1.8em;
   font-size: 1.42em;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.2em;
-  transition: box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  box-shadow: 0 7px 80px -12px #050401, inset 0 0 rgba(19, 36, 54, 0),
-    inset 0 0 rgba(19, 36, 54, 0);
+  transition: transform 0.25s ease, box-shadow 0.3s ease, filter 0.25s ease;
+  box-shadow: 0 10px 28px -10px rgba(213, 195, 69, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 .button4:hover {
-  box-shadow: 0 0 0 -10px #015aff, inset -15px 13px 30px #191a1d,
-    inset 20px -55px 30px #191a1d;
+  transform: translateY(-2px);
+  filter: brightness(1.08) saturate(1.05);
+  box-shadow: 0 18px 40px -10px rgba(213, 195, 69, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+.button4:active {
+  transform: translateY(0);
+  filter: brightness(0.98);
 }
 .button-small {
   background-color: #a78b21;
@@ -1279,3 +1287,62 @@ h4 {
     padding: 80px 20px !important;
   }
 }
+
+/* ===== Strip de logos de restaurantes (marquee) — replicado de GrowthSuite ===== */
+.fb-logo-panel {
+  margin-top: 0;
+  padding: 1.6rem 0;
+  background: #000;
+}
+.fb-logo-marquee {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+.fb-logo-track {
+  display: flex;
+  gap: 1.4rem;
+  width: max-content;
+  animation: fb-logo-scroll 40s linear infinite;
+  will-change: transform;
+}
+.fb-logo-track:hover { animation-play-state: paused; }
+@keyframes fb-logo-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 0.7rem)); }
+}
+.fb-logo-track .logo-card {
+  flex: 0 0 auto;
+  width: 220px;
+  border: none;
+  padding: 0 1.6rem;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 110px;
+  box-shadow: none;
+}
+.fb-logo-track .logo-card img {
+  max-height: 95px;
+  max-width: 230px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5));
+  opacity: 1;
+  transition: transform 0.2s ease;
+}
+.fb-logo-track .logo-card--white img { filter: brightness(0) invert(1) drop-shadow(0 6px 12px rgba(0, 0, 0, 0.5)); }
+.fb-logo-track .logo-card--lg img { max-height: 100px; max-width: 240px; }
+.fb-logo-track .logo-card--xl img { max-height: 110px; max-width: 250px; }
+.fb-logo-track .logo-card--wide img { max-height: 92px; max-width: 270px; }
+@media (max-width: 640px) {
+  .fb-logo-track { gap: 0.9rem; animation-duration: 28s; }
+  .fb-logo-track .logo-card { width: 210px; min-height: 120px; padding: 0.95rem 1.4rem; }
+  .fb-logo-track .logo-card img { max-height: 80px; max-width: 170px; }
+  @keyframes fb-logo-scroll { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 0.45rem)); } }
+}
+@media (prefers-reduced-motion: reduce) { .fb-logo-track { animation: none; } }

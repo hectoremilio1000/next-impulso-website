@@ -181,8 +181,8 @@ const RestauranterosExitosos = () => {
         <div className="grid gap-16 w-full">
           {/* Bloque 1 */}
           <div className="w-full md:col-span-2 relative">
-            <div className="w-full bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
-              <div className="w-full relative py-12 px-16 flex items-start justify-start flex-col overflow-hidden perspective md:pr-[30%]">
+            <div className="group w-full bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-[0_12px_40px_-18px_rgba(15,23,42,0.25)] hover:shadow-[0_24px_55px_-18px_rgba(15,23,42,0.35)] hover:-translate-y-1.5 transition-all duration-300">
+              <div className="w-full relative py-12 px-8 md:px-16 flex items-start justify-start flex-col md:pr-[45%]">
                 <div className="content-text flex flex-col justify-center items-center gap-6">
                   <h2 className="title3-tw uppercase">
                     Cómo Iniciar <br /> un Restaurante
@@ -199,9 +199,8 @@ const RestauranterosExitosos = () => {
                     </button>
                   </Link>
                 </div>
-                <motion.img
-                  style={{ transformStyle: "preserve-3d", transform }}
-                  className="rounded-[1.2em] w-[100%] relative mt-4 md:w-[50%] md:absolute md:right-0 md:top-0"
+                <img
+                  className="w-full h-56 mt-6 rounded-2xl object-cover md:h-full md:w-[42%] md:mt-0 md:rounded-none md:absolute md:right-0 md:top-0 group-hover:scale-105 transition-transform duration-500"
                   src="/images/banner-restaurante.jpeg"
                   alt="restaurant"
                 />
@@ -211,8 +210,8 @@ const RestauranterosExitosos = () => {
 
           {/* Bloque 2 (VER AHORA) */}
           <div className="w-full md:col-span-2 relative">
-            <div className="w-full bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
-              <div className="w-full relative py-12 px-16 flex items-start justify-start flex-col overflow-hidden perspective md:pr-[30%]">
+            <div className="group w-full bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-[0_12px_40px_-18px_rgba(15,23,42,0.25)] hover:shadow-[0_24px_55px_-18px_rgba(15,23,42,0.35)] hover:-translate-y-1.5 transition-all duration-300">
+              <div className="w-full relative py-12 px-8 md:px-16 flex items-start justify-start flex-col md:pr-[45%]">
                 <div className="content-text flex flex-col justify-center items-center gap-6">
                   <h2 className="title3-tw uppercase">
                     3 Modelos de Ingresos <br /> para Restaurantes
@@ -236,9 +235,8 @@ const RestauranterosExitosos = () => {
                     DESCARGAR AHORA
                   </button>
                 </div>
-                <motion.img
-                  style={{ transformStyle: "preserve-3d", transform }}
-                  className="rounded-[1.2em] w-[100%] relative mt-4 md:w-[50%] md:absolute md:right-0 md:top-0"
+                <img
+                  className="w-full h-56 mt-6 rounded-2xl object-cover md:h-full md:w-[42%] md:mt-0 md:rounded-none md:absolute md:right-0 md:top-0 group-hover:scale-105 transition-transform duration-500"
                   src="https://www.exquisitoperu.com/wp-content/uploads/2019/03/mayta.jpg"
                   alt="mayta"
                 />
@@ -248,8 +246,8 @@ const RestauranterosExitosos = () => {
 
           {/* Bloque 3 */}
           <div className="w-full md:col-span-2 relative">
-            <div className="w-full bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
-              <div className="w-full relative py-12 px-16 flex items-start justify-start flex-col overflow-hidden perspective md:pr-[30%]">
+            <div className="group w-full bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-[0_12px_40px_-18px_rgba(15,23,42,0.25)] hover:shadow-[0_24px_55px_-18px_rgba(15,23,42,0.35)] hover:-translate-y-1.5 transition-all duration-300">
+              <div className="w-full relative py-12 px-8 md:px-16 flex items-start justify-start flex-col md:pr-[45%]">
                 <div className="content-text flex flex-col justify-center items-center gap-6">
                   <h2 className="title3-tw uppercase">
                     ANUNCIOS QUE ATRAEN <br /> CLIENTES
@@ -265,9 +263,8 @@ const RestauranterosExitosos = () => {
                     </button>
                   </Link>
                 </div>
-                <motion.img
-                  style={{ transformStyle: "preserve-3d", transform }}
-                  className="rounded-[1.2em] w-[100%] relative mt-4 md:w-[50%] md:absolute md:right-0 md:top-0"
+                <img
+                  className="w-full h-56 mt-6 rounded-2xl object-cover md:h-full md:w-[42%] md:mt-0 md:rounded-none md:absolute md:right-0 md:top-0 group-hover:scale-105 transition-transform duration-500"
                   src="https://i.pinimg.com/736x/73/a5/48/73a5481477d4842fc7cb46730557aabc.jpg"
                   alt="anuncios"
                 />
@@ -277,8 +274,8 @@ const RestauranterosExitosos = () => {
 
           {/* Bloque 4 (SOLICITAR AHORA) */}
           <div className="w-full md:col-span-2 relative">
-            <div className="w-full bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
-              <div className="w-full relative py-12 px-16 flex items-start justify-start flex-col overflow-hidden perspective md:pr-[30%]">
+            <div className="group w-full bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-[0_12px_40px_-18px_rgba(15,23,42,0.25)] hover:shadow-[0_24px_55px_-18px_rgba(15,23,42,0.35)] hover:-translate-y-1.5 transition-all duration-300">
+              <div className="w-full relative py-12 px-8 md:px-16 flex items-start justify-start flex-col md:pr-[45%]">
                 <div className="content-text flex flex-col justify-center items-center gap-6">
                   <h2 className="title3-tw uppercase text-center">
                     SECRETOS DE <br /> IMPULSO RESTAURANTERO
@@ -301,9 +298,8 @@ const RestauranterosExitosos = () => {
                     SOLICITAR AHORA
                   </button>
                 </div>
-                <motion.img
-                  style={{ transformStyle: "preserve-3d", transform }}
-                  className="rounded-[1.2em] w-[100%] relative mt-4 md:w-[50%] md:absolute md:right-0 md:top-0"
+                <img
+                  className="w-full h-56 mt-6 rounded-2xl object-cover md:h-full md:w-[42%] md:mt-0 md:rounded-none md:absolute md:right-0 md:top-0 group-hover:scale-105 transition-transform duration-500"
                   src="https://www.idgastronomic.com/wp-content/uploads/2023/01/tiktok-videos-restaurantes-1.jpg"
                   alt="secretos"
                 />

@@ -97,10 +97,10 @@ const CasosEstudio = () => {
       </div>
       <div className="w-[100%] max-w-[1085px] flex flex-col justify-center items-center">
         <div className="content grid grid-cols-1 md:grid-cols-2 gap-8 px-[20px] items-start">
-          <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
+          <div className="w-full flex flex-col items-center gap-4 justify-start group p-6 bg-white border border-gray-100 rounded-3xl shadow-[0_12px_40px_-18px_rgba(15,23,42,0.25)] hover:shadow-[0_24px_55px_-18px_rgba(15,23,42,0.35)] hover:-translate-y-1.5 transition-all duration-300 overflow-hidden">
             <Link href="/casosexito">
               <iframe
-                className="w-full aspect-video self-stretch md:min-h-128 h-48"
+                className="w-full aspect-video self-stretch rounded-2xl"
                 src="https://www.youtube.com/embed/N9o8Pa11K0E"
                 title="Product Overview Video"
                 aria-hidden="true"
@@ -116,12 +116,14 @@ const CasosEstudio = () => {
               <button className="button-small">Ver Historias</button>
             </Link>
           </div>
-          <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
-            <img
-              className=" w-full object-contain"
-              src="/images/impulso/wins.jpeg"
-              alt=""
-            />
+          <div className="w-full flex flex-col items-center gap-4 justify-start group p-6 bg-white border border-gray-100 rounded-3xl shadow-[0_12px_40px_-18px_rgba(15,23,42,0.25)] hover:shadow-[0_24px_55px_-18px_rgba(15,23,42,0.35)] hover:-translate-y-1.5 transition-all duration-300 overflow-hidden">
+            <div className="w-full overflow-hidden rounded-2xl">
+              <img
+                className="w-full h-56 object-cover group-hover:scale-[1.04] transition-transform duration-500"
+                src="/images/impulso/wins.jpeg"
+                alt=""
+              />
+            </div>
             <h2 className="title3-tw text-center">Construye tu éxito</h2>
             <p className="parrafo-tw paragraph-feature text-center">
               Explora nuestra colección en constante actualización de
@@ -133,8 +135,8 @@ const CasosEstudio = () => {
             </Link>
           </div>
           <div className="w-full md:col-span-2 relative">
-            <div className="w-full bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
-              <div className="w-full relative p-8 md:p-16 flex items-start justify-start flex-col overflow-hidden perspective md:pr-[30%]">
+            <div className="group w-full bg-white border border-gray-100 rounded-3xl shadow-[0_12px_40px_-18px_rgba(15,23,42,0.25)] hover:shadow-[0_24px_55px_-18px_rgba(15,23,42,0.35)] hover:-translate-y-1.5 transition-all duration-300 overflow-hidden">
+              <div className="w-full relative p-8 md:p-16 flex items-start justify-start flex-col md:pr-[45%]">
                 <div className="z-20 relative content-text flex flex-col justify-center items-center gap-6">
                   <h2 className="title3-tw">
                     Impulso Restaurantero <br />
@@ -154,12 +156,8 @@ const CasosEstudio = () => {
                     </button>
                   </Link>
                 </div>
-                <motion.img
-                  style={{
-                    transformStyle: "preserve-3d",
-                    transform,
-                  }}
-                  className="z-10 rounded-[1.2em] w-[100%] relative mt-4 md:mb-0 md:w-[50%] md:absolute md:right-0 md:top-0"
+                <img
+                  className="w-full h-56 mt-6 rounded-2xl object-cover md:h-full md:w-[42%] md:mt-0 md:rounded-none md:absolute md:right-0 md:top-0 group-hover:scale-105 transition-transform duration-500"
                   src="https://media-cdn.tripadvisor.com/media/photo-s/19/4b/66/9e/satisfaccion-bajo.jpg"
                   alt=""
                 />
