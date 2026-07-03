@@ -36,7 +36,7 @@ function ImpulsarVentar() {
       parrafo3:
         "Con innovaciones digitales y una estrategia efectiva de marketing, El Huequito sigue expandiéndose en la CDMX y más allá. Es un referente obligado para todos los amantes de los tacos tradicionales, ahora con una presencia global en internet.",
       imagen3:
-        "/images/impulso/tacos-2.webp",
+        "/images/impulso/tacos-huequito.jpg",
       titulo4:
         "¿Quieres que tu restaurante sea la próxima historia de éxito? Descubre cómo Impulso Restaurantero puede duplicar o triplicar tus ventas en pocas semanas.",
     },

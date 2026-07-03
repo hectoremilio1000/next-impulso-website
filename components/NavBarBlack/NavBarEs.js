@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 import { useAppContext } from "../context/Context";
 
 const usFlag =
-  "https://imagenesrutalab.s3.amazonaws.com/llorona/nextImage/banderas/um.svg";
+  "/images/llorona/us.svg";
 
 const mxFlag =
   "/images/llorona/mx.svg";

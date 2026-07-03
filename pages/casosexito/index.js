@@ -136,7 +136,7 @@ function Casosexito() {
           <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
             <img
               className=" w-full object-contain"
-              src="/images/impulso/trabajando-ayuda.jpeg"
+              src="/images/impulso/taqueria-hero.jpg"
               alt=""
             />
             <h2 className="title3-tw text-center">

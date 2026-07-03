@@ -135,8 +135,8 @@ function Comolohacemos() {
           </Link>
         </div>
         <img
-          className=" w-full object-contain px-4 rounded-lg"
-          src="/imagenes/como_lo_hacemos.jpeg"
+          className="w-full max-w-4xl object-contain px-4 rounded-lg"
+          src="/images/como-lo-hacemos-360.png"
           alt=""
         />
         <h2 className="text-2xl md:text-5xl font-bold text-black mb-2 mt-4 leading-tight">
@@ -228,7 +228,7 @@ function Comolohacemos() {
               <Link href="/comolohacemos/lealtad">
                 <img
                   className=" w-full object-contain"
-                  src="https://img.freepik.com/free-photo/office-meeting_144627-35624.jpg"
+                  src="/images/impulso/lealtad.png"
                   alt=""
                 />
               </Link>
@@ -245,7 +245,7 @@ function Comolohacemos() {
             <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
               <img
                 className=" w-full object-contain rounded-2xl"
-                src="https://img.freepik.com/free-photo/explaining-work_1098-18099.jpg"
+                src="/images/impulso/permisos.jpeg"
                 alt=""
               />
               <h2 className="title3-tw text-center">
@@ -315,7 +315,7 @@ function Comolohacemos() {
             <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
               <img
                 className=" w-full object-contain rounded-2xl"
-                src="/images/impulso/reconocimiento-premio.webp"
+                src="/images/impulso/monitoreo.jpeg"
                 alt=""
               />
               <h2 className="title3-tw text-center">
@@ -332,7 +332,7 @@ function Comolohacemos() {
             <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
               <img
                 className=" w-full object-contain rounded-2xl h-[450px]"
-                src="/images/impulso/diagnostico-ia.webp"
+                src="/images/impulso/estudio-mercado.jpeg"
                 alt=""
               />
               <h2 className="title3-tw text-center">
@@ -364,7 +364,7 @@ function Comolohacemos() {
           <div className="w-full flex flex-col items-center gap-4 justify-start p-8 bg-[#fbfbfad9] border-[#e5e5e5] rounded-[1.2em] max-w-xl">
             <img
               className=" w-full object-contain "
-              src="/images/impulso/portada-comolohacemos.jpeg"
+              src="/images/impulso/faq-90dias.jpg"
               alt=""
             />
           </div>

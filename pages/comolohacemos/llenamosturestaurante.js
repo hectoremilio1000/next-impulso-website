@@ -32,7 +32,7 @@ function Llenamosturestaurante() {
       parrafo2:
         "No basta con tener un sitio bonito. Necesitas que cada clic se convierta en un nuevo comensal. Con nuestras técnicas de conversión y marketing, tu restaurante se llena rápido.",
       imagen2:
-        "/images/impulso/tacos-deliciosos.jpeg", // Cambia si prefieres otra imagen
+        "/images/impulso/pagina-convierte.webp", // Cambia si prefieres otra imagen
       titulorazones:
         "3 CLAVES PARA LLENAR TU RESTAURANTE CON NUESTRA TECNOLOGÍA",
       razon1: "Diseño Web Enfocado en Reservas",

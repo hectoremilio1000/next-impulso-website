@@ -34,7 +34,7 @@ function Permisos() {
       parrafo2:
         "Evita multas y cierres inesperados. Nuestro equipo se encarga de que tu negocio esté siempre en regla con las instituciones correspondientes, desde salubridad hasta permisos de alcohol.",
       imagen2:
-        "/images/impulso/abrir-restaurante-licencias.jpeg", // Ajusta la imagen a tu gusto
+        "/images/impulso/permisos-seguridad.png", // Ajusta la imagen a tu gusto
 
       // 3 Razones
       titulorazones: "3 RAZONES PARA DEJARNOS EN CARGO TODOS TUS PERMISOS",
