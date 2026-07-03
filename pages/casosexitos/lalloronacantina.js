@@ -48,7 +48,7 @@ function Lalloronacantina() {
       parrafo3:
         "Descubre cómo transformamos Cantina La Llorona en un referente innovador, adaptando su concepto y mixología a las tendencias actuales del mercado. Con un enfoque en la creatividad y la personalización.",
       imagen3:
-        "https://imagenesrutalab.s3.us-east-1.amazonaws.com/llorona/nextImage/inicio/amigastomandoCantinaLlorona.JPG",
+        "/images/llorona/nextimage-festejo-cantina-llorona-salsa-baile.webp",
       titulo4:
         "¿Sabías que podrías duplicar tus ventas con las estrategias correctas? En Impulso Restaurantero, hicimos que Cantina La Llorona se convirtiera en el lugar favorito de Roma-Condesa. ",
     },

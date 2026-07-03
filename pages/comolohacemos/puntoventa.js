@@ -48,7 +48,7 @@ function Puntoventa() {
       parrafo3:
         "Conoce cómo cientos de dueños de restaurantes han elevado sus ventas gracias a un punto de venta confiable y fácil de usar. Agiliza tus operaciones y enfócate en lo que importa: el cliente.",
       imagen3:
-        "/images/impulso/pos-pantalla.png",
+        "/images/impulso/tecnologia-crecimiento.png",
       titulo4:
         "¿Listo para un punto de venta que nunca te falle? Nuestro soporte 24/7 te permitirá ofrecer un servicio impecable en cada pedido.",
     },

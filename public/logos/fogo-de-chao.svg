@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 120">
+  <rect width="300" height="120" fill="transparent"/>
+  <text x="150" y="50" text-anchor="middle" font-family="Georgia, serif" font-size="32" font-weight="bold" fill="#C8102E" letter-spacing="3">FOGO</text>
+  <text x="150" y="78" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#C8102E" letter-spacing="6">DE CHÃO</text>
+  <line x1="60" y1="90" x2="240" y2="90" stroke="#C8102E" stroke-width="1.5"/>
+</svg>

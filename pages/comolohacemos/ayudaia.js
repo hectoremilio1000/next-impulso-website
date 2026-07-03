@@ -55,7 +55,7 @@ function AyudaIA() {
       parrafo3:
         "Hemos ayudado a negocios en planeación y restaurantes ya operando a redefinir su rumbo con información real y estrategias accionables. Con nuestra herramienta de IA, podrás trazar un camino seguro hacia el éxito.",
       imagen3:
-        "/images/llorona/nextimage-festejo-cantina-llorona-salsa-baile.webp",
+        "/images/impulso/casa-vega.webp",
 
       // Último bloque antes del CTA final
       titulo4:

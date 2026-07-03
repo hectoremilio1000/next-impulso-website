@@ -22,6 +22,22 @@ const MySwiper = dynamic(() => import("../components/SwiperPrueba"), {
   ssr: false,
 });
 
+// Restaurantes que confían en Impulso / GrowthSuite (marquee del strip de clientes)
+const logoCloud = [
+  { src: "/logos/mayta-logo-new.svg", alt: "Mayta", size: "wide", scale: 1.1 },
+  { src: "/logos/lalloronblanco.png", alt: "La Llorona", size: "xl", scale: 1.05 },
+  { src: "/logos/mr-lucho.png", alt: "Mr Lucho", size: "lg", scale: 1.15 },
+  { src: "/logos/bar-bunny.png", alt: "Bar Bunny", size: "lg", scale: 1.15 },
+  { src: "/logos/logo_bambuu.png", alt: "Bambuu", size: "xl", scale: 1.5 },
+  { src: "/logos/fogo-de-chao.svg", alt: "Fogo de Chão", size: "wide", scale: 1.1 },
+  { src: "/logos/rubaiyat.svg", alt: "Rubaiyat", size: "wide", scale: 1.1 },
+  { src: "/logos/cais-do-oriente.svg", alt: "Cais do Oriente", size: "wide", scale: 1.1 },
+  { src: "/logos/nk-hotel.svg", alt: "NKO Restaurante", size: "lg", scale: 1.1 },
+  { src: "/logos/oc-logo.png", alt: "OC", size: "lg", scale: 1.1, white: true },
+  { src: "/logos/finca-robles.jpeg", alt: "Finca Robles", size: "lg", scale: 1.1 },
+  { src: "/logos/logoDonde.png", alt: "Dónde", size: "wide", scale: 1.2 },
+];
+
 export default function Home() {
   // tu modal de formulario (ya lo usas)
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -376,33 +392,34 @@ export default function Home() {
             </div>
           </div>
           <div id="section-clientes" className="overflow-hidden">
-            <div className="max-w-[90%] mx-auto bg-black rounded-b-[25px] flex items-center pt-[13px] pb-[18px] px-[30px]">
-              <div className="flex w-[95%] justify-between">
-                <img
-                  src="/images/logos/mayta-logo-new.svg"
-                  alt="Mayte"
-                  className="h-6 md:h-10 px-2"
-                />
-                <img
-                  src="/images/logos/logo-dondeir.webp"
-                  alt="Donde Ir"
-                  className="h-6 md:h-10"
-                />
-                <img
-                  src="/images/logos/llorona-completo.png"
-                  alt="La Llorona"
-                  className="h-8 md:h-10"
-                />
-                <img
-                  src="/images/logos/trend.png"
-                  alt="Bar Bunny"
-                  className="h-10 md:h-12"
-                />
-                <img
-                  src="/images/logos/mr-lucho.png"
-                  alt="Mr lucho"
-                  className="h-10 md:h-12"
-                />
+            <div className="w-full">
+              <div className="fb-logo-panel">
+                <div
+                  className="fb-logo-marquee"
+                  aria-label="Restaurantes que confían en Impulso"
+                >
+                  <div className="fb-logo-track">
+                    {[...logoCloud, ...logoCloud].map((logo, index) => (
+                      <div
+                        key={`${logo.alt}-${index}`}
+                        className={`logo-card logo-card--dark ${
+                          logo.size === "lg" ? "logo-card--lg" : ""
+                        } ${logo.size === "xl" ? "logo-card--xl" : ""} ${
+                          logo.size === "wide" ? "logo-card--wide" : ""
+                        } ${logo.white ? "logo-card--white" : ""}`}
+                        aria-hidden={
+                          index >= logoCloud.length ? "true" : undefined
+                        }
+                      >
+                        <img
+                          src={logo.src}
+                          alt={index >= logoCloud.length ? "" : logo.alt}
+                          style={{ transform: `scale(${logo.scale || 1})` }}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
