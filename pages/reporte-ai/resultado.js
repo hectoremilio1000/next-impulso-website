@@ -6,6 +6,8 @@ import ScoreGauge from "../../components/RestaurantReport/ScoreGauge";
 import PillarCard from "../../components/RestaurantReport/PillarCard";
 import IssueList from "../../components/RestaurantReport/IssueList";
 import CompetitorTable from "../../components/RestaurantReport/CompetitorTable";
+import GoogleProfileCard from "../../components/RestaurantReport/GoogleProfileCard";
+import LocalRankingsTable from "../../components/RestaurantReport/LocalRankingsTable";
 import LeadGateModal from "../../components/RestaurantReport/LeadGateModal";
 import { getRestaurantReport } from "../../lib/restaurantReportApi";
 
@@ -163,7 +165,17 @@ export default function ReporteResultado() {
                 <span className="mb-4 inline-block rounded-full bg-secundario px-4 py-2 text-sm font-semibold uppercase tracking-wide text-principal">
                   Reporte AI
                 </span>
-                <h1 className="title3-tw text-white">{report.name}</h1>
+                <div className="flex flex-col items-center gap-3">
+                  {report.photoUrl && (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={report.photoUrl}
+                      alt={report.name}
+                      className="h-16 w-16 rounded-xl object-cover ring-1 ring-white/10"
+                    />
+                  )}
+                  <h1 className="title3-tw text-white">{report.name}</h1>
+                </div>
                 {report.formattedAddress && (
                   <p className="parrafo-tw mt-1 text-white/60">
                     {report.formattedAddress}
@@ -291,20 +303,39 @@ export default function ReporteResultado() {
 
               {unlocked ? (
                 <>
+                  <CompetitorTable
+                    competitors={report.competitors ?? []}
+                    targetRating={report.rating}
+                    targetReviews={report.userRatingsTotal}
+                  />
+
+                  <LocalRankingsTable
+                    queries={report.serpQueries ?? []}
+                    error={report.serpRankingError}
+                  />
+
                   <IssueList
                     title="Tu perfil de Google Business"
+                    intro="Tu Perfil de Google Business es lo primero que ve un cliente antes de decidir visitarte: qué tan fácil es encontrarte, contactarte y confiar en ti."
+                    header={
+                      <GoogleProfileCard
+                        photoUrl={report.photoUrl}
+                        rating={report.rating}
+                        userRatingsTotal={report.userRatingsTotal}
+                      />
+                    }
                     issues={report.issues ?? []}
                   />
                   <IssueList
                     title="SEO de tu sitio web"
+                    intro="El SEO es que tu sitio web sea fácil de encontrar en Google: entre mejor optimizado esté, más gente te encuentra sin pagar publicidad."
                     issues={report.seoIssues ?? []}
                   />
                   <IssueList
                     title="Experiencia para tus clientes"
+                    intro="El contenido y la experiencia de tu sitio web son los que convierten una visita en una reserva o un pedido."
                     issues={report.guestExperienceIssues ?? []}
                   />
-
-                  <CompetitorTable competitors={report.competitors ?? []} />
 
                   <div className="pt-4 text-center">
                     <a
