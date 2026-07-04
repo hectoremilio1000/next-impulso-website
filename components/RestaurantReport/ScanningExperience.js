@@ -165,6 +165,32 @@ function ScanningPlaceholder({ label }) {
   );
 }
 
+function BrowserWindowPlaceholder({ label }) {
+  return (
+    <div className="flex h-full flex-col items-center justify-center gap-4">
+      <div className="w-full max-w-md overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-[0_20px_60px_rgba(0,0,0,.45)]">
+        <div className="flex items-center gap-1.5 border-b border-white/10 bg-white/5 px-3 py-2.5">
+          <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+          <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+          <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+          <div className="ml-3 h-4 flex-1 animate-pulse rounded bg-white/10" />
+        </div>
+        <div className="space-y-3 p-4">
+          <div className="h-20 animate-pulse rounded-lg bg-white/10" />
+          <div className="h-3 w-3/4 animate-pulse rounded bg-white/10" />
+          <div className="h-3 w-1/2 animate-pulse rounded bg-white/10" />
+          <div className="grid grid-cols-3 gap-2 pt-1">
+            <div className="h-12 animate-pulse rounded bg-white/10" />
+            <div className="h-12 animate-pulse rounded bg-white/10" />
+            <div className="h-12 animate-pulse rounded bg-white/10" />
+          </div>
+        </div>
+      </div>
+      <p className="text-sm text-white/50">{label}</p>
+    </div>
+  );
+}
+
 export default function ScanningExperience({
   placeId,
   restaurantName,
@@ -334,7 +360,7 @@ export default function ScanningExperience({
               />
             )}
             {currentStep.key === "website" && (
-              <ScanningPlaceholder label="Escaneando tu sitio web…" />
+              <BrowserWindowPlaceholder label="Escaneando tu sitio web…" />
             )}
             {currentStep.key === "mobile" && (
               <ScanningPlaceholder label="Analizando tu experiencia móvil…" />
