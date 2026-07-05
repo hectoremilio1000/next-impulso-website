@@ -12,15 +12,11 @@ import RestauranterosExitosos from "../components/RestauranterosExitosos";
 import styles from "../components/SwiperPrueba/Banner.module.css"; // Importa los estilos CSS
 import axios from "axios";
 
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import BookingWidget from "../components/BookingWidget";
 import WhatsappButton from "../components/WhatsappButton";
 import Image from "next/image";
-
-const MySwiper = dynamic(() => import("../components/SwiperPrueba"), {
-  ssr: false,
-});
+import ReportSearchHero from "../components/RestaurantReport/ReportSearchHero";
 
 // Restaurantes que confían en Impulso / GrowthSuite (marquee del strip de clientes)
 const logoCloud = [
@@ -244,7 +240,7 @@ export default function Home() {
       <NavBar />
       {espa ? (
         <>
-          <MySwiper />
+          <ReportSearchHero />
           <div className="justify-center bg-black w-full section-info-banner">
             <div className="max-w-[90%] mx-auto flex-col md:flex-row flex overflow-hidden items-center px-6">
               <div className="justify-center max-w-[100%] md:justify-start flex self-center items-center mx-auto">

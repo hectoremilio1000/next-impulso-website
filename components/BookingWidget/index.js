@@ -48,6 +48,14 @@ export default function BookingWidget({
         const clamped = Math.max(MIN_HEIGHT, Math.min(MAX_HEIGHT, data.height));
         setHeight((prev) => (Math.abs(prev - clamped) > 4 ? clamped : prev));
       }
+
+      if (data.type === "booking_completed") {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "booking_completada",
+          confirmationCode: data.confirmationCode || null,
+        });
+      }
     }
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);
