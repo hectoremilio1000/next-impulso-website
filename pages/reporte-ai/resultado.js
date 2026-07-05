@@ -62,9 +62,9 @@ export default function ReporteResultado() {
   useEffect(() => {
     if (!router.isReady || !id) return;
 
-    if (typeof window !== "undefined") {
-      setUnlocked(window.localStorage.getItem(unlockStorageKey(id)) === "1");
-    }
+    const unlockedLocally =
+      typeof window !== "undefined" &&
+      window.localStorage.getItem(unlockStorageKey(id)) === "1";
 
     (async () => {
       try {
@@ -72,6 +72,11 @@ export default function ReporteResultado() {
         setError("");
         const data = await getRestaurantReport(id);
         setReport(data);
+        // El servidor sabe si ya se guardó un lead para este reporte (sin
+        // importar desde qué navegador/dispositivo se generó ese lead), así
+        // que un reporte ya desbloqueado se ve completo desde cualquier
+        // lado, no sólo desde el navegador donde se llenó el formulario.
+        setUnlocked(Boolean(data.hasLead) || unlockedLocally);
       } catch (err) {
         console.error("Error obteniendo el reporte:", err);
         setError(
