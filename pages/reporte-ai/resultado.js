@@ -24,21 +24,6 @@ const SCORE_LABEL_ES = {
   Excellent: "Excelente",
 };
 
-// Gancho de "dinero perdido": estimación conservadora, no un cálculo real del
-// negocio. Sólo cuenta problemas de alto impacto (no los 32 checks), para que
-// el número se quede en un rango creíble en vez de dispararse.
-const CRITICAL_ISSUE_KEYS = new Set([
-  "rating_reviews",
-  "own_website",
-  "opening_hours",
-  "phone",
-  "no_offsite_ordering",
-  "order_cta_clear",
-  "page_speed",
-]);
-const AVG_TICKET_MXN = 220;
-const LOST_ORDERS_PER_CRITICAL_ISSUE = 6;
-
 const moneyFormatter = new Intl.NumberFormat("es-MX", {
   style: "currency",
   currency: "MXN",
@@ -88,36 +73,28 @@ export default function ReporteResultado() {
     })();
   }, [router.isReady, id]);
 
-  const { topIssues, checkableCount, failedCount, criticalFailedCount, moneyLostMonthly } =
-    useMemo(() => {
-      if (!report) {
-        return {
-          topIssues: [],
-          checkableCount: 0,
-          failedCount: 0,
-          criticalFailedCount: 0,
-          moneyLostMonthly: 0,
-        };
-      }
+  const { topIssues, checkableCount, failedCount } = useMemo(() => {
+    if (!report) {
+      return { topIssues: [], checkableCount: 0, failedCount: 0 };
+    }
 
-      const allIssues = [
-        ...(report.issues ?? []),
-        ...(report.seoIssues ?? []),
-        ...(report.guestExperienceIssues ?? []),
-      ];
-      const checkable = allIssues.filter((issue) => issue.checkable);
-      const failed = checkable.filter((issue) => !issue.pass);
-      const sorted = [...failed].sort((a, b) => b.weight - a.weight);
-      const critical = failed.filter((issue) => CRITICAL_ISSUE_KEYS.has(issue.key));
+    const allIssues = [
+      ...(report.issues ?? []),
+      ...(report.seoIssues ?? []),
+      ...(report.guestExperienceIssues ?? []),
+    ];
+    const checkable = allIssues.filter((issue) => issue.checkable);
+    const failed = checkable.filter((issue) => !issue.pass);
+    const sorted = [...failed].sort((a, b) => b.weight - a.weight);
 
-      return {
-        topIssues: sorted.slice(0, 4),
-        checkableCount: checkable.length,
-        failedCount: failed.length,
-        criticalFailedCount: critical.length,
-        moneyLostMonthly: critical.length * LOST_ORDERS_PER_CRITICAL_ISSUE * AVG_TICKET_MXN,
-      };
-    }, [report]);
+    return {
+      topIssues: sorted.slice(0, 4),
+      checkableCount: checkable.length,
+      failedCount: failed.length,
+    };
+  }, [report]);
+
+  const moneyLostMonthly = report?.estimatedMonthlyLoss ?? 0;
 
   const waHref = useMemo(() => {
     if (!report) return "";
@@ -188,7 +165,7 @@ export default function ReporteResultado() {
                 )}
               </header>
 
-              {moneyLostMonthly > 0 && (
+              {moneyLostMonthly > 0 && report.lossBreakdown && (
                 <div className="rounded-2xl bg-gradient-to-br from-red-600/20 to-black p-6 text-center ring-1 ring-red-500/40">
                   <p className="text-xs font-semibold uppercase tracking-wide text-red-400">
                     Podrías estar perdiendo
@@ -198,25 +175,57 @@ export default function ReporteResultado() {
                     <span className="text-lg font-normal text-white/60"> /mes</span>
                   </p>
                   <p className="parrafo-tw mt-2 text-white/70">
-                    Por {criticalFailedCount}{" "}
-                    {criticalFailedCount === 1
-                      ? "problema crítico que encontramos"
-                      : "problemas críticos que encontramos"}{" "}
-                    en tu presencia online.
+                    Por tu posición en Google en las búsquedas que la gente
+                    realmente hace cerca de ti.
                   </p>
-                  <details className="mt-3 text-left text-white/40">
+                  <details className="mt-3 text-left text-white/50">
                     <summary className="cursor-pointer text-xs text-white/50">
                       ¿Cómo calculamos esto?
                     </summary>
-                    <p className="mt-2 text-xs leading-relaxed">
-                      Estimación conservadora, no un cálculo exacto de tu
-                      negocio: {criticalFailedCount} problema
-                      {criticalFailedCount === 1 ? "" : "s"} crítico
-                      {criticalFailedCount === 1 ? "" : "s"} × ~
-                      {LOST_ORDERS_PER_CRITICAL_ISSUE} pedidos perdidos al mes
-                      cada uno × un ticket promedio de{" "}
-                      {moneyFormatter.format(AVG_TICKET_MXN)}.
-                    </p>
+                    <div className="mt-3 space-y-3 text-xs leading-relaxed">
+                      <p>
+                        Por cada búsqueda donde no estás arriba, calculamos
+                        los clientes potenciales que se van con la
+                        competencia:
+                      </p>
+                      <ul className="space-y-1.5 border-l border-white/10 pl-3">
+                        {report.lossBreakdown.breakdown.map((item) => (
+                          <li key={item.query}>
+                            &ldquo;{item.query}&rdquo; — {item.searchVolume}{" "}
+                            búsquedas/mes ×{" "}
+                            {Math.round((item.gapOrganico + item.gapMapa) * 100)}
+                            % de clics que pierdes por tu posición ≈{" "}
+                            {Math.round(item.clicsPerdidos)} clientes
+                            potenciales
+                          </li>
+                        ))}
+                      </ul>
+                      <p>
+                        Total clientes que se van al mes: ~
+                        {Math.round(report.lossBreakdown.clicsPerdidosTotal)}
+                        <br />×{" "}
+                        {Math.round(
+                          report.lossBreakdown.conversionClickAVisita * 100
+                        )}
+                        % que sí habrían venido a comer (benchmark de
+                        búsquedas locales)
+                        <br />× {report.lossBreakdown.personasPorMesa} personas
+                        por mesa (promedio)
+                        <br />×{" "}
+                        {moneyFormatter.format(report.lossBreakdown.ticket)} tu
+                        ticket promedio (según Google)
+                        <br />×{" "}
+                        {report.lossBreakdown.factorConservador} (ajuste
+                        conservador para no sobrestimar)
+                        <br />= {moneyFormatter.format(moneyLostMonthly)}
+                      </p>
+                      <p className="text-white/30">
+                        Fuentes: volumen de búsqueda de Google Ads · CTR por
+                        posición (estudios públicos de industria) ·
+                        conversión de búsqueda local a visita (benchmark de
+                        marketing local).
+                      </p>
+                    </div>
                   </details>
                 </div>
               )}
@@ -267,17 +276,17 @@ export default function ReporteResultado() {
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                 <PillarCard
-                  title="Local Listings"
+                  title="Perfil de Google"
                   score={report.scoreLocalListings}
                   maxScore={LOCAL_LISTINGS_MAX}
                 />
                 <PillarCard
-                  title="Search Results (SEO)"
+                  title="Resultados de búsqueda (SEO)"
                   score={report.scoreSeo}
                   maxScore={SEO_MAX}
                 />
                 <PillarCard
-                  title="Guest Experience"
+                  title="Experiencia de cliente"
                   score={report.scoreGuestExperience}
                   maxScore={GUEST_EXPERIENCE_MAX}
                 />
