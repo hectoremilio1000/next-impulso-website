@@ -80,9 +80,9 @@ function PhonePreview() {
 
           <div className="mt-5 space-y-2">
             {[
-              ["Local Listings", "17/20"],
+              ["Perfil de Google", "17/20"],
               ["SEO", "20/40"],
-              ["Guest Experience", "21/40"],
+              ["Experiencia de cliente", "21/40"],
             ].map(([label, value]) => (
               <div
                 key={label}
@@ -159,7 +159,7 @@ function PhonePreview() {
               type="button"
               className="mt-6 w-full rounded-xl bg-principal px-4 py-3.5 text-sm font-bold text-black"
             >
-              Arréglalo con IA
+              Arréglalo con ImpulsoRestaurantero
             </button>
           </div>
         </div>
