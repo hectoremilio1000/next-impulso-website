@@ -188,6 +188,27 @@ function Comolohacemos() {
             </div>
 
             <div className="w-full flex flex-col items-center gap-4 p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
+              <Link href="/comolohacemos/influencers">
+                <img
+                  className=" w-full object-contain rounded-2xl h-[500px]"
+                  src="/images/impulso/influencers.avif"
+                  alt=""
+                />
+              </Link>
+              <h2 className="title3-tw text-center">
+                03. Te llevamos influencers
+              </h2>
+              <p className="parrafo-tw paragraph-feature text-center">
+                Conectamos tu restaurante con creadores de contenido e
+                influencers para que te graben, te recomienden y llenen tu lugar
+                con la audiencia que ya te está buscando.
+              </p>
+              <Link href="/comolohacemos/influencers">
+                <button className="button-small">Descubre más</button>
+              </Link>
+            </div>
+
+            <div className="w-full flex flex-col items-center gap-4 p-8 bg-[#fbfbfad9] border-[1px] border-[#e5e5e5] rounded-[1.2em]">
               <Link href="/casosexito">
                 <img
                   className=" w-full object-contain rounded-2xl"
@@ -196,7 +217,7 @@ function Comolohacemos() {
                 />
               </Link>
               <h2 className="title3-tw text-center">
-                03. Punto de venta con soporte 24/7{" "}
+                04. Punto de venta con soporte 24/7{" "}
               </h2>
               <p className="parrafo-tw paragraph-feature text-center">
                 Te damos un punto de venta para que puedas agilizar tu operación
@@ -214,7 +235,7 @@ function Comolohacemos() {
                 alt=""
               />
               <h2 className="title3-tw text-center">
-                04. Recursos humanos & Manuales con Inteligencia Artificial
+                05. Recursos humanos & Manuales con Inteligencia Artificial
               </h2>
               <p className="parrafo-tw paragraph-feature text-center">
                 Te ofrecemos manuales y un departamento de recursos humanos con
@@ -232,7 +253,7 @@ function Comolohacemos() {
                   alt=""
                 />
               </Link>
-              <h2 className="title3-tw text-center">05. Programa de lealtad</h2>
+              <h2 className="title3-tw text-center">06. Programa de lealtad</h2>
               <p className="parrafo-tw paragraph-feature text-center">
                 Creamos programas de lealtad innovadores utilizando a través de
                 una tarjeta de recompensas
@@ -249,7 +270,7 @@ function Comolohacemos() {
                 alt=""
               />
               <h2 className="title3-tw text-center">
-                06. Permisos y asesoría personalizada 24/7
+                07. Permisos y asesoría personalizada 24/7
               </h2>
               <p className="parrafo-tw paragraph-feature text-center">
                 Te ayudamos a mantener todos los permisos y requisitos legales
@@ -269,7 +290,7 @@ function Comolohacemos() {
                 alt=""
               />
               <h2 className="title3-tw text-center">
-                07. Financiamiento a tasas muy bajas
+                08. Financiamiento a tasas muy bajas
               </h2>
               <p className="parrafo-tw paragraph-feature text-center">
                 Financiamiento para compra de equipo y crecimiento.
@@ -285,7 +306,7 @@ function Comolohacemos() {
                 alt=""
               />
               <h2 className="title3-tw text-center">
-                08. Encuestas de servicio
+                09. Encuestas de servicio
               </h2>
               <p className="parrafo-tw paragraph-feature text-center">
                 Encuestas de servicio en tiempo Real
@@ -302,7 +323,7 @@ function Comolohacemos() {
                 alt=""
               />
               <h2 className="title3-tw text-center">
-                09. Inventarios Inteligentes
+                10. Inventarios Inteligentes
               </h2>
               <p className="parrafo-tw paragraph-feature text-center">
                 Control preciso y procesos optimizados para reducir costos y
@@ -319,7 +340,7 @@ function Comolohacemos() {
                 alt=""
               />
               <h2 className="title3-tw text-center">
-                10. Monitoreo con Inteligencia Artificial{" "}
+                11. Monitoreo con Inteligencia Artificial{" "}
               </h2>
               <p className="parrafo-tw paragraph-feature text-center">
                 Medimos la productividad de las personas con monitoreo 24/7, así
@@ -336,7 +357,7 @@ function Comolohacemos() {
                 alt=""
               />
               <h2 className="title3-tw text-center">
-                11. Estudio de Mercado con Inteligencia Artificial{" "}
+                12. Estudio de Mercado con Inteligencia Artificial{" "}
               </h2>
               <p className="parrafo-tw paragraph-feature text-center">
                 Nuestra tecnología, potenciada por Inteligencia Artificial,

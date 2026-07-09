@@ -215,7 +215,7 @@ export default function ReportSearchHero() {
       </div>
       <div className="relative z-10 mx-auto max-w-[960px] px-4 text-center">
         <span className="mb-5 inline-block rounded-full bg-secundario px-4 py-2 text-sm font-semibold uppercase tracking-wide text-principal md:text-base">
-          Reporte gratis con IA
+          Reporte de tu Restaurante
         </span>
         <h1 className="title2-tw text-white">
           Te garantizamos <span className="text-principal">vender más</span>

@@ -32,7 +32,12 @@ const PIN_PATH =
 const PULSE_MS = 2200;
 const TYPEWRITER_SPEED_MS = 35;
 const COMPETITOR_STEP_MS = 2000;
+// Margen alrededor del encuadre para que los pins/labels no queden pegados a
+// los bordes (más arriba porque el label sale por encima del pin).
+const MAP_FIT_PADDING = { top: 100, right: 72, bottom: 72, left: 72 };
 
+// Una etiqueta por competidor (todas visibles), con letra chica para reducir
+// el traslape sin ocultar nombres.
 function makeNameLabel(google, map, position, text, variant) {
   class NameLabel extends google.maps.OverlayView {
     constructor() {
@@ -46,15 +51,22 @@ function makeNameLabel(google, map, position, text, variant) {
       div.style.position = "absolute";
       div.style.transform = "translate(-50%, -160%)";
       div.style.whiteSpace = "nowrap";
-      div.style.padding = "3px 10px";
+      div.style.padding = "2px 8px";
       div.style.borderRadius = "9999px";
-      div.style.fontSize = "11px";
+      div.style.fontSize = "10px";
       div.style.fontWeight = "600";
       div.style.pointerEvents = "none";
       div.style.boxShadow = "0 4px 12px rgba(0,0,0,.35)";
+      // Tu restaurante SIEMPRE por encima de los labels de competidores que
+      // salen después, para no perderlo de foco.
+      div.style.zIndex =
+        variant === "primary" ? "1000" : variant === "search" ? "500" : "1";
       if (variant === "primary") {
         div.style.background = "#a78b21";
         div.style.color = "#000";
+      } else if (variant === "search") {
+        div.style.background = "#f97316"; // te gana en búsqueda
+        div.style.color = "#fff";
       } else {
         div.style.background = "#ffffff";
         div.style.color = "#111";
@@ -119,10 +131,12 @@ export default function CompetitorsMap({
   restaurantName,
   address,
   competitors,
+  searchCompetitors,
   onReady,
 }) {
   const mapDivRef = useRef(null);
   const mapRefsRef = useRef(null);
+  const searchAddedRef = useRef(false);
   const [phase, setPhase] = useState("pulse");
   const [competitorIndex, setCompetitorIndex] = useState(0);
   const [error, setError] = useState(false);
@@ -164,6 +178,7 @@ export default function CompetitorsMap({
         const map = new google.maps.Map(mapDivRef.current, {
           center,
           zoom: 15,
+          maxZoom: 17, // evita que el fitBounds se acerque demasiado con pocos competidores
           disableDefaultUI: true,
           gestureHandling: "none",
           styles: DARK_MAP_STYLE,
@@ -221,7 +236,7 @@ export default function CompetitorsMap({
 
     if (competitorIndex >= competitorList.length) {
       const { map, bounds } = mapRefsRef.current;
-      map.fitBounds(bounds, 70);
+      map.fitBounds(bounds, MAP_FIT_PADDING);
       setPhase("done");
       return undefined;
     }
@@ -244,6 +259,9 @@ export default function CompetitorsMap({
     });
     makeNameLabel(google, map, competitor.location, competitor.name, "secondary");
     bounds.extend(competitor.location);
+    // Reencuadra en cada competidor: el mapa se ajusta con zoom suave conforme
+    // van apareciendo, en vez de un solo salto brusco hasta el final.
+    map.fitBounds(bounds, MAP_FIT_PADDING);
 
     const t = setTimeout(
       () => setCompetitorIndex((i) => i + 1),
@@ -252,6 +270,37 @@ export default function CompetitorsMap({
     return () => clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase, competitorIndex]);
+
+  // Competidores de BÚSQUEDA (Fase 2): llegan con el fullReport (async), así
+  // que se pintan en cuanto están disponibles y el mapa ya existe. Pin naranja
+  // para distinguirlos de los de calle (blancos) y de tu restaurante (dorado).
+  useEffect(() => {
+    if (!mapRefsRef.current || searchAddedRef.current) return;
+    const withLocation = (searchCompetitors ?? []).filter((c) => c.location);
+    if (!withLocation.length) return;
+    searchAddedRef.current = true;
+
+    const { google, map, bounds } = mapRefsRef.current;
+    withLocation.forEach((c) => {
+      new google.maps.Marker({
+        position: c.location,
+        map,
+        zIndex: 500,
+        icon: {
+          path: PIN_PATH,
+          fillColor: "#f97316",
+          fillOpacity: 0.95,
+          strokeColor: "#000000",
+          strokeWeight: 1,
+          scale: 1.35,
+          anchor: new google.maps.Point(12, 22),
+        },
+      });
+      makeNameLabel(google, map, c.location, c.name, "search");
+      bounds.extend(c.location);
+    });
+    map.fitBounds(bounds, MAP_FIT_PADDING);
+  }, [searchCompetitors, phase]);
 
   useEffect(() => {
     if (phase === "done") onReady?.();
