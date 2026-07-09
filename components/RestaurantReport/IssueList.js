@@ -28,7 +28,9 @@ function IssueRow({ issue }) {
         {issue.pass ? "✓" : "✗"}
       </span>
       <div>
-        <p className="parrafo-tw text-white/85">{issue.label}</p>
+        <p className="parrafo-tw text-white/85">
+          {issue.pass ? issue.label : issue.problem ?? issue.label}
+        </p>
         <p className="mt-0.5 text-xs text-white/40">{issue.why}</p>
       </div>
     </li>
