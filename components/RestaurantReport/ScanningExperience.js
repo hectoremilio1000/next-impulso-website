@@ -344,6 +344,7 @@ export default function ScanningExperience({
                 restaurantName={restaurantName || preview.name}
                 address={preview.formatted_address}
                 competitors={preview.competitors}
+                searchCompetitors={fullReport?.searchCompetitors ?? []}
                 onReady={() => setStepContentReady(true)}
               />
             )}

@@ -8,6 +8,7 @@ import IssueList from "../../components/RestaurantReport/IssueList";
 import CompetitorTable from "../../components/RestaurantReport/CompetitorTable";
 import GoogleProfileCard from "../../components/RestaurantReport/GoogleProfileCard";
 import LocalRankingsTable from "../../components/RestaurantReport/LocalRankingsTable";
+import SearchCompetitors from "../../components/RestaurantReport/SearchCompetitors";
 import LeadGateModal from "../../components/RestaurantReport/LeadGateModal";
 import { getRestaurantReport } from "../../lib/restaurantReportApi";
 
@@ -30,9 +31,11 @@ const moneyFormatter = new Intl.NumberFormat("es-MX", {
   maximumFractionDigits: 0,
 });
 
-function unlockStorageKey(id) {
-  return `reporte-ai-unlocked-${id}`;
-}
+// Bloque "potencial" (Frente B Nº2) — copy CONFIGURABLE, sin cifras ni nombres
+// de restaurantes. Edita este texto libremente; es lo que verá el dueño en la
+// sección "Hasta dónde puedes llegar".
+const POTENCIAL_COPY =
+  "Los restaurantes que dominan su zona en Google y redes no solo recuperan lo que hoy se les va: multiplican sus reservas llenando las mesas en las horas valle y los días flojos. Tu techo real es mucho más alto que lo que dejas ir hoy — y llegar ahí es exactamente lo que hacemos contigo.";
 
 export default function ReporteResultado() {
   const router = useRouter();
@@ -47,21 +50,15 @@ export default function ReporteResultado() {
   useEffect(() => {
     if (!router.isReady || !id) return;
 
-    const unlockedLocally =
-      typeof window !== "undefined" &&
-      window.localStorage.getItem(unlockStorageKey(id)) === "1";
-
     (async () => {
       try {
         setLoading(true);
         setError("");
         const data = await getRestaurantReport(id);
         setReport(data);
-        // El servidor sabe si ya se guardó un lead para este reporte (sin
-        // importar desde qué navegador/dispositivo se generó ese lead), así
-        // que un reporte ya desbloqueado se ve completo desde cualquier
-        // lado, no sólo desde el navegador donde se llenó el formulario.
-        setUnlocked(Boolean(data.hasLead) || unlockedLocally);
+        // Gate SIEMPRE: el reporte arranca bloqueado en cada carga. Solo se
+        // desbloquea al pasar el captcha + dejar datos (handleUnlock), y solo
+        // para esta carga — NO se recuerda por localStorage ni por hasLead.
       } catch (err) {
         console.error("Error obteniendo el reporte:", err);
         setError(
@@ -110,16 +107,14 @@ export default function ReporteResultado() {
   const handleUnlock = () => {
     setUnlocked(true);
     setModalOpen(false);
-    if (typeof window !== "undefined" && id) {
-      window.localStorage.setItem(unlockStorageKey(id), "1");
-    }
+    // Sin persistencia: al recargar vuelve a estar bloqueado (gate siempre).
   };
 
   return (
     <>
       <Head>
         <title>
-          {report ? `Reporte AI de ${report.name}` : "Reporte AI"} — Impulso
+          {report ? `Reporte de ${report.name}` : "Reporte"} — Impulso
           Restaurantero
         </title>
       </Head>
@@ -141,11 +136,27 @@ export default function ReporteResultado() {
             </div>
           )}
 
-          {!loading && !error && report && (
+          {!loading && !error && report && report.expired && (
+            <div className="rounded-2xl bg-white/5 p-8 text-center ring-1 ring-white/10">
+              <p className="title4-tw text-white">Este reporte caducó</p>
+              <p className="parrafo-tw mt-2 text-white/70">
+                Por seguridad, la liga de tu reporte solo dura 24 horas. Genera
+                uno nuevo para ver el análisis actualizado de tu restaurante.
+              </p>
+              <a
+                href="/reporte-ai"
+                className="mt-5 inline-block rounded-xl bg-principal px-6 py-3 text-base font-semibold text-black transition-colors hover:brightness-110"
+              >
+                Generar un reporte nuevo
+              </a>
+            </div>
+          )}
+
+          {!loading && !error && report && !report.expired && (
             <div className="space-y-6">
               <header className="text-center">
                 <span className="mb-4 inline-block rounded-full bg-secundario px-4 py-2 text-sm font-semibold uppercase tracking-wide text-principal">
-                  Reporte AI
+                  Reporte Impulso Restaurantero
                 </span>
                 <div className="flex flex-col items-center gap-3">
                   {report.photoUrl && (
@@ -165,68 +176,117 @@ export default function ReporteResultado() {
                 )}
               </header>
 
-              {moneyLostMonthly > 0 && report.lossBreakdown && (
-                <div className="rounded-2xl bg-gradient-to-br from-red-600/20 to-black p-6 text-center ring-1 ring-red-500/40">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-red-400">
-                    Podrías estar perdiendo
-                  </p>
-                  <p className="mt-1 text-4xl font-bold text-white md:text-5xl">
-                    {moneyFormatter.format(moneyLostMonthly)}
-                    <span className="text-lg font-normal text-white/60"> /mes</span>
-                  </p>
-                  <p className="parrafo-tw mt-2 text-white/70">
-                    Por tu posición en Google en las búsquedas que la gente
-                    realmente hace cerca de ti.
-                  </p>
-                  <details className="mt-3 text-left text-white/50">
-                    <summary className="cursor-pointer text-xs text-white/50">
-                      ¿Cómo calculamos esto?
-                    </summary>
-                    <div className="mt-3 space-y-3 text-xs leading-relaxed">
-                      <p>
-                        Por cada búsqueda donde no estás arriba, calculamos
-                        los clientes potenciales que se van con la
-                        competencia:
+              {moneyLostMonthly > 0 &&
+                report.lossBreakdown &&
+                (() => {
+                  const lb = report.lossBreakdown;
+                  // Fallbacks para reportes viejos (antes de Frente B): en esos
+                  // el total era todo "medido en Google" y no había estimado
+                  // de redes.
+                  const googleMedido = lb.googleMedido ?? moneyLostMonthly;
+                  const estimadoRedes = lb.estimadoRedes ?? 0;
+                  const loQueDejasHoy = lb.loQueDejasHoy ?? moneyLostMonthly;
+
+                  return (
+                    <div className="rounded-2xl bg-gradient-to-br from-red-600/20 to-black p-6 ring-1 ring-red-500/40">
+                      <p className="text-center text-xs font-semibold uppercase tracking-wide text-red-400">
+                        Lo que dejas ir cada mes
                       </p>
-                      <ul className="space-y-1.5 border-l border-white/10 pl-3">
-                        {report.lossBreakdown.breakdown.map((item) => (
-                          <li key={item.query}>
-                            &ldquo;{item.query}&rdquo; — {item.searchVolume}{" "}
-                            búsquedas/mes ×{" "}
-                            {Math.round((item.gapOrganico + item.gapMapa) * 100)}
-                            % de clics que pierdes por tu posición ≈{" "}
-                            {Math.round(item.clicsPerdidos)} clientes
-                            potenciales
-                          </li>
-                        ))}
-                      </ul>
-                      <p>
-                        Total clientes que se van al mes: ~
-                        {Math.round(report.lossBreakdown.clicsPerdidosTotal)}
-                        <br />×{" "}
-                        {Math.round(
-                          report.lossBreakdown.conversionClickAVisita * 100
+                      <p className="mt-1 text-center text-4xl font-bold text-white md:text-5xl">
+                        {moneyFormatter.format(loQueDejasHoy)}
+                        <span className="text-lg font-normal text-white/60">
+                          {" "}
+                          /mes
+                        </span>
+                      </p>
+                      <p className="parrafo-tw mx-auto mt-2 max-w-[520px] text-center text-white/70">
+                        Clientes que te están buscando ahora mismo y terminan
+                        con el de junto — por cómo te encuentran (o no te
+                        encuentran) en internet.
+                      </p>
+
+                      {/* Medido (Google) vs estimado (redes) — SIEMPRE separados */}
+                      <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                        <div className="rounded-xl bg-white/[0.04] p-4 ring-1 ring-white/10">
+                          <p className="text-[11px] uppercase tracking-wide text-white/50">
+                            📊 Medido en Google
+                          </p>
+                          <p className="mt-1 text-2xl font-bold text-white">
+                            {moneyFormatter.format(googleMedido)}
+                          </p>
+                          <p className="mt-1 text-xs leading-relaxed text-white/50">
+                            Dato duro: búsquedas reales de la gente × el lugar
+                            donde apareces hoy. No lo inventamos nosotros.
+                          </p>
+                        </div>
+                        {estimadoRedes > 0 && (
+                          <div className="rounded-xl bg-white/[0.04] p-4 ring-1 ring-white/10">
+                            <p className="text-[11px] uppercase tracking-wide text-white/50">
+                              📱 Estimado en redes
+                            </p>
+                            <p className="mt-1 text-2xl font-bold text-white">
+                              + {moneyFormatter.format(estimadoRedes)}
+                            </p>
+                            <p className="mt-1 text-xs leading-relaxed text-white/50">
+                              Aproximado de lo que además se mueve en Instagram,
+                              TikTok y Facebook. Es un estimado, no una medición.
+                            </p>
+                          </div>
                         )}
-                        % que sí habrían venido a comer (benchmark de
-                        búsquedas locales)
-                        <br />× {report.lossBreakdown.personasPorMesa} personas
-                        por mesa (promedio)
-                        <br />×{" "}
-                        {moneyFormatter.format(report.lossBreakdown.ticket)} tu
-                        ticket promedio (según Google)
-                        <br />×{" "}
-                        {report.lossBreakdown.factorConservador} (ajuste
-                        conservador para no sobrestimar)
-                        <br />= {moneyFormatter.format(moneyLostMonthly)}
-                      </p>
-                      <p className="text-white/30">
-                        Fuentes: volumen de búsqueda de Google Ads · CTR por
-                        posición (estudios públicos de industria) ·
-                        conversión de búsqueda local a visita (benchmark de
-                        marketing local).
-                      </p>
+                      </div>
+
+                      <details className="mt-4 text-left text-white/50">
+                        <summary className="cursor-pointer text-xs text-white/50">
+                          ¿Cómo lo calculamos?
+                        </summary>
+                        <div className="mt-3 space-y-3 text-xs leading-relaxed">
+                          <p>
+                            Vemos <strong>lo que la gente escribe en Google</strong>{" "}
+                            para encontrar un lugar como el tuyo, y{" "}
+                            <strong>en qué lugar sales tú</strong>. Cuando no
+                            estás arriba, esos clientes se van con otro:
+                          </p>
+                          <ul className="space-y-1.5 border-l border-white/10 pl-3">
+                            {lb.breakdown.map((item, i) => (
+                              <li key={`${item.query}-${i}`}>
+                                &ldquo;{item.query}&rdquo; — {item.searchVolume}{" "}
+                                personas al mes lo buscan; como no sales arriba,
+                                se van ~{Math.round(item.clicsPerdidos)}.
+                              </li>
+                            ))}
+                          </ul>
+                          <p>
+                            De todos esos, contamos solo los que de verdad
+                            habrían venido a comer (
+                            {Math.round(lb.conversionClickAVisita * 100)}%),
+                            calculamos {lb.personasPorMesa} personas por mesa y
+                            tu ticket promedio de{" "}
+                            {moneyFormatter.format(lb.ticket)} (según Google), y
+                            aún así le bajamos a la mitad para no exagerar. Eso
+                            da los {moneyFormatter.format(googleMedido)} medidos
+                            en Google.
+                          </p>
+                          <p className="text-white/30">
+                            Fuentes: volumen de búsqueda de Google Ads · CTR por
+                            posición (estudios públicos de industria) ·
+                            conversión de búsqueda local a visita (benchmark de
+                            marketing local).
+                          </p>
+                        </div>
+                      </details>
                     </div>
-                  </details>
+                  );
+                })()}
+
+              {/* Potencial — "hasta dónde puedes llegar" (copy configurable) */}
+              {moneyLostMonthly > 0 && (
+                <div className="rounded-2xl bg-white/[0.04] p-6 ring-1 ring-white/10">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-principal">
+                    Hasta dónde puedes llegar
+                  </p>
+                  <p className="parrafo-tw mt-2 text-white/80">
+                    {POTENCIAL_COPY}
+                  </p>
                 </div>
               )}
 
@@ -259,7 +319,7 @@ export default function ReporteResultado() {
                   score={report.scoreTotal}
                   maxScore={TOTAL_MAX}
                   label={SCORE_LABEL_ES[report.scoreLabel] ?? report.scoreLabel}
-                  caption="Score general basado en Perfil de Google, SEO y experiencia de cliente."
+                  caption="Qué tan fácil te encuentran y te eligen tus clientes en internet (tu Perfil de Google + tu sitio web)."
                 />
               </div>
 
@@ -286,7 +346,7 @@ export default function ReporteResultado() {
                   maxScore={SEO_MAX}
                 />
                 <PillarCard
-                  title="Experiencia de cliente"
+                  title="Experiencia de cliente web"
                   score={report.scoreGuestExperience}
                   maxScore={GUEST_EXPERIENCE_MAX}
                 />
@@ -317,6 +377,11 @@ export default function ReporteResultado() {
 
               {unlocked ? (
                 <>
+                  <SearchCompetitors
+                    queries={report.serpQueries ?? []}
+                    targetName={report.name}
+                  />
+
                   <CompetitorTable
                     competitors={report.competitors ?? []}
                     targetRating={report.rating}
