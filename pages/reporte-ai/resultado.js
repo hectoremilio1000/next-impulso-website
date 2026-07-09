@@ -93,6 +93,26 @@ export default function ReporteResultado() {
 
   const moneyLostMonthly = report?.estimatedMonthlyLoss ?? 0;
 
+  // Mensaje de potencial PERSONALIZADO por restaurante: cuántos puntos le
+  // faltan y cuál es su área más floja (perfil / SEO / experiencia web), en vez
+  // de un copy genérico igual para todos.
+  const potencialMessage = useMemo(() => {
+    if (!report || failedCount <= 0) return POTENCIAL_COPY;
+    const areas = [
+      {
+        name: "tu Perfil de Google",
+        pct: (report.scoreLocalListings ?? 0) / LOCAL_LISTINGS_MAX,
+      },
+      { name: "cómo te encuentran en Google (tu SEO)", pct: (report.scoreSeo ?? 0) / SEO_MAX },
+      {
+        name: "la experiencia de tu sitio web",
+        pct: (report.scoreGuestExperience ?? 0) / GUEST_EXPERIENCE_MAX,
+      },
+    ];
+    const weakest = areas.reduce((a, b) => (b.pct < a.pct ? b : a));
+    return `Tu reporte encontró ${failedCount} de ${checkableCount} puntos por corregir, sobre todo en ${weakest.name}. Corregir justo esos puntos es lo que separa a los restaurantes que se estancan de los que suben al siguiente nivel de ventas — y es exactamente lo que hacemos contigo.`;
+  }, [report, failedCount, checkableCount]);
+
   const waHref = useMemo(() => {
     if (!report) return "";
     const text =
@@ -285,7 +305,7 @@ export default function ReporteResultado() {
                     Hasta dónde puedes llegar
                   </p>
                   <p className="parrafo-tw mt-2 text-white/80">
-                    {POTENCIAL_COPY}
+                    {potencialMessage}
                   </p>
                 </div>
               )}
@@ -293,12 +313,13 @@ export default function ReporteResultado() {
               {!report.hasWebsite && (
                 <div className="rounded-2xl bg-red-500/10 p-6 text-center ring-1 ring-red-500/30">
                   <p className="text-lg font-bold text-white">
-                    No tienes sitio web propio
+                    Tu razón #1 de pérdida de clientes: no tienes sitio web
+                    propio
                   </p>
                   <p className="parrafo-tw mt-2 text-white/70">
-                    Este es tu problema #1: sin un sitio propio, Google no
-                    tiene a dónde mandar a tus clientes y estás perdiendo
-                    reservas y pedidos todos los días.
+                    Cuando alguien te busca en Google, no hay un sitio tuyo a
+                    dónde llegar — y ese cliente que ya te estaba buscando se va
+                    con la competencia.
                   </p>
                 </div>
               )}
@@ -367,7 +388,7 @@ export default function ReporteResultado() {
                           ✗
                         </span>
                         <span className="parrafo-tw text-white/85">
-                          {issue.label}
+                          {issue.problem ?? issue.label}
                         </span>
                       </li>
                     ))}
