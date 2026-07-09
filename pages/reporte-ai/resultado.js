@@ -139,9 +139,9 @@ export default function ReporteResultado() {
     if (!report) return "";
     const text =
       moneyLostMonthly > 0
-        ? `Hola, vi el reporte AI de "${report.name}" y podría estar perdiendo ~${moneyFormatter.format(moneyLostMonthly)}/mes por problemas en mi presencia online. Quiero que me ayuden a arreglarlo.`
+        ? `Hola, vi el reporte de Impulso Restaurantero de "${report.name}" y podría estar perdiendo ~${moneyFormatter.format(moneyLostMonthly)}/mes por problemas en mi presencia online. Quiero que me ayuden a arreglarlo.`
         : report.hasWebsite
-        ? `Hola, vi el reporte AI de "${report.name}" (${report.scoreTotal}/${TOTAL_MAX}, ${SCORE_LABEL_ES[report.scoreLabel] ?? report.scoreLabel}). Quiero mejorarlo.`
+        ? `Hola, vi el reporte de Impulso Restaurantero de "${report.name}" (${report.scoreTotal}/${TOTAL_MAX}, ${SCORE_LABEL_ES[report.scoreLabel] ?? report.scoreLabel}). Quiero mejorarlo.`
         : `Hola, vi que "${report.name}" no tiene sitio web propio. Quiero que me ayuden a arreglarlo.`;
     return `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent(text)}`;
   }, [report, moneyLostMonthly]);
