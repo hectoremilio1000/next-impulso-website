@@ -10,6 +10,7 @@ import GoogleProfileCard from "../../components/RestaurantReport/GoogleProfileCa
 import LocalRankingsTable from "../../components/RestaurantReport/LocalRankingsTable";
 import SearchCompetitors from "../../components/RestaurantReport/SearchCompetitors";
 import LeadGateModal from "../../components/RestaurantReport/LeadGateModal";
+import WorstReviews from "../../components/RestaurantReport/WorstReviews";
 import { getRestaurantReport } from "../../lib/restaurantReportApi";
 
 const WHATS_NUMBER = "5215531491808";
@@ -69,6 +70,27 @@ export default function ReporteResultado() {
       }
     })();
   }, [router.isReady, id]);
+
+  // Las peores reseñas vienen de una tarea async (DataForSEO); si al cargar el
+  // reporte aún no están listas, reintentamos unas cuantas veces.
+  useEffect(() => {
+    if (!report || report.expired) return;
+    if (!report.reviewsTaskId || report.worstReviews != null) return;
+    let tries = 0;
+    const iv = setInterval(async () => {
+      tries += 1;
+      try {
+        const fresh = await getRestaurantReport(id);
+        if (fresh?.worstReviews != null || tries >= 5) {
+          setReport(fresh);
+          clearInterval(iv);
+        }
+      } catch {
+        clearInterval(iv);
+      }
+    }, 8000);
+    return () => clearInterval(iv);
+  }, [report?.reviewsTaskId, report?.worstReviews, report?.expired, id]);
 
   const { topIssues, checkableCount, failedCount } = useMemo(() => {
     if (!report) {
@@ -436,6 +458,8 @@ export default function ReporteResultado() {
                     intro="El contenido y la experiencia de tu sitio web son los que convierten una visita en una reserva o un pedido."
                     issues={report.guestExperienceIssues ?? []}
                   />
+
+                  <WorstReviews reviews={report.worstReviews} />
 
                   <div className="pt-4 text-center">
                     <a
