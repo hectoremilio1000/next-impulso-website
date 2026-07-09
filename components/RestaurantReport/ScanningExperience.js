@@ -3,6 +3,7 @@ import CompetitorsMap from "./CompetitorsMap";
 import {
   getRestaurantReportPreview,
   createRestaurantReport,
+  getRestaurantReport,
 } from "../../lib/restaurantReportApi";
 
 // minMs de "search" y "photos" es sólo un estimado para el contador — su
@@ -10,14 +11,17 @@ import {
 const STEPS = [
   { key: "search", label: "Restaurante y competidores cercanos", minMs: 23000 },
   { key: "profile", label: "Perfil de Google Business", minMs: 5500 },
-  { key: "reviews", label: "Sentimiento de reseñas", minMs: 6000 },
   { key: "photos", label: "Calidad y cantidad de fotos", minMs: 14000 },
   { key: "website", label: "Tu sitio web", minMs: 5000 },
   { key: "mobile", label: "Experiencia móvil", minMs: 5000 },
+  // Último paso: las reseñas que más te pegan. Llegan de una tarea async
+  // (DataForSEO), por eso va al FINAL — para darle tiempo a completarse
+  // mientras corren los pasos anteriores.
+  { key: "worst_reviews", label: "Reseñas que más te pegan", minMs: 12000 },
 ];
 
 const HOLD_MS = 5000;
-const SIGNAL_STEP_INDEXES = new Set([0, 3]); // "search" (mapa) y "photos"
+const SIGNAL_STEP_INDEXES = new Set([0, 2]); // "search" (mapa) y "photos"
 const SIGNAL_FALLBACK_MS = 26000;
 const PHOTO_REVEAL_STEP_MS = 2000;
 
@@ -86,6 +90,68 @@ function ReviewsPreview({ reviews }) {
             <p className="mt-2 line-clamp-3 text-sm text-white/70">
               {review.text}
             </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// Paso final del escaneo: las peores reseñas recientes (≤3★), que llegan de la
+// tarea async. Mientras no lleguen, muestra un estado de "analizando".
+function ScanWorstReviews({ reviews }) {
+  if (reviews == null) {
+    return <ScanningPlaceholder label="Analizando tus reseñas más críticas…" />;
+  }
+  if (reviews.length === 0) {
+    return (
+      <div className="flex h-full flex-col items-center justify-center gap-3 p-8 text-center">
+        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/20 text-2xl text-emerald-400">
+          ✓
+        </span>
+        <p className="text-sm text-white/60">
+          No encontramos reseñas críticas recientes — buena señal.
+        </p>
+      </div>
+    );
+  }
+  return (
+    <div className="h-full overflow-y-auto p-8">
+      <p className="mx-auto mb-4 max-w-lg text-center text-sm text-white/50">
+        Estas son las que ve la gente cuando te busca:
+      </p>
+      <div className="mx-auto max-w-lg space-y-4">
+        {reviews.map((r, i) => (
+          <div
+            key={`${r.authorName}-${i}`}
+            className="rounded-xl bg-red-500/[0.06] p-4 ring-1 ring-red-500/20"
+          >
+            <div className="flex items-center gap-3">
+              {r.profileImageUrl ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={r.profileImageUrl}
+                  alt={r.authorName}
+                  className="h-8 w-8 flex-none rounded-full object-cover"
+                />
+              ) : (
+                <div className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-white/10 text-xs text-white/50">
+                  {(r.authorName || "?").charAt(0)}
+                </div>
+              )}
+              <div className="min-w-0">
+                <p className="truncate text-sm font-semibold text-white">
+                  {r.authorName}
+                </p>
+                {r.timeAgo && (
+                  <p className="text-xs text-white/40">{r.timeAgo}</p>
+                )}
+              </div>
+              <span className="ml-auto flex-none font-bold text-red-400">
+                {"★".repeat(Math.max(0, Math.min(5, r.rating || 0)))}
+              </span>
+            </div>
+            <p className="mt-2 line-clamp-3 text-sm text-white/70">{r.text}</p>
           </div>
         ))}
       </div>
@@ -200,6 +266,7 @@ export default function ScanningExperience({
   const [preview, setPreview] = useState(null);
   const [previewError, setPreviewError] = useState(false);
   const [fullReport, setFullReport] = useState(null);
+  const [worstReviews, setWorstReviews] = useState(null);
   const [stepIndex, setStepIndex] = useState(0);
   const [stepContentReady, setStepContentReady] = useState(false);
   const [secondsLeft, setSecondsLeft] = useState(Math.round(TOTAL_MS / 1000));
@@ -231,6 +298,39 @@ export default function ScanningExperience({
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [placeId]);
+
+  // Sondea las peores reseñas (tarea async del back) una vez que el reporte
+  // existe. Se muestran en el último paso del escaneo.
+  useEffect(() => {
+    if (!fullReport?.id) return undefined;
+    if (fullReport.worstReviews != null) {
+      setWorstReviews(fullReport.worstReviews);
+      return undefined;
+    }
+    if (!fullReport.reviewsTaskId) return undefined;
+
+    let cancelled = false;
+    let tries = 0;
+    const poll = async () => {
+      if (cancelled) return;
+      tries += 1;
+      try {
+        const fresh = await getRestaurantReport(fullReport.id);
+        if (cancelled) return;
+        if (fresh?.worstReviews != null) {
+          setWorstReviews(fresh.worstReviews);
+          return;
+        }
+      } catch {
+        /* reintenta */
+      }
+      if (!cancelled && tries < 20) setTimeout(poll, 4000);
+    };
+    poll();
+    return () => {
+      cancelled = true;
+    };
+  }, [fullReport?.id, fullReport?.reviewsTaskId, fullReport?.worstReviews]);
 
   // Los pasos "search" (mapa) y "photos" avanzan cuando su propia animación
   // termina de pintarse (no por un tiempo fijo que podría cortarla a medias)
@@ -277,12 +377,14 @@ export default function ScanningExperience({
   }, []);
 
   useEffect(() => {
-    if (stepIndex === STEPS.length - 1 && fullReport) {
-      const t = setTimeout(() => onDone(fullReport), 900);
-      return () => clearTimeout(t);
-    }
-    return undefined;
-  }, [stepIndex, fullReport, onDone]);
+    if (stepIndex !== STEPS.length - 1 || !fullReport) return undefined;
+    // Último paso (reseñas que más te pegan): si ya cargaron, 6s para leerlas;
+    // si aún no, esperamos hasta 15s (el poll async las trae) antes de pasar al
+    // reporte — donde de todos modos también aparecen.
+    const delay = worstReviews != null ? 6000 : 15000;
+    const t = setTimeout(() => onDone(fullReport), delay);
+    return () => clearTimeout(t);
+  }, [stepIndex, fullReport, worstReviews, onDone]);
 
   const currentStep = STEPS[stepIndex];
 
@@ -351,8 +453,8 @@ export default function ScanningExperience({
             {currentStep.key === "profile" && (
               <ProfilePreview preview={preview} />
             )}
-            {currentStep.key === "reviews" && (
-              <ReviewsPreview reviews={preview.reviews} />
+            {currentStep.key === "worst_reviews" && (
+              <ScanWorstReviews reviews={worstReviews} />
             )}
             {currentStep.key === "photos" && (
               <PhotosPreview
