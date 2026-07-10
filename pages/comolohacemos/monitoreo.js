@@ -4,6 +4,7 @@ import Link from "next/link";
 import NavBar from "../../components/NavBarBlack/NavBarEs";
 import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta si difiere en tu proyecto
 import axios from "axios";
+import { getLeadUid } from "../../lib/tracker";
 
 function Monitoreo() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -97,6 +98,7 @@ function Monitoreo() {
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
+    data.lead_uid = getLeadUid();
 
     // Validar
     if (!validateForm2(data)) {

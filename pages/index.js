@@ -11,6 +11,7 @@ import About from "../components/About";
 import RestauranterosExitosos from "../components/RestauranterosExitosos";
 import styles from "../components/SwiperPrueba/Banner.module.css"; // Importa los estilos CSS
 import axios from "axios";
+import { getLeadUid } from "../lib/tracker";
 
 import Link from "next/link";
 import BookingWidget from "../components/BookingWidget";
@@ -83,6 +84,7 @@ export default function Home() {
     setErrors({});
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
+    data.lead_uid = getLeadUid();
 
     if (!validateForm(data)) {
       setAlertMessage("Por favor, corrige los errores en el formulario.");

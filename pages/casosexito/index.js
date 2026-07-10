@@ -3,6 +3,7 @@ import NavBar from "../../components/NavBarBlack/NavBarEs";
 import Link from "next/link";
 import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta si es necesario
 import axios from "axios";
+import { getLeadUid } from "../../lib/tracker";
 import BookingWidget from "../../components/BookingWidget";
 import WhatsappButton from "../../components/WhatsappButton";
 
@@ -52,6 +53,7 @@ function Casosexito() {
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
+    data.lead_uid = getLeadUid();
 
     // Validar datos
     if (!validateForm(data)) {

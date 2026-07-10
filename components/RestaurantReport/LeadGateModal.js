@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { createRestaurantReportLead } from "../../lib/restaurantReportApi";
+import { getLeadUid } from "../../lib/tracker";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const WHATSAPP_REGEX = /^[0-9]{10,15}$/;
@@ -112,6 +113,7 @@ export default function LeadGateModal({ reportId, onClose, onUnlock }) {
         whatsapp: whatsapp.trim(),
         email: email.trim(),
         captchaToken,
+        leadUid: getLeadUid(),
       });
       onUnlock();
     } catch (err) {
