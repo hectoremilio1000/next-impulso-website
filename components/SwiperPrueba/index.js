@@ -6,6 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import axios from "axios";
+import { getLeadUid } from "../../lib/tracker";
 
 const MySwiper = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -61,6 +62,7 @@ const MySwiper = () => {
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
+    data.lead_uid = getLeadUid();
 
     // Valida datos
     if (!validateForm(data)) {

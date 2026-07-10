@@ -7,6 +7,7 @@ import {
 } from "framer-motion";
 import Link from "next/link";
 import axios from "axios";
+import { getLeadUid } from "../lib/tracker";
 import styles from "../components/SwiperPrueba/Banner.module.css"; // Importa tu CSS
 
 const RestauranterosExitosos = () => {
@@ -119,6 +120,7 @@ const RestauranterosExitosos = () => {
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
+    data.lead_uid = getLeadUid();
 
     if (!validateForm(data)) {
       alert("Por favor, corrige los errores en el formulario.");

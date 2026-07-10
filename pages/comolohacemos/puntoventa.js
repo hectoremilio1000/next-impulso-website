@@ -4,6 +4,7 @@ import NavBar from "../../components/NavBarBlack/NavBarEs";
 import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta si corresponde
 import axios from "axios";
 import Link from "next/link";
+import { getLeadUid } from "../../lib/tracker";
 
 function Puntoventa() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -99,6 +100,7 @@ function Puntoventa() {
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
+    data.lead_uid = getLeadUid();
 
     // Validar
     if (!validateForm2(data)) {

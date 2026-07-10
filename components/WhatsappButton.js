@@ -1,5 +1,6 @@
 import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
+import { trackEvent } from "../lib/tracker";
 
 const WhatsappButton = () => {
   return (
@@ -7,6 +8,7 @@ const WhatsappButton = () => {
       <a
         href="https://wa.me/5215531491808?text=Hola%20quiero%20un%20restaurante%20exitoso"
         target="_blank"
+        onClick={() => trackEvent("whatsapp_click")}
         className="rounded-full p-4 text-white bg-[#25D366] flex items-center justify-center"
       >
         <FaWhatsapp className="text-[30px]" />

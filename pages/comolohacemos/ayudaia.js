@@ -4,6 +4,7 @@ import NavBar from "../../components/NavBarBlack/NavBarEs";
 import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta de tu CSS según tu proyecto
 import axios from "axios";
 import Link from "next/link";
+import { getLeadUid } from "../../lib/tracker";
 
 function AyudaIA() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -107,6 +108,7 @@ function AyudaIA() {
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
+    data.lead_uid = getLeadUid();
 
     if (!validateForm2(data)) {
       setAlertMessage2("Por favor, corrige los errores en el formulario.");

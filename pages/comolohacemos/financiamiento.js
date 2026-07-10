@@ -4,6 +4,7 @@ import Link from "next/link";
 import NavBar from "../../components/NavBarBlack/NavBarEs"; // Ajusta la ruta al NavBar
 import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta al CSS
 import axios from "axios";
+import { getLeadUid } from "../../lib/tracker";
 
 function Financiamiento() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -102,6 +103,7 @@ function Financiamiento() {
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
+    data.lead_uid = getLeadUid();
 
     // Validar
     if (!validateForm(data)) {

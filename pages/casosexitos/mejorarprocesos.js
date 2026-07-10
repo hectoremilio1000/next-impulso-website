@@ -3,6 +3,7 @@ import NavBar from "../../components/NavBarBlack/NavBarEs";
 import Link from "next/link";
 import FAQ from "../../components/FAQ/faq";
 import axios from "axios";
+import { getLeadUid } from "../../lib/tracker";
 
 // Importa el CSS para el modal, ajusta la ruta si cambia
 import styles from "../../components/SwiperPrueba/Banner.module.css";
@@ -110,6 +111,7 @@ function MejorarProcesos() {
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
+    data.lead_uid = getLeadUid();
 
     if (!validateForm(data)) {
       setAlertMessage("Por favor, corrige los errores en el formulario.");
