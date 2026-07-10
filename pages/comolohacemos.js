@@ -3,6 +3,7 @@ import Link from "next/link";
 import FAQ from "../components/FAQ/faq";
 import NavBar from "../components/NavBarBlack/NavBarEs";
 import axios from "axios";
+import { getLeadUid } from "../lib/tracker";
 
 // Importa tus estilos para el modal y form
 import styles from "../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta si es necesario
@@ -74,6 +75,7 @@ function Comolohacemos() {
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
+    data.lead_uid = getLeadUid();
 
     if (!validateForm(data)) {
       setAlertMessage("Por favor, corrige los errores en el formulario.");

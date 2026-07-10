@@ -3,6 +3,7 @@ import NavBar from "../../components/NavBarBlack/NavBarEs";
 import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta si cambia
 import axios from "axios";
 import Link from "next/link";
+import { getLeadUid } from "../../lib/tracker";
 
 function Lalloronacantina() {
   // URL de tu backend
@@ -98,6 +99,7 @@ function Lalloronacantina() {
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
+    data.lead_uid = getLeadUid();
 
     if (!validateForm(data)) {
       setAlertMessage("Por favor, corrige los errores en el formulario.");

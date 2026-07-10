@@ -3,6 +3,7 @@ import NavBar from "../components/NavBarBlack/NavBarEs";
 import styles from "../components/Demo/Demo.module.css"; // Ajusta la ruta si corresponde
 import Link from "next/link";
 import axios from "axios";
+import { getLeadUid } from "../lib/tracker";
 import BookingWidget from "../components/BookingWidget";
 import WhatsappButton from "../components/WhatsappButton";
 
@@ -55,6 +56,7 @@ function PruebaGratis({ backgroundImage }) {
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
+    data.lead_uid = getLeadUid();
 
     // Validaciones
     if (!validateForm(data)) {

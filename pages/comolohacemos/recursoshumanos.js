@@ -4,6 +4,7 @@ import Link from "next/link";
 import NavBar from "../../components/NavBarBlack/NavBarEs"; // Ajusta la ruta si es diferente
 import styles from "../../components/SwiperPrueba/Banner.module.css"; // Ajusta la ruta según tu proyecto
 import axios from "axios";
+import { getLeadUid } from "../../lib/tracker";
 
 function Recursoshumanos() {
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -98,6 +99,7 @@ function Recursoshumanos() {
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
+    data.lead_uid = getLeadUid();
 
     // Validar
     if (!validateForm2(data)) {
