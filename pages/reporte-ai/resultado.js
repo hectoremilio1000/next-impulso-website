@@ -92,9 +92,9 @@ export default function ReporteResultado() {
     return () => clearInterval(iv);
   }, [report?.reviewsTaskId, report?.worstReviews, report?.expired, id]);
 
-  const { topIssues, checkableCount, failedCount } = useMemo(() => {
+  const { topIssues, checkableCount, failedCount, pendingCount } = useMemo(() => {
     if (!report) {
-      return { topIssues: [], checkableCount: 0, failedCount: 0 };
+      return { topIssues: [], checkableCount: 0, failedCount: 0, pendingCount: 0 };
     }
 
     const allIssues = [
@@ -102,7 +102,10 @@ export default function ReporteResultado() {
       ...(report.seoIssues ?? []),
       ...(report.guestExperienceIssues ?? []),
     ];
-    const checkable = allIssues.filter((issue) => issue.checkable);
+    // pass === null = punto que no se pudo medir (p. ej. PageSpeed no respondió):
+    // no es una falla comprobada, así que no cuenta como revisado ni como falla.
+    const checkable = allIssues.filter((issue) => issue.checkable && issue.pass !== null);
+    const pending = allIssues.filter((issue) => issue.checkable && issue.pass === null);
     const failed = checkable.filter((issue) => !issue.pass);
     const sorted = [...failed].sort((a, b) => b.weight - a.weight);
 
@@ -110,6 +113,7 @@ export default function ReporteResultado() {
       topIssues: sorted.slice(0, 4),
       checkableCount: checkable.length,
       failedCount: failed.length,
+      pendingCount: pending.length,
     };
   }, [report]);
 
@@ -373,6 +377,12 @@ export default function ReporteResultado() {
                   <strong className="text-red-400">
                     {failedCount} necesitan trabajo
                   </strong>
+                  {pendingCount > 0 && (
+                    <>
+                      ; {pendingCount === 1 ? "1 queda" : `${pendingCount} quedan`}{" "}
+                      pendiente{pendingCount === 1 ? "" : "s"} de medición
+                    </>
+                  )}
                   .
                 </p>
               )}

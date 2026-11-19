@@ -16,16 +16,21 @@ function groupIssues(issues) {
 }
 
 function IssueRow({ issue }) {
+  // pass === null: no se pudo medir (no es ni aprobado ni falla).
+  const pending = issue.pass === null;
   return (
     <li className="flex items-start gap-3">
       <span
         className={`mt-[2px] flex h-6 w-6 flex-none items-center justify-center rounded-full text-sm font-bold ${
-          issue.pass
+          pending
+            ? "bg-white/20 text-white"
+            : issue.pass
             ? "bg-emerald-500 text-black"
             : "bg-red-500/90 text-white"
         }`}
+        title={pending ? "Pendiente de medición" : undefined}
       >
-        {issue.pass ? "✓" : "✗"}
+        {pending ? "?" : issue.pass ? "✓" : "✗"}
       </span>
       <div>
         <p className="parrafo-tw text-white/85">
